@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Webdrop - Fancy 3 Column UI</title>
-    <link rel="stylesheet" href="style.css" />
-    <link id="style1" rel="stylesheet" href="empty.css" />
+    <title>Webdrop - FULL </title>
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link id="style1" rel="stylesheet" href="./CSS/empty.css" />
     <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"/>
   </head>
 
@@ -134,22 +134,27 @@
         <!--End of snippet-->
       </div>
 
-      <div id="column2" style="background-color:#bbb;">
-        <h2 style="margin-top:0;">Column 2</h2>
-        <p>Other smthing...</p>
+      <div id="column2">
+        <iframe id="clientframe" src="./client/client.html" frameborder="0" onload="onLoadiframe()"></iframe>
       </div>
 
       <!-- By just adding displayNone, it starts default closed, all functions working still-->
       <div id="column3" class="displayNone">
-        <h2 style="margin-top:0;">Column 3</h2>
-        <p>Some text..</p>
+        <h3>Control Panel</h3>
+        <button onclick=" gibMiData()"><i class="fas fa-download"></i>HTML/CSS</button>
+        <button onclick='toggleEditIframe()'><i class="fas fa-edit"></i>iFrame</button>
+        <button onclick='toggleOutlineAll()'>Outline</button>
       </div>
+
+      <span class="tooltiper" id="tooltip1">Hovered elements</span>
+      <span id="snackbar">Turning off/on</div>
 
       <i onclick="preview()" class="far fa-eye previ_ew"></i>
 
     </div>
 
-    <script src="script.js"></script>
+    <script src="./JS/layout_script.js"></script>
+    <script id="toggleJs" src="./JS/logic_script.js"></script>
   </body>
 
 </html>
