@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Webdrop - Fancy 3 Column UI</title>
+    <link rel="stylesheet" href="style.css" />
+    <link id="style1" rel="stylesheet" href="empty.css" />
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"/>
+  </head>
+
+  <body>
+    <nav id="myNav">
+      <div id="left_part" class="centerme">
+        <i class="fas fa-tint"><span id="logotext">Webdrop</span></i>
+      </div>
+      <div id="rest_of_it">
+        <i id="burger" onclick="columnOne()" class="fas fa-bars"></i>
+        <!--<i onclick="themator()" class="fas fa-cog themator">Theme</i>-->
+        <i onclick="hide_leftmenu()" class="fas fa-chevron-left hide_minimenu">Left</i>
+        <i onclick="hide_rightmenu()" class="fas fa-chevron-right hide_rightmenu" >Right</i>
+      </div>
+    </nav>
+
+    <div class="row">
+      <div id="column1">
+        <!-- Snippet : Ul inside Col1-->
+        <ul id="sidebar_menu">
+          <li class="selector">
+            <label class="dropdown">
+              <div class="dd-button centerme">
+                <i class="far fa-square "></i><span id="logotext">Layout</span>
+              </div>
+
+              <input type="checkbox" class="dd-input" id="test" />
+
+              <ul class="dd-menu">
+                <li><a href="#settings">Ravent</a></li>
+                <li><a href="#settings">Dodoso</a></li>
+                <li><a href="#settings">Ravod Ipsum</a></li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#">Coming Soon</a>
+                </li>
+              </ul>
+            </label>
+          </li>
+
+          <li class="selector">
+            <label class="dropdown">
+              <div id="parent" class="dd-button centerme">
+                <i class="fas fa-th-large"></i
+                ><span id="logotext">Elements</span>
+              </div>
+              <input type="checkbox" class="dd-input" id="test" />
+
+              <ul class="dd-menu">
+                <li><a class="hoverMe" href="#settings">Account</a></li>
+                <li><a class="hoverMe" href="#settings">Profile</a></li>
+                <li>
+                  <a class="hoverMe" href="#settings">Secruity &amp; Privacy</a>
+                </li>
+                <li><a class="hoverMe" href="#settings">Password</a></li>
+                <li><a class="hoverMe" href="#settings">Notification</a></li>
+                <li class="divider"></li>
+                <li><a href="#">TBD</a></li>
+              </ul>
+            </label>
+          </li>
+
+          <li class="selector">
+            <label class="dropdown">
+              <div class="dd-button centerme">
+                <i class="fas fa-th"></i><span id="logotext">Components</span>
+              </div>
+
+              <input type="checkbox" class="dd-input" id="test" />
+
+              <ul class="dd-menu">
+                <li><a href="#settings">Ravent</a></li>
+                <li><a href="#settings">Dodoso</a></li>
+                <li><a href="#settings">Ravod Ipsum</a></li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#">Coming Soon</a>
+                </li>
+              </ul>
+            </label>
+          </li>
+
+          <li class="selector">
+            <label class="dropdown">
+              <div class="dd-button centerme">
+                <i class="fas fa-shapes"></i
+                ><span id="logotext">Templates</span>
+              </div>
+
+              <input type="checkbox" class="dd-input" id="test" />
+
+              <ul class="dd-menu">
+                <li><a href="#settings">Ravent</a></li>
+                <li><a href="#settings">Dodoso</a></li>
+                <li><a href="#settings">Ravod Ipsum</a></li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#">Coming Soon</a>
+                </li>
+              </ul>
+            </label>
+          </li>
+
+          <li class="selector">
+            <label class="dropdown">
+              <div class="dd-button centerme">
+                <i class="fas fa-cubes"></i><span id="logotext">Themes</span>
+              </div>
+
+              <input type="checkbox" class="dd-input" id="test" />
+
+              <ul class="dd-menu">
+                <li><a href="#settings">Ravent</a></li>
+                <li><a href="#settings">Dodoso</a></li>
+                <li><a href="#settings">Ravod Ipsum</a></li>
+                <li class="divider"></li>
+                <li>
+                  <a href="#">Coming Soon</a>
+                </li>
+              </ul>
+            </label>
+          </li>
+        </ul>
+
+        <!--End of snippet-->
+      </div>
+
+      <div id="column2" style="background-color:#bbb;">
+        <h2 style="margin-top:0;">Column 2</h2>
+        <p>Other smthing...</p>
+      </div>
+
+      <!-- By just adding displayNone, it starts default closed, all functions working still-->
+      <div id="column3" class="displayNone">
+        <h2 style="margin-top:0;">Column 3</h2>
+        <p>Some text..</p>
+      </div>
+
+      <i onclick="preview()" class="far fa-eye previ_ew"></i>
+
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+
+</html>
