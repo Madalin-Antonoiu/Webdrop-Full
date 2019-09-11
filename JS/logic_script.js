@@ -1,16 +1,17 @@
 //Written by me - DO NOT delete
 var clientFrameWindow = document.getElementById('clientframe').contentWindow.document;
-var droppables = document.getElementById("dragitemslistcontainer");
+var droppables = document.getElementById("sidebar_menu");
 
 //If not doing on iFrame load, the addEventListeners will crash sometimes
 function onLoadiframe() { 
   //Listeners
-  clientFrameWindow.body.addEventListener('mouseover', mouseEnter, false);
+  clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
   clientFrameWindow.body.addEventListener('mouseout', mouseLeave, false);
   clientFrameWindow.body.addEventListener('dragover', dragOver, false);
   clientFrameWindow.body.addEventListener('dragleave', dragLeave, false);
   clientFrameWindow.body.addEventListener('drop', onDrop, false);
   droppables.addEventListener("dragstart", onDragStart, false);
+  //the error is fine, i dont have yet the dragitems
 
   function mouseEnter(e) {
     //Add outline on hover
@@ -33,6 +34,7 @@ function onLoadiframe() {
     document.getElementById('tooltip1').style.display = "block";
     //console.log('<' + e.target.tagName.toLowerCase() + '>');
   }
+
   function mouseLeave(e) {
     //Remove outline on hover
     e.target.classList.remove('outline');
@@ -73,8 +75,15 @@ function onLoadiframe() {
   }
   function onDragStart(e) {
 
+    var menu = document.getElementById('dd-menu');
     console.log("Drag Started!");
     e.dataTransfer.setData("text/html", e.target.getAttribute('data-insert-html'));
+
+    //Remove menu on dragStart
+    menu.classList.add('displayNoneSuper');
+
+
+
 
     /*Drag image
     var img = new Image(); 

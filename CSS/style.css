@@ -101,6 +101,10 @@
     height: 100%;
     /*MUST HAVE - otherwise creates weird space after - FIXED*/
     display: block; 
+   
+  }
+  iframe * {
+    margin-bottom: 50px;
   }
   /*** END - BASE STYLING ***/
 
@@ -166,7 +170,7 @@
     cursor: pointer;
   }
   .hide_minimenu {
-    cursor: pointer;
+    cursor: grab;
     position: absolute;
     font-size: 15px;
     right: 105px;
@@ -271,6 +275,9 @@
     margin: -10px -20px;
     padding: 10px 20px;
     color: white;
+  }
+  .dd-menu li a span {
+    margin-left: 10px;
   }
   .dd-menu li a:hover {
     border-left: 4px solid #3498db;
