@@ -103,8 +103,9 @@
     display: block; 
    
   }
-  iframe * {
-    margin-bottom: 50px;
+  .iframe_loader{
+    background:url(../IMG/Spinner200px.gif) center center no-repeat;
+  
   }
   /*** END - BASE STYLING ***/
 
@@ -160,6 +161,10 @@
   /** END - SPECIFIC ELEMENTS **/
 
   /** OTHER HELPERS **/
+  .outline-blue{
+    outline: 3px solid blue;
+    outline-offset: -2px;
+  }
   .show {
     display: block;
   }
@@ -275,6 +280,7 @@
     margin: -10px -20px;
     padding: 10px 20px;
     color: white;
+    cursor: move;
   }
   .dd-menu li a span {
     margin-left: 10px;
