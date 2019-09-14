@@ -11,10 +11,9 @@
     /*add following 5 lines on mini-version and make .dd-input:hover ----------------------------------   */
     position: absolute;
     left: 63px;
-    top: 45px;
+    top: 37px;
     z-index: 99999;
     height: 94vh;
-
     padding: 0;
     margin: 2px 0 0 0;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
