@@ -67,7 +67,6 @@ nav {
   height: 6vh;
   min-height: 39px;
   width: 100%;
-
   /*Floats over first 5%vh of column1*/
   display: flex;
   color: white;
@@ -76,7 +75,7 @@ nav {
 nav #left_part {
   width: 10%;
   min-width: 11.5em;
-  height: 5vh;
+  height: 6vh;
   min-height: 39px;
   background: #357CA5;
   float: left;
@@ -88,7 +87,7 @@ nav #rest_of_it {
   min-width: 9.5em;
   z-index: 1;
   background: #3C8DBC;
-  height: 5vh;
+  height: 6vh;
   min-height: 39px;
   float: left;
 }
