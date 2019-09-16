@@ -27,7 +27,8 @@
       <div id="column1">
         <!-- Snippet : Ul inside Col1-->
         <ul id="sidebar_menu">
-          
+
+          <!-- Layout -->
           <li class="selector">
             <label class="dropdown">
               <div class="dd-button centerme">
@@ -39,9 +40,46 @@
               <!-- Under dd-menu you drop selector-->
               <ul class="dd-menu">
 
-                <!-- Each of these should be selectors-->
+                <!--Container-->
+                <li draggable="true" data-insert-html='
+                <div id="__placeholder" class="container">
+
+                </div>
+              '>
+                <a><i class="fab fa-bootstrap"></i><span>Container</span></a>
+                </li>
+
+                <!--Container full width-->
+                <li draggable="true" data-insert-html='
+                <div id="__placeholder" class="container-fluid">
+                </div>
+              '>
+                <a><i class="fab fa-bootstrap"></i><span>Container full width</span></a>
+                </li>
+
+                <!--3 Columns-->
+                <li draggable="true" data-insert-html='
+                <div id="__placeholder" class="container">
+                  <div class="row">
+                    <div class="col-sm">
+                      One of three columns
+                    </div>
+                    <div class="col-sm">
+                      One of three columns
+                    </div>
+                    <div class="col-sm">
+                      One of three columns
+                    </div>
+                  </div>
+                </div>
+              '>
+                <a><i class="fab fa-bootstrap"></i><span>3 Columns</span></a>
+                </li>
 
                 <li class="divider"></li>
+
+
+
 
                 <li>
                   <a href="#">Coming Soon</a>
@@ -50,8 +88,8 @@
               </ul>
             </label>
           </li>
-          
-          <!-- Elements -->
+
+          <!-- Basic Elements -->
           <li class="selector">
             <label class="dropdown">
               <div id="parent" class="dd-button centerme">
@@ -60,16 +98,63 @@
               </div>
               <input type="checkbox" class="dd-input" id="test" />
 
+
               <ul class="dd-menu">
-                <li><a class="hoverMe" href="#settings">Account</a></li>
-                <li><a class="hoverMe" href="#settings">Profile</a></li>
-                <li>
-                  <a class="hoverMe" href="#settings">Secruity &amp; Privacy</a>
+                
+                <li><h4>Container</h4>
+
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+
+                    <div id="__placeholder" class="container">
+                    </div>
+                    '>
+                    <img src="/IMG/components/center-container.svg">
+
+                    </div>
+                    <span>Container - Center</span>
+
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+
+                    <div id="__placeholder" class="container_fluid">
+                    </div>
+                    '>
+                    <img src="/IMG/components/container.svg">
+
+                    </div>
+                    <span>Container - Full width</span>
+
                 </li>
-                <li><a class="hoverMe" href="#settings">Password</a></li>
-                <li><a class="hoverMe" href="#settings">Notification</a></li>
-                <li class="divider"></li>
-                <li><a href="#">TBD</a></li>
+
+                <li><h4>Grid - One Row</h4>
+
+                  <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                  <div id="__placeholder" class="container_fluid">
+                      <div class="row">
+                        <div class="col-sm">
+                          One of 2 columns
+                        </div>
+                        <div class="col-sm">
+                          One of 2 columns
+                        </div>
+                      </div>
+                    </div>
+                  '>
+                  <img src="/IMG/components/column-2.svg">
+                 
+                  </div>
+                  <span>Two column grid</span>
+
+                  <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                  <div id="__placeholder" class="container">
+                  </div>
+                  '>
+                  <img src="/IMG/container.svg">
+
+                  </div>
+                  <span>Three column grid</span>
+
+                </li>
+
               </ul>
             </label>
           </li>
@@ -86,136 +171,47 @@
               <!-- Under dd-menu you drop selector-->
               <ul class="dd-menu">
 
-                  <li class="selector">
-                      <label class="dropdown">
-                        <div class="dd-button centerme">
-                          <i class="fas fa-exclamation-circle"></i><span id="logotext">Alerts</span>
-                        </div>
-          
-                        <input type="checkbox" class="dd-input" id="test" />
-          
-                        <ul class="dd-menu">
-                          
-                          <!--Alerts-->
-                          <li draggable="true" data-insert-html='
-                            <div class="alert alert-success" role="alert">
-                              A simple success alert—check it out!
-                            </div>
+                 <!--Alerts-->
+                 <li draggable="true" data-insert-html='
+                 <div class="alert alert-success" role="alert">
+                   A simple success alert—check it out!
+                 </div>
 
-                            <div class="alert alert-danger" role="alert">
-                              A simple danger alert—check it out!
-                            </div>
-                            <div class="alert alert-info" role="alert">
-                                A simple danger alert—check it out!
-                              </div>
-                          '>
-                            <a><i class="fab fa-bootstrap"></i>Regular alert</a>
-                          </li>
+                 <div class="alert alert-danger" role="alert">
+                   A simple danger alert—check it out!
+                 </div>
+                 <div class="alert alert-info" role="alert">
+                     A simple danger alert—check it out!
+                   </div>
+               '>
+                 <a><i class="fab fa-bootstrap"></i><span>Alert</span></a>
+               </li>
 
-                          <!--Alert dissmisible-->
-                          <li draggable="true" data-insert-html='
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                            '>
-                            <a><i class="fas fa-header"></i>Alert dismissable</a>
-                          </li>
+               <!--Alert dissmisible-->
+               <li draggable="true" data-insert-html='
+                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                     <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                     </button>
+                   </div>
+                 '>
+                 <a><i class="fab fa-bootstrap"></i><span>Alert dismissable</span></a>
+               </li>
 
-                          <!--Alert with heading-->
-                          <li draggable="true" data-insert-html='
-                    <div class="alert alert-success" role="alert">
-                        <h4 class="alert-heading">Well done!</h4>
-                        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-                        <hr>
-                        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
-                      </div>
-                    '>
-                              <a><i class="fab fa-bootstrap"></i>Alert with heading</a>
-                          </li>
+               <!--Alert with heading-->
+               <li draggable="true" data-insert-html='
+         <div class="alert alert-success" role="alert">
+             <h4 class="alert-heading">Well done!</h4>
+             <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+             <hr>
+             <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+           </div>
+         '>
+                   <a><i class="fab fa-bootstrap"></i><span>Alert with heading</span></a>
+               </li>
 
-                          <!--Link colors-->
-                          <li draggable="true" data-insert-html='
-                    <div class="alert alert-primary" role="alert">
-                        A simple primary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                      </div>
-                      <div class="alert alert-secondary" role="alert">
-                        A simple secondary alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                      </div>
-                      <div class="alert alert-success" role="alert">
-                        A simple success alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                      </div>
-                      <div class="alert alert-danger" role="alert">
-                        A simple danger alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                      </div>
-                      <div class="alert alert-warning" role="alert">
-                        A simple warning alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                      </div>
-                      <div class="alert alert-info" role="alert">
-                        A simple info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                      </div>
-                      <div class="alert alert-light" role="alert">
-                        A simple light alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                      </div>
-                      <div class="alert alert-dark" role="alert">
-                        A simple dark alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                      </div>
-                    '>
-                              <a><i class="fab fa-bootstrap"></i>Alert with link</a>
-                          </li>
 
-                          <li class="divider"></li>
-                          <li>
-                            <a href="#">Coming Soon</a>
-                          </li>
-                        </ul>
-                      </label>
-                  </li>
-  
-                  <li class="selector">
-                      <label class="dropdown">
-                        <div class="dd-button centerme">
-                          <i class="fas fa-exclamation-circle"></i><span id="logotext">Alerts</span>
-                        </div>
-          
-                        <input type="checkbox" class="dd-input" id="test" />
-          
-                        <ul class="dd-menu">
-                          
-                          <li><a href="#">Dodoso</a></li>
-                          <li><a href="#">Ravod Ipsum</a></li>
-                          <li class="divider"></li>
-                          <li>
-                            <a href="#">Coming Soon</a>
-                          </li>
-                        </ul>
-                      </label>
-                  </li>
-  
-                  <li class="selector">
-                      <label class="dropdown">
-                        <div class="dd-button centerme">
-                          <i class="fas fa-exclamation-circle"></i><span id="logotext">Alerts</span>
-                        </div>
-          
-                        <input type="checkbox" class="dd-input" id="test" />
-          
-                        <ul class="dd-menu">
-                          
-                          <li><a href="#">Dodoso</a></li>
-                          <li><a href="#">Ravod Ipsum</a></li>
-                          <li class="divider"></li>
-                          <li>
-                            <a href="#">Coming Soon</a>
-                          </li>
-                        </ul>
-                      </label>
-                  </li>
-              
-
-                <li><a href="#settings">Ravod Ipsum</a></li>
                 <li class="divider"></li>
                 <li>
                   <a href="#">Coming Soon</a>

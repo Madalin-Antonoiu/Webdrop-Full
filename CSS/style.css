@@ -11,6 +11,7 @@ body {
   width: 100%;
   height: 100vh;
   background: #BBBBBB;
+  font-family: Arial,Helvetica,sans-serif;
 }
 
 .row {
@@ -124,6 +125,13 @@ iframe {
 /*** END - BASE STYLING ***/
 
 /** SPECIFIC ELEMENTS **/
+h4 {
+  margin-top: 0; 
+  font-weight: 400; 
+  color: white;
+  margin-bottom: 10px;
+}
+
 button {
   background-color: Crimson;
   border-radius: 5px;
@@ -177,7 +185,10 @@ button:focus {
   color: white;
   z-index: 2;
 }
-
+#__placeholder{
+  padding-bottom: 80px;
+  padding-top: 80px;
+}
 /** END - SPECIFIC ELEMENTS **/
 
 /** OTHER HELPERS **/
@@ -204,7 +215,7 @@ button:focus {
   font-size: 15px;
   right: 105px;
   z-index: 999;
-  opacity: 0.6;
+  /*opacity: 0.6; */
 }
 
 .hide_rightmenu {
@@ -301,6 +312,10 @@ a:active {
 
 }
 
+.dd-menu ul li a span {
+  margin-left: 10px;
+}
+
 .dd-menu .dd-menu {
   max-height: 90vh;
 }
@@ -317,7 +332,27 @@ a:active {
 
 .dd-menu li {
   padding: 10px 20px;
-  cursor: pointer;
+  /* cursor: pointer; */
+  background: #2C3B41;
+  display: block;
+  color: white;
+}
+
+.dd-menu li span {
+  color: #767676;
+  pointer-events: none;
+  margin-top: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+}
+.dd-menu li div {
+  margin-top: 10px;
+}
+.dd-menu li div:hover{
+  content: attr(draggable);
+  filter: brightness(150%);
 }
 
 .selector:hover .dd-button {
@@ -325,24 +360,6 @@ a:active {
   color: white;
 }
 
-.dd-menu li a {
-  background: #2C3B41;
-  border-left: 4px solid transparent;
-  display: block;
-  margin: -10px -20px;
-  padding: 10px 20px;
-  color: white;
-  cursor: move;
-}
-
-.dd-menu li a span {
-  margin-left: 10px;
-}
-
-.dd-menu li a:hover {
-  border-left: 4px solid #3498db;
-  background-color: #1E282C;
-}
 
 .dd-menu li.divider {
   padding: 0;
@@ -360,5 +377,18 @@ ul {
 }
 
 /*** END - DROPDOWN LIST COL1 ***/
+
+/** EXPERIMENTAL **/
+/*! CSS Used from: https://cdn.froont.com/_static/gen/style.4d31e8f.css */
+img{border:0;}
+*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+/*! CSS Used from: https://cdn.froont.com/_static/gen/backend.4d31e8f.css */
+.library-widget:hover .library-widget-thumbnail:after{opacity:1;}
+.library-widget-thumbnail{position:relative;overflow:hidden;cursor:-webkit-grab;cursor:grab;width:120px;height:67px;background:#333;border:1px solid #B3B3B3;border-radius:2px;-webkit-transition:border-color 2s ease;transition:border-color 2s ease;text-align:center!important;font-size:0!important;}
+.library-widget-thumbnail:after{display:block;position:absolute;content:'';top:0;left:0;right:0;bottom:0;background:rgba(179,179,179,0.06);border-radius:2px;opacity:0;-webkit-transition:opacity .15s ease;transition:opacity .15s ease;}
+.library-widget-thumbnail img{max-width:100%;max-height:100%;display:inline-block;vertical-align:middle;}
+.library-widget-thumbnail:before{content:"";display:inline-block;height:100%;vertical-align:middle;}
+#b-control-elements div{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+:focus{outline:0;outline:none;outline-style:none;outline-color:transparent;box-shadow:none;-webkit-tap-highlight-color:transparent;}
 
 /*____END - LAYOUT UI CSS____*/

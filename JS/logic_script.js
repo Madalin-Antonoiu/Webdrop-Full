@@ -75,14 +75,14 @@ function onLoadiframe() {
   }
   function onDragStart(e) {
 
-    var menu = document.getElementById('dd-menu');
     console.log("Drag Started!");
     e.dataTransfer.setData("text/html", e.target.getAttribute('data-insert-html'));
 
-    //Remove menu on dragStart
+   
+    /*Remove menu on dragStart - doesn't work yet
+    var menu = document.getElementById('dd-menu');
     menu.classList.add('displayNoneSuper');
-
-
+    */
 
 
     /*Drag image

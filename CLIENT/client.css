@@ -1,10 +1,10 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
   width: 100%;
+  min-height: 100vh;
   background: #d9d9d9 !important;
-
+  padding-bottom: 80px; /* To be able to add components indefinetly - remove with JS on export*/
 }
 
 * {
@@ -18,7 +18,13 @@ img {
   background-size: cover;
 }
 
+#__placeholder{
 
+  outline: 1px black solid;
+  outline-offset: -2px;
+  min-height: 12rem;
+  width: 100%;
+}
 
 /*This needs to be inserted and removed via JS - via APPEND on hover*/
 .outline-dashed {
