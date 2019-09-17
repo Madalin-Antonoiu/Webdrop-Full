@@ -4,7 +4,6 @@
 * {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -12,17 +11,13 @@ body {
   height: 100vh;
   font-family: Arial,Helvetica,sans-serif;
 }
-
 .row {
   display: flex;
-  height: 94vh;
+  height: calc( 100% - 45px ); /* Deducting the 45px from the nav to get a pixel perfect*/
 }
-
 #column1 {
-  height: 94vh;
   width: 10%;
   min-width: 11.5em;
-
   color: white;
   margin-top: 0;
   padding-top: 0;
@@ -34,9 +29,7 @@ body {
   background: #222D32;
   padding: 0;
 }
-
 #column2 {
-  height: 94vh;
   width: 100%;
   min-width: 9.5em;
   color: white;
@@ -44,9 +37,7 @@ body {
   padding: 0;
   z-index: 1;
 }
-
 #column3 {
-  height: 94vh;
   width: 12%;
   min-width: 9.5em;
   outline: 2px solid brown;
@@ -56,46 +47,38 @@ body {
   padding: 0px 10px 0px 10px;
   background: #222D32;
 }
-
+.ease {
+  transition-timing-function: ease;
+  transition: all 0.4s;
+}
 .column1_mini {
   width: 3% !important;
   min-width: 4em !important;
   transition: all 0.6s;
 }
-
 nav {
-  height: 6vh;
-  min-height: 39px;
+  height: 45px;
   width: 100%;
   /*Floats over first 5%vh of column1*/
   display: flex;
   color: white;
 }
-
 nav #left_part {
   width: 10%;
   min-width: 11.5em;
-  height: 6vh;
-  min-height: 39px;
   background: #357CA5;
   float: left;
 }
-
 nav #rest_of_it {
-
   width: 100%;
   min-width: 9.5em;
   z-index: 1;
   background: #3C8DBC;
-  height: 6vh;
-  min-height: 39px;
   float: left;
 }
-
 nav #rest_of_it i {
   padding: 12px;
 }
-
 nav #left_part i {
   padding: 12px 21px 12px 18px;
   font-size: 22px;
@@ -103,11 +86,9 @@ nav #left_part i {
   display: inline-block;
   color: orange;
 }
-
 nav #left_part span {
   margin-left: 10px;
 }
-
 iframe {
   width: 100%;
   height: 100%;
@@ -116,10 +97,8 @@ iframe {
   background: rgb(255, 255, 255);
 
 }
-
 .iframe_loader {
-  background: url(../IMG/Spinner200px.gif) center center no-repeat;
-
+  background: url(../IMG/Spinner200px.gif) center center no-repeat; /*Doesn't seem to work*/
 }
 
 /*** END - BASE STYLING ***/
@@ -131,7 +110,6 @@ h4 {
   color: white;
   margin-bottom: 10px;
 }
-
 button {
   background-color: Crimson;
   border-radius: 5px;
@@ -139,17 +117,14 @@ button {
   text-decoration: none;
   border: none;
 }
-
 button:hover {
   /*could add before it button:focus, */
   background-color: FireBrick;
   color: White;
 }
-
 button:focus {
   outline: 0;
 }
-
 #snackbar {
   visibility: hidden;
   min-width: 250px;
@@ -165,13 +140,11 @@ button:focus {
   top: 30px;
   font-size: 17px;
 }
-
 #snackbar.show {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
-
 .tooltiper {
   position: absolute;
   margin: 5px;
@@ -206,13 +179,12 @@ button:focus {
   cursor: pointer;
 }
 
-.hide_minimenu {
-  cursor: grab;
+.hide_leftmenu {
+  cursor: pointer;
   position: absolute;
   font-size: 15px;
-  right: 105px;
+  right: 55px;
   z-index: 999;
-  /*opacity: 0.6; */
 }
 
 .hide_rightmenu {
@@ -220,8 +192,7 @@ button:focus {
   position: absolute;
   font-size: 15px;
   right: 5px;
-  z-index: 99999;
-  opacity: 0.6;
+  z-index: 999;
 }
 
 .textCenter {
@@ -278,27 +249,22 @@ a:active {
   width: 100%;
   background: #222D32;
 }
-
 .dd-button {
   cursor: pointer;
   padding: 10px 15px;
   font-size: 20px;
   color: #d2d6de;
 }
-
 .dd-button span {
   margin-left: 15px;
 }
-
 .dd-button:hover {
   background: #2C3B41;
   color: white;
 }
-
 .dd-input {
   display: none;
 }
-
 .dd-menu {
   padding: 0;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
@@ -308,25 +274,17 @@ a:active {
   overflow-y: auto;
 
 }
-
 .dd-menu ul li a span {
   margin-left: 10px;
 }
-
-.dd-menu .dd-menu {
-  max-height: 90vh;
-}
-
 .dd-input:checked+.dd-menu {
   /* checked means click. hover is on hover*/
   display: block;
 }
-
 .dd-input+.dd-menu {
   /*Initial display of li set to none*/
   display: none;
 }
-
 .dd-menu li {
   padding: 10px 20px;
   /* cursor: pointer; */
@@ -334,7 +292,6 @@ a:active {
   display: block;
   color: white;
 }
-
 .dd-menu li span {
   color: #767676;
   pointer-events: none;
@@ -351,7 +308,6 @@ a:active {
   content: attr(draggable);
   filter: brightness(150%);
 }
-
 .selector:hover .dd-button {
   /*Colors parent on li a hover - Works!*/
   color: white;
