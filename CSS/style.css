@@ -274,8 +274,6 @@ a:active {
   opacity: 0.8;
   list-style-type: none;
   max-height: 89vh;
-  overflow-y: auto;
-
 }
 .dd-menu ul li a span {
   margin-left: 10px;
