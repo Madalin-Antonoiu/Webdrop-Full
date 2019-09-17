@@ -123,16 +123,16 @@ function onLoadiframe() {
     var x =  e.dataTransfer.getData("text/html", e.target.getAttribute('data-insert-html'));
     var frag = document.createRange().createContextualFragment(x);
 
-    //Here before appending, need to calculate if mosue is closer to top or bottom, so it prepend( put before) or after,
+    //Here before appending, need to calculate if mouseover is closer to top or bottom, so it prepend( put before) or after,
     //Now it only puts it after :)
     e.target.appendChild(frag);
 
     //Much needed to remove the outline on drop finished <3
     e.target.classList.remove('outline');
-    e.target.parentNode.parentNode.classList.remove('__placeholder');//Works for now if only 2 parents
+    e.target.parentNode.parentNode.classList.remove('__placeholder');//Works for now if only 2 parents (not ideal)
 
     //Much needed- Removes the div with ID <fr-cell> and all of it`s sub-content from the ELEMENT i click on only :)
-    var item = clientFrameWindow.getElementById('fr-cell');
+    var item = clientFrameWindow.getElementById('fr-cell'); //Gets only the topmost fr-cell ID, in order of DOM (not ideal)
     e.target.removeChild(item);
   
     
