@@ -46,6 +46,8 @@ body {
   margin-top: 0;
   padding: 0px 10px 0px 10px;
   background: #222D32;
+
+
 }
 .ease {
   transition-timing-function: ease;
@@ -220,6 +222,7 @@ i.previ_ew {
 .displayNone {
   display: none;
 }
+
 
 .displayNoneSuper {
   display: none !important;

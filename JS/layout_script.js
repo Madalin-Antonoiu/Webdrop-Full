@@ -10,7 +10,7 @@
     nav1.classList.toggle('displayNone');
   }
   function hide_rightmenu() {
-    col3.classList.toggle('displayNone')
+    col3.classList.toggle('displayNone');
   }
   //Mini-Drawer-Burger
   function columnOne() {
