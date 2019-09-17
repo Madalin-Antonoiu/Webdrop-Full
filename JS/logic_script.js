@@ -1,19 +1,25 @@
 //Written by me - DO NOT delete
 var clientFrameWindow = document.getElementById('clientframe').contentWindow.document;
+//var placeholders = clientFrameWindow.getElementsByClassName('__placeholder');
 var droppables = document.getElementById("sidebar_menu");
+
 
 //If not doing on iFrame load, the addEventListeners will crash sometimes
 function onLoadiframe() { 
   //Listeners
-  clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
+  
+  //clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
+ 
   clientFrameWindow.body.addEventListener('mouseout', mouseLeave, false);
   clientFrameWindow.body.addEventListener('dragover', dragOver, false);
   clientFrameWindow.body.addEventListener('dragleave', dragLeave, false);
   clientFrameWindow.body.addEventListener('drop', onDrop, false);
   droppables.addEventListener("dragstart", onDragStart, false);
-  //the error is fine, i dont have yet the dragitems
+  
 
+  /* TEMPORARY SHUT DOWN
   function mouseEnter(e) {
+    
     //Add outline on hover
     e.target.classList.add('outline');
 
@@ -33,7 +39,20 @@ function onLoadiframe() {
 
     document.getElementById('tooltip1').style.display = "block";
     //console.log('<' + e.target.tagName.toLowerCase() + '>');
+    
+  }*/
+
+  /*New Adittion - NOT WORKING
+  
+    var myPlaceholder = function() {
+      var attribute = this.getAttribute("data-myattribute");
+      alert(attribute);
+  };
+
+  for (var i = 0; i < placeholders.length; i++) {
+    placeholders[i].addEventListener('click', myPlaceholder, false);
   }
+ */
 
   function mouseLeave(e) {
     //Remove outline on hover
@@ -68,8 +87,9 @@ function onLoadiframe() {
     //console.log('<' + e.target.tagName.toLowerCase() + '>');
   }
   function dragLeave(e) {
-    //Add outline on hover
-    e.target.classList.remove('outline');
+    //Much needed on hover before drop to remove all those lines
+    e.target.classList.remove('outline'); 
+
     document.getElementById('tooltip1').style.display = "none";
     //console.log('<' + e.target.tagName.toLowerCase() + '>');
   }
@@ -98,6 +118,8 @@ function onLoadiframe() {
 
     console.log('Drop event');
 
+    // Remove placeholder
+
     var x =  e.dataTransfer.getData("text/html", e.target.getAttribute('data-insert-html'));
     var frag = document.createRange().createContextualFragment(x);
 
@@ -105,7 +127,32 @@ function onLoadiframe() {
     //Now it only puts it after :)
     e.target.appendChild(frag);
 
-      //console.log( x  + 'The data carried over'); console.log(frag);
+    //Much needed to remove the outline on drop finished <3
+    e.target.classList.remove('outline');
+    e.target.parentNode.parentNode.classList.remove('__placeholder');//Works for now if only 2 parents
+
+    //Much needed- Removes the div with ID <fr-cell> and all of it`s sub-content from the ELEMENT i click on only :)
+    var item = clientFrameWindow.getElementById('fr-cell');
+    e.target.removeChild(item);
+  
+    
+
+
+
+    //console.log( x  + 'The data carried over'); console.log(frag);
+
+      
+      //var placeholder = clientFrameWindow.getElementById('fr-cell');
+      //placeholder.remove();
+      //if (tgt.classList.contains ) {
+
+    
+      //if (e.target.parentNode.classList.contains('__placeholder')){
+       // e.target.parentNode.classList.remove('__placeholder') }
+      
+    
+      //tgt.parentNode.removeChild(tgt);
+      // or tgt.remove();
   }
   
 }
