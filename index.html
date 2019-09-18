@@ -362,25 +362,28 @@
 
       <i onclick="preview()" class="far fa-eye previ_ew"></i>
     </footer>
-   
-  </body>
-  
-  <script>
+
+
+  <script> //Dom Viewer
   var getDOM = (function() {
-    var dom = "",
-        depth = 0;
+    var dom = "", depth = 0;
     
     return function(node, n) {
+
+        //everytime you find another child element, create visual scheme
         for (var i = 0; i < depth; i++) {
             dom += '<span>|---</span>';
         }
         
+        //Bold the elements nodename
         dom += '<b>' + node.nodeName.toLowerCase() + '</b>';
 
+        //If it has an ID, show #
         if (node.id) {
             dom += '[#' + node.id + ']';
         }
 
+        //If it has a classname, go with ()
         if (node.className) {
             dom += '(' + node.className + ')'
         }
@@ -401,10 +404,13 @@
     };
 })();
 
-document.getElementById('dom-view').innerHTML = getDOM(document.body);
+  document.getElementById('dom-view').innerHTML = getDOM(document.body);
   </script>
 
   <script id="toggleJs" src="./JS/logic_script.js"></script>
   <script src="./JS/layout_script.js"></script>
+
+  </body>
+  
 
 </html>
