@@ -177,9 +177,6 @@ button:focus {
 .active {
   background: #1E282C;
 }
-.activel{
-  display: block !important;
-}
 
 #burger {
   cursor: pointer;
@@ -359,6 +356,12 @@ ul {
 .nested {
   display: none;
 }
+
+.activel{
+  display: block !important;
+  margin-left: 20px;
+}
+
 
 
 

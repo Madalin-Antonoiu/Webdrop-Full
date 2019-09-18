@@ -184,13 +184,17 @@ function onLoadiframe() {
 
     if (node.children.length > 0) {
       //if(node.nodeName != "SCRIPT"){
-        txt += '<span class="caret">' + node.nodeName + '</span>';
+        var string = "";
+        string = node.nodeName; // you can do below inside caret just string 
+
+        txt += '<span class="caret">' + string.charAt(0).toUpperCase() + string.slice(1).toLowerCase() + '</span>';
+        
         //txt += "<li> Padre: " + node.parentName + "</li>";
         //txt += "<li>Contenido: " + node.content + "</li>";
         for (var i = 0; i < node.children.length; i++)
           if (node.children[i])
               txt += "<ul class='nested'>" + muestraArbol(node.children[i]) + "</ul>" ;
-     
+        
       //}
     }
 
@@ -200,7 +204,7 @@ function onLoadiframe() {
 
 
 
-  //carets stuff
+  //carets stuff - Dropdown
     var toggler = document.getElementsByClassName("caret");
     var i;
 
