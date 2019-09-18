@@ -182,21 +182,36 @@ function onLoadiframe() {
     var txt = "";
 
     if (node.children.length > 0) {
-        txt += "<ul><li>" + node.nodeName + "</li>" ;
+      //if(node.nodeName != "SCRIPT"){
+        txt += "<ul class='caret'>"+node.nodeName;
         //txt += "<li> Padre: " + node.parentName + "</li>";
         //txt += "<li>Contenido: " + node.content + "</li>";
         for (var i = 0; i < node.children.length; i++)
           if (node.children[i])
-              txt += "<li>" + muestraArbol(node.children[i]) + "</li>";
+              txt += "<ul class='nested'>" + muestraArbol(node.children[i]) + "</ul>" ;
         txt += "</ul>";
+      //}
     }
 
     return txt;
   }
-  document.getElementById("muestra_abol").addEventListener("click", function() {
-    document.getElementById("result").innerHTML = muestraArbol(nodeTree);
-  });
-// end of it 
+  document.getElementById("result").innerHTML = muestraArbol(nodeTree);
+
+  //carets stuff
+    var toggler = document.getElementsByClassName("caret");
+    var i;
+
+    for (i = 0; i < toggler.length; i++) {
+      toggler[i].addEventListener("click", function() {
+        this.parentElement.querySelector(".nested").classList.toggle("active");
+        this.classList.toggle("caret-down");
+      });
+    }
+  //end of 
+
+  //document.getElementById("muestra_abol").addEventListener("click", function() {  //Add the innerHTML in here, you can make it happen on button click });
+
+  // end of it 
 
 
 

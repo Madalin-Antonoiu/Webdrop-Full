@@ -315,31 +315,49 @@ a:active {
   color: white;
 }
 
-
 .dd-menu li.divider {
   padding: 0;
   border-bottom: 1px solid #1E282C;
 }
-
-#column1 ul {
+ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-
-#column3 #result ul {
-  list-style-type: circle;
-}
-
 .dd-menu a {
   text-decoration: none;
 }
 
+
 /*** END - DROPDOWN LIST COL1 ***/
 
-/** EXPERIMENTAL **/
+/** EXPERIMENTAL - CARET **/
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */
+  transform: rotate(90deg);  
+}
 
 
+
+
+
+/** END **/
 
 /*! CSS Used from: https://cdn.froont.com/_static/gen/style.4d31e8f.css 
 Needed for Menu SVGS */
