@@ -159,6 +159,7 @@ function onLoadiframe() {
   var nodeTree = getNodeTree(clientFrameWindow.body);
   console.log(nodeTree);
 
+ 
   function getNodeTree(node) {
     if (node.hasChildNodes()) {
         var children = [];
@@ -183,13 +184,13 @@ function onLoadiframe() {
 
     if (node.children.length > 0) {
       //if(node.nodeName != "SCRIPT"){
-        txt += "<ul class='caret'>"+node.nodeName;
+        txt += '<span class="caret">' + node.nodeName + '</span>';
         //txt += "<li> Padre: " + node.parentName + "</li>";
         //txt += "<li>Contenido: " + node.content + "</li>";
         for (var i = 0; i < node.children.length; i++)
           if (node.children[i])
               txt += "<ul class='nested'>" + muestraArbol(node.children[i]) + "</ul>" ;
-        txt += "</ul>";
+     
       //}
     }
 
@@ -197,13 +198,15 @@ function onLoadiframe() {
   }
   document.getElementById("result").innerHTML = muestraArbol(nodeTree);
 
+
+
   //carets stuff
     var toggler = document.getElementsByClassName("caret");
     var i;
 
     for (i = 0; i < toggler.length; i++) {
       toggler[i].addEventListener("click", function() {
-        this.parentElement.querySelector(".nested").classList.toggle("active");
+        this.parentElement.querySelector(".nested").classList.toggle("activel");
         this.classList.toggle("caret-down");
       });
     }
