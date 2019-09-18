@@ -161,6 +161,7 @@ button:focus {
   z-index: 2;
 }
 
+
 /** END - SPECIFIC ELEMENTS **/
 
 /** OTHER HELPERS **/
@@ -272,7 +273,7 @@ a:active {
   padding: 0;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
   opacity: 0.8;
-  list-style-type: none;
+ 
   max-height: 89vh;
 }
 .dd-menu ul li a span {
@@ -320,10 +321,14 @@ a:active {
   border-bottom: 1px solid #1E282C;
 }
 
-ul {
-  list-style: none;
+#column1 ul {
+  list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+#column3 #result ul {
+  list-style-type: circle;
 }
 
 .dd-menu a {
@@ -333,6 +338,8 @@ ul {
 /*** END - DROPDOWN LIST COL1 ***/
 
 /** EXPERIMENTAL **/
+
+
 
 /*! CSS Used from: https://cdn.froont.com/_static/gen/style.4d31e8f.css 
 Needed for Menu SVGS */

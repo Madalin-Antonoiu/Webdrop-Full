@@ -154,6 +154,52 @@ function onLoadiframe() {
       //tgt.parentNode.removeChild(tgt);
       // or tgt.remove();
   }
+
+  //17/9/2019 - Dom Tree Visualization -  MAKE FUNCTION - my version - works
+  var nodeTree = getNodeTree(clientFrameWindow.body);
+  console.log(nodeTree);
+
+  function getNodeTree(node) {
+    if (node.hasChildNodes()) {
+        var children = [];
+        for (var j = 0; j < node.childNodes.length; j++) {
+            children.push(getNodeTree(node.childNodes[j]));
+        }
+
+        return {
+            nodeName: node.nodeName,
+            children: children,
+            //parentName: node.parentNode.nodeName,
+            //content: node.innerText || "",
+        };
+    }
+
+    return false;
+  }
+  function muestraArbol(node) {
+  if (!node) return "";
+    
+    var txt = "";
+
+    if (node.children.length > 0) {
+        txt += "<ul><li>" + node.nodeName + "</li>" ;
+        //txt += "<li> Padre: " + node.parentName + "</li>";
+        //txt += "<li>Contenido: " + node.content + "</li>";
+        for (var i = 0; i < node.children.length; i++)
+          if (node.children[i])
+              txt += "<li>" + muestraArbol(node.children[i]) + "</li>";
+        txt += "</ul>";
+    }
+
+    return txt;
+  }
+  document.getElementById("muestra_abol").addEventListener("click", function() {
+    document.getElementById("result").innerHTML = muestraArbol(nodeTree);
+  });
+// end of it 
+
+
+
   
 }
 
@@ -229,8 +275,6 @@ function showClickedElIdClass(e) {
     //e.target.style.outline = "none";
   }
 }
-
-//17/9/2019 - Dom Tree Visualization
 
 
 //Create download file with iFrame HTML Code (gibMiData())

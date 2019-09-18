@@ -26,7 +26,7 @@
     </nav>
 
     <div class="row">
-    
+      
       <div id="column1">
         <!-- Snippet : Ul inside Col1-->
         <ul id="sidebar_menu">
@@ -351,8 +351,10 @@
         <button onclick='toggleEditIframe()'><i class="fas fa-edit"></i>iFrame</button>
         <button onclick='toggleOutlineAll()'>Outline</button>
         <hr>
-
-        <div id="dom-view">Dom Tree viewer</div>
+        
+        <button type="button" id="muestra_abol">Muestra Arbol DOM</button>
+        <div id="result"></div>
+        
       </div>
     </div>
 
@@ -364,7 +366,7 @@
     </footer>
 
 
-  <script> //Dom Viewer
+  <!--<script> //Dom Viewer
   var getDOM = (function() {
     var dom = "", depth = 0;
     
@@ -378,6 +380,7 @@
         //Bold the elements nodename
         dom += '<b>' + node.nodeName.toLowerCase() + '</b>';
 
+        /*
         //If it has an ID, show #
         if (node.id) {
             dom += '[#' + node.id + ']';
@@ -387,10 +390,8 @@
         if (node.className) {
             dom += '(' + node.className + ')'
         }
-               
-        if (typeof n === 'number') {
-            dom += '<span>{child #' + n + '}</span>';
-        }
+          */   
+
 
         dom += '<br>';
         depth++;
@@ -406,6 +407,19 @@
 
   document.getElementById('dom-view').innerHTML = getDOM(document.body);
   </script>
+-->
+
+<script> //To toggle dropdowns from Dom Viewer
+    var toggler = document.getElementsByClassName("caret");
+    var i;
+    
+    for (i = 0; i < toggler.length; i++) {
+      toggler[i].addEventListener("click", function() {
+        this.parentElement.querySelector(".nested").classList.toggle("activelar");
+        this.classList.toggle("caret-down");
+      });
+    }
+    </script>
 
   <script id="toggleJs" src="./JS/logic_script.js"></script>
   <script src="./JS/layout_script.js"></script>
