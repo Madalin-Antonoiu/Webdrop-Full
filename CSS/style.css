@@ -157,7 +157,7 @@ button:focus {
   border: 1px solid black;
   display: none;
   background: #3299CC;
-  top: 50px;
+  bottom: 50px;
   right: 230px;
   color: white;
   z-index: 2;
@@ -215,7 +215,7 @@ i.previ_ew {
   bottom: 3px;
   right: 3px;
   color: orangered;
-  z-index: 99999;
+  z-index: 999;
 }
 
 .fullheight {
@@ -274,9 +274,7 @@ a:active {
 .dd-menu {
   padding: 0;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
-  opacity: 0.8;
- 
-  max-height: 89vh;
+  max-height: calc(100% - 45px);
 }
 .dd-menu ul li a span {
   margin-left: 10px;
