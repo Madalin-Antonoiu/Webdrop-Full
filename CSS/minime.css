@@ -32,3 +32,17 @@
     padding: 5px !important;
     font-size: 17px !important;
 }
+
+/* Push over column2*/
+#column1:hover ~ #column2 {
+    transform: translateX(165px);
+    transition-duration: 0.5s;
+    width: 89% !important;
+  }
+
+  #column1:hover ~ #column3 {
+    transform: translateX(195px);
+    transition-duration: 0.5s;
+    opacity: 0;
+  }
+  
