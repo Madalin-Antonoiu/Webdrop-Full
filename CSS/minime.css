@@ -20,6 +20,7 @@
     list-style-type: none;
     overflow-y: scroll;
     background: #2C3B41;
+    width: 270px;
 }
 
 /*Colors parent on li a hover - Works!*/
