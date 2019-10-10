@@ -268,6 +268,10 @@ a:active {
   background: #2C3B41;
   color: white;
 }
+.dd-button:checked {
+  background: red;
+  color: white;
+}
 .dd-input {
   display: none;
 }
@@ -380,6 +384,29 @@ img{border:0;}
 #b-control-elements div{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
 :focus{outline:0;outline:none;outline-style:none;outline-color:transparent;box-shadow:none;-webkit-tap-highlight-color:transparent;}
 
+.collapsible {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .collapsible:hover {
+  background-color: #2C3B41;
+
+}
+
+.panel{
+  padding: 0;
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
 
 
 /*____END - LAYOUT UI CSS____*/

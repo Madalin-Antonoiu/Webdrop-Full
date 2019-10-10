@@ -1,11 +1,13 @@
-/*With click disabled*/
-.dd-input:checked+.dd-menu {
-    display: none;
-}
-
-.dd-input:hover+.dd-menu {
+/*With click disabled        +.dd-menu    to hide the chekbox*/
+.dd-input:checked{
     display: block;
 }
+
+/* To hover - set display block to make it hoverable and display: none to checked
+.dd-input:hover+.dd-menu {
+   
+    display: none;
+} */
 
 .dd-menu {
     /*add following 5 lines on mini-version and make .dd-input:hover ----------------------------------   */
@@ -20,14 +22,35 @@
     list-style-type: none;
     overflow-y: scroll;
     background: #2C3B41;
-    width: 270px;
+    width: 269px;
 }
 
-/*Colors parent on li a hover - Works!*/
+.dd-menu li div {
+    margin-top: 5px;
+}
+
+.col-min{
+    float: left; 
+}
+
+
+.__ml{
+    margin-left: 10px;
+}
+
+h4{
+    margin-bottom:0;
+}
+
+/*Colors parent on li a hover - Works!
 .selector:hover .dd-button {
     background: #2C3B41;
     color: white;
-}
+}*/
+
+/*Colors parent on li a CLICKED - Works!*/
+
+
 
 .dd-button {
 
@@ -37,7 +60,8 @@
 
 /* Push over column2*/
 #column1:hover ~ #column2 {
-    transform: translateX(152px);
+    transform: translateX(272px);
     transition-duration: 0.3s;
-    width: 88.8%;
-  }
+    width: 82.5%;
+}
+
