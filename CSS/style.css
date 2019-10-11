@@ -37,6 +37,14 @@ body {
   margin: 0;
   padding: 0;
   z-index: 1;
+  /* Carbon Fibre https://leaverou.github.io/css3patterns/#carbon-fibre*/ 
+  background:
+  radial-gradient(black 15%, transparent 16%) 0 0,
+  radial-gradient(black 15%, transparent 16%) 8px 8px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
+  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
+  background-color:#282828;
+  background-size:16px 16px;
 }
 #column3 {
   width: 12%;
@@ -73,14 +81,14 @@ nav #left_part {
   background: #357CA5;
   float: left;
 }
-nav #rest_of_it {
+nav #right_part {
   width: 100%;
   min-width: 9.5em;
   z-index: 1;
   background: #3C8DBC;
   float: left;
 }
-nav #rest_of_it i {
+nav #right_part i {
   padding: 12px;
 }
 nav #left_part i {
@@ -114,19 +122,19 @@ h4 {
   color: white;
   margin-bottom: 10px;
 }
-button {
+button.panel3 {
   background-color: Crimson;
   border-radius: 5px;
   color: white;
   text-decoration: none;
   border: none;
 }
-button:hover {
+button.panel3:hover {
   /*could add before it button:focus, */
   background-color: FireBrick;
   color: White;
 }
-button:focus {
+button.panel3:focus {
   outline: 0;
 }
 #snackbar {
@@ -367,5 +375,47 @@ div.panel.show {
   display: block !important;
 }
 
+/* For  Mobile Device Resizing icons */
+button.__item {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 50px;
+ 
+}
+
+.caption {
+  display: block;
+  font-size: 11px;
+}
+
+.s320{
+  width: 320px !important;
+  margin: auto !important;
+ 
+}
+
+.s480{
+  width: 480px !important;
+  margin: auto !important;
+}
+
+.s768{
+  width: 768px !important;
+  margin: auto !important;
+}
+
+.s1366{
+  width: 1366px !important;
+  margin: auto !important;
+}
+
+.s1920{
+  width: 1920px !important;
+  margin: auto !important;
+}
+
+
+/*end of that */
 
 /*____END - LAYOUT UI CSS____*/

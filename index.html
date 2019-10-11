@@ -15,13 +15,50 @@
       <div id="left_part" class="centerme">
         <i class="fas fa-tint"><span id="logotext">Webdrop</span></i>
       </div>
-      <div id="rest_of_it">
+
+      <div id="right_part">
         <i id="burger" onclick="columnOne()" class="fas fa-bars"></i>
         <!--<i onclick="themator()" class="fas fa-cog themator">Theme</i>-->
 
        <i onclick="hide_leftmenu()" class="fas fa-chevron-left hide_leftmenu"></i>
        <i onclick="hide_rightmenu()" class="fas fa-chevron-right hide_rightmenu"></i>
- 
+    </div>
+    
+    <!--Leaving this here for now -->
+    <div id="resize_bar" style=" position: absolute; text-align: center; margin-left: 300px; width: 900px;  z-index: 9;  text-align: center;  ">
+      <div style="margin: 0 auto; display: inline-block; height: 45px;">
+        
+        <button class="__item" onclick=" s320()">
+            <i class="fas fa-mobile-alt"></i>
+            <span class="caption">320px</span>
+        </button>
+
+        <button class="__item" onclick=" s480()">
+            <i class="fas fa-mobile-alt fa-rotate-90" ></i>
+            <span class="caption">480px</span>
+        </button>
+
+        <button class="__item" onclick=" s768()">
+            <i class="fas fa-tablet-alt"></i>
+            <span class="caption">768px</span>
+        </button>
+
+        <button class="__item" onclick=" s1366()">
+            <i class="fas fa-laptop"></i>
+            <span class="caption">1366px</span>
+        </button>
+      
+        <button class="__item" onclick=" s1920()">
+            <i class="fas fa-desktop"></i>
+            <span class="caption">1920px</span>
+        </button>
+
+        <button class="__item" onclick=" s1920()">
+            <i class="fas fa-desktop"></i>
+            <span class="caption">Drag</span>
+        </button>
+      </div>
+      </div>
    
     </nav>
 
@@ -280,9 +317,9 @@
       <!-- By just adding displayNone, it starts default closed, all functions working still-->
       <div id="column3" class="displayNone">
         <h3>Control Panel</h3>
-        <button onclick=" gibMiData()"><i class="fas fa-download"></i>HTML/CSS</button>
-        <button onclick='toggleEditIframe()'><i class="fas fa-edit"></i>iFrame</button>
-        <button onclick='toggleOutlineAll()'>Outline</button>
+        <button class="panel_3" onclick=" gibMiData()"><i class="fas fa-download"></i>HTML/CSS</button>
+        <button class="panel_3" onclick='toggleEditIframe()'><i class="fas fa-edit"></i>iFrame</button>
+        <button class="panel_3" onclick='toggleOutlineAll()'>Outline</button>
         <hr>
 
         <!-- 

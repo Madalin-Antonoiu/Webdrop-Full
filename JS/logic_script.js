@@ -226,7 +226,6 @@ function onLoadiframe() {
 }
 
 
-
 //Control Panel
 function toggleEditIframe() {
 
@@ -297,6 +296,9 @@ function showClickedElIdClass(e) {
     //e.target.style.outline = "none";
   }
 }
+
+
+
 
 
 //Create download file with iFrame HTML Code (gibMiData())

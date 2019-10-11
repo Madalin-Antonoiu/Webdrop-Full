@@ -2,7 +2,8 @@
   col1 = document.getElementById('column1');
   col3 = document.getElementById('column3');
   nav1 = document.getElementById('left_part');
-  nav2 = document.getElementById('rest_of_it');
+  nav2 = document.getElementById('right_part');
+  var frame = document.getElementById('clientframe');
   var hidden = false;
   
   function hide_leftmenu() {
@@ -58,4 +59,32 @@
     //i also need to remove the eventlistener, or the outlining on hover
 
   }
+
+  //Screen Resizes
+function s320(){
+  frame.classList.toggle('s320');
+  frame.classList.remove("s480", "s768", "s1366", "s1920");
+}
+function s480(){
+  frame.classList.toggle('s480');
+  frame.classList.remove("s320", "s768", "s1366", "s1920");
+}
+
+function s768(){
+  frame.classList.toggle('s768');
+  frame.classList.remove("s320", "s480", "s1366", "s1920");
+}
+
+function s1366(){
+  frame.classList.toggle("s1366");
+  frame.classList.remove("s320", "s480", "s768", "s1920" );
+}
+
+function s1920(){
+  frame.classList.toggle("s1920");
+  frame.classList.remove("s320", "s480", "s768", "s1366");
+}
+//End of
+
+
 //____END - LAYOUT UI JAVASCRIPT____ 
