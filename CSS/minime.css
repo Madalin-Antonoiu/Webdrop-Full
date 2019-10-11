@@ -23,6 +23,8 @@
     overflow-y: scroll;
     background: #2C3B41;
     width: 269px;
+ 
+
 }
 
 .dd-menu li div {
@@ -58,10 +60,17 @@ h4{
     font-size: 17px !important;
 }
 
-/* Push over column2*/
+/* Push over column2
 #column1:hover ~ #column2 {
     transform: translateX(272px);
     transition-duration: 0.3s;
     width: 82.5%;
+}*/
+
+/*This does the shinking based on accordion open, else remove.ClassName */
+.shrinkCol2 {
+    transform: translateX(272px);
+   
+    max-width: 82.5%;
 }
 

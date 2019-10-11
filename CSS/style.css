@@ -58,7 +58,7 @@ body {
 .column1_mini {
   width: 3% !important;
   min-width: 4em !important;
-  transition: all 0.6s;
+  /* transition: all 0.6s;*/
 }
 nav {
   height: 45px;
@@ -204,11 +204,6 @@ button:focus {
   text-align: center;
 }
 
-label.dropdown:checked {
-  background: red;
-  color: red;
-}
-
 i.previ_ew {
   font-size: 20px;
   position: absolute;
@@ -250,11 +245,7 @@ a:active {
 /*** END - OTHER HELPERS ***/
 
 /*** DROPDOWN LIST COL1 ***/
-.dropdown {
-  display: inline-block;
-  width: 100%;
-  background: #222D32;
-}
+
 .dd-button {
   cursor: pointer;
   padding: 10px 15px;
@@ -314,11 +305,6 @@ a:active {
   content: attr(draggable);
   filter: brightness(150%);
 }
-.selector:hover .dd-button {
-  /*Colors parent on li a hover - Works!*/
-  color: white;
-}
-
 .dd-menu li.divider {
   padding: 0;
   border-bottom: 1px solid #1E282C;
@@ -332,44 +318,9 @@ ul {
   text-decoration: none;
 }
 
-
-/*** END - DROPDOWN LIST COL1 ***/
-
-/** EXPERIMENTAL - CARET **/
-.caret {
-  cursor: pointer;
-  -webkit-user-select: none; /* Safari 3.1+ */
-  -moz-user-select: none; /* Firefox 2+ */
-  -ms-user-select: none; /* IE 10+ */
-  user-select: none;
-}
-
-.caret::before {
-  content: "\25B6";
-  color: black;
-  display: inline-block;
-  margin-right: 6px;
-}
-
-.caret-down::before {
-  -ms-transform: rotate(90deg); /* IE 9 */
-  -webkit-transform: rotate(90deg); /* Safari */
-  transform: rotate(90deg);  
-}
-
-.nested {
-  display: none;
-}
-
-.activel{
-  display: block !important;
-  margin-left: 20px;
-}
-
-
-
-
 /** END **/
+
+
 
 /*! CSS Used from: https://cdn.froont.com/_static/gen/style.4d31e8f.css 
 Needed for Menu SVGS */
@@ -406,6 +357,14 @@ img{border:0;}
   display: none;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+}
+
+div.panel {
+  display: none;
+}
+
+div.panel.show {
+  display: block !important;
 }
 
 
