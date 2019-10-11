@@ -71,6 +71,6 @@ h4{
 .shrinkCol2 {
     transform: translateX(272px);
    
-    max-width: 82.5%;
+    max-width: calc(100% - 335px);
 }
 
