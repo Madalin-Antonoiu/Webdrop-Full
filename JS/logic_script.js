@@ -26,8 +26,51 @@ function onLoadiframe() {
     clientFrameWindow.body.addEventListener( 'dblclick', dblClick, false);
     
     function dblClick(){
-      if( event.srcElement.id == '__upload' ) {
+      // (event.srcElement.id == '__upload') for specific ID
+      if( event.srcElement.nodeName == 'IMG' ) {
+        //Change src event.srcElement is the same with event.target
         event.srcElement.src="https://picsum.photos/200/300";
+        //console.log(event.srcElement);
+        //Remove placeholder of parent div
+        //event.srcElement.parentElement.classList.remove("__placeholder");
+
+        //Remove unncesesarry now parent element with placeholder
+        //event.srcElement.parentNode.parentNode.remove();
+
+        //need to remvoe placeholder of topmost parent ( topmost div container __placeholder)
+        event.srcElement.parentNode.parentNode.parentNode.parentNode.classList.remove("__placeholder");
+
+        //make sure it is allowed to run ONLY ONCE (to remove parent div, that`s it)
+        code_happened == 'undefined' ;
+        
+        if (typeof code_happened === 'undefined') {
+          window.code_happened = true;
+          // Your code here.
+          
+          var fragment = document.createDocumentFragment();
+          var element =  event.srcElement.parentNode;
+          
+          while(element.firstChild) {
+              fragment.appendChild(element.firstChild);
+          }
+  
+          element.parentNode.replaceChild(fragment, element);
+        }
+
+        
+        // and it does, but if you add another 2 columns, now code_happened is defined :) So it won't work again
+        
+
+         
+
+
+
+  
+
+
+
+
+
       };
     }
   //
