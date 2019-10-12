@@ -19,17 +19,21 @@ function onLoadiframe() {
 
   /*Image Upload ( only changes src for now)*/
 
-  var image = clientFrameWindow.getElementById('__upload');
+    //For "img src change on double click on newly dropped elements in iFrame" we need :
+    //1. dblclick event listener on the whole iFrame(or if you want, on a specific part/div)
+    //2. the function which checks whether the double clicked element has the id given to img elements
 
-  if (typeof(image) != 'undefined' && image != null){
-    console.log(image);
-    image.addEventListener("dblclick", meFunctala, false);
-
-    function meFunctala(){
-      image.src="https://picsum.photos/200/300";
+    clientFrameWindow.body.addEventListener( 'dblclick', dblClick, false);
+    
+    function dblClick(){
+      if( event.srcElement.id == '__upload' ) {
+        event.srcElement.src="https://picsum.photos/200/300";
+      };
     }
+  //
 
-  }
+
+ 
 
  
 
