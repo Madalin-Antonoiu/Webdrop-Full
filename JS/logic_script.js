@@ -4,6 +4,7 @@ var clientFrameWindow = document.getElementById('clientframe').contentWindow.doc
 var droppables = document.getElementById("sidebar_menu");
 
 
+
 //If not doing on iFrame load, the addEventListeners will crash sometimes
 function onLoadiframe() { 
   //Listeners
@@ -15,6 +16,26 @@ function onLoadiframe() {
   clientFrameWindow.body.addEventListener('dragleave', dragLeave, false);
   clientFrameWindow.body.addEventListener('drop', onDrop, false);
   droppables.addEventListener("dragstart", onDragStart, false);
+
+  /*Image Upload ( only changes src for now)*/
+
+  var image = clientFrameWindow.getElementById('__upload');
+
+  if (typeof(image) != 'undefined' && image != null){
+    console.log(image);
+    image.addEventListener("dblclick", meFunctala, false);
+
+    function meFunctala(){
+      image.src="https://picsum.photos/200/300";
+    }
+
+  }
+
+ 
+
+   
+  
+
   
 
   /* TEMPORARY SHUT DOWN
@@ -296,9 +317,6 @@ function showClickedElIdClass(e) {
     //e.target.style.outline = "none";
   }
 }
-
-
-
 
 
 //Create download file with iFrame HTML Code (gibMiData())
