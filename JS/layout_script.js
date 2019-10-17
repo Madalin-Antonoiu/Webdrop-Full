@@ -13,7 +13,7 @@
   function hide_rightmenu() {
     col3.classList.toggle('displayNone');
   }
-  //Mini-Drawer-Burger
+  //Mini-Drawer-Burger -If you add all classes below by default, you should have mini-drawer default i ntheory
   function columnOne() {
     logotext = document.getElementById('logotext');
 
