@@ -306,6 +306,9 @@ a:active {
   white-space: nowrap;
   font-size: 11px;
 }
+#myUL{
+  display: block !important;
+}
 
 .dd-menu li span p {
   margin-top: 3px;

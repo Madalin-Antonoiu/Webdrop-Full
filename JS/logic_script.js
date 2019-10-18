@@ -274,16 +274,24 @@ function instantSearch() {
   ul = document.getElementById("myUL");
   span = ul.getElementsByTagName("span");
 
+
   //Passed
   for (i = 0; i < span.length; i++) {
       p = span[i].getElementsByTagName("p")[0];
       txtValue = p.textContent || p.innerText;
+
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          span[i].style.display = "";
-          //span[i].parentNode.style.display = "";
+          //span[i].style.display = "";
+          span[i].parentNode.style.display = "";
+          span[i].parentNode.parentNode.firstElementChild.style.display="";
+          span[i].parentNode.parentNode.style.display="";
+
+
       } else {
-          span[i].style.display = "none";
-          //span[i].parentNode.style.display = "none";
+          //span[i].style.display = "none";
+          span[i].parentNode.style.display = "none";
+          span[i].parentNode.parentNode.firstElementChild.style.display="none";
+          span[i].parentNode.parentNode.style.display="none";
       }
   }
 }
