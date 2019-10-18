@@ -263,6 +263,30 @@ function onLoadiframe() {
   
 }
 
+// Component Search - W3School Adapted https://www.w3schools.com/howto/howto_js_filter_lists.asp
+function instantSearch() {
+  //Passed
+  var input, filter, ul, span, p, i, txtValue;
+
+  //Passed
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  span = ul.getElementsByTagName("span");
+
+  //Passed
+  for (i = 0; i < span.length; i++) {
+      p = span[i].getElementsByTagName("p")[0];
+      txtValue = p.textContent || p.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          span[i].style.display = "";
+          //span[i].parentNode.style.display = "";
+      } else {
+          span[i].style.display = "none";
+          //span[i].parentNode.style.display = "none";
+      }
+  }
+}
 
 //Control Panel
 function toggleEditIframe() {

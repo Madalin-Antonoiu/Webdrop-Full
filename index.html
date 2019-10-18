@@ -1077,149 +1077,161 @@
                 </div>
 
               <div class="panel">
+
                   <ul class="dd-menu">
 
-                    <li><h4>Navigation ✔️  </h4>
-                      <!--You can do navbar-expand-lg aswel-->
-                      <div class="col-min">
-                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
-                        <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-                          <a class="navbar-brand" href="#">Expand at xl</a>
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation">
-                              <span class="navbar-toggler-icon"></span>
-                          </button>
-                      
-                          <div class="collapse navbar-collapse" id="navbarSupportedContentXL">
-                              <ul class="navbar-nav mr-auto">
-                                  <li class="nav-item active">
-                                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                                  </li>
-                                  <li class="nav-item">
-                                      <a class="nav-link" href="#">Link</a>
-                                  </li>
-                                  <li class="nav-item dropdown">
-                                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownXL" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Dropdown
-                                      </a>
-                                      <div class="dropdown-menu" aria-labelledby="navbarDropdownXL">
-                                          <a class="dropdown-item" href="#">Action</a>
-                                          <a class="dropdown-item" href="#">Another action</a>
-                                          <div class="dropdown-divider"></div>
-                                          <a class="dropdown-item" href="#">Something else here</a>
-                                      </div>
-                                  </li>
-                                  <li class="nav-item">
-                                      <a class="nav-link disabled" href="#">Disabled</a>
-                                  </li>
-                              </ul>
-                              <form class="form-inline my-2 my-lg-0">
-                                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                  <button class="btn btn-secondary btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-                              </form>
-                          </div>
-                      </nav>
+                      <input type="text" id="myInput" onkeyup="instantSearch()" placeholder="Search for components.." title="Type in a component" style="width: 100%;">
 
-                        '>
-                        <img src="/IMG/components/">
-                      
-                        </div>
-                        <span>Nav with logo</span>
-                      </div>
-    
-                      <div class="col-min __ml">
-                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
-                        <nav class="navbar navbar-dark bg-success">
-                          <a class="navbar-brand" href="#">Never expand</a>
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentNV" aria-controls="navbarSupportedContentNV" aria-expanded="false" aria-label="Toggle navigation">
-                              <span class="navbar-toggler-icon"></span>
-                          </button>
-                      
-                          <div class="collapse navbar-collapse" id="navbarSupportedContentNV">
-                              <ul class="navbar-nav mr-auto">
-                                  <li class="nav-item active">
-                                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                                  </li>
-                                  <li class="nav-item">
-                                      <a class="nav-link" href="#">Link</a>
-                                  </li>
-                                  <li class="nav-item dropdown">
-                                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNV" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Dropdown
-                                      </a>
-                                      <div class="dropdown-menu" aria-labelledby="navbarDropdownNV">
-                                          <a class="dropdown-item" href="#">Action</a>
-                                          <a class="dropdown-item" href="#">Another action</a>
-                                          <div class="dropdown-divider"></div>
-                                          <a class="dropdown-item" href="#">Something else here</a>
-                                      </div>
-                                  </li>
-                                  <li class="nav-item">
-                                      <a class="nav-link disabled" href="#">Disabled</a>
-                                  </li>
-                              </ul>
-                              <form class="form-inline my-2 my-lg-0">
-                                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                  <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-                              </form>
-                          </div>
-                      </nav>
-                      
-                        '>
-                        <img src="/IMG/components/Nav_noexpand.svg">
-    
-                        </div>
-                        <span>Never expand</span>
-                      </div>
-    
-                      <br style="clear:both;"/>
-                    </li>
+                      <ul id="myUL">
 
-                    <li><h4>Alerts</h4>
-  
-                      <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
-                      <div class="alert alert-success" role="alert">
-                          A simple success alert—check it out!
-                        </div>
+                        <li><h4>Navigation ✔️  </h4>
+                          <!--You can do navbar-expand-lg aswel-->
+                          <div class="col-min">
+
+                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                            <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+                              <a class="navbar-brand" href="#">Expand at xl</a>
+                              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation">
+                                  <span class="navbar-toggler-icon"></span>
+                              </button>
+                          
+                              <div class="collapse navbar-collapse" id="navbarSupportedContentXL">
+                                  <ul class="navbar-nav mr-auto">
+                                      <li class="nav-item active">
+                                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                      </li>
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="#">Link</a>
+                                      </li>
+                                      <li class="nav-item dropdown">
+                                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownXL" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              Dropdown
+                                          </a>
+                                          <div class="dropdown-menu" aria-labelledby="navbarDropdownXL">
+                                              <a class="dropdown-item" href="#">Action</a>
+                                              <a class="dropdown-item" href="#">Another action</a>
+                                              <div class="dropdown-divider"></div>
+                                              <a class="dropdown-item" href="#">Something else here</a>
+                                          </div>
+                                      </li>
+                                      <li class="nav-item">
+                                          <a class="nav-link disabled" href="#">Disabled</a>
+                                      </li>
+                                  </ul>
+                                  <form class="form-inline my-2 my-lg-0">
+                                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                      <button class="btn btn-secondary btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                                  </form>
+                              </div>
+                          </nav>
+
+                            '>
+                            <img src="/IMG/components/">
+                          
+                            </div>
+                            <span class="search_me"><p>Nav expand xl</p></span>
+
+                          </div>
         
-                        <div class="alert alert-danger" role="alert">
-                          A simple danger alert—check it out!
-                        </div>
-                        <div class="alert alert-info" role="alert">
-                            A simple danger alert—check it out!
+                          <div class="col-min __ml">
+                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                            <nav class="navbar navbar-dark bg-success">
+                              <a class="navbar-brand" href="#">Never expand</a>
+                              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentNV" aria-controls="navbarSupportedContentNV" aria-expanded="false" aria-label="Toggle navigation">
+                                  <span class="navbar-toggler-icon"></span>
+                              </button>
+                          
+                              <div class="collapse navbar-collapse" id="navbarSupportedContentNV">
+                                  <ul class="navbar-nav mr-auto">
+                                      <li class="nav-item active">
+                                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                      </li>
+                                      <li class="nav-item">
+                                          <a class="nav-link" href="#">Link</a>
+                                      </li>
+                                      <li class="nav-item dropdown">
+                                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNV" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              Dropdown
+                                          </a>
+                                          <div class="dropdown-menu" aria-labelledby="navbarDropdownNV">
+                                              <a class="dropdown-item" href="#">Action</a>
+                                              <a class="dropdown-item" href="#">Another action</a>
+                                              <div class="dropdown-divider"></div>
+                                              <a class="dropdown-item" href="#">Something else here</a>
+                                          </div>
+                                      </li>
+                                      <li class="nav-item">
+                                          <a class="nav-link disabled" href="#">Disabled</a>
+                                      </li>
+                                  </ul>
+                                  <form class="form-inline my-2 my-lg-0">
+                                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                                  </form>
+                              </div>
+                          </nav>
+                          
+                            '>
+                            <img src="/IMG/components/Nav_noexpand.svg">
+        
+                            </div>
+                            <span class="search_me"><p>Nav never expand</p></span>
                           </div>
-                      '>
-                      <img src="/IMG/components/cmp.svg">
-  
-                      </div><span>Basic alert</span>
-  
-                      <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
-                      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                          <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                      '>
-                      <img src="/IMG/components/cmp.svg">
-  
-                      </div><span>Dismissable alert</span>
-  
-                      <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
-                      <div class="alert alert-success" role="alert">
-                          <h4 class="alert-heading">Well done!</h4>
-                          <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-                          <hr>
-                          <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
-                      </div>
-                      '>
-                      <img src="/IMG/components/cmp.svg">
-  
-                      </div><span>Heading alert</span>
-  
-                    </li>
-    
+        
+                          <br style="clear:both;"/>
+                        </li>
+
+                        <li><h4>Alerts</h4>
+      
+                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                          <div class="alert alert-success" role="alert">
+                              A simple success alert—check it out!
+                            </div>
+            
+                            <div class="alert alert-danger" role="alert">
+                              A simple danger alert—check it out!
+                            </div>
+                            <div class="alert alert-info" role="alert">
+                                A simple danger alert—check it out!
+                              </div>
+                          '>
+                          <img src="/IMG/components/cmp.svg">
+      
+                          </div><span class="search_me"><p>Basic alert</p></span>
+      
+                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                              <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                          '>
+                          <img src="/IMG/components/cmp.svg">
+      
+                          </div><span class="search_me"><p>Dismissable alert</p></span>
+      
+                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                          <div class="alert alert-success" role="alert">
+                              <h4 class="alert-heading">Well done!</h4>
+                              <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                              <hr>
+                              <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                          </div>
+                          '>
+                          <img src="/IMG/components/cmp.svg">
+      
+                          </div>
+                          <span class="search_me"><p>Heading alert</p></span>
+      
+                        </li>
+
+                      </ul>
+
                   </ul>
+
               </div>
+
             </li>
 
             <!--Bootstrap-->

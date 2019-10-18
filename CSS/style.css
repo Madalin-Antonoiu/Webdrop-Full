@@ -306,6 +306,11 @@ a:active {
   white-space: nowrap;
   font-size: 11px;
 }
+
+.dd-menu li span p {
+  margin-top: 3px;
+}
+
 .dd-menu li div {
   margin-top: 10px;
 }
