@@ -17,9 +17,10 @@ document.addEventListener("keydown", function (event) {
     document.getElementById('resize_bar').classList.toggle("displayNoneSuper");
     document.getElementById('resize_bar2').classList.toggle("displayNoneSuper");
     frame.classList.remove('s320',"s480", "s768", "s1366", "s1920");
-
+  
+    //Toggling from Preview to Edit with no visual bugs, yay!
     col2.classList.toggle("unshrinkCol2");
-    //With toggle, when it is not open, it will make it active. So
+    
     
     
      
