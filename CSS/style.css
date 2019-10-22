@@ -209,6 +209,7 @@ button.panel3:focus {
   outline-offset: -2px;
 }
 
+
 .show {
   display: block;
 }
@@ -278,6 +279,60 @@ span#logotext.displayNoneB {
 a:active {
   background: red;
 }
+/*End of helpers */
+
+
+/* RESIZE Buttons */
+#resize_bar{
+  position: absolute; 
+  text-align: center;   
+  z-index: 9;  
+  text-align: center;
+  left:0;
+  bottom:0;
+  outline : 1px red solid;
+  outline-offset: -1px;
+}
+
+/*unshrinkCol2 este in minime*/
+
+#resize_bar2{
+    position: absolute; 
+    text-align: center;   
+    z-index: 9;  
+    text-align: center;
+    left:330px;
+    bottom:0;
+    outline : 1px orangered solid;
+    outline-offset: -1px;
+    font-size: 26px;
+}
+
+
+
+.go_left{
+  transform: translate(-330px);
+}
+
+.resize_buttons{
+  display: inline-block; 
+  height: 32px;
+}
+
+.rotate {
+  -moz-transition: all .2s linear;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
+}
+.rotate.down__me {
+  -moz-transform:rotate(180deg);
+  -webkit-transform:rotate(180deg);
+  transform:rotate(180deg);
+}
+
+/* END OF RESIZE*/
+
+
 
 /*** END - OTHER HELPERS ***/
 
@@ -442,6 +497,13 @@ img {
 }
 
 #b-control-elements div {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.noSelect {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

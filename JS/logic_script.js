@@ -4,7 +4,7 @@ var clientFrameWindow = document.getElementById('clientframe').contentWindow.doc
 var droppables = document.getElementById("sidebar_menu");
 
 document.addEventListener("keydown", function (event) {
-  if (event.keyCode == 17) {
+  if (event.keyCode == 192) { //192 is `
 
     nav = document.getElementById('myNav');
     col2 = document.getElementById('column2');
@@ -14,11 +14,24 @@ document.addEventListener("keydown", function (event) {
     col3.classList.toggle('displayNoneSuper');
     nav.classList.toggle('displayNoneSuper');
     clientFrameWindow.body.classList.toggle('preview_class101');
-  }
+    document.getElementById('resize_bar').classList.toggle("displayNoneSuper");
+    document.getElementById('resize_bar2').classList.toggle("displayNoneSuper");
+    frame.classList.remove('s320',"s480", "s768", "s1366", "s1920");
+
+    col2.classList.toggle("unshrinkCol2");
+    //With toggle, when it is not open, it will make it active. So
+    
+    
+     
+ 
+
+
+
+}
 })
 
 clientFrameWindow.addEventListener("keydown", function (event) {
-  if (event.keyCode == 17) {
+  if (event.keyCode == 192) {
     nav = document.getElementById('myNav');
     col2 = document.getElementById('column2');
 
@@ -27,6 +40,12 @@ clientFrameWindow.addEventListener("keydown", function (event) {
     col3.classList.toggle('displayNoneSuper');
     nav.classList.toggle('displayNoneSuper');
     clientFrameWindow.body.classList.toggle('preview_class101');
+    document.getElementById('resize_bar').classList.toggle("displayNoneSuper");
+    document.getElementById('resize_bar2').classList.toggle("displayNoneSuper");
+    frame.classList.remove('s320',"s480", "s768", "s1366", "s1920");
+
+    col2.classList.toggle("unshrinkCol2");
+
   }
 })
 

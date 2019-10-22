@@ -56,8 +56,22 @@
     col3.classList.toggle('displayNoneSuper');
     nav.classList.toggle('displayNoneSuper');
 
+    clientFrameWindow.body.classList.toggle('preview_class101');
+
+    document.getElementById('resize_bar').classList.toggle("displayNoneSuper");
+    document.getElementById('resize_bar2').classList.toggle("displayNoneSuper");
+    frame.classList.remove('s320',"s480", "s768", "s1366", "s1920");
+    
+    col2.classList.toggle("unshrinkCol2");
+
     //i also need to remove the eventlistener, or the outlining on hover
 
+  }
+
+  function hide_previewbar() {
+    document.getElementById('resize_bar').classList.toggle("displayNone");
+    document.getElementById('resize_bar2').classList.toggle("go_left");
+    document.getElementById('rotate__me').classList.toggle("down__me");
   }
 
   //Screen Resizes

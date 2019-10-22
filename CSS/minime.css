@@ -70,6 +70,11 @@ h4 {
 /*This does the shinking based on accordion open, else remove.ClassName */
 .shrinkCol2 {
     transform: translateX(272px);
-
     max-width: calc(100% - 335px);
 }
+
+/* Spent like an hour for this. basically when minimenu open with components and i go preview, looks ok. So does when it is closed :) */
+.unshrinkCol2{
+    transform: translateX(0px) !important;
+    max-width: 100% !important;
+  }
