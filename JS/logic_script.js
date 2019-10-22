@@ -3,14 +3,41 @@ var clientFrameWindow = document.getElementById('clientframe').contentWindow.doc
 //var placeholders = clientFrameWindow.getElementsByClassName('__placeholder');
 var droppables = document.getElementById("sidebar_menu");
 
+document.addEventListener("keydown", function (event) {
+  if (event.keyCode == 17) {
+
+    nav = document.getElementById('myNav');
+    col2 = document.getElementById('column2');
+
+    col1.classList.toggle('displayNoneSuper');
+    col2.classList.toggle('fullheight');
+    col3.classList.toggle('displayNoneSuper');
+    nav.classList.toggle('displayNoneSuper');
+    clientFrameWindow.body.classList.toggle('preview_class101');
+  }
+})
+
+clientFrameWindow.addEventListener("keydown", function (event) {
+  if (event.keyCode == 17) {
+    nav = document.getElementById('myNav');
+    col2 = document.getElementById('column2');
+
+    col1.classList.toggle('displayNoneSuper');
+    col2.classList.toggle('fullheight');
+    col3.classList.toggle('displayNoneSuper');
+    nav.classList.toggle('displayNoneSuper');
+    clientFrameWindow.body.classList.toggle('preview_class101');
+  }
+})
+
 
 
 //If not doing on iFrame load, the addEventListeners will crash sometimes
-function onLoadiframe() { 
+function onLoadiframe() {
   //Listeners
-  
+
   //clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
- 
+
   clientFrameWindow.body.addEventListener('mouseout', mouseLeave, false);
   clientFrameWindow.body.addEventListener('dragover', dragOver, false);
   clientFrameWindow.body.addEventListener('dragleave', dragLeave, false);
@@ -19,41 +46,36 @@ function onLoadiframe() {
 
   /*Image Upload ( only changes src for now)*/
 
-    //For "img src change on double click on newly dropped elements in iFrame" we need :
-    //1. dblclick event listener on the whole iFrame(or if you want, on a specific part/div)
-    //2. the function which checks whether the double clicked element has the id given to img elements
+  //For "img src change on double click on newly dropped elements in iFrame" we need :
+  //1. dblclick event listener on the whole iFrame(or if you want, on a specific part/div)
+  //2. the function which checks whether the double clicked element has the id given to img elements
 
-    clientFrameWindow.body.addEventListener( 'dblclick', dblClick, false);
-    
-    function dblClick(){
-      // (event.srcElement.id == '__upload') for specific ID
-      if( event.srcElement.nodeName == 'IMG' ) {
-        //Change src event.srcElement is the same with event.target
-        event.srcElement.src="https://picsum.photos/200/300";
-        //console.log(event.srcElement);
+  clientFrameWindow.body.addEventListener('dblclick', dblClick, false);
 
-        //Remove placeholder of img
-        event.srcElement.classList.remove("__placeholder");
+  function dblClick() {
+    // (event.srcElement.id == '__upload') for specific ID
+    if (event.srcElement.nodeName == 'IMG') {
+      //Change src event.srcElement is the same with event.target
+      event.srcElement.src = "https://picsum.photos/200/300";
+      //console.log(event.srcElement);
 
-        //need to remvoe placeholder of topmost parent ( topmost div container __placeholder)
-        event.srcElement.parentNode.parentNode.parentNode.classList.remove("__placeholder");
+      //Remove placeholder of img
+      event.srcElement.classList.remove("__placeholder");
 
-        //Removes class="" if empty, so on code download you don't have it :)
-        if (event.srcElement.className == "")
-          event.srcElement.removeAttribute('class');
-      };
-    }
+      //need to remvoe placeholder of topmost parent ( topmost div container __placeholder)
+      event.srcElement.parentNode.parentNode.parentNode.classList.remove("__placeholder");
+
+      //Removes class="" if empty, so on code download you don't have it :)
+      if (event.srcElement.className == "")
+        event.srcElement.removeAttribute('class');
+    };
+  }
   //
 
 
- 
 
- 
 
-   
-  
 
-  
 
   /* TEMPORARY SHUT DOWN
   function mouseEnter(e) {
@@ -81,16 +103,16 @@ function onLoadiframe() {
   }*/
 
   /*New Adittion - NOT WORKING
-  
-    var myPlaceholder = function() {
-      var attribute = this.getAttribute("data-myattribute");
-      alert(attribute);
-  };
+    
+      var myPlaceholder = function() {
+        var attribute = this.getAttribute("data-myattribute");
+        alert(attribute);
+    };
 
-  for (var i = 0; i < placeholders.length; i++) {
-    placeholders[i].addEventListener('click', myPlaceholder, false);
-  }
- */
+    for (var i = 0; i < placeholders.length; i++) {
+      placeholders[i].addEventListener('click', myPlaceholder, false);
+    }
+  */
 
   function mouseLeave(e) {
     //Remove outline on hover
@@ -99,6 +121,7 @@ function onLoadiframe() {
     document.getElementById('tooltip1').style.display = "";
     //console.clear();
   }
+
   function dragOver(e) {
     //These two are really needed to remove the cut circle on iframe :)
     event.preventDefault();
@@ -124,19 +147,21 @@ function onLoadiframe() {
     document.getElementById('tooltip1').style.display = "block";
     //console.log('<' + e.target.tagName.toLowerCase() + '>');
   }
+
   function dragLeave(e) {
     //Much needed on hover before drop to remove all those lines
-    e.target.classList.remove('outline'); 
+    e.target.classList.remove('outline');
 
     document.getElementById('tooltip1').style.display = "none";
     //console.log('<' + e.target.tagName.toLowerCase() + '>');
   }
+
   function onDragStart(e) {
 
     console.log("Drag Started!");
     e.dataTransfer.setData("text/html", e.target.getAttribute('data-insert-html'));
 
-   
+
     /*Remove menu on dragStart - doesn't work yet
     var menu = document.getElementById('dd-menu');
     menu.classList.add('displayNoneSuper');
@@ -151,6 +176,7 @@ function onLoadiframe() {
     //console.log(e.target.getAttribute('data-insert-html'));
 
   }
+
   function onDrop(e) {
     e.preventDefault();
 
@@ -158,7 +184,7 @@ function onLoadiframe() {
 
     // Remove placeholder
 
-    var x =  e.dataTransfer.getData("text/html", e.target.getAttribute('data-insert-html'));
+    var x = e.dataTransfer.getData("text/html", e.target.getAttribute('data-insert-html'));
     var frag = document.createRange().createContextualFragment(x);
 
     //Here before appending, need to calculate if mouseover is closer to top or bottom, so it prepend( put before) or after,
@@ -167,72 +193,73 @@ function onLoadiframe() {
 
     //Much needed to remove the outline on drop finished <3
     e.target.classList.remove('outline');
-    e.target.parentNode.parentNode.classList.remove('__placeholder');//Works for now if only 2 parents (not ideal)
+    e.target.parentNode.parentNode.classList.remove('__placeholder'); //Works for now if only 2 parents (not ideal)
 
     //Much needed- Removes the div with ID <fr-cell> and all of it`s sub-content from the ELEMENT i click on only :)
     var item = clientFrameWindow.getElementById('fr-cell'); //Gets only the topmost fr-cell ID, in order of DOM (not ideal)
     e.target.removeChild(item);
-  
-    
+
+
 
 
 
     //console.log( x  + 'The data carried over'); console.log(frag);
 
-      
-      //var placeholder = clientFrameWindow.getElementById('fr-cell');
-      //placeholder.remove();
-      //if (tgt.classList.contains ) {
 
-    
-      //if (e.target.parentNode.classList.contains('__placeholder')){
-       // e.target.parentNode.classList.remove('__placeholder') }
-      
-    
-      //tgt.parentNode.removeChild(tgt);
-      // or tgt.remove();
+    //var placeholder = clientFrameWindow.getElementById('fr-cell');
+    //placeholder.remove();
+    //if (tgt.classList.contains ) {
+
+
+    //if (e.target.parentNode.classList.contains('__placeholder')){
+    // e.target.parentNode.classList.remove('__placeholder') }
+
+
+    //tgt.parentNode.removeChild(tgt);
+    // or tgt.remove();
   }
 
   //17/9/2019 - Dom Tree Visualization -  MAKE FUNCTION - my version - works
   var nodeTree = getNodeTree(clientFrameWindow.body);
   console.log(nodeTree);
 
- 
+
   function getNodeTree(node) {
     if (node.hasChildNodes()) {
-        var children = [];
-        for (var j = 0; j < node.childNodes.length; j++) {
-            children.push(getNodeTree(node.childNodes[j]));
-        }
+      var children = [];
+      for (var j = 0; j < node.childNodes.length; j++) {
+        children.push(getNodeTree(node.childNodes[j]));
+      }
 
-        return {
-            nodeName: node.nodeName,
-            children: children,
-            //parentName: node.parentNode.nodeName,
-            //content: node.innerText || "",
-        };
+      return {
+        nodeName: node.nodeName,
+        children: children,
+        //parentName: node.parentNode.nodeName,
+        //content: node.innerText || "",
+      };
     }
 
     return false;
   }
+
   function muestraArbol(node) {
-  if (!node) return "";
-    
+    if (!node) return "";
+
     var txt = "";
 
     if (node.children.length > 0) {
       //if(node.nodeName != "SCRIPT"){
-        var string = "";
-        string = node.nodeName; // you can do below inside caret just string 
+      var string = "";
+      string = node.nodeName; // you can do below inside caret just string 
 
-        txt += '<span class="caret">' + string.charAt(0).toUpperCase() + string.slice(1).toLowerCase() + '</span>';
-        
-        //txt += "<li> Padre: " + node.parentName + "</li>";
-        //txt += "<li>Contenido: " + node.content + "</li>";
-        for (var i = 0; i < node.children.length; i++)
-          if (node.children[i])
-              txt += "<ul class='nested'>" + muestraArbol(node.children[i]) + "</ul>" ;
-        
+      txt += '<span class="caret">' + string.charAt(0).toUpperCase() + string.slice(1).toLowerCase() + '</span>';
+
+      //txt += "<li> Padre: " + node.parentName + "</li>";
+      //txt += "<li>Contenido: " + node.content + "</li>";
+      for (var i = 0; i < node.children.length; i++)
+        if (node.children[i])
+          txt += "<ul class='nested'>" + muestraArbol(node.children[i]) + "</ul>";
+
       //}
     }
 
@@ -243,15 +270,15 @@ function onLoadiframe() {
 
 
   //carets stuff - Dropdown
-    var toggler = document.getElementsByClassName("caret");
-    var i;
+  var toggler = document.getElementsByClassName("caret");
+  var i;
 
-    for (i = 0; i < toggler.length; i++) {
-      toggler[i].addEventListener("click", function() {
-        this.parentElement.querySelector(".nested").classList.toggle("activel");
-        this.classList.toggle("caret-down");
-      });
-    }
+  for (i = 0; i < toggler.length; i++) {
+    toggler[i].addEventListener("click", function () {
+      this.parentElement.querySelector(".nested").classList.toggle("activel");
+      this.classList.toggle("caret-down");
+    });
+  }
   //end of 
 
   //document.getElementById("muestra_abol").addEventListener("click", function() {  //Add the innerHTML in here, you can make it happen on button click });
@@ -260,7 +287,7 @@ function onLoadiframe() {
 
 
 
-  
+
 }
 
 // Component Search - W3School Adapted https://www.w3schools.com/howto/howto_js_filter_lists.asp
@@ -277,22 +304,22 @@ function instantSearch() {
 
   //Passed
   for (i = 0; i < span.length; i++) {
-      p = span[i].getElementsByTagName("p")[0];
-      txtValue = p.textContent || p.innerText;
+    p = span[i].getElementsByTagName("p")[0];
+    txtValue = p.textContent || p.innerText;
 
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-          //span[i].style.display = "";
-          span[i].parentNode.style.display = "";
-          span[i].parentNode.parentNode.firstElementChild.style.display="";
-          span[i].parentNode.parentNode.style.display="";
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      //span[i].style.display = "";
+      span[i].parentNode.style.display = "";
+      span[i].parentNode.parentNode.firstElementChild.style.display = "";
+      span[i].parentNode.parentNode.style.display = "";
 
 
-      } else {
-          //span[i].style.display = "none";
-          span[i].parentNode.style.display = "none";
-          span[i].parentNode.parentNode.firstElementChild.style.display="none";
-          span[i].parentNode.parentNode.style.display="none";
-      }
+    } else {
+      //span[i].style.display = "none";
+      span[i].parentNode.style.display = "none";
+      span[i].parentNode.parentNode.firstElementChild.style.display = "none";
+      span[i].parentNode.parentNode.style.display = "none";
+    }
   }
 }
 
@@ -325,6 +352,7 @@ function toggleEditIframe() {
   }
 
 }
+
 function toggleOutlineAll() {
   //Toggle iFrame outline dashed elements
   var x = clientFrameWindow.body.querySelectorAll('*');
@@ -335,7 +363,7 @@ function toggleOutlineAll() {
   }
 
   //Known bug _ adding new elements with outline on will not remove it when turning off.
- 
+
   //Snackbar notifications toggle
   if (clientFrameWindow.body.classList.contains("outline-dashed")) {
     //Snackbar notification ON
@@ -356,6 +384,7 @@ function toggleOutlineAll() {
   }
 
 }
+
 function showClickedElIdClass(e) {
   // If click target's id is not empty 
   if (e.target.id != "") {

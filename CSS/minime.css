@@ -1,5 +1,5 @@
 /*With click disabled        +.dd-menu    to hide the chekbox*/
-.dd-input:checked{
+.dd-input:checked {
     display: block;
 }
 
@@ -23,25 +23,25 @@
     overflow-y: scroll;
     background: #2C3B41;
     width: 269px;
- 
+
 
 }
 
 .dd-menu li div {
-    margin-top: 5px;
+    margin-top: 0px;
 }
 
-.col-min{
-    float: left; 
+.col-min {
+    float: left;
 }
 
 
-.__ml{
+.__ml {
     margin-left: 10px;
 }
 
-h4{
-    margin-bottom:0;
+h4 {
+    margin-bottom: 0;
 }
 
 /*Colors parent on li a hover - Works!
@@ -70,7 +70,6 @@ h4{
 /*This does the shinking based on accordion open, else remove.ClassName */
 .shrinkCol2 {
     transform: translateX(272px);
-   
+
     max-width: calc(100% - 335px);
 }
-

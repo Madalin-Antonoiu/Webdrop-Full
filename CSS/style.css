@@ -4,18 +4,22 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100vh;
-  font-family: Arial,Helvetica,sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
+
 .row {
   display: flex;
-  height: calc( 100% - 45px ); /* Deducting the 45px from the nav to get a pixel perfect*/
+  height: calc(100% - 45px);
+  /* Deducting the 45px from the nav to get a pixel perfect*/
 }
+
 #column1 {
   width: 10%;
   min-width: 11.5em;
@@ -30,6 +34,7 @@ body {
   background: #222D32;
   padding: 0;
 }
+
 #column2 {
   width: 100%;
   min-width: 9.5em;
@@ -37,15 +42,16 @@ body {
   margin: 0;
   padding: 0;
   z-index: 1;
-  /* Carbon Fibre https://leaverou.github.io/css3patterns/#carbon-fibre*/ 
+  /* Carbon Fibre https://leaverou.github.io/css3patterns/#carbon-fibre*/
   background:
-  radial-gradient(black 15%, transparent 16%) 0 0,
-  radial-gradient(black 15%, transparent 16%) 8px 8px,
-  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,
-  radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 8px 9px;
-  background-color:#282828;
-  background-size:16px 16px;
+    radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+  background-color: #282828;
+  background-size: 16px 16px;
 }
+
 #column3 {
   width: 12%;
   min-width: 9.5em;
@@ -63,11 +69,13 @@ body {
   transition-timing-function: ease;
   transition: all 0.4s;
 }
+
 .column1_mini {
   width: 3% !important;
   min-width: 4em !important;
   /* transition: all 0.6s;*/
 }
+
 nav {
   height: 45px;
   width: 100%;
@@ -75,12 +83,14 @@ nav {
   display: flex;
   color: white;
 }
+
 nav #left_part {
   width: 10%;
   min-width: 11.5em;
   background: #357CA5;
   float: left;
 }
+
 nav #right_part {
   width: 100%;
   min-width: 9.5em;
@@ -88,9 +98,11 @@ nav #right_part {
   background: #3C8DBC;
   float: left;
 }
+
 nav #right_part i {
   padding: 12px;
 }
+
 nav #left_part i {
   padding: 12px 21px 12px 18px;
   font-size: 22px;
@@ -98,9 +110,11 @@ nav #left_part i {
   display: inline-block;
   color: orange;
 }
+
 nav #left_part span {
   margin-left: 10px;
 }
+
 iframe {
   width: 100%;
   height: 100%;
@@ -109,19 +123,29 @@ iframe {
   background: rgb(255, 255, 255);
 
 }
+
 .iframe_loader {
-  background: url(../IMG/Spinner200px.gif) center center no-repeat; /*Doesn't seem to work*/
+  background: url(../IMG/Spinner200px.gif) center center no-repeat;
+  /*Doesn't seem to work*/
 }
 
 /*** END - BASE STYLING ***/
 
 /** SPECIFIC ELEMENTS **/
 h4 {
-  margin-top: 0; 
-  font-weight: 400; 
+  margin-top: 0;
+  font-weight: 400;
   color: white;
   margin-bottom: 10px;
 }
+
+h5 {
+  margin-top: 0;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 5px;
+}
+
 button.panel3 {
   background-color: Crimson;
   border-radius: 5px;
@@ -129,14 +153,17 @@ button.panel3 {
   text-decoration: none;
   border: none;
 }
+
 button.panel3:hover {
   /*could add before it button:focus, */
   background-color: FireBrick;
   color: White;
 }
+
 button.panel3:focus {
   outline: 0;
 }
+
 #snackbar {
   visibility: hidden;
   min-width: 250px;
@@ -152,11 +179,13 @@ button.panel3:focus {
   top: 30px;
   font-size: 17px;
 }
+
 #snackbar.show {
   visibility: visible;
   -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
+
 .tooltiper {
   position: absolute;
   margin: 5px;
@@ -260,43 +289,53 @@ a:active {
   font-size: 20px;
   color: #d2d6de;
 }
+
 .dd-button span {
   margin-left: 15px;
 }
+
 .dd-button:hover {
   background: #2C3B41;
   color: white;
 }
+
 .dd-button:checked {
   background: red;
   color: white;
 }
+
 .dd-input {
   display: none;
 }
+
 .dd-menu {
   padding: 0;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
   max-height: calc(100% - 45px);
 }
+
 .dd-menu ul li a span {
   margin-left: 10px;
 }
+
 .dd-input:checked+.dd-menu {
   /* checked means click. hover is on hover*/
   display: block;
 }
+
 .dd-input+.dd-menu {
   /*Initial display of li set to none*/
   display: none;
 }
+
 .dd-menu li {
-  padding: 10px 20px;
+  padding: 0px 20px;
   /* cursor: pointer; */
   background: #2C3B41;
   display: block;
   color: white;
 }
+
 .dd-menu li span {
   color: #767676;
   pointer-events: none;
@@ -306,30 +345,32 @@ a:active {
   white-space: nowrap;
   font-size: 11px;
 }
-#myUL{
+
+#myUL {
   display: block !important;
 }
+
 
 .dd-menu li span p {
   margin-top: 3px;
 }
 
-.dd-menu li div {
-  margin-top: 10px;
-}
-.dd-menu li div:hover{
+.dd-menu li div:hover {
   content: attr(draggable);
   filter: brightness(150%);
 }
+
 .dd-menu li.divider {
   padding: 0;
   border-bottom: 1px solid #1E282C;
 }
+
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
+
 .dd-menu a {
   text-decoration: none;
 }
@@ -340,16 +381,81 @@ ul {
 
 /*! CSS Used from: https://cdn.froont.com/_static/gen/style.4d31e8f.css 
 Needed for Menu SVGS */
-img{border:0;}
-*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+img {
+  border: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 /*! CSS Used from: https://cdn.froont.com/_static/gen/backend.4d31e8f.css */
-.library-widget:hover .library-widget-thumbnail:after{opacity:1;}
-.library-widget-thumbnail{position:relative;overflow:hidden;cursor:-webkit-grab;cursor:grab;width:100px;height:67px;background:#333;border:1px solid #B3B3B3;border-radius:2px;-webkit-transition:border-color 2s ease;transition:border-color 2s ease;text-align:center!important;font-size:0!important;}
-.library-widget-thumbnail:after{display:block;position:absolute;content:'';top:0;left:0;right:0;bottom:0;background:rgba(179,179,179,0.06);border-radius:2px;opacity:0;-webkit-transition:opacity .15s ease;transition:opacity .15s ease;}
-.library-widget-thumbnail img{max-width:100%;max-height:100%;display:inline-block;vertical-align:middle;}
-.library-widget-thumbnail:before{content:"";display:inline-block;height:100%;vertical-align:middle;}
-#b-control-elements div{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
-:focus{outline:0;outline:none;outline-style:none;outline-color:transparent;box-shadow:none;-webkit-tap-highlight-color:transparent;}
+.library-widget:hover .library-widget-thumbnail:after {
+  opacity: 1;
+}
+
+.library-widget-thumbnail {
+  position: relative;
+  overflow: hidden;
+  cursor: -webkit-grab;
+  cursor: grab;
+  width: 100px;
+  height: 57px;
+  background: #333;
+  border: 1px solid #B3B3B3;
+  border-radius: 2px;
+  -webkit-transition: border-color 2s ease;
+  transition: border-color 2s ease;
+  text-align: center !important;
+  font-size: 0 !important;
+}
+
+.library-widget-thumbnail:after {
+  display: block;
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(179, 179, 179, 0.06);
+  border-radius: 2px;
+  opacity: 0;
+  -webkit-transition: opacity .15s ease;
+  transition: opacity .15s ease;
+}
+
+.library-widget-thumbnail img {
+  max-width: 100%;
+  max-height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.library-widget-thumbnail:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+#b-control-elements div {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+:focus {
+  outline: 0;
+  outline: none;
+  outline-style: none;
+  outline-color: transparent;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
+}
 
 .collapsible {
   background-color: #777;
@@ -363,12 +469,13 @@ img{border:0;}
   font-size: 15px;
 }
 
-.active, .collapsible:hover {
+.active,
+.collapsible:hover {
   background-color: #2C3B41;
 
 }
 
-.panel{
+.panel {
   padding: 0;
   display: none;
   overflow: hidden;
@@ -389,7 +496,7 @@ button.__item {
   display: inline-block;
   text-align: center;
   width: 50px;
- 
+
 }
 
 .caption {
@@ -397,28 +504,28 @@ button.__item {
   font-size: 11px;
 }
 
-.s320{
+.s320 {
   width: 320px !important;
   margin: auto !important;
- 
+
 }
 
-.s480{
+.s480 {
   width: 480px !important;
   margin: auto !important;
 }
 
-.s768{
+.s768 {
   width: 768px !important;
   margin: auto !important;
 }
 
-.s1366{
+.s1366 {
   width: 1366px !important;
   margin: auto !important;
 }
 
-.s1920{
+.s1920 {
   width: 1920px !important;
   margin: auto !important;
 }

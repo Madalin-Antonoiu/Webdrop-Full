@@ -1,109 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Webdrop - FULL </title>
-    <link rel="stylesheet" href="./CSS/style.css" />
-    <link id="style1" rel="stylesheet" href="./CSS/minime.css" /> <!--If you set up  ./CSS/empty.css as default, it will start big menu first-->
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"/>
-  </head>
 
-  <body>
-    <nav id="myNav">
-      <div id="left_part" class="centerme column1_mini textCenter">
-        <i class="fas fa-tint"><span id="logotext" class="displayNone">Webdrop</span></i>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Webdrop - FULL </title>
+  <link rel="stylesheet" href="./CSS/style.css" />
+  <link id="style1" rel="stylesheet" href="./CSS/minime.css" />
+  <!--If you set up  ./CSS/empty.css as default, it will start big menu first-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
+</head>
 
-      <div id="right_part">
-        <i id="burger" onclick="columnOne()" class="fas fa-bars"></i>
-        <!--<i onclick="themator()" class="fas fa-cog themator">Theme</i>-->
+<body>
+  <nav id="myNav">
+    <div id="left_part" class="centerme column1_mini textCenter">
+      <i class="fas fa-tint"><span id="logotext" class="displayNone">Webdrop</span></i>
+    </div>
 
-       <i onclick="hide_leftmenu()" class="fas fa-chevron-left hide_leftmenu"></i>
-       <i onclick="hide_rightmenu()" class="fas fa-chevron-right hide_rightmenu"></i>
-      </div>
-    
+    <div id="right_part">
+      <i id="burger" onclick="columnOne()" class="fas fa-bars"></i>
+      <!--<i onclick="themator()" class="fas fa-cog themator">Theme</i>-->
+
+      <i onclick="hide_leftmenu()" class="fas fa-chevron-left hide_leftmenu"></i>
+      <i onclick="hide_rightmenu()" class="fas fa-chevron-right hide_rightmenu"></i>
+    </div>
+
     <!--Leaving this here for now -->
-    <div id="resize_bar" style=" position: absolute; text-align: center; margin-left: 300px; width: 900px;  z-index: 9;  text-align: center;  ">
+    <div id="resize_bar"
+      style=" position: absolute; text-align: center; margin-left: 300px; width: 900px;  z-index: 9;  text-align: center;  ">
       <div style="margin: 0 auto; display: inline-block; height: 45px;">
-        
+
         <button class="__item" onclick=" s320()">
-            <i class="fas fa-mobile-alt"></i>
-            <span class="caption">320px</span>
+          <i class="fas fa-mobile-alt"></i>
+          <span class="caption">320px</span>
         </button>
 
         <button class="__item" onclick=" s480()">
-            <i class="fas fa-mobile-alt fa-rotate-90" ></i>
-            <span class="caption">480px</span>
+          <i class="fas fa-mobile-alt fa-rotate-90"></i>
+          <span class="caption">480px</span>
         </button>
 
         <button class="__item" onclick=" s768()">
-            <i class="fas fa-tablet-alt"></i>
-            <span class="caption">768px</span>
+          <i class="fas fa-tablet-alt"></i>
+          <span class="caption">768px</span>
         </button>
 
         <button class="__item" onclick=" s1366()">
-            <i class="fas fa-laptop"></i>
-            <span class="caption">1366px</span>
-        </button>
-      
-        <button class="__item" onclick=" s1920()">
-            <i class="fas fa-desktop"></i>
-            <span class="caption">1920px</span>
+          <i class="fas fa-laptop"></i>
+          <span class="caption">1366px</span>
         </button>
 
         <button class="__item" onclick=" s1920()">
-            <i class="fas fa-desktop"></i>
-            <span class="caption">Drag</span>
+          <i class="fas fa-desktop"></i>
+          <span class="caption">1920px</span>
+        </button>
+
+        <button class="__item" onclick=" s1920()">
+          <i class="fas fa-desktop"></i>
+          <span class="caption">Drag</span>
         </button>
       </div>
-      </div>
-   
-    </nav>
+    </div>
 
-    <div class="row">
-      
-      <div id="column1" class="column1_mini">
-        <!-- Snippet : Ul inside Col1-->
-        <ul id="sidebar_menu">
+  </nav>
 
-          <!--Proper accordion yay!-->
-            <li data="Basic Elem">
-                <div id="parent" class="accordion dd-button centerme textCenter">
-                    <i class="fas fa-th-list"></i><span id="logotext" class="displayNoneB">Basic Elem</span>
-                </div>
-      
-              <div class="panel"> 
-                <!--Hidden under accordion-->
-                <ul class="dd-menu">
-                  
-                    <input type="text" id="myInput" onkeyup="instantSearch()" placeholder="Search for components.." title="Type in a component" style="width: 100%;">
-               
+  <div class="row">
 
-                    <ul id="myUL">
+    <div id="column1" class="column1_mini">
+      <!-- Snippet : Ul inside Col1-->
+      <ul id="sidebar_menu">
 
-                      <li><h4>Container ✔️</h4>
-                          
-                        <div class="col-min">
-                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+        <!--Proper accordion yay!-->
+        <li data="Basic Elem">
+          <div id="parent" class="accordion dd-button centerme textCenter">
+            <i class="fas fa-th-list"></i><span id="logotext" class="displayNoneB">Basic Elem</span>
+          </div>
+
+          <div class="panel">
+            <!--Hidden under accordion-->
+            <ul class="dd-menu">
+
+              <input type="text" id="myInput" onkeyup="instantSearch()" placeholder="Search for components.."
+                title="Type in a component" style="width: 100%;">
+
+
+              <ul id="myUL">
+
+                <li>
+                  <h5>Container ✔️</h5>
+
+                  <div class="col-min">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
       
                           <div class="container __placeholder" style="margin-top:15px;">
                           </div>
                           '>
-                          <img src="/IMG/components/center-container.svg">
-      
-                          </div>
-                          <span class="search_me"><p>Container</p></span>
-                        </div>
-      
-                        <br style="clear:both;"/>
-                      </li>
-      
-                      <li><h4>Grid ✔️ </h4>
-      
-                        <div class="col-min">
-                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                      <img src="/IMG/components/center-container.svg">
+
+                    </div>
+                    <span class="search_me">
+                      <p>Container</p>
+                    </span>
+                  </div>
+
+                  <br style="clear:both;" />
+                </li>
+
+                <li>
+                  <h5>Grid ✔️ </h5>
+
+                  <div class="col-min">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                          
                           <div class="container __placeholder" data-myattribute="unDouex" style="margin-top:15px;">
                               <div class="row">
                                 <div class="col-sm">
@@ -119,14 +128,16 @@
                               </div>
                             </div>
                           '>
-                          <img src="/IMG/components/column-2.svg">
-                        
-                          </div>
-                          <span class="search_me"><p>Two column grid</p></span>
-                        </div>
-      
-                        <div class="col-min __ml">
-                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                      <img src="/IMG/components/column-2.svg">
+
+                    </div>
+                    <span class="search_me">
+                      <p>Two column grid</p>
+                    </span>
+                  </div>
+
+                  <div class="col-min __ml">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="container __placeholder" style="margin-top:15px;">
                               <div class="row">
                                 <div class="col-sm">
@@ -147,14 +158,16 @@
                               </div>
                             </div>
                           '>
-                          <img src="/IMG/components/column-3.svg">
-      
-                          </div>
-                          <span class="search_me"><p>Three columns grid</p></span>
-                        </div>
+                      <img src="/IMG/components/column-3.svg">
 
-                        <div class="col-min">
-                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                    </div>
+                    <span class="search_me">
+                      <p>Three columns grid</p>
+                    </span>
+                  </div>
+
+                  <div class="col-min">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="container __placeholder" style="margin-top:15px;">
                               <div class="row">
                                 <div class="col-6">
@@ -175,32 +188,37 @@
                               </div>
                             </div>
                           '>
-                          <img src="/IMG/components/grid-uneven.svg">
-      
-                          </div>
-                          <span class="search_me"><p>Uneven grid</p></span>
-                        </div>
-      
-                        <br style="clear:both;"/>
-                      </li>
-      
-                      <li><h4>Image ✔️</h4>
-      
-                        <div class="col-min" style> 
-                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                      <img src="/IMG/components/grid-uneven.svg">
+
+                    </div>
+                    <span class="search_me">
+                      <p>Uneven grid</p>
+                    </span>
+                  </div>
+
+                  <br style="clear:both;" />
+                </li>
+
+                <li>
+                  <h5>Image ✔️</h5>
+
+                  <div class="col-min" style>
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
       
                           <div class="container __placeholder" style="margin-top: 15px;">
                             <img id="__upload" src="/IMG/components/img.svg" style="height:192px;">
                           </div>
                           '>
-                          <img src="/IMG/components/img_notext.svg">
-      
-                          </div>
-                          <span class="search_me"><p>image</p></span>
-                        </div>
-      
-                        <div class="col-min __ml">
-                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                      <img src="/IMG/components/img_notext.svg">
+
+                    </div>
+                    <span class="search_me">
+                      <p>image</p>
+                    </span>
+                  </div>
+
+                  <div class="col-min __ml">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
       
                           <div class="container __placeholder">
                             <img src="/IMG/components/img.svg" style="height:85px;">
@@ -210,19 +228,22 @@
       
                           </div>
                           '>
-                          <img src="">
-      
-                          </div>
-                          <span class="search_me"><p>SVG ❌</p></span>
-                        
-                        </div>
-      
-                        <br style="clear:both;"/>
-                      </li>   
-      
-                      <li><h4>Video ✔️</h4>
-      
-                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                      <img src="">
+
+                    </div>
+                    <span class="search_me">
+                      <p>SVG ❌</p>
+                    </span>
+
+                  </div>
+
+                  <br style="clear:both;" />
+                </li>
+
+                <li>
+                  <h5>Video ✔️</h5>
+
+                  <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
       
                         <div class="container" style="margin-top: 15px;">
                             <div class="videoWrapper">
@@ -230,33 +251,39 @@
                             </div>
                         </div>
                         '>
-                        <img src="/IMG/components/ytb.svg">
-      
-                        </div>
-                        <span class="search_me"><p>Youtube video</p></span>
-      
-                      </li>   
-      
-                      <li><h4>Text ✔️</h4>
-      
-                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                    <img src="/IMG/components/ytb.svg">
+
+                  </div>
+                  <span class="search_me">
+                    <p>Youtube video</p>
+                  </span>
+
+                </li>
+
+                <li>
+                  <h5>Text ✔️</h5>
+
+                  <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
       
                         <div class="container" style="margin-top: 15px;">
                           <h4>Headline Four</h4>
                           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, debitis pariatur? Animi commodi iusto autem veritatis minima consequuntur hic amet possimus similique quis, odit nemo saepe eaque, asperiores dolor? Delectus?Laudantium consectetur eligendi alias, doloremque nam ipsam? Eligendi possimus molestiae est corrupti consequuntur corporis sequi exercitationem illo, ut cumque beatae commodi soluta voluptatibus totam optio ullam sint consectetur cupiditate in!</p>
                         </div>
                         '>
-                        <img src="/IMG/components/text.svg">
-                        
-                        </div>
-                        <span class="search_me"><p>Text block</p></span>
-      
-                      </li>
+                    <img src="/IMG/components/text.svg">
 
-                      <li><h4>Slideshows </h4>
+                  </div>
+                  <span class="search_me">
+                    <p>Text block</p>
+                  </span>
 
-                        <div class="col-min">
-                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                </li>
+
+                <li>
+                  <h5>Slideshows </h5>
+
+                  <div class="col-min">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="wrapper">
                               <input checked type=radio name="slider" id="slide1" />
                               <input type=radio name="slider" id="slide2" />
@@ -321,23 +348,26 @@
               
                         
                           '>
-                          <img src="/IMG/components/">
-        
-                          </div>
-                          <span class="search_me"><p>Responsive Css Slider</p></span>
+                      <img src="/IMG/components/">
 
-                        </div>
-                        
+                    </div>
+                    <span class="search_me">
+                      <p>Responsive Css Slider</p>
+                    </span>
+
+                  </div>
 
 
-                        <br style="clear:both;"/>
 
-                      </li>
+                  <br style="clear:both;" />
 
-                      <li><h4>2 columns ✔️</h4>
-      
-                        <div class="col-min">
-                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                </li>
+
+                <li>
+                  <h5>2 columns ✔️</h5>
+
+                  <div class="col-min">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="container __placeholder" data-myattribute="unDouex">
                               <div class="row">
                                 <div class="col-sm">
@@ -361,15 +391,17 @@
                               </div>
                             </div>
                           '>
-                          <img src="/IMG/components/two-col-img-text.svg">
-                        
-                          </div>
-                          <span class="search_me"><p>2 Col Img & Text</p></span>
+                      <img src="/IMG/components/two-col-img-text.svg">
 
-                        </div>
-      
-                        <div class="col-min __ml">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                    </div>
+                    <span class="search_me">
+                      <p>2 Col Img & Text</p>
+                    </span>
+
+                  </div>
+
+                  <div class="col-min __ml">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="container __placeholder" data-myattribute="unDouex">
                                 <div class="row">
                                   <div class="col-sm">
@@ -389,15 +421,17 @@
                                 </div>
                               </div>
                             '>
-                            <img src="/IMG/components/img-text-2col.svg">
-                          
-                            </div>
-                            <span class="search_me"><p>2 Col Img & Text</p></span>
+                      <img src="/IMG/components/img-text-2col.svg">
 
-                        </div>
+                    </div>
+                    <span class="search_me">
+                      <p>2 Col Img & Text</p>
+                    </span>
 
-                        <div class="col-min ">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                  </div>
+
+                  <div class="col-min ">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="container __placeholder" data-myattribute="unDouex">
                                 <div class="row">
 
@@ -415,15 +449,17 @@
                                 </div>
                               </div>
                             '>
-                            <img src="/IMG/components/text-img-2-col.svg">
-                          
-                            </div>
-                            <span class="search_me"><p>Text & Image 2 Col</p></span>
+                      <img src="/IMG/components/text-img-2-col.svg">
 
-                        </div>
+                    </div>
+                    <span class="search_me">
+                      <p>Text & Image 2 Col</p>
+                    </span>
 
-                        <div class="col-min __ml">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                  </div>
+
+                  <div class="col-min __ml">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="container __placeholder" data-myattribute="unDouex" margin-top: 15px;>
                                 <div class="row">
                                   <h1 style="padding-left: 15px; padding-bottom: 15px;">Header One</h1>
@@ -445,19 +481,22 @@
                                 </div>
                               </div>
                             '>
-                            <img src="/IMG/components/header-two-col-text.svg">
-                          
-                            </div>
-                            <span class="search_me"><p>Header 2 Col Text</p></span>
-                        </div>
-      
-                        <br style="clear:both;"/>
-                      </li>
+                      <img src="/IMG/components/header-two-col-text.svg">
 
-                      <li><h4>3 columns ✔️</h4>
-      
-                        <div class="col-min">
-                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                    </div>
+                    <span class="search_me">
+                      <p>Header 2 Col Text</p>
+                    </span>
+                  </div>
+
+                  <br style="clear:both;" />
+                </li>
+
+                <li>
+                  <h5>3 columns ✔️</h5>
+
+                  <div class="col-min">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="container __placeholder" data-myattribute="unDouex">
                               <div class="row">
                                 <div class="col-sm">
@@ -490,15 +529,17 @@
                               </div>
                             </div>
                           '>
-                          <img src="/IMG/components/three-col-img-text.svg">
-                        
-                          </div>
-                          <span class="search_me"><p>3 Col Image & Text</p></span>
-              
-                        </div>
+                      <img src="/IMG/components/three-col-img-text.svg">
 
-                        <div class="col-min __ml">
-                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                    </div>
+                    <span class="search_me">
+                      <p>3 Col Image & Text</p>
+                    </span>
+
+                  </div>
+
+                  <div class="col-min __ml">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="container __placeholder" data-myattribute="unDouex" style="padding-top:15px; padding-bottom: 15px;">
                               <div class="row">
                                 <div class="col-sm">
@@ -529,21 +570,24 @@
                                 </div>
                             </div>
                           '>
-                          <img src="/IMG/components/gallery.svg">
-                        
-                          </div>
-                          <span class="search_me"><p>Gallery</p></span>
+                      <img src="/IMG/components/gallery.svg">
 
-                        </div>
-      
+                    </div>
+                    <span class="search_me">
+                      <p>Gallery</p>
+                    </span>
 
-                        <br style="clear:both;"/>
-                      </li>
+                  </div>
 
-                      <li><h4>4 columns ✔️ </h4>
-      
-                        <div class="col-min">
-                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+
+                  <br style="clear:both;" />
+                </li>
+
+                <li>
+                  <h5>4 columns ✔️ </h5>
+
+                  <div class="col-min">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="container __placeholder" data-myattribute="unDouex" style="margin-top: 15px;">
                               <div class="row">
                                 <div class="col-sm">
@@ -585,15 +629,17 @@
                               </div>
                             </div>
                           '>
-                          <img src="/IMG/components/4-col.svg">
-                        
-                          </div>
-                          <span class="search_me"><p>4 Col Image & Text</p></span>
+                      <img src="/IMG/components/4-col.svg">
 
-                        </div>
-      
-                        <div class="col-min __ml">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                    </div>
+                    <span class="search_me">
+                      <p>4 Col Image & Text</p>
+                    </span>
+
+                  </div>
+
+                  <div class="col-min __ml">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="container __placeholder" data-myattribute="unDouex" style="margin-top: 15px;">
                                 <div class="row">
                                     <div class="col-sm">
@@ -643,20 +689,23 @@
                                 </div>
                               </div>
                             '>
-                            <img src="/IMG/components/header1-4col.svg">
-                          
-                            </div>
-                            <span class="search_me"><p>Header & 4 Col</p></span>
-  
-                        </div>
+                      <img src="/IMG/components/header1-4col.svg">
 
-                        <br style="clear:both;"/>
-                      </li>
+                    </div>
+                    <span class="search_me">
+                      <p>Header & 4 Col</p>
+                    </span>
 
-                      <li><h4>Forms ✔️</h4>
-                        
-                        <div class="col-min">
-                          <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                  </div>
+
+                  <br style="clear:both;" />
+                </li>
+
+                <li>
+                  <h5>Forms ✔️</h5>
+
+                  <div class="col-min">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
         
                           <div class="container" style="margin-top: 15px;">
 
@@ -675,14 +724,16 @@
 
                           </div>
                           '>
-                          <img src="/IMG/components/form-1.svg">
-        
-                          </div>
-                          <span class="search_me"><p>Inline Form</p></span>
-                        </div>
+                      <img src="/IMG/components/form-1.svg">
 
-                        <div class="col-min __ml">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                    </div>
+                    <span class="search_me">
+                      <p>Inline Form</p>
+                    </span>
+                  </div>
+
+                  <div class="col-min __ml">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
           
                             <div class="container" style="margin-top: 15px; ">
     
@@ -707,15 +758,17 @@
     
                             </div>
                             '>
-                            <img src="/IMG/components/form-2.svg">
-          
-                            </div>
-                            <span class="search_me"><p>Block Form</p></span>
+                      <img src="/IMG/components/form-2.svg">
 
-                        </div>
+                    </div>
+                    <span class="search_me">
+                      <p>Block Form</p>
+                    </span>
 
-                        <div class="col-min">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                  </div>
+
+                  <div class="col-min">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
                                   <span class="anchor" id="formLogin"></span> 
@@ -749,14 +802,16 @@
                               </div>
                             </div>
                             '>
-                            <img src="/IMG/components/login-form.svg">
-          
-                            </div>
-                            <span class="search_me"><p>Login Form</p></span>
-                        </div>
+                      <img src="/IMG/components/login-form.svg">
 
-                        <div class="col-min __ml">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                    </div>
+                    <span class="search_me">
+                      <p>Login Form</p>
+                    </span>
+                  </div>
+
+                  <div class="col-min __ml">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
                                   <span class="anchor" id="formRegister"></span>
@@ -793,15 +848,17 @@
                                 </div>
                               </div>
                             '>
-                            <img src="/IMG/components/Sign-up.svg">
-          
-                            </div>
-                            <span class="search_me"><p>Sign-Up Form</p></span>
+                      <img src="/IMG/components/Sign-up.svg">
 
-                        </div>
+                    </div>
+                    <span class="search_me">
+                      <p>Sign-Up Form</p>
+                    </span>
 
-                        <div class="col-min">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                  </div>
+
+                  <div class="col-min">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
                                   <span class="anchor" id="formChangePassword"></span>
@@ -836,15 +893,17 @@
                                 </div>
                               </div>
                             '>
-                            <img src="/IMG/components/">
-          
-                            </div>
-                            <span class="search_me"><p>Change Password</p></span>
+                      <img src="/IMG/components/">
 
-                        </div>
+                    </div>
+                    <span class="search_me">
+                      <p>Change Password</p>
+                    </span>
 
-                        <div class="col-min __ml">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                  </div>
+
+                  <div class="col-min __ml">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
@@ -872,14 +931,16 @@
                               </div>
 
                             '>
-                            <img src="/IMG/components/">
-          
-                            </div>
-                            <span class="search_me"><p>Password Reset</p></span>
-                        </div>
+                      <img src="/IMG/components/">
 
-                        <div class="col-min">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                    </div>
+                    <span class="search_me">
+                      <p>Password Reset</p>
+                    </span>
+                  </div>
+
+                  <div class="col-min">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="row justify-content-center" style="margin-top: 15px;">
                                 <div class="col-md-6">
                                   <span class="anchor" id="formPayment"></span>
@@ -1010,14 +1071,16 @@
                                 </div>
                             </div>
                             '>
-                            <img src="/IMG/components/">
-          
-                            </div>
-                            <span class="search_me"><p>Card Payment</p></span>
-                        </div>
+                      <img src="/IMG/components/">
 
-                        <div class="col-min __ml">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                    </div>
+                    <span class="search_me">
+                      <p>Card Payment</p>
+                    </span>
+                  </div>
+
+                  <div class="col-min __ml">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="row justify-content-center" style="margin-top: 15px;">
                                 <div class="col-md-6 sm-12">
                                   <span class="anchor" id="formContact"></span>
@@ -1056,437 +1119,698 @@
                                 </div><!--/col-->
                               </div>
                             '>
-                            <img src="/IMG/components/">
-          
-                            </div>
-                            <span class="search_me"><p>Contact Form</p></span>
-                        </div>
+                      <img src="/IMG/components/">
+
+                    </div>
+                    <span class="search_me">
+                      <p>Contact Form</p>
+                    </span>
+                  </div>
 
 
-                        <br style="clear:both;"/>
+                  <br style="clear:both;" />
 
-                      </li>
+                </li>
 
-                      <li><h4>HTML ❌</h4>
-      
-                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                <li>
+                  <h5>HTML ❌</h5>
+
+                  <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
         
                         <div class="container __placeholder">
         
                         </div>
                         '>
-                        <img src="">
-        
-                        </div>
-                        <span class="search_me"><p>Custom HTML</p></span>
-        
-                      </li>   
+                    <img src="">
 
-                      
+                  </div>
+                  <span class="search_me">
+                    <p>Custom HTML</p>
+                  </span>
 
-                    </ul>
-                </ul>
-              </div>
+                </li>
 
-            
-            </li>
-      
-            <li data="Ready-Made">
-              <div class="dd-button centerme accordion textCenter">
-                  <i class="fas fa-puzzle-piece"></i><span id="logotext" class="displayNoneB">Ready-Made</span>
-                </div>
 
-              <div class="panel">
 
-                  <ul class="dd-menu">
-
-                      <input type="text" id="myInput" onkeyup="instantSearch()" placeholder="Search for components.." title="Type in a component" style="width: 100%;">
-
-                      <ul id="myUL">
-
-                        <li><h4>Navigation ✔️  </h4>
-                          <!--You can do navbar-expand-lg aswel-->
-                          <div class="col-min">
-
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
-                            <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
-                              <a class="navbar-brand" href="#">Expand at xl</a>
-                              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation">
-                                  <span class="navbar-toggler-icon"></span>
-                              </button>
-                          
-                              <div class="collapse navbar-collapse" id="navbarSupportedContentXL">
-                                  <ul class="navbar-nav mr-auto">
-                                      <li class="nav-item active">
-                                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                                      </li>
-                                      <li class="nav-item">
-                                          <a class="nav-link" href="#">Link</a>
-                                      </li>
-                                      <li class="nav-item dropdown">
-                                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownXL" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              Dropdown
-                                          </a>
-                                          <div class="dropdown-menu" aria-labelledby="navbarDropdownXL">
-                                              <a class="dropdown-item" href="#">Action</a>
-                                              <a class="dropdown-item" href="#">Another action</a>
-                                              <div class="dropdown-divider"></div>
-                                              <a class="dropdown-item" href="#">Something else here</a>
-                                          </div>
-                                      </li>
-                                      <li class="nav-item">
-                                          <a class="nav-link disabled" href="#">Disabled</a>
-                                      </li>
-                                  </ul>
-                                  <form class="form-inline my-2 my-lg-0">
-                                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                      <button class="btn btn-secondary btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-                                  </form>
-                              </div>
-                          </nav>
-
-                            '>
-                            <img src="/IMG/components/">
-                          
-                            </div>
-                            <span class="search_me"><p>Nav expand xl</p></span>
-
-                          </div>
-        
-                          <div class="col-min __ml">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
-                            <nav class="navbar navbar-dark bg-success">
-                              <a class="navbar-brand" href="#">Never expand</a>
-                              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentNV" aria-controls="navbarSupportedContentNV" aria-expanded="false" aria-label="Toggle navigation">
-                                  <span class="navbar-toggler-icon"></span>
-                              </button>
-                          
-                              <div class="collapse navbar-collapse" id="navbarSupportedContentNV">
-                                  <ul class="navbar-nav mr-auto">
-                                      <li class="nav-item active">
-                                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                                      </li>
-                                      <li class="nav-item">
-                                          <a class="nav-link" href="#">Link</a>
-                                      </li>
-                                      <li class="nav-item dropdown">
-                                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNV" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              Dropdown
-                                          </a>
-                                          <div class="dropdown-menu" aria-labelledby="navbarDropdownNV">
-                                              <a class="dropdown-item" href="#">Action</a>
-                                              <a class="dropdown-item" href="#">Another action</a>
-                                              <div class="dropdown-divider"></div>
-                                              <a class="dropdown-item" href="#">Something else here</a>
-                                          </div>
-                                      </li>
-                                      <li class="nav-item">
-                                          <a class="nav-link disabled" href="#">Disabled</a>
-                                      </li>
-                                  </ul>
-                                  <form class="form-inline my-2 my-lg-0">
-                                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                                      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-                                  </form>
-                              </div>
-                          </nav>
-                          
-                            '>
-                            <img src="/IMG/components/Nav_noexpand.svg">
-        
-                            </div>
-                            <span class="search_me"><p>Nav never expand</p></span>
-                          </div>
-        
-                          <br style="clear:both;"/>
-                        </li>
-
-                        <li><h4>Header </h4>
-                          <!--You can do navbar-expand-lg aswel-->
-                          <div class="col-min">
-                        
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
-                              <div class="jumbotron">
-                                  <h1 class="display-3">Hello, world!</h1>
-                                  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                                  <hr class="my-2">
-                                  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                                  <p class="lead">
-                                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                                  </p>
-                              </div>
-                            '>  
-                              <img src="/IMG/components/">
-                        
-                            </div>
-                            <span class="search_me">
-                              <p>Jumbotron</p>
-                            </span>
-                        
-                          </div>
-                        
-                          <div class="col-min __ml">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
-                              <main>
-
-    <div class="view jarallax" style="height: 100vh;">
-      <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Others/img%20%2844%29.jpg" alt="">
-      <div class="mask rgba-blue-slight">
-        <div class="container flex-center text-center">
-          <div class="row mt-5">
-            <div class="col-md-12 col-xl-8 mx-auto wow fadeIn">
-              <h1 class="display-3 font-weight-bold mb-2 wow fadeInDown" data-wow-delay="0.3s">Parallax image with a mask and a content</h1>
-            </div>
+              </ul>
+            </ul>
           </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="container">
 
-      <!--Grid row-->
-      <div class="row my-5 py-4">
+        </li>
 
-        <!--Grid column-->
-        <div class="col-md-12 text-center">
 
-          <p align="justify">Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime.</p>
+        <li data="Ready-Made">
+          <div class="dd-button centerme accordion textCenter">
+            <i class="fas fa-puzzle-piece"></i><span id="logotext" class="displayNoneB">Ready-Made</span>
+          </div>
 
-          <p class="mb-0" align="justify">Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime.</p>
+          <div class="panel">
 
-        </div>
-        <!--Grid column-->
+            <ul class="dd-menu">
 
-      </div>
-      <!--Grid row-->
+              <input type="text" id="myInput" onkeyup="instantSearch()" placeholder="Search for components.."
+                title="Type in a component" style="width: 100%;">
 
-    </div>
+              <ul id="myUL">
 
-    <div class="view jarallax">
-      <img class="jarallax-img" src="http://mdbootstrap.com/img/Photos/Others/nature4.jpg" alt="">
-    </div>
+                <li>
+                  <h5 style="margin-top: 10px;">Navigation ✔️ </h5>
+                  <!--You can do navbar-expand-lg aswel-->
+                  <div class="col-min">
 
-    <div class="container">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                              <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+                                <a class="navbar-brand" href="#">Expand at xl</a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            
+                                <div class="collapse navbar-collapse" id="navbarSupportedContentXL">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Link</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownXL" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Dropdown
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownXL">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="#">Disabled</a>
+                                        </li>
+                                    </ul>
+                                    <form class="form-inline my-2 my-lg-0">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                        <button class="btn btn-secondary btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                                    </form>
+                                </div>
+                            </nav>
 
-      <!-- Grid row -->
-      <div class="row">
+                              '>
+                      <img src="/IMG/components/">
 
-        <!-- Grid column -->
-        <div class="col-md-12 text-center">
+                    </div>
+                    <span class="search_me">
+                      <p>Nav expand xl</p>
+                    </span>
 
-          <h2 class="h1 font-weight-bold indigo-text my-5 py-4">Different parallax speed</h2>
+                  </div>
 
-        </div>
-        <!-- Grid column -->
+                  <div class="col-min __ml">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                              <nav class="navbar navbar-dark bg-success">
+                                <a class="navbar-brand" href="#">Never expand</a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentNV" aria-controls="navbarSupportedContentNV" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            
+                                <div class="collapse navbar-collapse" id="navbarSupportedContentNV">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Link</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNV" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Dropdown
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownNV">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="#">Disabled</a>
+                                        </li>
+                                    </ul>
+                                    <form class="form-inline my-2 my-lg-0">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                                    </form>
+                                </div>
+                            </nav>
+                            
+                              '>
+                      <img src="/IMG/components/Nav_noexpand.svg">
 
-      </div>
-      <!-- Grid row -->
+                    </div>
+                    <span class="search_me">
+                      <p>Nav never expand</p>
+                    </span>
+                  </div>
 
-    </div>
+                  <div class="col-min">
 
-    <div class="jarallax" data-speed="0.2">
-        <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Others/city13.jpg" alt="">
-    </div>
-    <div class="jarallax" data-speed="-0.2">
-        <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Others/images/92.jpg" alt="">
-    </div>
-    <div class="jarallax" data-speed="1.4">
-        <img class="jarallax-img" src="http://mdbootstrap.com/img/Photos/Others/city10.jpg" alt="">
-    </div>
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                              <nav class="navbar fixed-top navbar-expand-xl navbar-dark bg-dark">
+                                <a class="navbar-brand" href="#">Expand at xl</a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            
+                                <div class="collapse navbar-collapse" id="navbarSupportedContentXL">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item active">
+                                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#">Link</a>
+                                        </li>
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownXL" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Dropdown
+                                            </a>
+                                            <div class="dropdown-menu" aria-labelledby="navbarDropdownXL">
+                                                <a class="dropdown-item" href="#">Action</a>
+                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <div class="dropdown-divider"></div>
+                                                <a class="dropdown-item" href="#">Something else here</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link disabled" href="#">Disabled</a>
+                                        </li>
+                                    </ul>
+                                    <form class="form-inline my-2 my-lg-0">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                        <button class="btn btn-secondary btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                                    </form>
+                                </div>
+                            </nav>
 
-    <div class="container">
+                              '>
+                      <img src="/IMG/components/">
 
-      <!-- Grid row -->
-      <div class="row">
+                    </div>
+                    <span class="search_me">
+                      <!-- On a fixed top, next element can be 100vh, since this is out of normal flow-->
+                      <p>Fixed top expand xl</p>
+                    </span>
 
-        <!-- Grid column -->
-        <div class="col-md-12 text-center">
+                  </div>
 
-          <h2 class="h1 font-weight-bold pink-text my-5 py-4">Parallax &lt;img&gt; tag</h2>
+                  <br style="clear:both;" />
+                </li>
 
-        </div>
-        <!-- Grid column -->
+                <li>
+                  <h5>Header </h5>
+                  <!--You can do navbar-expand-lg aswel-->
+                  <div class="col-min">
+                    <!-- 100vh - 40px header size + 8px +8 px padding top and bottom - and remove bg padding = perfect-->
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                <div class="jumbotron" style="height: calc(100vh - 56px); margin-bottom: 0px;">
+                                    <h1 class="display-3">Hello, world!</h1>
+                                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                                    <hr class="my-2">
+                                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                                    <p class="lead">
+                                      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                                    </p>
+                                </div>
+                              '>
+                      <img src="/IMG/components/">
 
-      </div>
-      <!-- Grid row -->
+                    </div>
+                    <span class="search_me">
+                      <p>Jumbotron</p>
+                    </span>
 
-    </div>
+                  </div>
 
-    <div class="grey lighten-4">
+                  <div class="col-min __ml">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='  
+                      <div class="parallax-wrapper">
+                        <div class="background background--spring">
+                          <h2 class="title">Spring</h2>
+                        </div>
+                        <section class="season-desc">
+                          <div class="desc-wrapper">
+                            <h3 class="season--title">Spring</h3>
+                            <p class="season--about">Spring is one of the four conventional temperate seasons, following
+                              winter and preceding summer. There are various technical definitions of spring, but local
+                              usage of the term varies according to local climate, cultures and customs. When it is spring
+                              in the Northern Hemisphere, it is autumn in the Southern Hemisphere and vice versa. At the
+                              spring (or vernal) equinox, days and nights are approximately twelve hours long, with day
+                              length increasing and night length decreasing as the season progresses.</p>
+                          </div>
+                        </section>
+                        <div class="background background--summer">
+                          <h2 class="title">Summer</h2>
+                        </div>
+                        <section class="season-desc">
+                          <div class="desc-wrapper">
+                            <h3 class="season--title">Summer</h3>
+                            <p class="season--about">Summer is the hottest of the four temperate seasons, falling after
+                              spring and before autumn. At the summer solstice, the days are longest and the nights are
+                              shortest, with day-length decreasing as the season progresses after the solstice. The date
+                              of the beginning of summer varies according to climate, tradition, and culture. When it is
+                              summer in the Northern Hemisphere, it is winter in the Southern Hemisphere, and vice versa.
+                            </p>
+                          </div>
+                        </section>
+                        <div class="background background--fall">
+                          <h2 class="title">Autumn</h2>
+                        </div>
 
-      <div class="container pt-5">
-        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <section class="season-desc">
+                          <div class="desc-wrapper">
+                            <h3 class="season--title">Autumn</h3>
+                            <p class="season--about">Autumn, also known as fall in American English and sometimes in
+                              Canadian English,[1] is one of the four temperate seasons. Autumn marks the transition from
+                              summer to winter, in September (Northern Hemisphere) or March (Southern Hemisphere), when
+                              the duration of daylight becomes noticeably shorter and the temperature cools down
+                              considerably. One of its main features is the shedding of leaves from deciduous trees.</p>
+                          </div>
+                        </section>
+                        <div class="background background--winter">
+                          <h2 class="title">Winter</h2>
+                        </div>
+                        <section class="season-desc">
+                          <div class="desc-wrapper">
+                            <h3 class="season--title">Winter</h3>
+                            <p class="season--about">Winter is the coldest season of the year in polar and temperate zones
+                              (winter does not occur in most of the tropical zone). It occurs after autumn and before
+                              spring in each year. Winter is caused by the axis of the Earth in that hemisphere being
+                              oriented away from the Sun. Different cultures define different dates as the start of
+                              winter, and some use a definition based on weather. When it is winter in the Northern
+                              Hemisphere, it is summer in the Southern Hemisphere, and vice versa. In many regions, winter
+                              is associated with snow and freezing temperatures.</p>
+                          </div>
+                        </section>
+                      </div>
+                      '>
+                      <img src="/IMG/components/Nav_noexpand.svg">
 
-        <div class="jarallax-keep-img float-md-left mr-md-4 mb-4 mb-md-0" data-speed="0.5">
-            <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img (3).jpg" alt="" width="400">
-        </div>
+                    </div>
+                    <span class="search_me">
+                      <p>Parralax</p>
+                    </span>
+                  </div>
 
-        <p align="justify">"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+                  <div class="col-min">
+                    <!-- 100vh - 40px header size + 8px +8 px padding top and bottom - and remove bg padding = perfect-->
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                <div class="jumbotron bg-success" style="height: 100vh ; margin-bottom: 0px;">
+                                    <h1 class="display-3">Hello, world!</h1>
+                                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                                    <hr class="my-2">
+                                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                                    <p class="lead">
+                                      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                                    </p>
+                                </div>
+                              '>
+                      <img src="/IMG/components/">
 
-        <p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo dolor in reprehenderit amet.</p>
+                    </div>
+                    <span class="search_me">
+                      <p>Jumbotron 100vh trsf</p>
+                    </span>
 
-        <div class="jarallax-keep-img float-md-right ml-md-4 mb-4 mb-md-0" data-speed="0.8">
-            <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img (14).jpg" alt="" width="400">
-        </div>
+                  </div>
 
-        <p class="mb-0 pb-5" align="justify">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae. Agni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea quibusdam et voluptate velit esse quam nihil ex minus id quod.</p>
-      </div>
+                  <br style="clear:both;" />
+                </li>
 
-    </div>
+                <li>
+                  <h5>Content </h5>
+                  <!--You can do navbar-expand-lg aswel-->
+                  <div class="col-min">
 
-    <div class="container">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                          <div class="jumbotron">
+                              <h1 class="display-3">Hello, world!</h1>
+                              <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                              <hr class="my-2">
+                              <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                              <p class="lead">
+                                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                              </p>
+                          </div>
+                        '>
+                      <img src="/IMG/components/">
 
-      <!-- Grid row -->
-      <div class="row">
+                    </div>
+                    <span class="search_me">
+                      <p>Jumbotron</p>
+                    </span>
 
-        <!-- Grid column -->
-        <div class="col-md-12 text-center">
+                  </div>
 
-          <h2 class="h1 font-weight-bold cyan-text my-5 py-4">Youtube Vimeo and &lt;video&gt; parallax</h2>
+                  <div class="col-min __ml">
+                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+        <main>
 
-        </div>
-        <!-- Grid column -->
+  <div class="view jarallax" style="height: 100vh;">
+  <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Others/img%20%2844%29.jpg" alt="">
+  <div class="mask rgba-blue-slight">
+  <div class="container flex-center text-center">
+  <div class="row mt-5">
+  <div class="col-md-12 col-xl-8 mx-auto wow fadeIn">
+  <h1 class="display-3 font-weight-bold mb-2 wow fadeInDown" data-wow-delay="0.3s">Parallax image with a mask and a content</h1>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
 
-      </div>
-      <!-- Grid row -->
+  <div class="container">
 
-    </div>
+  <!--Grid row-->
+  <div class="row my-5 py-4">
 
-    <div class="jarallax" data-video-src="https://youtu.be/lugard7P0nw"></div>
-    <div class="jarallax" data-speed="0" data-video-src="mp4:video/animation-intro.mp4">
-        <img class="jarallax-img" src="" alt="">
-    </div>
-    <div class="jarallax" data-speed="1.2" data-video-src="https://player.vimeo.com/video/137857207"></div>
+  <!--Grid column-->
+  <div class="col-md-12 text-center">
 
-    <div class="container">
+  <p align="justify">Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime.</p>
 
-      <!--Grid row-->
-      <div class="row my-5 py-4">
+  <p class="mb-0" align="justify">Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime.</p>
 
-        <!--Grid column-->
-        <div class="col-md-12 text-center">
+  </div>
+  <!--Grid column-->
 
-          <p align="justify">Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime.</p>
+  </div>
+  <!--Grid row-->
 
-          <p class="mb-0" align="justify">Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime.</p>
+  </div>
 
-        </div>
-        <!--Grid column-->
+  <div class="view jarallax">
+  <img class="jarallax-img" src="http://mdbootstrap.com/img/Photos/Others/nature4.jpg" alt="">
+  </div>
 
-      </div>
-      <!--Grid row-->
+  <div class="container">
 
-    </div>
+  <!-- Grid row -->
+  <div class="row">
+
+  <!-- Grid column -->
+  <div class="col-md-12 text-center">
+
+  <h2 class="h1 font-weight-bold indigo-text my-5 py-4">Different parallax speed</h2>
+
+  </div>
+  <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+  </div>
+
+  <div class="jarallax" data-speed="0.2">
+  <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Others/city13.jpg" alt="">
+  </div>
+  <div class="jarallax" data-speed="-0.2">
+  <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Others/images/92.jpg" alt="">
+  </div>
+  <div class="jarallax" data-speed="1.4">
+  <img class="jarallax-img" src="http://mdbootstrap.com/img/Photos/Others/city10.jpg" alt="">
+  </div>
+
+  <div class="container">
+
+  <!-- Grid row -->
+  <div class="row">
+
+  <!-- Grid column -->
+  <div class="col-md-12 text-center">
+
+  <h2 class="h1 font-weight-bold pink-text my-5 py-4">Parallax &lt;img&gt; tag</h2>
+
+  </div>
+  <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+  </div>
+
+  <div class="grey lighten-4">
+
+  <div class="container pt-5">
+  <p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+  <div class="jarallax-keep-img float-md-left mr-md-4 mb-4 mb-md-0" data-speed="0.5">
+  <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img (3).jpg" alt="" width="400">
+  </div>
+
+  <p align="justify">"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+
+  <p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo dolor in reprehenderit amet.</p>
+
+  <div class="jarallax-keep-img float-md-right ml-md-4 mb-4 mb-md-0" data-speed="0.8">
+  <img class="jarallax-img" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img (14).jpg" alt="" width="400">
+  </div>
+
+  <p class="mb-0 pb-5" align="justify">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. Quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae. Agni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea quibusdam et voluptate velit esse quam nihil ex minus id quod.</p>
+  </div>
+
+  </div>
+
+  <div class="container">
+
+  <!-- Grid row -->
+  <div class="row">
+
+  <!-- Grid column -->
+  <div class="col-md-12 text-center">
+
+  <h2 class="h1 font-weight-bold cyan-text my-5 py-4">Youtube Vimeo and &lt;video&gt; parallax</h2>
+
+  </div>
+  <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+  </div>
+
+  <div class="jarallax" data-video-src="https://youtu.be/lugard7P0nw"></div>
+  <div class="jarallax" data-speed="0" data-video-src="mp4:video/animation-intro.mp4">
+  <img class="jarallax-img" src="" alt="">
+  </div>
+  <div class="jarallax" data-speed="1.2" data-video-src="https://player.vimeo.com/video/137857207"></div>
+
+  <div class="container">
+
+  <!--Grid row-->
+  <div class="row my-5 py-4">
+
+  <!--Grid column-->
+  <div class="col-md-12 text-center">
+
+  <p align="justify">Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime.</p>
+
+  <p class="mb-0" align="justify">Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime nesciunt possimus quis, soluta velit debitis amet, veritatis cupiditate reprehenderit.Lorem ipsum dolor sit amet, consectetur quis elit. Perspiciatis commodi porro, cumque provident rem corporis odit, ut quas dolores maxime.</p>
+
+  </div>
+  <!--Grid column-->
+
+  </div>
+  <!--Grid row-->
+
+  </div>
 
   </main>                     
-                            '>
-                              <img src="/IMG/components/Nav_noexpand.svg">
-                        
-                            </div>
-                            <span class="search_me">
-                              <p>Parralax</p>
-                            </span>
-                          </div>
-                        
-                          <br style="clear:both;" />
-                        </li>
+      '>
+                      <img src="/IMG/components/Nav_noexpand.svg">
+
+                    </div>
+                    <span class="search_me">
+                      <p>Parralax</p>
+                    </span>
+                  </div>
+
+                  <br style="clear:both;" />
+                </li>
+
+              </ul>
+
+            </ul>
+
+          </div>
+
+        </li>
 
 
-                        <li><h4>Alerts</h4>
-                          
-                          <div class="col-min">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
-                            <div class="alert alert-success" role="alert">
-                                A simple success alert—check it out!
-                              </div>
-              
-                              <div class="alert alert-danger" role="alert">
-                                A simple danger alert—check it out!
-                              </div>
-                              <div class="alert alert-info" role="alert">
-                                  A simple danger alert—check it out!
-                                </div>
-                            '>
-                            <img src="/IMG/components/cmp.svg">
-        
-                            </div><span class="search_me"><p>Basic alert</p></span>
-                          </div>
+        <template>
+          <li data="Fully-Done">
+            <div class="dd-button centerme accordion textCenter">
+              <i class="fas fa-cookie"></i><span id="logotext" class="displayNoneB">Fully-Done</span>
+            </div>
 
-                          <div class="col-min __ml">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                <strong>Holy guacamole!</strong> You should check in on some of those fields below.
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                            '>
-                            <img src="/IMG/components/cmp.svg">
-        
-                            </div><span class="search_me"><p>Dismissable alert</p></span>
-                          </div>
+            <div class="panel">
 
-                          <div class="col-min">
-                            <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
-                            <div class="alert alert-success" role="alert">
-                                <h4 class="alert-heading">Well done!</h4>
-                                <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-                                <hr>
-                                <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
-                            </div>
-                            '>
-                            <img src="/IMG/components/cmp.svg">
-        
-                            </div><span class="search_me"><p>Heading alert</p></span>
-                          </div>
+              <ul class="dd-menu">
 
-                        </li>
+                <input type="text" id="myInput" onkeyup="instantSearch()" placeholder="Search for components.."
+                  title="Type in a component" style="width: 100%;">
 
-                      </ul>
+                <ul id="myUL">
 
-                  </ul>
+                  <li>
+                    <h5 style="margin-top: 10px;">Navigation ✔️ </h5>
+                    <!--You can do navbar-expand-lg aswel-->
+                    <div class="col-min">
 
-              </div>
+                      <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                      <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+                        <a class="navbar-brand" href="#">Expand at xl</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    
+                        <div class="collapse navbar-collapse" id="navbarSupportedContentXL">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownXL" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownXL">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                            </ul>
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-secondary btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </nav>
 
-            </li>
+                      '>
+                        <img src="/IMG/components/">
 
-            <!--Bootstrap-->
-            <!--Icons -->
-            <!-- Images (Unsplash embeded)-->
+                      </div>
+                      <span class="search_me">
+                        <p>Nav expand xl</p>
+                      </span>
+
+                    </div>
+
+                    <div class="col-min __ml">
+                      <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                      <nav class="navbar navbar-dark bg-success">
+                        <a class="navbar-brand" href="#">Never expand</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentNV" aria-controls="navbarSupportedContentNV" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    
+                        <div class="collapse navbar-collapse" id="navbarSupportedContentNV">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Link</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownNV" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Dropdown
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownNV">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link disabled" href="#">Disabled</a>
+                                </li>
+                            </ul>
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </nav>
+                    
+                      '>
+                        <img src="/IMG/components/Nav_noexpand.svg">
+
+                      </div>
+                      <span class="search_me">
+                        <p>Nav never expand</p>
+                      </span>
+                    </div>
+
+                    <br style="clear:both;" />
+                  </li>
+
+
+
+                </ul>
+
+              </ul>
+
+            </div>
 
           </li>
+        </template>
+        <!--Bootstrap-->
 
-        </ul>
+        <!--Icons -->
+        <!-- Images (Unsplash embeded)-->
 
-         <!--End of snippet-->
-      </div>
+        </li>
 
-      <div id="column2">   
-        <iframe id="clientframe" src="./client/client.html" frameborder="0" onload="onLoadiframe()"></iframe>
-      </div>
+      </ul>
 
-      <!-- By just adding displayNone, it starts default closed, all functions working still-->
-      <div id="column3" class="displayNone">
-        <h3>Control Panel</h3>
-        <button class="panel_3" onclick=" gibMiData()"><i class="fas fa-download"></i>HTML/CSS</button>
-        <button class="panel_3" onclick='toggleEditIframe()'><i class="fas fa-edit"></i>iFrame</button>
-        <button class="panel_3" onclick='toggleOutlineAll()'>Outline</button>
-        <hr>
+      <!--End of snippet-->
+    </div>
 
-        <!-- 
+    <div id="column2">
+      <iframe id="clientframe" src="./client/client.html" frameborder="0" onload="onLoadiframe()"></iframe>
+    </div>
+
+    <!-- By just adding displayNone, it starts default closed, all functions working still-->
+    <div id="column3" class="displayNone">
+      <h3>Control Panel</h3>
+      <button class="panel_3" onclick=" gibMiData()"><i class="fas fa-download"></i>HTML/CSS</button>
+      <button class="panel_3" onclick='toggleEditIframe()'><i class="fas fa-edit"></i>iFrame</button>
+      <button class="panel_3" onclick='toggleOutlineAll()'>Outline</button>
+      <hr>
+
+      <!-- 
         <button type="button" id="muestra_abol">Muestra Arbol DOM</button>
         <div id="result"></div>
         <div id="myList"></div>
         -->
-      </div>
     </div>
+  </div>
 
-    <footer>
-      <span class="tooltiper" id="tooltip1">Hovered elements</span>
-      <span id="snackbar">Turning off/on</div>
+  <footer>
+    <span class="tooltiper" id="tooltip1">Hovered elements</span>
+    <span id="snackbar">Turning off/on</div>
 
       <i onclick="preview()" class="far fa-eye previ_ew"></i>
-    </footer>
+  </footer>
 
 
   <!--<script> //Dom Viewer
@@ -1532,12 +1856,13 @@
   </script>
 -->
 
-  <script> //To toggle dropdowns from Dom Viewer
+  <script>
+    //To toggle dropdowns from Dom Viewer
     var toggler = document.getElementsByClassName("caret");
     var i;
-    
+
     for (i = 0; i < toggler.length; i++) {
-      toggler[i].addEventListener("click", function() {
+      toggler[i].addEventListener("click", function () {
         this.parentElement.querySelector(".nested").classList.toggle("activelar");
         this.classList.toggle("caret-down");
       });
@@ -1548,40 +1873,38 @@
   <script>
     var acc = document.getElementsByClassName("accordion");
     var panel = document.getElementsByClassName('panel');
-    var col2= document.getElementById('column2');
+    var col2 = document.getElementById('column2');
 
     for (var i = 0; i < acc.length; i++) {
-        acc[i].onclick = function() {
-          var setClasses = !this.classList.contains('active');
-            setClass(acc, 'active', 'remove');
-            setClass(panel, 'show', 'remove');
-            
-            if (setClasses) {
-                this.classList.toggle("active");
-                this.nextElementSibling.classList.toggle("show");
-                /*Add the class when accordion is open*/
-                col2.classList.add("shrinkCol2");
-            } else {
-              /*Remove the class when accordion isn't open*/
-              col2.classList.remove("shrinkCol2");
-            }
-           
+      acc[i].onclick = function () {
+        var setClasses = !this.classList.contains('active');
+        setClass(acc, 'active', 'remove');
+        setClass(panel, 'show', 'remove');
+
+        if (setClasses) {
+          this.classList.toggle("active");
+          this.nextElementSibling.classList.toggle("show");
+          /*Add the class when accordion is open*/
+          col2.classList.add("shrinkCol2");
+        } else {
+          /*Remove the class when accordion isn't open*/
+          col2.classList.remove("shrinkCol2");
         }
+
+      }
     }
 
     function setClass(els, className, fnName) {
-        for (var i = 0; i < els.length; i++) {
-            els[i].classList[fnName](className);
-        }
+      for (var i = 0; i < els.length; i++) {
+        els[i].classList[fnName](className);
+      }
     }
   </script>
-
-  <!--For image upload(well, only src change for now)-->
 
 
   <script id="toggleJs" src="./JS/logic_script.js"></script>
   <script src="./JS/layout_script.js"></script>
-  </body>
-  
+</body>
+
 
 </html>
