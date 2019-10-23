@@ -333,6 +333,12 @@ a:active {
 /* END OF RESIZE*/
 
 
+.__outliner1{
+  outline: 2px solid red !important;
+  border-color: lime !important;
+  border: 2px solid violet !important;
+}
+
 
 /*** END - OTHER HELPERS ***/
 
@@ -529,6 +535,10 @@ img {
   text-align: left;
   outline: none;
   font-size: 15px;
+}
+
+.__selector1{
+  border: 2px solid red;
 }
 
 .active,

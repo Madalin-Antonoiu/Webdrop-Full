@@ -35,6 +35,12 @@ img {
   width: 100%;
 }
 
+.__selector1{
+  outline: 2px red solid;
+  outline-offset: -2px;
+}
+
+
 /*This needs to be inserted and removed via JS - via APPEND on hover*/
 .outline-dashed {
   outline: 2px dashed #595959;

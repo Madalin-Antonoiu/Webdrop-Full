@@ -3,6 +3,7 @@ var clientFrameWindow = document.getElementById('clientframe').contentWindow.doc
 //var placeholders = clientFrameWindow.getElementsByClassName('__placeholder');
 var droppables = document.getElementById("sidebar_menu");
 
+//Toggles Preview On/Of via ` 
 document.addEventListener("keydown", function (event) {
   if (event.keyCode == 192) { //192 is `
 
@@ -29,8 +30,7 @@ document.addEventListener("keydown", function (event) {
 
 
 }
-})
-
+});
 clientFrameWindow.addEventListener("keydown", function (event) {
   if (event.keyCode == 192) {
     nav = document.getElementById('myNav');
@@ -48,11 +48,12 @@ clientFrameWindow.addEventListener("keydown", function (event) {
     col2.classList.toggle("unshrinkCol2");
 
   }
-})
+});
 
 
 
-//If not doing on iFrame load, the addEventListeners will crash sometimes
+
+//If not doing on iFrame load, the addEventListeners will crash sometimes - Multiple AddEventListeners
 function onLoadiframe() {
   //Listeners
 
@@ -70,6 +71,7 @@ function onLoadiframe() {
   //1. dblclick event listener on the whole iFrame(or if you want, on a specific part/div)
   //2. the function which checks whether the double clicked element has the id given to img elements
 
+   //Dblclick on img tag to change image
   clientFrameWindow.body.addEventListener('dblclick', dblClick, false);
 
   function dblClick() {
@@ -90,7 +92,46 @@ function onLoadiframe() {
         event.srcElement.removeAttribute('class');
     };
   }
-  //
+
+
+  
+function toggleItem(elem) {
+  for (var i = 0; i < elem.length; i++) {
+    
+    elem[i].addEventListener("click", function(e) {
+      
+      var current = this;
+      
+      for (var i = 0; i < elem.length; i++) {
+        if (current != elem[i]) {
+          elem[i].classList.remove('__selector1');
+        } else if (current.classList.contains('__selector1') === true) {
+          current.classList.remove('__selector1');
+        } else {
+          current.classList.add('__selector1')
+        }
+      }
+      e.preventDefault();
+    });
+  };
+}
+
+toggleItem(clientFrameWindow.querySelectorAll('div, a, p, nav, span'));
+//toggleItem(document.body.querySelectorAll('*')); does all the elements, works on codePen
+
+
+  
+    /*WORKS
+    clientFrameWindow.body.addEventListener('click', classToggle, false);
+
+    function classToggle () {
+      event.srcElement.classList.toggle("__selector1");
+
+      if (event.srcElement.className == "")
+      event.srcElement.removeAttribute('class');
+    }
+
+  */
 
 
 
@@ -308,7 +349,7 @@ function onLoadiframe() {
 
 
 
-}
+};
 
 // Component Search - W3School Adapted https://www.w3schools.com/howto/howto_js_filter_lists.asp
 function instantSearch() {
@@ -341,7 +382,7 @@ function instantSearch() {
       span[i].parentNode.parentNode.style.display = "none";
     }
   }
-}
+};
 
 //Control Panel
 function toggleEditIframe() {
