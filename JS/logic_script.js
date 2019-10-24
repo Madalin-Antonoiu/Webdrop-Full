@@ -94,10 +94,7 @@ function onLoadiframe() {
   }
 
 
-  // Grab iFrame
-  //const listOfThings = document.getElementById('list')// here you specify WHERE to look for
-
-  // Add event listener + badge
+  // Outline on click + show nodeName badge
   clientFrameWindow.addEventListener("click", function(event) {
     let list = clientFrameWindow.querySelectorAll('*');// Grab all the li elements
     
@@ -111,7 +108,7 @@ function onLoadiframe() {
         badge.classList.add("show");// Shows the badge
         
       //Adds it as first child
-        event.target.prepend(badge);
+        event.target.parentNode.insertBefore(badge, event.target);
         
         /*Move it to cursor
           var x = event.clientX;

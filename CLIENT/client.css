@@ -38,17 +38,16 @@ img {
 /* Badge - my thing*/
 #tar_nodeName{
   visibility: hidden;
- background: green;
+ background: red;
  padding: 0 5px;
- font-size: 15px;
+ font-size: 12px;
  color: white;
  /*display: none;*/
  position: fixed;
- margin-top: -24px;
-  margin-left: -2px;
+ margin-top: -20px;
+ margin-left: -2px;
+ z-index: 999999;
 
- 
- z-index: 1;
 }
 .show{
   visibility: visible !important;
@@ -56,6 +55,8 @@ img {
 .active__u {
   transition: .15s;
   outline: 2px red solid;
+  outline-offset: -2px;
+  z-index: 999999;
 }
 
 /* END */
