@@ -94,30 +94,45 @@ function onLoadiframe() {
   }
 
 
-  
-function toggleItem(elem) {
-  for (var i = 0; i < elem.length; i++) {
-    
-    elem[i].addEventListener("click", function(e) {
-      
-      var current = this;
-      
-      for (var i = 0; i < elem.length; i++) {
-        if (current != elem[i]) {
-          elem[i].classList.remove('__selector1');
-        } else if (current.classList.contains('__selector1') === true) {
-          current.classList.remove('__selector1');
-        } else {
-          current.classList.add('__selector1')
-        }
-      }
-      e.preventDefault();
-    });
-  };
-}
+  // Grab iFrame
+  //const listOfThings = document.getElementById('list')// here you specify WHERE to look for
 
-toggleItem(clientFrameWindow.querySelectorAll('div, a, p, nav, span'));
-//toggleItem(document.body.querySelectorAll('*')); does all the elements, works on codePen
+  // Add event listener + badge
+  clientFrameWindow.addEventListener("click", function(event) {
+    let list = clientFrameWindow.querySelectorAll('*');// Grab all the li elements
+    
+    for (let i = 0; i < list.length; i++) {
+      if (event.target === list[i]) { // if my click target is the same as list item it goes through
+        
+        console.log(event.target.nodeName); //check console for what you click
+
+        var badge = clientFrameWindow.getElementById('tar_nodeName');
+        badge.innerHTML=(event.target.nodeName); //writes tarNodename into my div 
+        badge.classList.add("show");// Shows the badge
+        
+      //Adds it as first child
+        event.target.prepend(badge);
+        
+        /*Move it to cursor
+          var x = event.clientX;
+          var y = event.clientY;
+          badge.style.left = `${x}px`;
+          badge.style.top = `${y}px`; */
+        
+        if (event.target.classList !== 'active__u') { //if target doesn't have active on it
+          event.target.classList.add('active__u'); //add it
+        } else  {
+          //event.target.classList.remove("active"); //to be able to remove it on a second click
+          event.target.className != 'active__u'; //to not be able to
+        }
+      } else {
+        list[i].classList.remove("active__u");
+      }
+    }
+  })
+
+
+
 
 
   

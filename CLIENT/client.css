@@ -35,11 +35,30 @@ img {
   width: 100%;
 }
 
-.__selector1{
+/* Badge - my thing*/
+#tar_nodeName{
+  visibility: hidden;
+ background: green;
+ padding: 0 5px;
+ font-size: 15px;
+ color: white;
+ /*display: none;*/
+ position: fixed;
+ margin-top: -24px;
+  margin-left: -2px;
+
+ 
+ z-index: 1;
+}
+.show{
+  visibility: visible !important;
+}
+.active__u {
+  transition: .15s;
   outline: 2px red solid;
-  outline-offset: -2px;
 }
 
+/* END */
 
 /*This needs to be inserted and removed via JS - via APPEND on hover*/
 .outline-dashed {
