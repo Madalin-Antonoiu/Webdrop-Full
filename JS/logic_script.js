@@ -108,7 +108,8 @@ function onLoadiframe() {
         badge.classList.add("show");// Shows the badge
         
       //Adds it as first child
-        event.target.parentNode.insertBefore(badge, event.target);
+        event.target.parentNode.insertBefore(badge, event.target); // before clicked element
+        //event.target.parentNode.insertBefore(badge, event.target.nextSibling) // after clicked element
         
         /*Move it to cursor
           var x = event.clientX;
