@@ -54,7 +54,7 @@ body {
 
 #column3 {
   width: 12%;
-  min-width: 9.5em;
+  min-width: 14.5em;
   outline: 2px solid brown;
   outline-offset: -2px;
   color: white;
@@ -279,43 +279,44 @@ span#logotext.displayNoneB {
 a:active {
   background: red;
 }
+
 /*End of helpers */
 
 
 /* RESIZE Buttons */
-#resize_bar{
-  position: absolute; 
-  text-align: center;   
-  z-index: 9;  
+#resize_bar {
+  position: absolute;
   text-align: center;
-  left:0;
-  bottom:0;
-  outline : 1px red solid;
+  z-index: 9;
+  text-align: center;
+  left: 0;
+  bottom: 0;
+  outline: 1px red solid;
   outline-offset: -1px;
 }
 
 /*unshrinkCol2 este in minime*/
 
-#resize_bar2{
-    position: absolute; 
-    text-align: center;   
-    z-index: 9;  
-    text-align: center;
-    left:330px;
-    bottom:0;
-    outline : 1px orangered solid;
-    outline-offset: -1px;
-    font-size: 26px;
+#resize_bar2 {
+  position: absolute;
+  text-align: center;
+  z-index: 9;
+  text-align: center;
+  left: 330px;
+  bottom: 0;
+  outline: 1px orangered solid;
+  outline-offset: -1px;
+  font-size: 26px;
 }
 
 
 
-.go_left{
+.go_left {
   transform: translate(-330px);
 }
 
-.resize_buttons{
-  display: inline-block; 
+.resize_buttons {
+  display: inline-block;
   height: 32px;
 }
 
@@ -324,16 +325,17 @@ a:active {
   -webkit-transition: all .2s linear;
   transition: all .2s linear;
 }
+
 .rotate.down__me {
-  -moz-transform:rotate(180deg);
-  -webkit-transform:rotate(180deg);
-  transform:rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 /* END OF RESIZE*/
 
 
-.__outliner1{
+.__outliner1 {
   outline: 2px solid red !important;
   border-color: lime !important;
   border: 2px solid violet !important;
@@ -537,7 +539,7 @@ img {
   font-size: 15px;
 }
 
-.__selector1{
+.__selector1 {
   border: 2px solid red;
 }
 
