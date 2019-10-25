@@ -257,7 +257,7 @@ i.previ_ew {
 }
 
 .displayNone {
-  display: none;
+  display: none; 
 }
 
 
@@ -298,7 +298,6 @@ a:active {
   bottom: 0;
   font-size: 26px;
 }
-
 
 
 #resize_bar {

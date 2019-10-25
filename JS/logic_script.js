@@ -33,7 +33,8 @@ document.addEventListener("keydown", function (event) {
     frame.classList.remove('s320', "s480", "s768", "s1366", "s1920");
 
     //Toggling from Preview to Edit with no visual bugs, yay!
-    col2.classList.toggle("unshrinkCol2");
+    col2.classList.toggle("unshrinkCol2");`
+    `
     
     toggle_iframe_wh();
 
