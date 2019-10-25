@@ -1823,7 +1823,7 @@
         <!--Icons -->
         <!-- Images (Unsplash embeded)-->
 
-        </li>
+       
 
       </ul>
 
@@ -1834,13 +1834,92 @@
       <iframe id="clientframe" src="./client/client.html" frameborder="0" onload="onLoadiframe()"></iframe>
     </div>
 
-    <!-- By just adding displayNone, it starts default closed, all functions working still-->
-    <div id="column3" class="displayNone">
+    <!-- By just adding displayNone, it starts default closed, all functions working still
+     class="displayNone to column3 to start closed-->
+    <div id="column3">
       <h3>Control Panel</h3>
       <button class="panel_3" onclick=" gibMiData()"><i class="fas fa-download"></i>HTML/CSS</button>
       <button class="panel_3" onclick='toggleEditIframe()'><i class="fas fa-edit"></i>iFrame</button>
       <button class="panel_3" onclick='toggleOutlineAll()'>Outline</button>
       <hr>
+
+      <div class="tabs_overlord">
+        <input id="tab1" type="radio" name="tabs_overlord" checked>
+        <label for="tab1">Element</label>
+      
+        <input id="tab2" type="radio" name="tabs_overlord" >
+        <label for="tab2">Page</label>
+      
+        <input id="tab3" type="radio" name="tabs_overlord">
+        <label for="tab3">Others</label>
+      
+
+      
+        <div class="content">
+          <div id="content1">
+
+   
+                <div class="tabs_tennant">
+
+                  <div class="tab">
+                    <input type="checkbox" id="chck1" checked>
+                    <label class="tab-label" for="chck1">Position</label>
+                    <div class="tab-content">
+                      <ul> Alignment
+                        <hr>
+                        <li>Align Left</li>
+                        <li>Align Right</li>
+                        <li>Center Horizontal</li>
+                        <li>Center Vertical</li>
+                        <li>Align Top</li>
+                        <li>Align Bottom</li>
+                      </ul>
+
+                      <ul style="margin-top: 15px"> Dimension
+                        <hr>
+                        <li>Width</li>
+                        <span>Rendered as: </span>
+
+                        <li>Height</li>
+                        <span>Rendered as: </span>
+                      </ul>
+                      <ul style="margin-top: 15px"> Computed
+                        <hr>
+                        <li>Margin</li>
+                        <li>Padding</li>
+                        <li>Border</li>
+                      </ul>
+
+                    </div>
+                  </div>
+
+                  <div class="tab">
+                    <input type="checkbox" id="chck2">
+                    <label class="tab-label" for="chck2">Item 2</label>
+                    <div class="tab-content">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. A, in!
+                    </div>
+                  </div>
+
+                </div>
+          
+
+
+
+
+          </div>
+      
+          <div id="content2">
+            content2
+          </div>
+      
+          <div id="content3">
+            content3
+          </div>
+      
+        </div>
+      
+      </div>
 
       <!-- 
         <button type="button" id="muestra_abol">Muestra Arbol DOM</button>

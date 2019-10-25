@@ -17,19 +17,19 @@ document.addEventListener("keydown", function (event) {
     clientFrameWindow.body.classList.toggle('preview_class101');
     document.getElementById('resize_bar').classList.toggle("displayNoneSuper");
     document.getElementById('resize_bar2').classList.toggle("displayNoneSuper");
-    frame.classList.remove('s320',"s480", "s768", "s1366", "s1920");
-  
+    frame.classList.remove('s320', "s480", "s768", "s1366", "s1920");
+
     //Toggling from Preview to Edit with no visual bugs, yay!
     col2.classList.toggle("unshrinkCol2");
-    
-    
-    
-     
- 
 
 
 
-}
+
+
+
+
+
+  }
 });
 clientFrameWindow.addEventListener("keydown", function (event) {
   if (event.keyCode == 192) {
@@ -43,7 +43,7 @@ clientFrameWindow.addEventListener("keydown", function (event) {
     clientFrameWindow.body.classList.toggle('preview_class101');
     document.getElementById('resize_bar').classList.toggle("displayNoneSuper");
     document.getElementById('resize_bar2').classList.toggle("displayNoneSuper");
-    frame.classList.remove('s320',"s480", "s768", "s1366", "s1920");
+    frame.classList.remove('s320', "s480", "s768", "s1366", "s1920");
 
     col2.classList.toggle("unshrinkCol2");
 
@@ -71,7 +71,7 @@ function onLoadiframe() {
   //1. dblclick event listener on the whole iFrame(or if you want, on a specific part/div)
   //2. the function which checks whether the double clicked element has the id given to img elements
 
-   //Dblclick on img tag to change image
+  //Dblclick on img tag to change image
   clientFrameWindow.body.addEventListener('dblclick', dblClick, false);
 
   function dblClick() {
@@ -95,31 +95,44 @@ function onLoadiframe() {
 
 
   // Outline on click + show nodeName badge
-  clientFrameWindow.addEventListener("click", function(event) {
-    let list = clientFrameWindow.querySelectorAll('*');// Grab all the li elements
-    
+  clientFrameWindow.addEventListener("click", function (event) {
+    let list = clientFrameWindow.querySelectorAll('*'); // Grab all the li elements
+
     for (let i = 0; i < list.length; i++) {
       if (event.target === list[i]) { // if my click target is the same as list item it goes through
-        
-        console.log(event.target.nodeName); //check console for what you click
+
+        //console.log(event.target.nodeName); //check console for what you click
 
         var badge = clientFrameWindow.getElementById('tar_nodeName');
-        badge.innerHTML=(event.target.nodeName); //writes tarNodename into my div 
-        badge.classList.add("show");// Shows the badge
+        badge.innerHTML = (event.target.nodeName); //writes tarNodename into my div 
+        badge.classList.add("show"); // Shows the badge
+
+        //This is the column3 magic part - Must add things directly as a class, inside CSS file
+
+          // Would be best if it selected event.target. parent.parent.parent className or id to write things like
+          // .myThing ul li a {} instead of creating new classes, to write css most human readable possible
+          // Extra: If you then add another a, it will share the styling without doing anyhing!
+
+          //event.target.style.width = '500px'; // then make it set the input from field
+
+          //STEPS 
+          // 1. Read its  Width and height and write them under Rendered as ;)
         
-      //Adds it as first child
+        //End of it
+
+        //Adds it as first child
         event.target.parentNode.insertBefore(badge, event.target); // before clicked element
         //event.target.parentNode.insertBefore(badge, event.target.nextSibling) // after clicked element
-        
+
         /*Move it to cursor
           var x = event.clientX;
           var y = event.clientY;
           badge.style.left = `${x}px`;
           badge.style.top = `${y}px`; */
-        
+
         if (event.target.classList !== 'active__u') { //if target doesn't have active on it
           event.target.classList.add('active__u'); //add it
-        } else  {
+        } else {
           //event.target.classList.remove("active"); //to be able to remove it on a second click
           event.target.className != 'active__u'; //to not be able to
         }
@@ -133,8 +146,8 @@ function onLoadiframe() {
 
 
 
-  
-    /*WORKS
+
+  /*WORKS
     clientFrameWindow.body.addEventListener('click', classToggle, false);
 
     function classToggle () {

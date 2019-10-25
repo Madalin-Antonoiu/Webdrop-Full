@@ -440,6 +440,134 @@ ul {
 
 /** END **/
 
+/****** TABS COLUMN3 ******/
+
+/*Tabs*/
+.tabs_overlord {
+  max-width: 800px;
+  margin-top: 20px;
+  padding-left: 5px;
+  padding-right: 20px;
+  width: 13.5rem;
+}
+
+.tabs_overlord input {
+  display: none;
+}
+
+.tabs_overlord label {
+  display: inline-block;
+  padding: 6px 0 6px 0;
+  margin-left: -1px;
+  width: 32%;
+  /* =100/tabs number */
+  border-bottom: 1px solid #000;
+  text-align: center;
+  font-size: 12px;
+}
+
+.tabs_overlord label:hover {
+  cursor: pointer;
+}
+
+.tabs_overlord input:checked+label {
+  border: 1px solid #000;
+  border-width: 1px 1px 0 1px;
+}
+
+.tabs_overlord #tab1:checked~.content #content1,
+.tabs_overlord #tab2:checked~.content #content2,
+.tabs_overlord #tab3:checked~.content #content3,
+.tabs_overlord #tab4:checked~.content #content4 {
+  display: block;
+}
+
+.tabs_overlord .content>div {
+  display: none;
+  padding-top: 20px;
+  text-align: left;
+
+  overflow: auto;
+
+}
+
+/* End of Tabs */
+
+
+/* CSS ONLY ACCORDION  color: #2c3e50;
+  background: #ecf0f1;*/
+
+
+/* Accordion styles */
+.tabs_tennant {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+}
+
+.tabs_tennant .tab {
+  width: 100%;
+  color: white;
+  overflow: hidden;
+}
+
+.tabs_tennant .tab-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em;
+  background: #2c3e50;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  /* Icon */
+}
+
+.tabs_tennant .tab-label:hover {
+  background: #1a252f;
+}
+
+.tabs_tennant .tab-label::after {
+  content: "\276F";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transition: all 0.35s;
+}
+
+.tabs_tennant .tab-content {
+  max-height: 0;
+  padding: 0 1em;
+  color: #2c3e50;
+  background: white;
+  transition: all 0.35s;
+}
+
+.tabs_tennant .tab-close {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1em;
+  font-size: 0.75em;
+  background: #2c3e50;
+  cursor: pointer;
+}
+
+.tabs_tennant .tab-close:hover {
+  background: #1a252f;
+}
+
+.tabs_tennant input:checked+.tab-label {
+  background: #1a252f;
+}
+
+.tabs_tennant input:checked+.tab-label::after {
+  transform: rotate(90deg);
+}
+
+.tabs_tennant input:checked~.tab-content {
+  max-height: 100vh;
+  padding: 1em;
+}
+
 
 
 /*! CSS Used from: https://cdn.froont.com/_static/gen/style.4d31e8f.css 
