@@ -131,6 +131,7 @@ iframe {
 
 /*** END - BASE STYLING ***/
 
+
 /** SPECIFIC ELEMENTS **/
 h4 {
   margin-top: 0;
@@ -284,16 +285,7 @@ a:active {
 
 
 /* RESIZE Buttons */
-#resize_bar {
-  position: absolute;
-  text-align: center;
-  z-index: 9;
-  text-align: center;
-  left: 0;
-  bottom: 0;
-  outline: 1px red solid;
-  outline-offset: -1px;
-}
+
 
 /*unshrinkCol2 este in minime*/
 
@@ -302,23 +294,49 @@ a:active {
   text-align: center;
   z-index: 9;
   text-align: center;
-  left: 330px;
+  left: 260px;
   bottom: 0;
-  outline: 1px orangered solid;
-  outline-offset: -1px;
   font-size: 26px;
 }
 
 
 
-.go_left {
-  transform: translate(-330px);
+#resize_bar {
+  position: fixed;
+  text-align: center;
+  z-index: 9;
+  text-align: center;
+  left: 0px;
+  bottom: 9px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 35px;
+  padding: 3px;
 }
 
-.resize_buttons {
-  display: inline-block;
-  height: 32px;
+#resize_bar i {
+  color: #000;
+  font-size: 12px;
+  width: 100%;
+  height: 100%;	
+  padding: 5px;
 }
+#resize_bar i::before{
+  display: block;
+  font-size: 11px;
+  color: #002;
+  padding-bottom: 2px;
+  font-size: 15px;
+}
+
+
+
+
+.go_left {
+  transform: translate(-260px);
+}
+
 
 .rotate {
   -moz-transition: all .2s linear;
@@ -439,6 +457,7 @@ ul {
 }
 
 /** END **/
+
 
 /****** TABS COLUMN3 ******/
 
@@ -568,6 +587,20 @@ ul {
   padding: 1em;
 }
 
+/* Others */
+.faded_m{
+  color: #646464 !important;
+}
+
+#iframe_live_wh{
+  position: fixed;
+  float: right;
+  
+  z-index: 99999999;
+  color: red;
+}
+
+
 
 
 /*! CSS Used from: https://cdn.froont.com/_static/gen/style.4d31e8f.css 
@@ -693,12 +726,20 @@ div.panel.show {
 }
 
 /* For  Mobile Device Resizing icons */
-button.__item {
+.__item {
   vertical-align: top;
-  display: inline-block;
+ 
   text-align: center;
   width: 50px;
+  background: gray;
+  outline: 2px black solid;
+  overflow: hidden;
 
+}
+div.__item{
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 .caption {
@@ -707,32 +748,53 @@ button.__item {
 }
 
 .s320 {
-  width: 320px !important;
+  max-width: 320px !important;
   margin: auto !important;
-
+  outline: 2px purple solid;
+  outline-offset: -2px;
 }
 
 .s480 {
-  width: 480px !important;
+  max-width: 480px !important;
   margin: auto !important;
+  outline: 2px purple solid;
+  outline-offset: -2px;
 }
 
 .s768 {
-  width: 768px !important;
+  max-width: 768px !important;
   margin: auto !important;
+  outline: 2px purple solid;
+  outline-offset: -2px;
 }
 
 .s1366 {
-  width: 1366px !important;
+  max-width: 1366px !important;
   margin: auto !important;
+  outline: 2px purple solid;
+  outline-offset: -2px;
 }
 
 .s1920 {
-  width: 1920px !important;
+  max-width: 1920px !important;
   margin: auto !important;
+  outline: 2px purple solid;
+  outline-offset: -2px;
+
 }
 
+.active__u {
+  transition: 0.65s;
+  /*outline: 2px purple solid;
+  outline-offset: -2px;  Will make buttons seem smaller when touched*/
+  z-index: 999999;
+  background: orangered;
+}
 
+.inactive{
+  outline: none;
+  background: inherit;
+}
 /*end of that */
 
 /*____END - LAYOUT UI CSS____*/

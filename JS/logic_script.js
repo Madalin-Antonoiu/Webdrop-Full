@@ -3,6 +3,18 @@ var clientFrameWindow = document.getElementById('clientframe').contentWindow.doc
 //var placeholders = clientFrameWindow.getElementsByClassName('__placeholder');
 var droppables = document.getElementById("sidebar_menu");
 
+
+function toggle_iframe_wh(){
+  var diviframe =  document.getElementById('iframe_live_wh');
+  //Document's width and height
+  var wd = document.getElementById('clientframe').clientWidth; //the entire iFrame on CodePen
+  var wh = document.getElementById('clientframe').clientHeight;   
+
+  // put the result into a h1 tag
+  diviframe.innerHTML =  wd + " x " + wh ;
+  diviframe.classList.toggle('displayNoneSuper');
+}
+
 //Toggles Preview On/Of via ` 
 document.addEventListener("keydown", function (event) {
   if (event.keyCode == 192) { //192 is `
@@ -10,6 +22,7 @@ document.addEventListener("keydown", function (event) {
     nav = document.getElementById('myNav');
     col2 = document.getElementById('column2');
 
+ 
     col1.classList.toggle('displayNoneSuper');
     col2.classList.toggle('fullheight');
     col3.classList.toggle('displayNoneSuper');
@@ -21,16 +34,13 @@ document.addEventListener("keydown", function (event) {
 
     //Toggling from Preview to Edit with no visual bugs, yay!
     col2.classList.toggle("unshrinkCol2");
-
-
-
-
-
-
+    
+    toggle_iframe_wh();
 
 
   }
 });
+
 clientFrameWindow.addEventListener("keydown", function (event) {
   if (event.keyCode == 192) {
     nav = document.getElementById('myNav');
@@ -47,14 +57,13 @@ clientFrameWindow.addEventListener("keydown", function (event) {
 
     col2.classList.toggle("unshrinkCol2");
 
+    toggle_iframe_wh();
   }
 });
 
-
-
-
 //If not doing on iFrame load, the addEventListeners will crash sometimes - Multiple AddEventListeners
 function onLoadiframe() {
+
   //Listeners
 
   //clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
@@ -101,11 +110,47 @@ function onLoadiframe() {
     for (let i = 0; i < list.length; i++) {
       if (event.target === list[i]) { // if my click target is the same as list item it goes through
 
-        //console.log(event.target.nodeName); //check console for what you click
+        console.log(event.target.nodeName); //check console for what you click
+        var element = event.target;
+        var positionInfo = element.getBoundingClientRect();
+        var height = positionInfo.height;
+        var width = positionInfo.width;
+        var wxh = width + "x" + height;
+
+
+        /* update w & h on resize - NOT WORKING YET
+        clientFrameWindow.addEventListener('resize', onResizeTarget, false);
+
+        function onResizeTarget() {
+          renderedWidth.innerHTML = (event.target.clientWidth) +"px"; //writes width
+          renderedHeight.innerHTML = (event.target.clientHeight) +"px"; //writes height
+        } */ 
 
         var badge = clientFrameWindow.getElementById('tar_nodeName');
-        badge.innerHTML = (event.target.nodeName); //writes tarNodename into my div 
         badge.classList.add("show"); // Shows the badge
+        //Need to write some checks here, if it has id, if it has classes
+        if (event.target.id != "" && event.target.classList != "" ){
+        badge.innerHTML = (event.target.nodeName  + "#" + event.target.id  + "." + event.target.classList + wxh); //writes tarNodename into my div 
+        } else if (event.target.id != "" && event.target.classList == "" ) {
+          badge.innerHTML = (event.target.nodeName  + "#" + event.target.id + + width + 'x' + wxh ); 
+        } else if (event.target.id =="" && event.target.classList != "" ) {
+          badge.innerHTML = (event.target.nodeName  +  "." + event.target.classList + '&nbsp &nbsp <span class=".faded_m">'+ wxh + '</span>'); 
+        } else {
+          badge.innerHTML = (event.target.nodeName + '&nbsp &nbsp <span class=".faded_m">' + wxh + '</span>');
+        }
+
+     
+
+        //If element selected
+        var renderedWidth = document.getElementById('renderedWidth');
+        renderedWidth.innerHTML = (event.target.clientWidth) +"px"; //writes width
+
+        var renderedHeight = document.getElementById('renderedHeight');
+        renderedHeight.innerHTML = (event.target.clientHeight) +"px"; //writes width
+
+
+        // else
+        //Show Select an Element
 
         //This is the column3 magic part - Must add things directly as a class, inside CSS file
 
@@ -376,6 +421,23 @@ function onLoadiframe() {
 
 
 };
+
+
+function getSize() {
+  //Document's width and height
+  var wd = document.getElementById('clientframe').clientWidth; //the entire iFrame on CodePen
+  var wh = document.getElementById('clientframe').clientHeight;   
+
+  // put the result into a h1 tag
+   document.getElementById('iframe_live_wh').innerHTML =  wd + " x " + wh ;
+
+//var w = document.getElementById('wh').clientWidth;
+//var h = document.getElementById('wh').clientHeight;
+ //document.getElementById('wh').innerHTML = "This gray DIv has: <h1>Width: " + w + " Height: " + h + "</h1>";
+}
+
+
+
 
 // Component Search - W3School Adapted https://www.w3schools.com/howto/howto_js_filter_lists.asp
 function instantSearch() {

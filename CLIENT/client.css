@@ -440,6 +440,9 @@ article img {
   font-size: 5rem;
   background: rgba(0, 0, 0, 0.4);
 }
+.faded_m{
+  color: #646464 !important;
+}
 
 .season-desc {
   z-index: 1;

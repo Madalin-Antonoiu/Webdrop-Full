@@ -1,10 +1,12 @@
 //____Layout UI JAVASCRIPT____
-  col1 = document.getElementById('column1');
-  col3 = document.getElementById('column3');
-  nav1 = document.getElementById('left_part');
-  nav2 = document.getElementById('right_part');
+  var col1 = document.getElementById('column1');
+  var col3 = document.getElementById('column3');
+  var nav1 = document.getElementById('left_part');
+  var nav2 = document.getElementById('right_part');
   var frame = document.getElementById('clientframe');
   var hidden = false;
+  var diviframe =  document.getElementById('iframe_live_wh');
+  var resizebuttons =  document.getElementById('resize_bar');
   
   function hide_leftmenu() {
     col1.classList.toggle('displayNone');
@@ -46,58 +48,103 @@
       el.href = "./CSS/empty.css";
     }
   }
-  //Preview Eye
-  function preview() {
-    nav = document.getElementById('myNav');
-    col2 = document.getElementById('column2');
 
-    col1.classList.toggle('displayNoneSuper');
-    col2.classList.toggle('fullheight');
-    col3.classList.toggle('displayNoneSuper');
-    nav.classList.toggle('displayNoneSuper');
-
-    clientFrameWindow.body.classList.toggle('preview_class101');
-
-    document.getElementById('resize_bar').classList.toggle("displayNoneSuper");
-    document.getElementById('resize_bar2').classList.toggle("displayNoneSuper");
-    frame.classList.remove('s320',"s480", "s768", "s1366", "s1920");
+  function get_iframe_wh(){
     
-    col2.classList.toggle("unshrinkCol2");
-
-    //i also need to remove the eventlistener, or the outlining on hover
-
+    //Document's width and height
+    var wd = document.getElementById('clientframe').clientWidth; //the entire iFrame on CodePen
+    var wh = document.getElementById('clientframe').clientHeight;   
+  
+    // put the result into a h1 tag
+    diviframe.innerHTML =  wd + " x " + wh ;
+    
   }
+  
+//Preview Eye
+function preview() {
 
-  function hide_previewbar() {
-    document.getElementById('resize_bar').classList.toggle("displayNone");
-    document.getElementById('resize_bar2').classList.toggle("go_left");
-    document.getElementById('rotate__me').classList.toggle("down__me");
-  }
+  
 
-  //Screen Resizes
+  nav = document.getElementById('myNav');
+  col2 = document.getElementById('column2');
+
+  col1.classList.toggle('displayNoneSuper');
+  col2.classList.toggle('fullheight');
+  col3.classList.toggle('displayNoneSuper');
+  nav.classList.toggle('displayNoneSuper');
+  
+
+  clientFrameWindow.body.classList.toggle('preview_class101');
+
+  document.getElementById('resize_bar').classList.toggle("displayNoneSuper");
+  document.getElementById('resize_bar2').classList.toggle("displayNoneSuper");
+  frame.classList.remove('s320',"s480", "s768", "s1366", "s1920");
+  
+  
+  col2.classList.toggle("unshrinkCol2");
+
+  //i also need to remove the eventlistener, or the outlining on hover
+  get_iframe_wh();
+  diviframe.classList.toggle('displayNoneSuper');
+}
+
+function hide_previewbar() {
+  document.getElementById('resize_bar').classList.toggle("displayNoneSuper");
+  document.getElementById('resize_bar2').classList.toggle("go_left");
+  document.getElementById('rotate__me').classList.toggle("down__me");
+}
+
+/*Unique class on several elements - You can rewrite this function to use in any case :)*/
+
+resizebuttons.addEventListener("click", function (event) {
+  let list = resizebuttons.querySelectorAll('i');
+
+      for (let i = 0; i < list.length; i++) {
+      if (event.target == list[i] ) { 
+
+        event.target.classList.toggle("active__u"); 
+ 
+
+      } else {//`Press anywhere inside parent div except the __item and it gets removed // click on other __item and removes previous`
+      
+      list[i].classList.remove("active__u");
+      
+      }
+}}); 
+
+
+
+//Screen Resizes
 function s320(){
   frame.classList.toggle('s320');
   frame.classList.remove("s480", "s768", "s1366", "s1920");
+  get_iframe_wh();
 }
+
 function s480(){
   frame.classList.toggle('s480');
   frame.classList.remove("s320", "s768", "s1366", "s1920");
+  get_iframe_wh();
 }
 
 function s768(){
   frame.classList.toggle('s768');
   frame.classList.remove("s320", "s480", "s1366", "s1920");
+  get_iframe_wh();
 }
 
 function s1366(){
   frame.classList.toggle("s1366");
   frame.classList.remove("s320", "s480", "s768", "s1920" );
+  get_iframe_wh();
 }
 
 function s1920(){
   frame.classList.toggle("s1920");
   frame.classList.remove("s320", "s480", "s768", "s1366");
+  get_iframe_wh();
 }
+
 //End of
 
 

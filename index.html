@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
 </head>
 
-<body>
+<body onresize="getSize()">
   <nav id="myNav">
     <div id="left_part" class="centerme column1_mini textCenter">
       <i class="fas fa-tint"><span id="logotext" class="displayNone">Webdrop</span></i>
@@ -1831,11 +1831,11 @@
     </div>
 
     <div id="column2">
+      <div id="iframe_live_wh" class="displayNoneSuper">w & h</div>
       <iframe id="clientframe" src="./client/client.html" frameborder="0" onload="onLoadiframe()"></iframe>
     </div>
 
-    <!-- By just adding displayNone, it starts default closed, all functions working still
-     class="displayNone to column3 to start closed-->
+    <!-- By just adding displayNone, it starts default closed, all functions working still class="displayNone to column3 to start closed-->
     <div id="column3">
       <h3>Control Panel</h3>
       <button class="panel_3" onclick=" gibMiData()"><i class="fas fa-download"></i>HTML/CSS</button>
@@ -1865,6 +1865,7 @@
                     <input type="checkbox" id="chck1" checked>
                     <label class="tab-label" for="chck1">Position</label>
                     <div class="tab-content">
+                      
                       <ul> Alignment
                         <hr>
                         <li>Align Left</li>
@@ -1878,11 +1879,12 @@
                       <ul style="margin-top: 15px"> Dimension
                         <hr>
                         <li>Width</li>
-                        <span>Rendered as: </span>
+                        <span class="faded_m">Rendered as <span id="renderedWidth"></span></span>
 
                         <li>Height</li>
-                        <span>Rendered as: </span>
+                        <span class="faded_m">Rendered as <span id="renderedHeight"></span></span>
                       </ul>
+
                       <ul style="margin-top: 15px"> Computed
                         <hr>
                         <li>Margin</li>
@@ -1938,39 +1940,16 @@
     <!--Leaving this here for now -->
     <div id="resize_bar" class="displayNoneSuper noSelect">
      
-      <div class="resize_buttons">
+        <div id="b1" class="__item" onclick=" s320()"><i class="fas fa-mobile-alt">320px</i></div>
 
-        <button class="__item" onclick=" s320()">
-          <i class="fas fa-mobile-alt"></i>
-          <span class="caption">320px</span>
-        </button>
+        <div id="b2" class="__item" onclick=" s480()"> <i class="fas fa-mobile-alt">480px</i></div>
 
-        <button class="__item" onclick=" s480()">
-          <i class="fas fa-mobile-alt fa-rotate-90"></i>
-          <span class="caption">480px</span>
-        </button>
+        <div id="b3" class="__item" onclick=" s768()"><i class="fas fa-tablet-alt">768px</i></div>
 
-        <button class="__item" onclick=" s768()">
-          <i class="fas fa-tablet-alt"></i>
-          <span class="caption">768px</span>
-        </button>
+        <div id="b4" class="__item" onclick=" s1366()"> <i class="fas fa-laptop">1366px</i></div>
 
-        <button class="__item" onclick=" s1366()">
-          <i class="fas fa-laptop"></i>
-          <span class="caption">1366px</span>
-        </button>
+        <div id="b5" class="__item" onclick=" s1920()"><i class="fas fa-desktop">1920px</i></div>
 
-        <button class="__item" onclick=" s1920()">
-          <i class="fas fa-desktop"></i>
-          <span class="caption">1920px</span>
-        </button>
-
-        <button class="__item" onclick=" s1920()">
-          <i class="fas fa-desktop"></i>
-          <span class="caption">Drag</span>
-        </button>
-
-      </div>
     </div>
     
     <div id="resize_bar2" class="displayNoneSuper">
@@ -1981,6 +1960,8 @@
         </div>
 
     </div>
+
+    
 
   </footer>
 
