@@ -2,18 +2,22 @@
 var clientFrameWindow = document.getElementById('clientframe').contentWindow.document;
 //var placeholders = clientFrameWindow.getElementsByClassName('__placeholder');
 var droppables = document.getElementById("sidebar_menu");
+var diviframe = document.getElementById('iframe_live_wh');
 
 
-function toggle_iframe_wh(){
-  var diviframe =  document.getElementById('iframe_live_wh');
+
+function toggle_iframe_wh() {
+  var diviframe = document.getElementById('iframe_live_wh');
   //Document's width and height
   var wd = document.getElementById('clientframe').clientWidth; //the entire iFrame on CodePen
-  var wh = document.getElementById('clientframe').clientHeight;   
+  var wh = document.getElementById('clientframe').clientHeight;
 
   // put the result into a h1 tag
-  diviframe.innerHTML =  wd + " x " + wh ;
+  diviframe.innerHTML = wd + " x " + wh;
   diviframe.classList.toggle('displayNoneSuper');
 }
+
+
 
 //Toggles Preview On/Of via ` 
 document.addEventListener("keydown", function (event) {
@@ -22,7 +26,7 @@ document.addEventListener("keydown", function (event) {
     nav = document.getElementById('myNav');
     col2 = document.getElementById('column2');
 
- 
+
     col1.classList.toggle('displayNoneSuper');
     col2.classList.toggle('fullheight');
     col3.classList.toggle('displayNoneSuper');
@@ -33,9 +37,10 @@ document.addEventListener("keydown", function (event) {
     frame.classList.remove('s320', "s480", "s768", "s1366", "s1920");
 
     //Toggling from Preview to Edit with no visual bugs, yay!
-    col2.classList.toggle("unshrinkCol2");`
+    col2.classList.toggle("unshrinkCol2");
     `
-    
+    `
+
     toggle_iframe_wh();
 
 
@@ -105,69 +110,73 @@ function onLoadiframe() {
 
 
   // Outline on click + show nodeName badge
-  clientFrameWindow.addEventListener("click", function (event) {
+  clientFrameWindow.addEventListener("click", oneClickForAll, false);
+
+
+  function oneClickForAll(event) {
+
     let list = clientFrameWindow.querySelectorAll('*'); // Grab all the li elements
 
     for (let i = 0; i < list.length; i++) {
       if (event.target === list[i]) { // if my click target is the same as list item it goes through
 
         console.log(event.target.nodeName); //check console for what you click
-        var element = event.target;
-        var positionInfo = element.getBoundingClientRect();
-        var height = positionInfo.height;
-        var width = positionInfo.width;
-        var wxh = width + "x" + height;
 
-
-        /* update w & h on resize - NOT WORKING YET
-        clientFrameWindow.addEventListener('resize', onResizeTarget, false);
-
-        function onResizeTarget() {
-          renderedWidth.innerHTML = (event.target.clientWidth) +"px"; //writes width
-          renderedHeight.innerHTML = (event.target.clientHeight) +"px"; //writes height
-        } */ 
+        // Get width and height of clicked element
 
         var badge = clientFrameWindow.getElementById('tar_nodeName');
-        badge.classList.add("show"); // Shows the badge
-        //Need to write some checks here, if it has id, if it has classes
-        if (event.target.id != "" && event.target.classList != "" ){
-        badge.innerHTML = (event.target.nodeName  + "#" + event.target.id  + "." + event.target.classList + wxh); //writes tarNodename into my div 
-        } else if (event.target.id != "" && event.target.classList == "" ) {
-          badge.innerHTML = (event.target.nodeName  + "#" + event.target.id + + width + 'x' + wxh ); 
-        } else if (event.target.id =="" && event.target.classList != "" ) {
-          badge.innerHTML = (event.target.nodeName  +  "." + event.target.classList + '&nbsp &nbsp <span class=".faded_m">'+ wxh + '</span>'); 
-        } else {
-          badge.innerHTML = (event.target.nodeName + '&nbsp &nbsp <span class=".faded_m">' + wxh + '</span>');
+        var w = event.target.clientWidth;
+        var h = event.target.clientHeight;
+        var w$h = "&nbsp; &nbsp;" + event.target.clientWidth + "x" + event.target.clientHeight;
+
+        //In order to get the CLICKED element`s width and height on resize of window
+        window.addEventListener("resize", getSize, false);
+
+        function getSize() {
+          //On resize run again and update
+          var w = event.target.clientWidth;
+          var h = event.target.clientHeight;
+          var w$h = event.target.clientWidth + "x" + event.target.clientHeight;
+
+          if (event.target.id != "" && event.target.classList != "") {
+            badge.innerHTML = (event.target.nodeName + "#" + event.target.id + "." + event.target.classList + w$h); // + var ce tine rezultatul //writes tarNodename into my div 
+          } else if (event.target.id != "" && event.target.classList == "") {
+            badge.innerHTML = (event.target.nodeName + "#" + event.target.id + w$h);
+          } else if (event.target.id == "" && event.target.classList != "") {
+            badge.innerHTML = (event.target.nodeName + "." + event.target.classList + w$h);
+          } else {
+            badge.innerHTML = (event.target.nodeName + clickedElement_wh.innerHTML + w$h);
+          }
+
+          //On resize update Column3
+          document.getElementById('renderedWidth').innerHTML = w + "px"; //writes width
+          document.getElementById('renderedHeight').innerHTML = h + "px"; //writes width
+
         }
 
-     
-
-        //If element selected
-        var renderedWidth = document.getElementById('renderedWidth');
-        renderedWidth.innerHTML = (event.target.clientWidth) +"px"; //writes width
-
-        var renderedHeight = document.getElementById('renderedHeight');
-        renderedHeight.innerHTML = (event.target.clientHeight) +"px"; //writes width
+event.target.classList.indexOf
 
 
-        // else
-        //Show Select an Element
+        badge.classList.add("show"); // Shows the badge
+        //Need to write some checks here, if it has id, if it has classes - DISPLAY BADGE ON CLICK 
+        if (event.target.id != "" && event.target.classList != "") {
+          badge.innerHTML = (event.target.nodeName + "#" + event.target.id + "." + event.target.classList + w$h); // + var ce tine rezultatul //writes tarNodename into my div 
+        } else if (event.target.id != "" && event.target.classList == "") {
+          badge.innerHTML = (event.target.nodeName + "#" + event.target.id + w$h);
+        } else if (event.target.id == "" && event.target.classList != "") {
+          badge.innerHTML = (event.target.nodeName + "." + event.target.classList + w$h);
+        } else {
+          badge.innerHTML = (event.target.nodeName + w$h);
+        }
 
-        //This is the column3 magic part - Must add things directly as a class, inside CSS file
-
-          // Would be best if it selected event.target. parent.parent.parent className or id to write things like
-          // .myThing ul li a {} instead of creating new classes, to write css most human readable possible
-          // Extra: If you then add another a, it will share the styling without doing anyhing!
-
-          //event.target.style.width = '500px'; // then make it set the input from field
-
-          //STEPS 
-          // 1. Read its  Width and height and write them under Rendered as ;)
-        
-        //End of it
+        // DISPLAY COLUMN3 ON CLICK
+        document.getElementById('renderedWidth').innerHTML = w + "px"; //writes width
+        document.getElementById('renderedHeight').innerHTML = h + "px"; //writes width
 
         //Adds it as first child
-        event.target.parentNode.insertBefore(badge, event.target); // before clicked element
+        event.target.parentNode.insertBefore(badge, event.target);
+
+        // before clicked element
         //event.target.parentNode.insertBefore(badge, event.target.nextSibling) // after clicked element
 
         /*Move it to cursor
@@ -186,10 +195,20 @@ function onLoadiframe() {
         list[i].classList.remove("active__u");
       }
     }
-  })
+  };
+
+  window.addEventListener("resize", getSize, false);
+
+  function getSize() {
+    //Document's width and height
+    var wd = document.getElementById('clientframe').clientWidth; //the entire iFrame on CodePen
+    var wh = document.getElementById('clientframe').clientHeight;
+
+    // put the result into a h1 tag
+    document.getElementById('iframe_live_wh').innerHTML = wd + " x " + wh;
 
 
-
+  }
 
 
 
@@ -423,19 +442,6 @@ function onLoadiframe() {
 
 };
 
-
-function getSize() {
-  //Document's width and height
-  var wd = document.getElementById('clientframe').clientWidth; //the entire iFrame on CodePen
-  var wh = document.getElementById('clientframe').clientHeight;   
-
-  // put the result into a h1 tag
-   document.getElementById('iframe_live_wh').innerHTML =  wd + " x " + wh ;
-
-//var w = document.getElementById('wh').clientWidth;
-//var h = document.getElementById('wh').clientHeight;
- //document.getElementById('wh').innerHTML = "This gray DIv has: <h1>Width: " + w + " Height: " + h + "</h1>";
-}
 
 
 
