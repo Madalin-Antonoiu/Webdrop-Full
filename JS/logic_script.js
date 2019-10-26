@@ -129,14 +129,13 @@ function onLoadiframe() {
         var h = event.target.clientHeight;
         var w$h = "&nbsp; &nbsp;" + event.target.clientWidth + "x" + event.target.clientHeight;
 
-        //In order to get the CLICKED element`s width and height on resize of window
+        //Resize window live update width + height of clicked element
         window.addEventListener("resize", getSize, false);
-
         function getSize() {
           //On resize run again and update
           var w = event.target.clientWidth;
           var h = event.target.clientHeight;
-          var w$h = event.target.clientWidth + "x" + event.target.clientHeight;
+          var w$h = "&nbsp; &nbsp;" + event.target.clientWidth + "x" + event.target.clientHeight;
 
           if (event.target.id != "" && event.target.classList != "") {
             badge.innerHTML = (event.target.nodeName + "#" + event.target.id + "." + event.target.classList + w$h); // + var ce tine rezultatul //writes tarNodename into my div 
@@ -153,8 +152,7 @@ function onLoadiframe() {
           document.getElementById('renderedHeight').innerHTML = h + "px"; //writes width
 
         }
-
-event.target.classList.indexOf
+        //End of resize live update clicked element
 
 
         badge.classList.add("show"); // Shows the badge
