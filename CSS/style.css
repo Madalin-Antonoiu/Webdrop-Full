@@ -539,7 +539,8 @@ ul {
   justify-content: space-between;
   padding: 0.5em;
   padding-right: 1.5em;
-  background: #2c3e50;
+  /* background: #2c3e50; */
+  background: rgb(61, 61, 61);
   font-weight: bold;
   cursor: pointer;
   width: 100%;
@@ -561,8 +562,9 @@ ul {
 .tabs_tennant .tab-content {
   max-height: 0;
   padding: 0 1em;
-  color: #2c3e50;
-  background: white;
+
+  background: #282828;
+  color: #898989;
   transition: all 0.35s;
 }
 
@@ -600,6 +602,7 @@ ul {
 /* Others */
 .faded_m {
   color: #646464 !important;
+  margin: 10px 0 10px 0;
 }
 
 #iframe_live_wh {
@@ -828,16 +831,29 @@ div.__item {
 
 .column__ i {
   font-size: 18px;
+  margin: 0px 5px 5px 0;
 }
 
-.column__ input {
-  width: 65px;
-  height: 28px;
+.column__ input.wh__ {
+  width: 45px;
+  height: 23px;
   padding-top: 1px;
   padding-bottom: 1px;
   background-color: rgb(25, 25, 25);
   color: rgb(235, 197, 0);
   display: block;
+  border: 0px;
+}
+
+.column__ input.mm__ {
+  height: 13px;
+  width: 45px;
+  padding: 1px;
+  margin-right: 5px;
+  color: rgb(235, 197, 0);
+  background-color: rgb(25, 25, 25);
+  display: block;
+  border: 0px;
 }
 
 .ml__ {
