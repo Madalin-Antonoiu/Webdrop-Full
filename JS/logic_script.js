@@ -120,7 +120,8 @@ function onLoadiframe() {
     for (let i = 0; i < list.length; i++) {
       if (event.target === list[i]) { // if my click target is the same as list item it goes through
 
-        console.log(event.target.nodeName); //check console for what you click
+        console.log(event.target.nodeName) //check console for what you click
+
 
         // Get width and height of clicked element
 
@@ -131,6 +132,7 @@ function onLoadiframe() {
 
         //Resize window live update width + height of clicked element
         window.addEventListener("resize", getSize, false);
+
         function getSize() {
           //On resize run again and update
           var w = event.target.clientWidth;
