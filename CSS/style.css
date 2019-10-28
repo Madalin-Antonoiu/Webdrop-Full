@@ -841,6 +841,21 @@ div.__item {
 
   text-align: center;
 }
+
+#target_cls, #target_cls0, #target_cls1, #target_cls2 {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+}
+
+
+
+/*CHECKBOX INPUT */
+
+
+
+
 /*end of that */
 
 /*____END - LAYOUT UI CSS____*/

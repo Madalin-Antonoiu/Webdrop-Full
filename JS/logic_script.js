@@ -68,8 +68,8 @@ clientFrameWindow.addEventListener("keydown", function (event) {
 });
 
 
-
-
+//Every Checkbox toggle on/off on click
+// get DOM elements
 
 
 //If not doing on iFrame load, the addEventListeners will crash sometimes - Multiple AddEventListeners
@@ -117,9 +117,9 @@ function onLoadiframe() {
   // Outline on click + show nodeName badge
   clientFrameWindow.addEventListener("click", oneClickForAll, false);
 
-
+  
   function oneClickForAll(event) {
-
+    
     let list = clientFrameWindow.querySelectorAll('*'); // Grab all the li elements
 
     for (let i = 0; i < list.length; i++) {
@@ -135,38 +135,70 @@ function onLoadiframe() {
         } else {
           console.log(event.target.nodeName + w$h);
         }
+      
 
         console.log(event.target.nodeName) //check console for what you click
         document.getElementById('target_el').innerHTML = (event.target.nodeName);
         document.getElementById('target_id').innerHTML = (event.target.id);
-        document.getElementById('target_cls').innerHTML = (event.target.classList);
+
+
+        
+
+        if(event.target.classList[0]){
+          document.getElementById('target_cls0').innerHTML =  event.target.classList[0] ;
+        } else {
+          document.getElementById('target_cls0').innerHTML = "";
+        }
+
+        if(event.target.classList[1]){
+          document.getElementById('target_cls1').innerHTML = (event.target.classList[1]);
+        } else {
+          document.getElementById('target_cls1').innerHTML = "";
+        }
+
+        if(event.target.classList[2]){
+          document.getElementById('target_cls2').innerHTML = (event.target.classList[2]);
+        } else {
+          document.getElementById('target_cls2').innerHTML = "";
+        }
 
         //Remove or add back the classes for target.el
 
-        document.getElementById('tgl-class-btn').onclick = function (e) {
-          let name = event.target.classList[0];
+        var classNames = event.target.classList;
+        var clonedClassNames = [...classNames]; //It`s a must to copy the array
+
+        //Scrie in document > coloana 3
+        var y = document.getElementById('saved-value')
+        y.innerHTML = " Toggling class: "+ clonedClassNames[0];
+
+        //console.log("Cloned all classes: " + clonedClassNames);
+        //console.log("1st: " + clonedClassNames[0]);
+
+        //Make inputs be always checked when changing targets if left unchecked
+      if ( document.getElementById('tgl-class-0').getAttribute("checked") === null || document.getElementById('tgl-class-1').getAttribute("checked") === null || document.getElementById('tgl-class-2').getAttribute("checked") === null){
+        document.getElementById('tgl-class-0').toggleAttribute("checked")
+        document.getElementById('tgl-class-1').toggleAttribute("checked") 
+        document.getElementById('tgl-class-2').toggleAttribute("checked") 
+      } 
+        
+        //There is a problem with badge it doesn't pick the clicked active__u - we need to remove it from classList
 
 
+        //Click on to toggle FIRST present class, without defining it ;)
 
-          //Scrie in document
-          var y = document.getElementById('saved-value')
-          y.innerHTML = x;
+          //Toata smecheria era ca sa fie salvat totul inainte de a da click pe buton ca sa nu se updateze
+          //Plus am invatat si cum copiezi un array - Inainte sa dau click pe buton, am dat click pe element,
+          //si copiaza prima variabila; Cand dau click si pe buton, deja stie care e si ii face toggle
 
 
-          var addClass = function (_element, _classes) {
-            var classList, item, _i, _len;
-            classList = _element.classList;
-            for (_i = 0, _len = _classes.length; _i < _len; _i++) {
-              item = _classes[_i];
-              if (classList.length <= _len) {
-                classList.add(item);
-              } else {
-                classList.remove(item);
-              }
-            }
-            return _element;
-          };
-          addClass();
+        document.getElementById('target_cls0').onclick = function (e) {
+         
+         
+
+          event.target.classList.toggle(clonedClassNames[0]);
+          
+          document.getElementById('tgl-class-0').toggleAttribute("checked");
+
 
           //Remove empty class
           if (event.srcElement.className == "")
@@ -176,20 +208,41 @@ function onLoadiframe() {
           e.preventDefault();
         };
 
+        document.getElementById('target_cls1').onclick = function (e) {
+         
 
-        /* //I need to have them like an array, named, selected, and based on selection remove here
-        function toggleClasser() {
-          var x = event.target.classList[0];
-          var y = x.textContent;
-          console.log(y)
+          event.target.classList.toggle(clonedClassNames[1]);
+          
+          document.getElementById('tgl-class-1').toggleAttribute("checked");
 
-          event.target.classList.toggle(0);
 
+          //Remove empty class
           if (event.srcElement.className == "")
             event.srcElement.removeAttribute('class');
 
+          //Prevent default
+          e.preventDefault();
+        };
 
-        } */
+        document.getElementById('target_cls2').onclick = function (e) {
+         
+         
+
+          event.target.classList.toggle(clonedClassNames[2]);
+          
+          document.getElementById('tgl-class-2').toggleAttribute("checked");
+
+
+          //Remove empty class
+          if (event.srcElement.className == "")
+            event.srcElement.removeAttribute('class');
+
+          //Prevent default
+          e.preventDefault();
+        };
+        
+
+
 
 
         // Get width and height of clicked element
@@ -226,7 +279,7 @@ function onLoadiframe() {
         //End of resize live update clicked element
 
 
-        badge.classList.add("show"); // Shows the badge
+         // Shows the badge
         //Need to write some checks here, if it has id, if it has classes - DISPLAY BADGE ON CLICK 
         if (event.target.id != "" && event.target.classList != "") {
           badge.innerHTML = (event.target.nodeName + "#" + event.target.id + "." + event.target.classList + w$h); // + var ce tine rezultatul //writes tarNodename into my div 
@@ -238,7 +291,7 @@ function onLoadiframe() {
           badge.innerHTML = (event.target.nodeName + w$h);
         }
 
-        // DISPLAY COLUMN3 ON CLICK
+        // DISPLAY W & H  COLUMN3 ON CLICK
         document.getElementById('renderedWidth').innerHTML = w + "px"; //writes width
         document.getElementById('renderedHeight').innerHTML = h + "px"; //writes width
 
@@ -256,12 +309,16 @@ function onLoadiframe() {
 
         if (event.target.classList !== 'active__u') { //if target doesn't have active on it
           event.target.classList.add('active__u'); //add it
+          badge.classList.add("show");
         } else {
           //event.target.classList.remove("active"); //to be able to remove it on a second click
           event.target.className != 'active__u'; //to not be able to
+          //Also if target doesn't have active__u the badge should be hidden ( not woking yet)
+          
         }
       } else {
         list[i].classList.remove("active__u");
+        
       }
     }
   };
