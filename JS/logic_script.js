@@ -125,25 +125,13 @@ function onLoadiframe() {
     for (let i = 0; i < list.length; i++) {
       if (event.target === list[i]) { // if my click target is the same as list item it goes through
 
-        //Practice with console log to get proper class naming
-        if (event.target.id != "" && event.target.classList != "") {
-          console.log(event.target.nodeName + "#" + event.target.id + "." + event.target.classList + w$h); // + var ce tine rezultatul //writes tarNodename into my div 
-        } else if (event.target.id != "" && event.target.classList == "") {
-          console.log(event.target.nodeName + "#" + event.target.id + w$h);
-        } else if (event.target.id == "" && event.target.classList != "") {
-          console.log(event.target.nodeName + "." + event.target.classList + w$h);
-        } else {
-          console.log(event.target.nodeName + w$h);
-        }
-      
 
-        console.log(event.target.nodeName) //check console for what you click
         document.getElementById('target_el').innerHTML = (event.target.nodeName);
         document.getElementById('target_id').innerHTML = (event.target.id);
 
 
         
-
+        //Only show these divs if the classes exist!
         if(event.target.classList[0]){
           document.getElementById('target_cls0').innerHTML =  event.target.classList[0] ;
         } else {
@@ -174,12 +162,7 @@ function onLoadiframe() {
         //console.log("Cloned all classes: " + clonedClassNames);
         //console.log("1st: " + clonedClassNames[0]);
 
-        //Make inputs be always checked when changing targets if left unchecked
-      if ( document.getElementById('tgl-class-0').getAttribute("checked") === null || document.getElementById('tgl-class-1').getAttribute("checked") === null || document.getElementById('tgl-class-2').getAttribute("checked") === null){
-        document.getElementById('tgl-class-0').toggleAttribute("checked")
-        document.getElementById('tgl-class-1').toggleAttribute("checked") 
-        document.getElementById('tgl-class-2').toggleAttribute("checked") 
-      } 
+
         
         //There is a problem with badge it doesn't pick the clicked active__u - we need to remove it from classList
 
@@ -191,6 +174,7 @@ function onLoadiframe() {
           //si copiaza prima variabila; Cand dau click si pe buton, deja stie care e si ii face toggle
 
 
+          //Dau click pe prima clasa, face urmatoarea
         document.getElementById('target_cls0').onclick = function (e) {
          
          
