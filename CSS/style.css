@@ -31,7 +31,7 @@ body {
   overflow-x: hidden;
   /*Vertical scrollbar - only if items go out of vh*/
   /*Horizontal scroll - never */
-  background: #222D32;
+  background: #222d32;
   padding: 0;
 }
 
@@ -43,11 +43,10 @@ body {
   padding: 0;
   z-index: 1;
   /* Carbon Fibre https://leaverou.github.io/css3patterns/#carbon-fibre*/
-  background:
-    radial-gradient(black 15%, transparent 16%) 0 0,
+  background: radial-gradient(black 15%, transparent 16%) 0 0,
     radial-gradient(black 15%, transparent 16%) 8px 8px,
-    radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px,
-    radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+    radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
   background-color: #282828;
   background-size: 16px 16px;
 }
@@ -60,9 +59,8 @@ body {
   color: white;
   margin-top: 0;
   padding: 0px 10px 0px 10px;
-  background: #222D32;
+  background: #222d32;
   overflow-y: auto;
-
 }
 
 .ease {
@@ -87,7 +85,7 @@ nav {
 nav #left_part {
   width: 10%;
   min-width: 11.5em;
-  background: #357CA5;
+  background: #357ca5;
   float: left;
 }
 
@@ -95,7 +93,7 @@ nav #right_part {
   width: 100%;
   min-width: 9.5em;
   z-index: 1;
-  background: #3C8DBC;
+  background: #3c8dbc;
   float: left;
 }
 
@@ -121,7 +119,6 @@ iframe {
   /*MUST HAVE - otherwise creates weird space after - FIXED*/
   display: block;
   background: rgb(255, 255, 255);
-
 }
 
 .iframe_loader {
@@ -130,7 +127,6 @@ iframe {
 }
 
 /*** END - BASE STYLING ***/
-
 
 /** SPECIFIC ELEMENTS **/
 h4 {
@@ -194,13 +190,12 @@ button.panel3:focus {
   height: auto;
   border: 1px solid black;
   display: none;
-  background: #3299CC;
+  background: #3299cc;
   bottom: 50px;
   right: 230px;
   color: white;
   z-index: 2;
 }
-
 
 /** END - SPECIFIC ELEMENTS **/
 
@@ -210,13 +205,12 @@ button.panel3:focus {
   outline-offset: -2px;
 }
 
-
 .show {
   display: block;
 }
 
 .active {
-  background: #1E282C;
+  background: #1e282c;
 }
 
 #burger {
@@ -260,7 +254,6 @@ i.previ_ew {
   display: none;
 }
 
-
 .displayNoneSuper {
   display: none !important;
 }
@@ -283,9 +276,7 @@ a:active {
 
 /*End of helpers */
 
-
 /* RESIZE Buttons */
-
 
 /*unshrinkCol2 este in minime*/
 
@@ -298,7 +289,6 @@ a:active {
   bottom: 0;
   font-size: 26px;
 }
-
 
 #resize_bar {
   position: fixed;
@@ -330,18 +320,14 @@ a:active {
   font-size: 15px;
 }
 
-
-
-
 .go_left {
   transform: translate(-260px);
 }
 
-
 .rotate {
-  -moz-transition: all .2s linear;
-  -webkit-transition: all .2s linear;
-  transition: all .2s linear;
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
 }
 
 .rotate.down__me {
@@ -352,13 +338,11 @@ a:active {
 
 /* END OF RESIZE*/
 
-
 .__outliner1 {
   outline: 2px solid red !important;
   border-color: lime !important;
   border: 2px solid violet !important;
 }
-
 
 /*** END - OTHER HELPERS ***/
 
@@ -376,7 +360,7 @@ a:active {
 }
 
 .dd-button:hover {
-  background: #2C3B41;
+  background: #2c3b41;
   color: white;
 }
 
@@ -399,12 +383,12 @@ a:active {
   margin-left: 10px;
 }
 
-.dd-input:checked+.dd-menu {
+.dd-input:checked + .dd-menu {
   /* checked means click. hover is on hover*/
   display: block;
 }
 
-.dd-input+.dd-menu {
+.dd-input + .dd-menu {
   /*Initial display of li set to none*/
   display: none;
 }
@@ -412,7 +396,7 @@ a:active {
 .dd-menu li {
   padding: 0px 20px;
   /* cursor: pointer; */
-  background: #2C3B41;
+  background: #2c3b41;
   display: block;
   color: white;
 }
@@ -431,7 +415,6 @@ a:active {
   display: block !important;
 }
 
-
 .dd-menu li span p {
   margin-top: 3px;
 }
@@ -443,7 +426,7 @@ a:active {
 
 .dd-menu li.divider {
   padding: 0;
-  border-bottom: 1px solid #1E282C;
+  border-bottom: 1px solid #1e282c;
 }
 
 ul {
@@ -457,7 +440,6 @@ ul {
 }
 
 /** END **/
-
 
 /****** TABS COLUMN3 ******/
 
@@ -493,31 +475,28 @@ ul {
   cursor: pointer;
 }
 
-.tabs_overlord input:checked+label {
+.tabs_overlord input:checked + label {
   border: 1px solid #000;
   border-width: 1px 1px 0 1px;
 }
 
-.tabs_overlord #tab1:checked~.content #content1,
-.tabs_overlord #tab2:checked~.content #content2,
-.tabs_overlord #tab3:checked~.content #content3 {
+.tabs_overlord #tab1:checked ~ .content #content1,
+.tabs_overlord #tab2:checked ~ .content #content2,
+.tabs_overlord #tab3:checked ~ .content #content3 {
   display: block;
 }
 
-.tabs_overlord .content>div {
+.tabs_overlord .content > div {
   display: none;
   padding-top: 20px;
   text-align: left;
   overflow: auto;
-
 }
 
 /* End of Tabs */
 
-
 /* CSS ONLY ACCORDION  color: #2c3e50;
   background: #ecf0f1;*/
-
 
 /* Accordion styles */
 .tabs_tennant {
@@ -583,15 +562,15 @@ ul {
   background: #1a252f;
 }
 
-.tabs_tennant input:checked+.tab-label {
+.tabs_tennant input:checked + .tab-label {
   background: #1a252f;
 }
 
-.tabs_tennant input:checked+.tab-label::after {
+.tabs_tennant input:checked + .tab-label::after {
   transform: rotate(90deg);
 }
 
-.tabs_tennant input:checked~.tab-content {
+.tabs_tennant input:checked ~ .tab-content {
   max-height: 100vh;
   padding: 0.5em;
   padding-right: 1.5em;
@@ -610,9 +589,6 @@ ul {
   z-index: 99999999;
   color: red;
 }
-
-
-
 
 /*! CSS Used from: https://cdn.froont.com/_static/gen/style.4d31e8f.css 
 Needed for Menu SVGS */
@@ -639,7 +615,7 @@ img {
   width: 100px;
   height: 57px;
   background: #333;
-  border: 1px solid #B3B3B3;
+  border: 1px solid #b3b3b3;
   border-radius: 2px;
   -webkit-transition: border-color 2s ease;
   transition: border-color 2s ease;
@@ -650,7 +626,7 @@ img {
 .library-widget-thumbnail:after {
   display: block;
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   left: 0;
   right: 0;
@@ -658,8 +634,8 @@ img {
   background: rgba(179, 179, 179, 0.06);
   border-radius: 2px;
   opacity: 0;
-  -webkit-transition: opacity .15s ease;
-  transition: opacity .15s ease;
+  -webkit-transition: opacity 0.15s ease;
+  transition: opacity 0.15s ease;
 }
 
 .library-widget-thumbnail img {
@@ -717,8 +693,7 @@ img {
 
 .active,
 .collapsible:hover {
-  background-color: #2C3B41;
-
+  background-color: #2c3b41;
 }
 
 .panel {
@@ -745,7 +720,6 @@ div.panel.show {
   background: gray;
   outline: 2px black solid;
   overflow: hidden;
-
 }
 
 div.__item {
@@ -792,7 +766,6 @@ div.__item {
   margin: auto !important;
   outline: 2px purple solid;
   outline-offset: -2px;
-
 }
 
 .active__u {
@@ -809,7 +782,6 @@ div.__item {
 }
 
 .wrapper__ {
-
   font-size: 11px;
 }
 
@@ -859,6 +831,16 @@ div.__item {
   margin-left: 5px;
 }
 
+.tag__ {
+  margin-left: 5px;
+  margin-bottom: 10px;
+  width: 110px;
+  height: 14px;
+  background: #804f7b;
+  color: white;
+
+  text-align: center;
+}
 /*end of that */
 
 /*____END - LAYOUT UI CSS____*/

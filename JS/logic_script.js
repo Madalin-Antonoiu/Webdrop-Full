@@ -67,6 +67,11 @@ clientFrameWindow.addEventListener("keydown", function (event) {
   }
 });
 
+
+
+
+
+
 //If not doing on iFrame load, the addEventListeners will crash sometimes - Multiple AddEventListeners
 function onLoadiframe() {
 
@@ -120,7 +125,39 @@ function onLoadiframe() {
     for (let i = 0; i < list.length; i++) {
       if (event.target === list[i]) { // if my click target is the same as list item it goes through
 
+        //Practice with console log to get proper class naming
+        if (event.target.id != "" && event.target.classList != "") {
+          console.log(event.target.nodeName + "#" + event.target.id + "." + event.target.classList + w$h); // + var ce tine rezultatul //writes tarNodename into my div 
+        } else if (event.target.id != "" && event.target.classList == "") {
+          console.log(event.target.nodeName + "#" + event.target.id + w$h);
+        } else if (event.target.id == "" && event.target.classList != "") {
+          console.log(event.target.nodeName + "." + event.target.classList + w$h);
+        } else {
+          console.log(event.target.nodeName + w$h);
+        }
+
         console.log(event.target.nodeName) //check console for what you click
+        document.getElementById('target_el').innerHTML = (event.target.nodeName);
+        document.getElementById('target_id').innerHTML = (event.target.id);
+        document.getElementById('target_cls').innerHTML = (event.target.classList);
+
+        //Remove or add back the classes for target.el
+        var toggleClass = document.getElementById('toggle-class');
+        toggleClass.addEventListener("click", toggleClasser, false);
+
+        /* //I need to have them like an array, named, selected, and based on selection remove here
+        function toggleClasser() {
+          var x = event.target.classList[0];
+          var y = x.textContent;
+          console.log(y)
+
+          event.target.classList.toggle(0);
+
+          if (event.srcElement.className == "")
+            event.srcElement.removeAttribute('class');
+
+
+        } */
 
 
         // Get width and height of clicked element
@@ -211,6 +248,16 @@ function onLoadiframe() {
   }
 
 
+  /*Change client.css upon loading iFrame - not what i want yet
+   var style = clientFrameWindow.getElementById('stylesheet1') //+= adds new rule, nice
+   style.innerHTML += ` 
+   #target {
+   color: blueviolet;
+   }
+   `;*/
+
+
+  //document.head.appendChild(style);
 
   /*WORKS
     clientFrameWindow.body.addEventListener('click', classToggle, false);
@@ -224,10 +271,29 @@ function onLoadiframe() {
 
   */
 
+  /*
+    //Working with StyleSheets
+    var s = clientFrameWindow.styleSheets[1];
 
+    function changeStylesheetRule(stylesheet, selector, property, value) {
+      selector = selector.toLowerCase();
+      property = property.toLowerCase();
+      value = value.toLowerCase();
 
+      for (var i = 0; i < s.cssRules.length; i++) {
+        var rule = s.cssRules[i];
+        if (rule.selectorText === selector) {
+          rule.style[property] = value;
+          return;
+        }
+      }
 
+      stylesheet.insertRule(selector + " { " + property + ": " + value + "; }", 0);
+    }
 
+    //changeStylesheetRule(s, "body", "color", "green");
+    changeStylesheetRule(s, "p", "border", "1px solid green");
+  */
 
   /* TEMPORARY SHUT DOWN
   function mouseEnter(e) {
@@ -371,54 +437,6 @@ function onLoadiframe() {
     // or tgt.remove();
   }
 
-  //17/9/2019 - Dom Tree Visualization -  MAKE FUNCTION - my version - works
-  var nodeTree = getNodeTree(clientFrameWindow.body);
-  console.log(nodeTree);
-
-
-  function getNodeTree(node) {
-    if (node.hasChildNodes()) {
-      var children = [];
-      for (var j = 0; j < node.childNodes.length; j++) {
-        children.push(getNodeTree(node.childNodes[j]));
-      }
-
-      return {
-        nodeName: node.nodeName,
-        children: children,
-        //parentName: node.parentNode.nodeName,
-        //content: node.innerText || "",
-      };
-    }
-
-    return false;
-  }
-
-  function muestraArbol(node) {
-    if (!node) return "";
-
-    var txt = "";
-
-    if (node.children.length > 0) {
-      //if(node.nodeName != "SCRIPT"){
-      var string = "";
-      string = node.nodeName; // you can do below inside caret just string 
-
-      txt += '<span class="caret">' + string.charAt(0).toUpperCase() + string.slice(1).toLowerCase() + '</span>';
-
-      //txt += "<li> Padre: " + node.parentName + "</li>";
-      //txt += "<li>Contenido: " + node.content + "</li>";
-      for (var i = 0; i < node.children.length; i++)
-        if (node.children[i])
-          txt += "<ul class='nested'>" + muestraArbol(node.children[i]) + "</ul>";
-
-      //}
-    }
-
-    return txt;
-  }
-  document.getElementById("result").innerHTML = muestraArbol(nodeTree);
-
 
 
   //carets stuff - Dropdown
@@ -442,7 +460,22 @@ function onLoadiframe() {
 
 };
 
+/*  Add a new CSS Stylesheets
+function addCss(fileName) {
 
+  var head = document.head;
+  var link = document.createElement("link");
+
+  link.type = "text/css";
+  link.rel = "stylesheet";
+  link.href = fileName;
+
+  head.appendChild(link);
+}
+
+addCss('{my-url}');
+
+*/
 
 
 
@@ -604,4 +637,58 @@ console.save = function (data, filename) {
     var myHTML = document.getElementById("clientframe").contentWindow.document.documentElement.outerHTML;
     console.log(myHTML);
   }
+*/
+
+
+/* MY SAVING BOAT */
+
+/*Change client.css upon loading iFrame - not what i want yet
+var s = clientFrameWindow.styleSheets[1];
+
+function changeStylesheetRule(stylesheet, selector, property, value) {
+  selector = selector.toLowerCase();
+  property = property.toLowerCase();
+  value = value.toLowerCase();
+
+  for (var i = 0; i < s.cssRules.length; i++) {
+    var rule = s.cssRules[i];
+    if (rule.selectorText === selector) {
+      rule.style[property] = value;
+      return;
+    }
+  }
+
+  stylesheet.insertRule(selector + " { " + property + ": " + value + "; }", 0);
+}
+
+//changeStylesheetRule(s, "body", "color", "green");
+changeStylesheetRule(s, "p", "border", "1px solid green");
+*/
+
+
+
+/* Good thing to obtain all css applied to an element
+function css(a) {
+  var sheets = document.styleSheets,
+    o = [];
+  a.matches = a.matches || a.webkitMatchesSelector || a.mozMatchesSelector || a.msMatchesSelector || a.oMatchesSelector;
+  for (var i in sheets) {
+    var rules = sheets[i].rules || sheets[i].cssRules;
+    for (var r in rules) {
+      if (a.matches(rules[r].selectorText)) {
+        o.push(rules[r].cssText);
+      }
+    }
+  }
+  return o;
+}
+
+function myFunc(variable) {
+  var s = document.getElementById(variable);
+  s.value = "new value";
+}
+myFunc("id1");
+
+//var x = " ' " + input + "'"
+console.log(css(document.getElementById(event.target.id)));
 */
