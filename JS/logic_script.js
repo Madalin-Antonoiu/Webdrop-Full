@@ -142,8 +142,40 @@ function onLoadiframe() {
         document.getElementById('target_cls').innerHTML = (event.target.classList);
 
         //Remove or add back the classes for target.el
-        var toggleClass = document.getElementById('toggle-class');
-        toggleClass.addEventListener("click", toggleClasser, false);
+
+        document.getElementById('tgl-class-btn').onclick = function (e) {
+          let name = event.target.classList[0];
+
+
+
+          //Scrie in document
+          var y = document.getElementById('saved-value')
+          y.innerHTML = x;
+
+
+          var addClass = function (_element, _classes) {
+            var classList, item, _i, _len;
+            classList = _element.classList;
+            for (_i = 0, _len = _classes.length; _i < _len; _i++) {
+              item = _classes[_i];
+              if (classList.length <= _len) {
+                classList.add(item);
+              } else {
+                classList.remove(item);
+              }
+            }
+            return _element;
+          };
+          addClass();
+
+          //Remove empty class
+          if (event.srcElement.className == "")
+            event.srcElement.removeAttribute('class');
+
+          //Prevent default
+          e.preventDefault();
+        };
+
 
         /* //I need to have them like an array, named, selected, and based on selection remove here
         function toggleClasser() {
