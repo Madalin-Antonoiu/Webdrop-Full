@@ -157,7 +157,7 @@ function onLoadiframe() {
 
         //Scrie in document > coloana 3
         var y = document.getElementById('saved-value')
-        y.innerHTML = " Toggling class: "+ clonedClassNames[0];
+        y.innerHTML = " Selected ."+ clonedClassNames[0];
 
         //console.log("Cloned all classes: " + clonedClassNames);
         //console.log("1st: " + clonedClassNames[0]);
@@ -177,11 +177,17 @@ function onLoadiframe() {
           //Dau click pe prima clasa, face urmatoarea
         document.getElementById('target_cls0').onclick = function (e) {
          
-         
-
-          event.target.classList.toggle(clonedClassNames[0]);
           
-          document.getElementById('tgl-class-0').toggleAttribute("checked");
+          //Toggle apply class on the element
+          event.target.classList.toggle(clonedClassNames[0]);
+
+          /*Log all classes from client.css
+        Array.prototype.forEach.call(clientFrameWindow.styleSheets[0].cssRules,
+          function(a){
+            var x = a.selectorText;
+            console.log(x);
+
+          }); */
 
 
           //Remove empty class
