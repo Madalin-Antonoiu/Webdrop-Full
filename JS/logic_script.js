@@ -6,6 +6,7 @@ var diviframe = document.getElementById('iframe_live_wh');
 
 
 
+
 function toggle_iframe_wh() {
   var diviframe = document.getElementById('iframe_live_wh');
   //Document's width and height
@@ -93,7 +94,6 @@ function onLoadiframe() {
 
   //Dblclick on img tag to change image
   clientFrameWindow.body.addEventListener('dblclick', dblClick, false);
-
   function dblClick() {
     // (event.srcElement.id == '__upload') for specific ID
     if (event.srcElement.nodeName == 'IMG') {
@@ -116,8 +116,6 @@ function onLoadiframe() {
 
   // Outline on click + show nodeName badge
   clientFrameWindow.addEventListener("click", oneClickForAll, false);
-
-  
   function oneClickForAll(event) {
     
     let list = clientFrameWindow.querySelectorAll('*'); // Grab all the li elements
@@ -157,7 +155,9 @@ function onLoadiframe() {
 
         //Scrie in document > coloana 3
         var y = document.getElementById('saved-value')
-        y.innerHTML = " Selected ."+ clonedClassNames[0];
+        y.innerHTML = " Selected ."+ clonedClassNames[0]; // aici imi scrie in HTML prima clasa prezenta
+
+        //deci ar trebui sa verific in iframe.styleSheet[0] dupa clasa asta si sa-i updatez width, weight etc 
 
         //console.log("Cloned all classes: " + clonedClassNames);
         //console.log("1st: " + clonedClassNames[0]);
@@ -232,6 +232,21 @@ function onLoadiframe() {
         };
         
 
+        //********* Change width on clicked element via inputs *************
+
+         var input1 = document.getElementById("__width1");
+         input1.value = event.target.clientWidth;
+
+          input1.addEventListener("keyup", updateElemWidth, false);
+
+          function updateElemWidth(){
+            var y = event.target;
+
+            y.style.setProperty('width', input1.value);
+          
+          }
+
+        // ******* End of it ************
 
 
 
@@ -313,8 +328,8 @@ function onLoadiframe() {
     }
   };
 
+  //
   window.addEventListener("resize", getSize, false);
-
   function getSize() {
     //Document's width and height
     var wd = document.getElementById('clientframe').clientWidth; //the entire iFrame on CodePen
@@ -325,6 +340,11 @@ function onLoadiframe() {
 
 
   }
+
+
+
+
+
 
 
   /*Change client.css upon loading iFrame - not what i want yet
