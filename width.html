@@ -25,10 +25,12 @@
       <input style="margin: 10px;" type="textbox" />
       <div id="new"></div>
     </div>
+    <input id="val" style="margin: 10px;" type="textbox" />
   </body>
 
   <script>
     var divTag = document.getElementsByTagName("div");
+    var inputVal = document.getElementById("val");
 
     for (var i = 0; i < divTag.length; i++) {
       if (divTag[i].tagName == "DIV" || divTag[i].tagName == "div") {
@@ -43,14 +45,18 @@
     var prevDiv = null;
 
     function callback(e) {
-      e = e || window.event;
-      var target = e.target || e.srcElement;
-      if (prevDiv) {
-        prevDiv.style.width = "";
-      }
-      target.style.width = "400px";
-      prevDiv = target;
-      e.stopPropagation();
+      inputVal.value = e.target.clientWidth + "px"; //gets the value changed on click
+
+      inputVal.addEventListener("keyup", function() {
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        if (prevDiv) {
+          prevDiv.style.width = "";
+        }
+        target.style.width = inputVal.value;
+        prevDiv = target;
+        e.stopPropagation();
+      });
     }
   </script>
 </html>
