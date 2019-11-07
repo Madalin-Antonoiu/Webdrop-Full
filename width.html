@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+
+    <style>
+      #old {
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+      }
+      #new {
+        width: 20px;
+        height: 20px;
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="old">
+      <input style="margin: 10px;" type="textbox" />
+      <div id="new"></div>
+    </div>
+  </body>
+
+  <script>
+    var divTag = document.getElementsByTagName("div");
+
+    for (var i = 0; i < divTag.length; i++) {
+      if (divTag[i].tagName == "DIV" || divTag[i].tagName == "div") {
+        if (divTag[i].addEventListener) {
+          divTag[i].addEventListener("click", callback, false);
+        } else if (divTag[i].attachEvent) {
+          divTag[i].attachEvent("on" + "click", callback);
+        }
+      }
+    }
+
+    var prevDiv = null;
+
+    function callback(e) {
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+      if (prevDiv) {
+        prevDiv.style.width = "";
+      }
+      target.style.width = "400px";
+      prevDiv = target;
+      e.stopPropagation();
+    }
+  </script>
+</html>
