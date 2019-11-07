@@ -17,16 +17,27 @@
         height: 20px;
         background-color: lightblue;
       }
+      .class1{
+        width: auto;
+      }
+      .class2{
+        width: auto;
+      }
+      .class3{
+        width: auto;
+      }
     </style>
   </head>
 
-  <body>
-    <div id="old">
-      <input style="margin: 10px;" type="textbox" />
-      <div id="new"></div>
+  <body class="main page">
+    <div id="old" class="class1">
+      <input class="class2" style="margin: 10px;" type="textbox" />
+      <div id="new" class="class3" ></div>
     </div>
     <input id="val" style="margin: 10px;" type="textbox" />
   </body>
+
+  <!--
 
   <script>
     var divTag = document.getElementsByTagName("div");
@@ -47,16 +58,76 @@
     function callback(e) {
       inputVal.value = e.target.clientWidth + "px"; //gets the value changed on click
 
+      var i = 0;
+
       inputVal.addEventListener("keyup", function() {
-        e = e || window.event;
-        var target = e.target || e.srcElement;
-        if (prevDiv) {
-          prevDiv.style.width = "";
+
+        var ssObj;
+
+        if (document.styleSheets[0].cssRules) {
+          ssObj = document.styleSheets[0].cssRules;
         }
-        target.style.width = inputVal.value;
-        prevDiv = target;
-        e.stopPropagation();
-      });
+        if (document.styleSheets[0].rules) {
+          ssObj = document.styleSheets[0].rules;
+        }
+
+        i = i < ssObj.length ? ++i : 0; //revolutionary for loop
+          
+        if (ssObj[i].selectorText == "." + e.target.classList[0]) {
+          console.log('Entered if check.')
+          ssObj[i].style.setProperty("width", inputVal.value, null);
+        }
+       
+    })};
+
+/*###This changes first class, will leave elem.style on for now only
+ 
+  var ssObj;
+
+  if (document.styleSheets[0].cssRules) {
+    ssObj = document.styleSheets[0].cssRules;
+  }
+  if (document.styleSheets[0].rules) {
+    ssObj = document.styleSheets[0].rules;
+  }
+
+  for (var i = 0; i < ssObj.length; i++) {
+    console.log('Entered for loop.')
+    if (ssObj[i].selectorText == "." + e.target.classList[0]) {
+      console.log('Entered if check.')
+      ssObj[i].style.setProperty("width", inputVal.value, null);
+      
+      
     }
+  }
+
+        e = e || window.event;
+            var target = e.target || e.srcElement;
+            if (prevDiv) {
+              prevDiv.style.width = e.target.classList[0].style.width;
+            }
+            target.style.width = inputVal.value;
+            prevDiv = target;
+            e.stopPropagation();
+            
+
+
+
+
+
+*/
+
   </script>
+  -->
+
+<script>
+//Easiest for loop of my life
+for (let name of document.body.classList) {
+    alert(name); // main, and then page
+}
+
+</script>
+
+
 </html>
+

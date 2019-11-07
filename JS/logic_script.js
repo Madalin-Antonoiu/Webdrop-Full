@@ -240,8 +240,7 @@ function onLoadiframe() {
 
 
           for (var i = 0; i < ssObj.length; i++) {
-
-
+          
             console.log("----After input-----Before the check----");
             console.log(solo);
             //console.log(ssObj[i]);
