@@ -235,11 +235,14 @@ function onLoadiframe() {
         //********* Change width on clicked element via inputs *************
 
          var input1 = document.getElementById("__width1");
-         input1.value = event.target.clientWidth;
+         input1.value = event.target.clientWidth + "px";
 
           input1.addEventListener("keyup", updateElemWidth, false);
-
+          
+          // #CURRENTLY-WORKING-ON : Functia care va face posibila editarea stylesheet[0] si a claselor/ id selectat, direct din input 
           function updateElemWidth(){
+            var oneStylesheet = clientFrameWindow.styleSheets[0];
+            console.log(oneStylesheet);
             var y = event.target;
 
             y.style.setProperty('width', input1.value);
