@@ -264,13 +264,12 @@ function onLoadiframe() {
               
               //daca Id selectat contine proprietatea width, modifica, daca nu, creaza. 
 
-              if (ssObj[i].selectorText === '#'+ event.target.id) { // daca cautand prin toate stilurile gasesti prima clasa [id sau class], atunci umbla la width!
-                if(ssObj[i].getAttribute("style")){ //if the style attribute exists, modify it, else create it 
+              if (ssObj[i].selectorText === '#' + event.target.id || ssObj[i].style.getAttribute("width")) { // daca cautand prin toate stilurile gasesti prima clasa [id sau class], atunci umbla la width!
                 ssObj[i].style.setProperty('width', input1.value , null);
-                } else {
+              } else {
                 ssObj[i].style.createAttribute('width', input1.value , null);
                 // i need to fix here ! 11/6/2019
-              }}
+              }
             }
 
          
