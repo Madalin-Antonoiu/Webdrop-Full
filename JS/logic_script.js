@@ -234,18 +234,52 @@ function onLoadiframe() {
 
         //********* Change width on clicked element via inputs *************
 
-         var input1 = document.getElementById("__width1");
-         input1.value = event.target.clientWidth + "px";
+         var input1 = document.getElementById("__width1"); 
+         input1.value = event.target.clientWidth; //valoarea initiala afisata pe ecran
 
           input1.addEventListener("keyup", updateElemWidth, false);
           
-          // #CURRENTLY-WORKING-ON : Functia care va face posibila editarea stylesheet[0] si a claselor/ id selectat, direct din input 
+          // WORKS !  #CURRENTLY-WORKING-ON : Functia care va face posibila editarea stylesheet[0] si a claselor/ id selectat, direct din input 
           function updateElemWidth(){
-            var oneStylesheet = clientFrameWindow.styleSheets[0];
-            console.log(oneStylesheet);
-            var y = event.target;
 
-            y.style.setProperty('width', input1.value);
+           // Array.prototype.forEach.call(clientFrameWindow.styleSheets[0].cssRules,function(a){
+           //  console.log(a.selectorText)
+          // });
+
+            console.log('#'+ event.target.id)
+            
+            var ssObj;
+            
+
+            if (clientFrameWindow.styleSheets[0].cssRules) {
+              ssObj = clientFrameWindow.styleSheets[0].cssRules;
+            }
+            if (clientFrameWindow.styleSheets[0].rules) {
+              ssObj = clientFrameWindow.styleSheets[0].rules;
+            }
+
+            //Here i need a selecotr- If i choose on screen to edit css for id, run through ID below. Else run through CSS  ( IF they exist)
+            // I am going only through ID here
+            for (var i = 0; i < ssObj.length; i++) {
+              
+              //daca Id selectat contine proprietatea width, modifica, daca nu, creaza. 
+
+              if (ssObj[i].selectorText === '#'+ event.target.id) { // daca cautand prin toate stilurile gasesti prima clasa [id sau class], atunci umbla la width!
+                if(ssObj[i].getAttribute("style")){ //if the style attribute exists, modify it, else create it 
+                ssObj[i].style.setProperty('width', input1.value , null);
+                } else {
+                ssObj[i].style.createAttribute('width', input1.value , null);
+                // i need to fix here ! 11/6/2019
+              }}
+            }
+
+         
+
+
+
+            //var y = event.target;
+
+            //y.style.setProperty('width', input1.value);
           
           }
 
@@ -794,3 +828,28 @@ myFunc("id1");
 //var x = " ' " + input + "'"
 console.log(css(document.getElementById(event.target.id)));
 */
+
+
+
+
+
+
+            /*
+            This code checks the style sheet rules and if it finds white then sets it to red.
+
+            var ssObj;
+            if (document.styleSheets[0].cssRules) {
+              ssObj = document.styleSheets[0].cssRules;
+            }
+            if (document.styleSheets[0].rules) {
+              ssObj = document.styleSheets[0].rules;
+            }
+
+            for (var i = 0; i < ssObj.length; i++) {
+              if (ssObj[i].style.color == 'white') { // ce am eu nevoie ssObj[i].name == event.target.className[0] atunci modifico
+                ssObj[i].style.setProperty('color', 'red', null);
+              }
+            }
+
+
+            */
