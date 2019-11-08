@@ -1,133 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
 
-    <style>
-      #old {
-        width: 200px;
-        height: 200px;
-        background-color: yellow;
-      }
-      #new {
-        width: 20px;
-        height: 20px;
-        background-color: lightblue;
-      }
-      .class1{
-        width: auto;
-      }
-      .class2{
-        width: auto;
-      }
-      .class3{
-        width: auto;
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
 
-  <body class="main page">
-    <div id="old" class="class1">
-      <input class="class2" style="margin: 10px;" type="textbox" />
-      <div id="new" class="class3" ></div>
+  <style>
+    *:focus {
+      outline: none;
+    }
+
+    .background {
+      background-color: gray;
+    }
+
+    .center {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    button {
+      display: inline-block;
+      margin: 20px;
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+    }
+
+    .button:hover {
+      box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    #output {
+      width: 150px;
+      color: white;
+      background: black;
+      display: block;
+      bottom: 100px;
+      position: absolute;
+      left: 250px;
+    }
+
+    #inputid {
+      display: block;
+      bottom: 50px;
+      left: 250px;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body class="main page">
+
+  <body class="background">
+    <div class="center" id="center">
+      <button id="1" class="button">Click me then click execute!</button>
+      <button id="2" class="button">Click me then click execute!</button>
+      <button id="3" class="button">Click me then click execute!</button>
     </div>
-    <input id="val" style="margin: 10px;" type="textbox" />
+    <button id="output" class="button">EXECUTE!</button>
+    <div id="inputid">
+      <span>Set width and press ENTER:</span>
+      <input id="input" type="text">
+    </div>
+
   </body>
 
-  <!--
 
   <script>
-    var divTag = document.getElementsByTagName("div");
-    var inputVal = document.getElementById("val");
+    var center = document.getElementById('center');
+    var centerIndividuals = center.querySelectorAll('*');
 
-    for (var i = 0; i < divTag.length; i++) {
-      if (divTag[i].tagName == "DIV" || divTag[i].tagName == "div") {
-        if (divTag[i].addEventListener) {
-          divTag[i].addEventListener("click", callback, false);
-        } else if (divTag[i].attachEvent) {
-          divTag[i].attachEvent("on" + "click", callback);
+    for (const centerIndividual of centerIndividuals) {
+
+      centerIndividual.addEventListener('click', randomColor, false);
+
+      function randomColor(e) {
+
+
+        //Totally unnecessary, i do this just for a random number and color
+        var color = '#' + Math.random().toString(16).substr(2, 6);
+
+        function rand(min, max, interval) {
+          if (typeof (interval) === 'undefined') interval = 1;
+          var r = Math.floor(Math.random() * (max - min + interval) / interval);
+          return r * interval + min;
         }
-      }
-    }
+        var width = rand(200, 500) + "px";
+        // up to here unnecessary
 
-    var prevDiv = null;
+        //1. Must save the target before you enter the Execute click function.
 
-    function callback(e) {
-      inputVal.value = e.target.clientWidth + "px"; //gets the value changed on click
-
-      var i = 0;
-
-      inputVal.addEventListener("keyup", function() {
-
-        var ssObj;
-
-        if (document.styleSheets[0].cssRules) {
-          ssObj = document.styleSheets[0].cssRules;
-        }
-        if (document.styleSheets[0].rules) {
-          ssObj = document.styleSheets[0].rules;
-        }
-
-        i = i < ssObj.length ? ++i : 0; //revolutionary for loop
-          
-        if (ssObj[i].selectorText == "." + e.target.classList[0]) {
-          console.log('Entered if check.')
-          ssObj[i].style.setProperty("width", inputVal.value, null);
-        }
-       
-    })};
-
-/*###This changes first class, will leave elem.style on for now only
- 
-  var ssObj;
-
-  if (document.styleSheets[0].cssRules) {
-    ssObj = document.styleSheets[0].cssRules;
-  }
-  if (document.styleSheets[0].rules) {
-    ssObj = document.styleSheets[0].rules;
-  }
-
-  for (var i = 0; i < ssObj.length; i++) {
-    console.log('Entered for loop.')
-    if (ssObj[i].selectorText == "." + e.target.classList[0]) {
-      console.log('Entered if check.')
-      ssObj[i].style.setProperty("width", inputVal.value, null);
-      
-      
-    }
-  }
 
         e = e || window.event;
-            var target = e.target || e.srcElement;
-            if (prevDiv) {
-              prevDiv.style.width = e.target.classList[0].style.width;
-            }
-            target.style.width = inputVal.value;
-            prevDiv = target;
-            e.stopPropagation();
-            
+        var target = e.target || e.srcElement;
+
+
+        var inPut = document.getElementById('input');
+
+        //2. Whenever you click on Execute it will remember last clicked element and run this:
+        document.getElementById('output').addEventListener('click', function () {
+          console.log('-------');
+          console.log(target);
 
 
 
+          target.style.backgroundColor = color;
+          target.style.width = width;
+          target.innerHTML = color;
+
+        });
 
 
-*/
+        inPut.value = target.clientWidth + "px";
 
+        //Repeat the above for an input now! EDIT : Ok, so it how input works, it remembers previous targets?!
+        inPut.addEventListener('keydown', function () {
+
+          if (event.keyCode === 13) {
+            target.style.backgroundColor = color;
+            target.style.width = inPut.value;
+            target.innerHTML = color;
+
+          };
+
+        });
+
+      }
+
+     
+    }
   </script>
-  -->
 
-<script>
-//Easiest for loop of my life
-for (let name of document.body.classList) {
-    alert(name); // main, and then page
-}
 
-</script>
 
 
 </html>
-
