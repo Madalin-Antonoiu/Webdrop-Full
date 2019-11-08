@@ -81,67 +81,71 @@
 
 
   <script>
-    var center = document.getElementById('center');
-    var centerIndividuals = center.querySelectorAll('*');
+    var zone = document.getElementById('center');
+    zone.addEventListener('click', randomColor, false);
 
-    for (const centerIndividual of centerIndividuals) {
+    function randomColor(e) {
 
-      centerIndividual.addEventListener('click', randomColor, false);
+      let list = zone.querySelectorAll("*"); // Grab all the li elements
 
-      function randomColor(e) {
+      for (let i = 0; i < list.length; i++) {
 
+        if (event.target === list[i]) {
 
-        //Totally unnecessary, i do this just for a random number and color
-        var color = '#' + Math.random().toString(16).substr(2, 6);
+          console.log(list[0]);
+          //Totally unnecessary, i do this just for a random number and color
+          var color = '#' + Math.random().toString(16).substr(2, 6);
 
-        function rand(min, max, interval) {
-          if (typeof (interval) === 'undefined') interval = 1;
-          var r = Math.floor(Math.random() * (max - min + interval) / interval);
-          return r * interval + min;
-        }
-        var width = rand(200, 500) + "px";
-        // up to here unnecessary
+          function rand(min, max, interval) {
+            if (typeof (interval) === 'undefined') interval = 1;
+            var r = Math.floor(Math.random() * (max - min + interval) / interval);
+            return r * interval + min;
+          }
+          var width = rand(200, 500) + "px";
+          // up to here unnecessary
 
-        //1. Must save the target before you enter the Execute click function.
-
-
-        e = e || window.event;
-        var target = e.target || e.srcElement;
+          //1. Must save the target before you enter the Execute click function.
 
 
-        var inPut = document.getElementById('input');
-
-        //2. Whenever you click on Execute it will remember last clicked element and run this:
-        document.getElementById('output').addEventListener('click', function () {
-          console.log('-------');
-          console.log(target);
+          e = e || window.event;
+          var target = e.target || e.srcElement;
 
 
+          var inPut = document.getElementById('input');
 
-          target.style.backgroundColor = color;
-          target.style.width = width;
-          target.innerHTML = color;
-
-        });
+          //2. Whenever you click on Execute it will remember last clicked element and run this:
+          document.getElementById('output').addEventListener('click', function () {
 
 
-        inPut.value = target.clientWidth + "px";
 
-        //Repeat the above for an input now! EDIT : Ok, so it how input works, it remembers previous targets?!
-        inPut.addEventListener('keydown', function () {
 
-          if (event.keyCode === 13) {
             target.style.backgroundColor = color;
-            target.style.width = inPut.value;
+            target.style.width = width;
             target.innerHTML = color;
 
-          };
 
-        });
+          });
 
+
+          inPut.value = target.clientWidth + "px";
+
+          //Repeat the above for an input now! EDIT : Ok, so it how input works, it remembers previous targets?!
+          inPut.addEventListener('keydown', function () {
+
+            if (event.keyCode === 13) {
+
+
+
+              target.style.backgroundColor = color;
+              target.style.width = inPut.value;
+              target.innerHTML = color;
+
+            };
+
+          });
+
+        }
       }
-
-     
     }
   </script>
 
