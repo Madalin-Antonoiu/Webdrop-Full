@@ -1,6 +1,6 @@
 //Written by me - DO NOT delete
-var clientFrameWindow = document.getElementById("clientframe").contentWindow
-  .document;
+var $ = function (id) { return document.getElementById(id); };// Now $('id') possible in Vanilla JS
+var clientFrameWindow = document.getElementById("clientframe").contentWindow.document;
 //var placeholders = clientFrameWindow.getElementsByClassName('__placeholder');
 var droppables = document.getElementById("sidebar_menu");
 var diviframe = document.getElementById("iframe_live_wh");
@@ -110,7 +110,9 @@ function onLoadiframe() {
   // Outline on click + show nodeName badge
   clientFrameWindow.addEventListener("click", oneClickForAll, false);
 
-  function oneClickForAll(event) {
+  function oneClickForAll() {
+
+    
     let list = clientFrameWindow.querySelectorAll("*"); // Grab all the li elements
 
     for (let i = 0; i < list.length; i++) {
@@ -149,7 +151,7 @@ function onLoadiframe() {
 
         //Scrie in document > coloana 3
         var y = document.getElementById("saved-value");
-        y.innerHTML = " Selected ." + clonedClassNames[0]; // aici imi scrie in HTML prima clasa prezenta
+        y.innerHTML = " Selected class: ." + clonedClassNames[0]; // aici imi scrie in HTML prima clasa prezenta
 
         //deci ar trebui sa verific in iframe.styleSheet[0] dupa clasa asta si sa-i updatez width, weight etc
 
@@ -211,51 +213,24 @@ function onLoadiframe() {
           e.preventDefault();
         };
 
-        //********* Change width on clicked element via inputs *************
+        //********* 5. Change width on clicked element via inputs *************
 
-        var input1 = document.getElementById("__width1");
-        var x = event.target;
-        input1.value = x.clientWidth; //valoarea initiala afisata pe ecran
-        var solo = event.target.classList[0];
-        console.log('Ante-input:' + "." + solo);
+          x = event.target; // magical piece
+  
+          $('myWidth').value = x.style.width;  + "px"; //get default width
+          $('maxWidth').value = x.style.maxWidth; //get default width
+          $('minWidth').value = x.style.minWidth;  //get default width
 
-        input1.addEventListener("keyup", updateElemWidth, false);
+          //1. Width 
+          $('myWidth').addEventListener('keyup', function() { x.style.width = $('myWidth').value; });
 
-        // WORKS !  #CURRENTLY-WORKING-ON : Functia care va face posibila editarea stylesheet[0] si a claselor/ id selectat, direct din input
-        function updateElemWidth() {
-          // Cancel the default action, if needed
+          //2. Max-Width 
+          $('maxWidth').addEventListener('keyup', function() { x.style.maxWidth = $('maxWidth').value; });
 
-          // Array.prototype.forEach.call(clientFrameWindow.styleSheets[0].cssRules,function(a){
-          //  console.log(a.selectorText)
-          // });
-          //IT RUNS A MILLION TIMES..................................
-          var ssObj;
-
-          if (clientFrameWindow.styleSheets[0].cssRules) {
-            ssObj = clientFrameWindow.styleSheets[0].cssRules;
-          }
-          if (clientFrameWindow.styleSheets[0].rules) {
-            ssObj = clientFrameWindow.styleSheets[0].rules;
-          }
-
-
-          for (var i = 0; i < ssObj.length; i++) {
-          
-            console.log("----After input-----Before the check----");
-            console.log(solo);
-            //console.log(ssObj[i]);
-            //So the problem is this match, it takes all classes not the selected one
-            if (ssObj[i].selectorText == "." + event.target.classList[0]) {
-              ssObj[i].style.setProperty("width", input1.value, null);
-              console.log("After the check ---- MATCHED");
-              console.log(ssObj[i].selectorText);
-            }
-          }
-        }
-
-        // ******* End of it ************
-
-        // Get width and height of clicked element
+          //3. Min-Width 
+          $('minWidth').addEventListener('keyup', function() { x.style.minWidth = $('minWidth').value; });
+        
+        // -----END OF 5 ----- 
 
         var badge = clientFrameWindow.getElementById("tar_nodeName");
         var w = event.target.clientWidth;
