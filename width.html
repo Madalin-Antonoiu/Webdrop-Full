@@ -69,36 +69,52 @@
     <button id="button1">1</button>
     <button id="button2">2</button>
     <button id="button3">3</button>
-    <button id="button4">4</button>
-
-    <button id="button">Click</button>
+    <button id="button4">4</button><br><br>
+    
+    <span>Color </span><input id="input"> <br> <br>
+    <span>Width </span><input id="input2"> <br> <br>
+    <span>Height </span><input id="input3">
 
   </body>
 
 
   <script>
-    var $ = function (id) { return document.getElementById(id); };// Now $('id') possible in Vanilla JS
+      var $ = function (id) { return document.getElementById(id); };// Now $('id') possible in Vanilla JS
 
-    $('button1').addEventListener('click', el, false);
-    $('button2').addEventListener('click', el, false);
-    $('button3').addEventListener('click', el, false);
-    $('button4').addEventListener('click', el, false);
+      $('button1').addEventListener('click', el, false);
+      $('button2').addEventListener('click', el, false);
+      $('button3').addEventListener('click', el, false);
+      $('button4').addEventListener('click', el, false);
 
-   
+      function el() {
 
-     function el(){
-      console.log(event.target);
-      x = event.target;
+        x = event.target; //Daca nu declar var = doar ultimul click
 
-       $('button').addEventListener('click', ex, false);
+        $('input').value = x.style.backgroundColor || "N/A" // get elem.style color if set
+        $('input2').value = x.clientWidth + "px"; //get Default width
+        $('input3').value = x.clientHeight + "px"; //get Default width
 
-      function ex(){
-        x.style.color = "orangered";
-      }
+        //1. Color 
+        $('input').addEventListener('keyup', ed, false);
+        function ed() {
+          x.style.background = $('input').value;
+        }
 
-    };
+        //2. Width 
+        $('input2').addEventListener('keyup', eo, false);
+        function eo() {
+          x.style.width = $('input2').value;
+        }
 
-    
+        //3. Height
+        $('input3').addEventListener('keyup', em, false);
+        function em() {
+          x.style.height = $('input3').value;
+        }
+
+      };
+
+    //window.getComputedStyle(x, null).getPropertyValue("background-color") + ; //get computed color Default color
 
   </script>
 
