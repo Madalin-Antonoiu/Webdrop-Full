@@ -1,15 +1,15 @@
 //Written by me - DO NOT delete
 var $ = function (id) { return document.getElementById(id); };// Now $('id') possible in Vanilla JS
-var clientFrameWindow = document.getElementById("clientframe").contentWindow.document;
+var clientFrameWindow = $("clientframe").contentWindow.document;
 //var placeholders = clientFrameWindow.getElementsByClassName('__placeholder');
-var droppables = document.getElementById("sidebar_menu");
-var diviframe = document.getElementById("iframe_live_wh");
+var droppables = $("sidebar_menu");
+var diviframe = $("iframe_live_wh");
 
 function toggle_iframe_wh() {
-  var diviframe = document.getElementById("iframe_live_wh");
+  var diviframe = $("iframe_live_wh");
   //Document's width and height
-  var wd = document.getElementById("clientframe").clientWidth; //the entire iFrame on CodePen
-  var wh = document.getElementById("clientframe").clientHeight;
+  var wd = $("clientframe").clientWidth; //the entire iFrame on CodePen
+  var wh = $("clientframe").clientHeight;
 
   // put the result into a h1 tag
   diviframe.innerHTML = wd + " x " + wh;
@@ -21,16 +21,16 @@ document.addEventListener("keydown", function (event) {
   if (event.keyCode == 192) {
     //192 is `
 
-    nav = document.getElementById("myNav");
-    col2 = document.getElementById("column2");
+    nav = $("myNav");
+    col2 = $("column2");
 
     col1.classList.toggle("displayNoneSuper");
     col2.classList.toggle("fullheight");
     col3.classList.toggle("displayNoneSuper");
     nav.classList.toggle("displayNoneSuper");
     clientFrameWindow.body.classList.toggle("preview_class101");
-    document.getElementById("resize_bar").classList.toggle("displayNoneSuper");
-    document.getElementById("resize_bar2").classList.toggle("displayNoneSuper");
+    $("resize_bar").classList.toggle("displayNoneSuper");
+    $("resize_bar2").classList.toggle("displayNoneSuper");
     frame.classList.remove("s320", "s480", "s768", "s1366", "s1920");
 
     //Toggling from Preview to Edit with no visual bugs, yay!
@@ -44,16 +44,16 @@ document.addEventListener("keydown", function (event) {
 
 clientFrameWindow.addEventListener("keydown", function (event) {
   if (event.keyCode == 192) {
-    nav = document.getElementById("myNav");
-    col2 = document.getElementById("column2");
+    nav = $("myNav");
+    col2 = $("column2");
 
     col1.classList.toggle("displayNoneSuper");
     col2.classList.toggle("fullheight");
     col3.classList.toggle("displayNoneSuper");
     nav.classList.toggle("displayNoneSuper");
     clientFrameWindow.body.classList.toggle("preview_class101");
-    document.getElementById("resize_bar").classList.toggle("displayNoneSuper");
-    document.getElementById("resize_bar2").classList.toggle("displayNoneSuper");
+    $("resize_bar").classList.toggle("displayNoneSuper");
+    $("resize_bar2").classList.toggle("displayNoneSuper");
     frame.classList.remove("s320", "s480", "s768", "s1366", "s1920");
 
     col2.classList.toggle("unshrinkCol2");
@@ -67,29 +67,232 @@ clientFrameWindow.addEventListener("keydown", function (event) {
 
 //If not doing on iFrame load, the addEventListeners will crash sometimes - Multiple AddEventListeners
 function onLoadiframe() {
-  //Listeners
+
 
   //clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
-
   clientFrameWindow.body.addEventListener("mouseout", mouseLeave, false);
   clientFrameWindow.body.addEventListener("dragover", dragOver, false);
   clientFrameWindow.body.addEventListener("dragleave", dragLeave, false);
   clientFrameWindow.body.addEventListener("drop", onDrop, false);
   droppables.addEventListener("dragstart", onDragStart, false);
-
-  /*Image Upload ( only changes src for now)*/
-
-  //For "img src change on double click on newly dropped elements in iFrame" we need :
-  //1. dblclick event listener on the whole iFrame(or if you want, on a specific part/div)
-  //2. the function which checks whether the double clicked element has the id given to img elements
-
-  //Dblclick on img tag to change image
   clientFrameWindow.body.addEventListener("dblclick", dblClick, false);
+  clientFrameWindow.addEventListener("click", oneClickForAll, false);
+  window.addEventListener("resize", getSize, false);
+
+  function oneClickForAll(event) {
+
+    x = event.target; 
+    let list = clientFrameWindow.querySelectorAll("*"); // Grab all the li elements
+
+    for (let i = 0; i < list.length; i++) {
+      if (x === list[i]) {   // If my click target is the same as list item it goes through,and this is to ensure only 1 eleme is red
+      
+        // 1. Tag, ID, Classes
+          $('target_el').innerHTML = x.nodeName;
+          $('target_id').innerHTML = x.id;
+
+          // NOT DRY - (instead of 0,1,3 could note a n) Only show these divs if the classes exist!
+          if (x.classList[0]) {
+            $("target_cls0").innerHTML =
+              x.classList[0];
+          } else {
+            $("target_cls0").innerHTML = "";
+          }
+
+          if (x.classList[1]) {
+            $("target_cls1").innerHTML =
+              x.classList[1];
+          } else {
+            $("target_cls1").innerHTML = "";
+          }
+
+          if (x.classList[2]) {
+            $("target_cls2").innerHTML =
+              x.classList[2];
+          } else {
+            $("target_cls2").innerHTML = "";
+          }
+        // End of 1
+
+        /// **** 2. Toggle a class on/off on click in Panel ******* /////
+
+        var classNames = x.classList;
+        var clonedClassNames = [...classNames]; //It`s a must to copy the array
+        
+        //Not DRY!
+        $('target_cls0').onclick = function (e) {
+          //Toggle apply class on the element
+          x.classList.toggle(clonedClassNames[0]);
+
+          /*Log all classes from client.css
+        Array.prototype.forEach.call(clientFrameWindow.styleSheets[0].cssRules,
+          function(a){
+            var x = a.selectorText;
+            console.log(x);
+
+          }); */
+
+          //Remove empty class
+          if (event.srcElement.className == "")
+            event.srcElement.removeAttribute("class");
+
+          //Prevent default
+          e.preventDefault();
+        };
+        $('target_cls1').onclick = function (e) {
+         x.classList.toggle(clonedClassNames[1]);
+
+          $("tgl-class-1").toggleAttribute("checked");
+
+          //Remove empty class
+          if (event.srcElement.className == "")
+            event.srcElement.removeAttribute("class");
+
+          //Prevent default
+          e.preventDefault();
+        };
+        $('target_cls2').onclick = function (e) {
+          x.classList.toggle(clonedClassNames[2]);
+
+          $("tgl-class-2").toggleAttribute("checked");
+
+          //Remove empty class
+          if (event.srcElement.className == "")
+            event.srcElement.removeAttribute("class");
+
+          //Prevent default
+          e.preventDefault();
+        };
+        $('saved-value').innerHTML = " Selected class: ." + clonedClassNames[0]; // aici imi scrie in HTML prima clasa prezenta
+
+
+        /// ********** End of 2 ****************
+
+        //********* 3. Change width on clicked element via inputs (INLINE-STYLES)*************
+          
+          //Display x's default values
+          $('myWidth').value = x.style.width;
+          $('maxWidth').value = x.style.maxWidth; 
+          $('minWidth').value = x.style.minWidth;  
+
+          $('myHeight').value = x.style.height;
+          $('maxHeight').value = x.style.maxHeight; 
+          $('minHeight').value = x.style.minHeight;  
+
+          //a. Width (with STYLE element in comments )
+          $('myWidth').addEventListener('keyup', function() { x.style.width = $('myWidth').value; });        // (1) drop inside});
+          $('maxWidth').addEventListener('keyup', function() { x.style.maxWidth = $('maxWidth').value; });
+          $('minWidth').addEventListener('keyup', function() { x.style.minWidth = $('minWidth').value; });
+        
+          $('myHeight').addEventListener('keyup', function() { x.style.height = $('myHeight').value; });
+          $('maxHeight').addEventListener('keyup', function() { x.style.maxHeight = $('maxHeight').value; });
+          $('minHeight').addEventListener('keyup', function() { x.style.minHeight = $('minHeight').value; });
+        
+
+        // -----END OF 3 ----- 
+
+        // ***** 4. BADGE ***** //
+        var badge = clientFrameWindow.getElementById("tar_nodeName");
+        var w = x.clientWidth;
+        var h = x.clientHeight;
+        var w$h =
+          "&nbsp; &nbsp;" +
+          x.clientWidth +
+          "x" +
+          x.clientHeight;
+
+        //Resize window live update width + height of clicked element
+        window.addEventListener("resize", getSize, false);
+
+        function getSize() {
+          //On resize run again and update
+          var w = x.clientWidth;
+          var h = x.clientHeight;
+          var w$h =
+            "&nbsp; &nbsp;" +
+            x.clientWidth +
+            "x" +
+            x.clientHeight;
+
+          if (x.id != "" && x.classList != "") {
+            badge.innerHTML =
+              x.nodeName +
+              "#" +
+              x.id +
+              "." +
+              x.classList +
+              w$h; // + var ce tine rezultatul //writes tarNodename into my div
+          } else if (x.id != "" && x.classList == "") {
+            badge.innerHTML =
+              x.nodeName + "#" + x.id + w$h;
+          } else if (x.id == "" && x.classList != "") {
+            badge.innerHTML =
+              x.nodeName + "." + x.classList + w$h;
+          } else {
+            badge.innerHTML =
+              x.nodeName + clickedElement_wh.innerHTML + w$h;
+          }
+
+          //On resize update Column3
+          $("renderedWidth").innerHTML = w + "px"; //writes width
+          $("renderedHeight").innerHTML = h + "px"; //writes width
+        }
+        //End of resize live update clicked element
+
+        // Shows the badge
+        //Need to write some checks here, if it has id, if it has classes - DISPLAY BADGE ON CLICK
+        if (x.id != "" && x.classList != "") {
+          badge.innerHTML =
+            x.nodeName +
+            "#" +
+            x.id +
+            "." +
+            x.classList +
+            w$h; // + var ce tine rezultatul //writes tarNodename into my div
+        } else if (x.id != "" && x.classList == "") {
+          badge.innerHTML = x.nodeName + "#" + x.id + w$h;
+        } else if (x.id == "" && x.classList != "") {
+          badge.innerHTML =
+            x.nodeName + "." + x.classList + w$h;
+        } else {
+          badge.innerHTML = x.nodeName + w$h;
+        }
+
+        // DISPLAY W & H  COLUMN3 ON CLICK
+        $("renderedWidth").innerHTML = w + "px"; //writes width
+        $("renderedHeight").innerHTML = h + "px"; //writes width
+
+        //Adds it as first child
+        x.parentNode.insertBefore(badge, x);
+
+        // before clicked element
+        //x.parentNode.insertBefore(badge, x.nextSibling) // after clicked element
+
+        /*Move it to cursor
+          var x = event.clientX;
+          var y = event.clientY;
+          badge.style.left = `${x}px`;
+          badge.style.top = `${y}px`; */
+
+        if (x.classList !== "active__u") {
+          //if target doesn't have active on it
+          x.classList.add("active__u"); //add it
+          badge.classList.add("show");
+        } else {
+          //x.classList.remove("active"); //to be able to remove it on a second click
+          x.className != "active__u"; //to not be able to
+          //Also if target doesn't have active__u the badge should be hidden ( not woking yet)
+        }
+      } else {
+        list[i].classList.remove("active__u");
+      }
+    }
+  }
 
   function dblClick() {
     // (event.srcElement.id == '__upload') for specific ID
     if (event.srcElement.nodeName == "IMG") {
-      //Change src event.srcElement is the same with event.target
+      //Change src event.srcElement is the same with x
       event.srcElement.src = "https://picsum.photos/200/300";
       //console.log(event.srcElement);
 
@@ -107,304 +310,16 @@ function onLoadiframe() {
     }
   }
 
-  // Outline on click + show nodeName badge
-  clientFrameWindow.addEventListener("click", oneClickForAll, false);
-
-  function oneClickForAll() {
-
-    
-    let list = clientFrameWindow.querySelectorAll("*"); // Grab all the li elements
-
-    for (let i = 0; i < list.length; i++) {
-      if (event.target === list[i]) {
-        // if my click target is the same as list item it goes through
-
-        document.getElementById("target_el").innerHTML = event.target.nodeName;
-        document.getElementById("target_id").innerHTML = event.target.id;
-
-        //Only show these divs if the classes exist!
-        if (event.target.classList[0]) {
-          document.getElementById("target_cls0").innerHTML =
-            event.target.classList[0];
-        } else {
-          document.getElementById("target_cls0").innerHTML = "";
-        }
-
-        if (event.target.classList[1]) {
-          document.getElementById("target_cls1").innerHTML =
-            event.target.classList[1];
-        } else {
-          document.getElementById("target_cls1").innerHTML = "";
-        }
-
-        if (event.target.classList[2]) {
-          document.getElementById("target_cls2").innerHTML =
-            event.target.classList[2];
-        } else {
-          document.getElementById("target_cls2").innerHTML = "";
-        }
-
-        //Remove or add back the classes for target.el
-
-        var classNames = event.target.classList;
-        var clonedClassNames = [...classNames]; //It`s a must to copy the array
-
-        //Scrie in document > coloana 3
-        var y = document.getElementById("saved-value");
-        y.innerHTML = " Selected class: ." + clonedClassNames[0]; // aici imi scrie in HTML prima clasa prezenta
-
-        //deci ar trebui sa verific in iframe.styleSheet[0] dupa clasa asta si sa-i updatez width, weight etc
-
-        //console.log("Cloned all classes: " + clonedClassNames);
-        //console.log("1st: " + clonedClassNames[0]);
-
-        //There is a problem with badge it doesn't pick the clicked active__u - we need to remove it from classList
-
-        //Click on to toggle FIRST present class, without defining it ;)
-
-        //Toata smecheria era ca sa fie salvat totul inainte de a da click pe buton ca sa nu se updateze
-        //Plus am invatat si cum copiezi un array - Inainte sa dau click pe buton, am dat click pe element,
-        //si copiaza prima variabila; Cand dau click si pe buton, deja stie care e si ii face toggle
-
-        //Dau click pe prima clasa, face urmatoarea
-        document.getElementById("target_cls0").onclick = function (e) {
-          //Toggle apply class on the element
-          event.target.classList.toggle(clonedClassNames[0]);
-
-          /*Log all classes from client.css
-        Array.prototype.forEach.call(clientFrameWindow.styleSheets[0].cssRules,
-          function(a){
-            var x = a.selectorText;
-            console.log(x);
-
-          }); */
-
-          //Remove empty class
-          if (event.srcElement.className == "")
-            event.srcElement.removeAttribute("class");
-
-          //Prevent default
-          e.preventDefault();
-        };
-
-        document.getElementById("target_cls1").onclick = function (e) {
-          event.target.classList.toggle(clonedClassNames[1]);
-
-          document.getElementById("tgl-class-1").toggleAttribute("checked");
-
-          //Remove empty class
-          if (event.srcElement.className == "")
-            event.srcElement.removeAttribute("class");
-
-          //Prevent default
-          e.preventDefault();
-        };
-
-        document.getElementById("target_cls2").onclick = function (e) {
-          event.target.classList.toggle(clonedClassNames[2]);
-
-          document.getElementById("tgl-class-2").toggleAttribute("checked");
-
-          //Remove empty class
-          if (event.srcElement.className == "")
-            event.srcElement.removeAttribute("class");
-
-          //Prevent default
-          e.preventDefault();
-        };
-
-        //********* 5. Change width on clicked element via inputs (INLINE-STYLES)*************
-
-          x = event.target; // magical piece
-  
-          $('myWidth').value = x.style.width;  + "px"; //get default width
-          $('maxWidth').value = x.style.maxWidth; //get default width
-          $('minWidth').value = x.style.minWidth;  //get default width
-
-
-
-          //1. Width (with STYLE element - not inline ;)
-          $('myWidth').addEventListener('keyup', function() { 
-            //x.style.width = $('myWidth').value; 
-
-            var ssObj;
-            if (clientFrameWindow.styleSheets[0].cssRules) {	
-              ssObj = clientFrameWindow.styleSheets[0].cssRules;	
-            }
-
-            for (var i = 0; i < ssObj.length; i++) {
-           
-            if (ssObj[i].selectorText == "#" + x.id) {
-              ssObj[i].style.setProperty("width", $('myWidth').value, null);
-            }
-            
-          }
-          });
-
-          //2. Max-Width 
-          $('maxWidth').addEventListener('keyup', function() { x.style.maxWidth = $('maxWidth').value; });
-
-          //3. Min-Width 
-          $('minWidth').addEventListener('keyup', function() { x.style.minWidth = $('minWidth').value; });
-        
-        // -----END OF 5 ----- 
-
-        var badge = clientFrameWindow.getElementById("tar_nodeName");
-        var w = event.target.clientWidth;
-        var h = event.target.clientHeight;
-        var w$h =
-          "&nbsp; &nbsp;" +
-          event.target.clientWidth +
-          "x" +
-          event.target.clientHeight;
-
-        //Resize window live update width + height of clicked element
-        window.addEventListener("resize", getSize, false);
-
-        function getSize() {
-          //On resize run again and update
-          var w = event.target.clientWidth;
-          var h = event.target.clientHeight;
-          var w$h =
-            "&nbsp; &nbsp;" +
-            event.target.clientWidth +
-            "x" +
-            event.target.clientHeight;
-
-          if (event.target.id != "" && event.target.classList != "") {
-            badge.innerHTML =
-              event.target.nodeName +
-              "#" +
-              event.target.id +
-              "." +
-              event.target.classList +
-              w$h; // + var ce tine rezultatul //writes tarNodename into my div
-          } else if (event.target.id != "" && event.target.classList == "") {
-            badge.innerHTML =
-              event.target.nodeName + "#" + event.target.id + w$h;
-          } else if (event.target.id == "" && event.target.classList != "") {
-            badge.innerHTML =
-              event.target.nodeName + "." + event.target.classList + w$h;
-          } else {
-            badge.innerHTML =
-              event.target.nodeName + clickedElement_wh.innerHTML + w$h;
-          }
-
-          //On resize update Column3
-          document.getElementById("renderedWidth").innerHTML = w + "px"; //writes width
-          document.getElementById("renderedHeight").innerHTML = h + "px"; //writes width
-        }
-        //End of resize live update clicked element
-
-        // Shows the badge
-        //Need to write some checks here, if it has id, if it has classes - DISPLAY BADGE ON CLICK
-        if (event.target.id != "" && event.target.classList != "") {
-          badge.innerHTML =
-            event.target.nodeName +
-            "#" +
-            event.target.id +
-            "." +
-            event.target.classList +
-            w$h; // + var ce tine rezultatul //writes tarNodename into my div
-        } else if (event.target.id != "" && event.target.classList == "") {
-          badge.innerHTML = event.target.nodeName + "#" + event.target.id + w$h;
-        } else if (event.target.id == "" && event.target.classList != "") {
-          badge.innerHTML =
-            event.target.nodeName + "." + event.target.classList + w$h;
-        } else {
-          badge.innerHTML = event.target.nodeName + w$h;
-        }
-
-        // DISPLAY W & H  COLUMN3 ON CLICK
-        document.getElementById("renderedWidth").innerHTML = w + "px"; //writes width
-        document.getElementById("renderedHeight").innerHTML = h + "px"; //writes width
-
-        //Adds it as first child
-        event.target.parentNode.insertBefore(badge, event.target);
-
-        // before clicked element
-        //event.target.parentNode.insertBefore(badge, event.target.nextSibling) // after clicked element
-
-        /*Move it to cursor
-          var x = event.clientX;
-          var y = event.clientY;
-          badge.style.left = `${x}px`;
-          badge.style.top = `${y}px`; */
-
-        if (event.target.classList !== "active__u") {
-          //if target doesn't have active on it
-          event.target.classList.add("active__u"); //add it
-          badge.classList.add("show");
-        } else {
-          //event.target.classList.remove("active"); //to be able to remove it on a second click
-          event.target.className != "active__u"; //to not be able to
-          //Also if target doesn't have active__u the badge should be hidden ( not woking yet)
-        }
-      } else {
-        list[i].classList.remove("active__u");
-      }
-    }
-  }
-
-  //
-  window.addEventListener("resize", getSize, false);
-
   function getSize() {
     //Document's width and height
-    var wd = document.getElementById("clientframe").clientWidth; //the entire iFrame on CodePen
-    var wh = document.getElementById("clientframe").clientHeight;
+    var wd = $("clientframe").clientWidth; //the entire iFrame on CodePen
+    var wh = $("clientframe").clientHeight;
 
     // put the result into a h1 tag
-    document.getElementById("iframe_live_wh").innerHTML = wd + " x " + wh;
+    $("iframe_live_wh").innerHTML = wd + " x " + wh;
   }
 
-  /*Change client.css upon loading iFrame - not what i want yet
-   var style = clientFrameWindow.getElementById('stylesheet1') //+= adds new rule, nice
-   style.innerHTML += ` 
-   #target {
-   color: blueviolet;
-   }
-   `;*/
-
-  //document.head.appendChild(style);
-
-  /*WORKS
-    clientFrameWindow.body.addEventListener('click', classToggle, false);
-
-    function classToggle () {
-      event.srcElement.classList.toggle("__selector1");
-
-      if (event.srcElement.className == "")
-      event.srcElement.removeAttribute('class');
-    }
-
-  */
-
-  /*
-    //Working with StyleSheets
-    var s = clientFrameWindow.styleSheets[1];
-
-    function changeStylesheetRule(stylesheet, selector, property, value) {
-      selector = selector.toLowerCase();
-      property = property.toLowerCase();
-      value = value.toLowerCase();
-
-      for (var i = 0; i < s.cssRules.length; i++) {
-        var rule = s.cssRules[i];
-        if (rule.selectorText === selector) {
-          rule.style[property] = value;
-          return;
-        }
-      }
-
-      stylesheet.insertRule(selector + " { " + property + ": " + value + "; }", 0);
-    }
-
-    //changeStylesheetRule(s, "body", "color", "green");
-    changeStylesheetRule(s, "p", "border", "1px solid green");
-  */
-
-  /* TEMPORARY SHUT DOWN
+  /* function mouseEnter()
   function mouseEnter(e) {
     
     //Add outline on hover
@@ -412,40 +327,28 @@ function onLoadiframe() {
 
     //Tooltip show (redo)
     if (e.target.classList.item(0) == 'outline') {
-      document.getElementById('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + '>';
+      $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + '>';
     } else if (e.target.classList.item(1) == 'outline' || 'outline-dashed') {
-      document.getElementById('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + ' class="' + e.target.classList.item(0) + '">';
+      $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + ' class="' + e.target.classList.item(0) + '">';
     } else if (e.target.classList.item(2) == 'outline' || 'outline-dashed') {
-      document.getElementById('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + ' class="' + e.target.classList.item(0) + +e.target.classList.item(1) + '">';
+      $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + ' class="' + e.target.classList.item(0) + +e.target.classList.item(1) + '">';
     } else if (e.target.classList.item(3) == 'outline' || 'outline-dashed') {
-      document.getElementById('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + ' class="' + e.target.classList.item(0) + e.target.classList.item(1) + e.target.classList.item(2)
+      $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + ' class="' + e.target.classList.item(0) + e.target.classList.item(1) + e.target.classList.item(2)
       '">';
     } else {
-      document.getElementById('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + '>';
+      $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + '>';
     }
 
-    document.getElementById('tooltip1').style.display = "block";
+    $('tooltip1').style.display = "block";
     //console.log('<' + e.target.tagName.toLowerCase() + '>');
     
-  }*/
-
-  /*New Adittion - NOT WORKING
-    
-      var myPlaceholder = function() {
-        var attribute = this.getAttribute("data-myattribute");
-        alert(attribute);
-    };
-
-    for (var i = 0; i < placeholders.length; i++) {
-      placeholders[i].addEventListener('click', myPlaceholder, false);
-    }
-  */
+  } */
 
   function mouseLeave(e) {
     //Remove outline on hover
     e.target.classList.remove("outline");
     //Tooltip hide
-    document.getElementById("tooltip1").style.display = "";
+    $("tooltip1").style.display = "";
     //console.clear();
   }
 
@@ -459,17 +362,17 @@ function onLoadiframe() {
 
     //Tooltip show
     if (e.target.classList.item(0) == "outline") {
-      document.getElementById("tooltip1").textContent =
+      $("tooltip1").textContent =
         "<" + e.target.tagName.toLowerCase() + ">";
     } else if (e.target.classList.item(1) == "outline" || "outline-dashed") {
-      document.getElementById("tooltip1").textContent =
+      $("tooltip1").textContent =
         "<" +
         e.target.tagName.toLowerCase() +
         ' class="' +
         e.target.classList.item(0) +
         '">';
     } else if (e.target.classList.item(2) == "outline" || "outline-dashed") {
-      document.getElementById("tooltip1").textContent =
+      $("tooltip1").textContent =
         "<" +
         e.target.tagName.toLowerCase() +
         ' class="' +
@@ -477,7 +380,7 @@ function onLoadiframe() {
         +e.target.classList.item(1) +
         '">';
     } else if (e.target.classList.item(3) == "outline" || "outline-dashed") {
-      document.getElementById("tooltip1").textContent =
+      $("tooltip1").textContent =
         "<" +
         e.target.tagName.toLowerCase() +
         ' class="' +
@@ -486,11 +389,11 @@ function onLoadiframe() {
         e.target.classList.item(2);
       ('">');
     } else {
-      document.getElementById("tooltip1").textContent =
+      $("tooltip1").textContent =
         "<" + e.target.tagName.toLowerCase() + ">";
     }
 
-    document.getElementById("tooltip1").style.display = "block";
+    $("tooltip1").style.display = "block";
     //console.log('<' + e.target.tagName.toLowerCase() + '>');
   }
 
@@ -498,7 +401,7 @@ function onLoadiframe() {
     //Much needed on hover before drop to remove all those lines
     e.target.classList.remove("outline");
 
-    document.getElementById("tooltip1").style.display = "none";
+    $("tooltip1").style.display = "none";
     //console.log('<' + e.target.tagName.toLowerCase() + '>');
   }
 
@@ -510,7 +413,7 @@ function onLoadiframe() {
     );
 
     /*Remove menu on dragStart - doesn't work yet
-    var menu = document.getElementById('dd-menu');
+    var menu = $('dd-menu');
     menu.classList.add('displayNoneSuper');
     */
 
@@ -572,7 +475,7 @@ function onLoadiframe() {
   }
   //end of
 
-  //document.getElementById("muestra_abol").addEventListener("click", function() {  //Add the innerHTML in here, you can make it happen on button click });
+  //$("muestra_abol").addEventListener("click", function() {  //Add the innerHTML in here, you can make it happen on button click });
 
   // end of it
 }
@@ -600,9 +503,9 @@ function instantSearch() {
   var input, filter, ul, span, p, i, txtValue;
 
   //Passed
-  input = document.getElementById("myInput");
+  input = $("myInput");
   filter = input.value.toUpperCase();
-  ul = document.getElementById("myUL");
+  ul = $("myUL");
   span = ul.getElementsByTagName("span");
 
   //Passed
@@ -627,28 +530,28 @@ function instantSearch() {
 //Control Panel
 function toggleEditIframe() {
   if (
-    document.getElementById("clientframe").contentWindow.document.body
+    $("clientframe").contentWindow.document.body
     .contentEditable == "true"
   ) {
-    document.getElementById(
+    $(
       "clientframe"
     ).contentWindow.document.body.contentEditable = false;
 
     //Snackbar notification
-    document.getElementById("snackbar").innerHTML = "IFrame Edit : OFF";
-    var x = document.getElementById("snackbar");
+    $("snackbar").innerHTML = "IFrame Edit : OFF";
+    var x = $("snackbar");
     x.className = "show";
     setTimeout(function () {
       x.className = x.className.replace("show", "");
     }, 2000);
   } else {
-    document.getElementById(
+    $(
       "clientframe"
     ).contentWindow.document.body.contentEditable = true;
 
     //Snackbar notification
-    document.getElementById("snackbar").innerHTML = "IFrame Edit : ON";
-    var x = document.getElementById("snackbar");
+    $("snackbar").innerHTML = "IFrame Edit : ON";
+    var x = $("snackbar");
     x.className = "show";
     setTimeout(function () {
       x.className = x.className.replace("show", "");
@@ -670,16 +573,16 @@ function toggleOutlineAll() {
   //Snackbar notifications toggle
   if (clientFrameWindow.body.classList.contains("outline-dashed")) {
     //Snackbar notification ON
-    document.getElementById("snackbar").innerHTML = "Outline: ON";
-    var x = document.getElementById("snackbar");
+    $("snackbar").innerHTML = "Outline: ON";
+    var x = $("snackbar");
     x.className = "show";
     setTimeout(function () {
       x.className = x.className.replace("show", "");
     }, 1000);
   } else {
     //Snackbar notification OFF
-    document.getElementById("snackbar").innerHTML = "Outline: OFF";
-    var x = document.getElementById("snackbar");
+    $("snackbar").innerHTML = "Outline: OFF";
+    var x = $("snackbar");
     x.className = "show";
     setTimeout(function () {
       x.className = x.className.replace("show", "");
@@ -713,7 +616,7 @@ if (typeof console._commandLineAPI !== "undefined") {
 function gibMiData() {
   console.API.clear();
   storyObj = {};
-  storyObj = document.getElementById("clientframe").contentWindow.document
+  storyObj = $("clientframe").contentWindow.document
     .documentElement.outerHTML;
   console.save(storyObj);
 }
@@ -758,81 +661,17 @@ console.save = function (data, filename) {
   a.dispatchEvent(e);
 };
 
-/*Full iFrame code to console- works
-
-  function copyHtml() {
-    var myHTML = document.getElementById("clientframe").contentWindow.document.documentElement.outerHTML;
-    console.log(myHTML);
-  }
-*/
-
-/* MY SAVING BOAT */
-
-/*Change client.css upon loading iFrame - not what i want yet
-var s = clientFrameWindow.styleSheets[1];
-
-function changeStylesheetRule(stylesheet, selector, property, value) {
-  selector = selector.toLowerCase();
-  property = property.toLowerCase();
-  value = value.toLowerCase();
-
-  for (var i = 0; i < s.cssRules.length; i++) {
-    var rule = s.cssRules[i];
-    if (rule.selectorText === selector) {
-      rule.style[property] = value;
-      return;
-    }
-  }
-
-  stylesheet.insertRule(selector + " { " + property + ": " + value + "; }", 0);
-}
-
-//changeStylesheetRule(s, "body", "color", "green");
-changeStylesheetRule(s, "p", "border", "1px solid green");
-*/
-
-/* Good thing to obtain all css applied to an element
-function css(a) {
-  var sheets = document.styleSheets,
-    o = [];
-  a.matches = a.matches || a.webkitMatchesSelector || a.mozMatchesSelector || a.msMatchesSelector || a.oMatchesSelector;
-  for (var i in sheets) {
-    var rules = sheets[i].rules || sheets[i].cssRules;
-    for (var r in rules) {
-      if (a.matches(rules[r].selectorText)) {
-        o.push(rules[r].cssText);
-      }
-    }
-  }
-  return o;
-}
-
-function myFunc(variable) {
-  var s = document.getElementById(variable);
-  s.value = "new value";
-}
-myFunc("id1");
-
-//var x = " ' " + input + "'"
-console.log(css(document.getElementById(event.target.id)));
-*/
-
-/*
-            This code checks the style sheet rules and if it finds white then sets it to red.
-
-            var ssObj;
-            if (document.styleSheets[0].cssRules) {
-              ssObj = document.styleSheets[0].cssRules;
-            }
-            if (document.styleSheets[0].rules) {
-              ssObj = document.styleSheets[0].rules;
-            }
-
-            for (var i = 0; i < ssObj.length; i++) {
-              if (ssObj[i].style.color == 'white') { // ce am eu nevoie ssObj[i].name == event.target.className[0] atunci modifico
-                ssObj[i].style.setProperty('color', 'red', null);
-              }
-            }
 
 
-            */
+
+
+// (1) - to be dropped
+
+  //var ssObj;
+  //if (clientFrameWindow.styleSheets[0].cssRules) {	ssObj = clientFrameWindow.styleSheets[0].cssRules;	}
+  // for (var i = 0; i < ssObj.length; i++) {
+  //  if (ssObj[i].selectorText == "#" + x.id) {
+  //    ssObj[i].style.setProperty("width", $('myWidth').value, null);
+  //   }}
+
+// end of it
