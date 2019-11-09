@@ -516,6 +516,8 @@ ul {
   display: flex;
   justify-content: space-between;
   padding: 0.5em;
+  border: none;
+  margin: none;
   padding-right: 1.5em;
   /* background: #2c3e50; */
   background: rgb(61, 61, 61);
@@ -535,6 +537,7 @@ ul {
   height: 1em;
   text-align: center;
   transition: all 0.35s;
+  
 }
 
 .tabs_tennant .tab-content {
@@ -556,7 +559,6 @@ ul {
   padding: 1em;
   font-size: 0.75em;
   background: #2c3e50;
-  cursor: pointer;
 }
 
 .tabs_tennant .tab-close:hover {
@@ -565,6 +567,7 @@ ul {
 
 .tabs_tennant input:checked + .tab-label {
   background: #1a252f;
+
 }
 
 .tabs_tennant input:checked + .tab-label::after {
@@ -589,6 +592,25 @@ ul {
 
   z-index: 99999999;
   color: red;
+}
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  text-align: center;  
+}
+
+:-ms-input-placeholder {  
+  text-align: center; 
+}
+
+input{
+  text-align: center;
 }
 
 /*! CSS Used from: https://cdn.froont.com/_static/gen/style.4d31e8f.css 
@@ -814,6 +836,7 @@ div.__item {
   color: rgb(235, 197, 0);
   display: block;
   border: 0px;
+  z-index:0;
 }
 
 .column__ input.mm__ {
@@ -849,6 +872,22 @@ div.__item {
   -webkit-user-select: none;
   cursor: pointer;
 }
+
+.patratel{
+ outline: 2px gray solid;
+ outline-offset: -35px;
+  z-index: -1;
+  height:117px;
+}
+
+#_top{
+  margin-top:24px;
+}
+
+
+
+
+
 
 
 

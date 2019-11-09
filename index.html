@@ -1883,11 +1883,6 @@
 
     <!-- By just adding displayNone, it starts default closed, all functions working still class="displayNone to column3 to start closed-->
     <div id="column3">
-      <h3>Control Panel</h3>
-      <button class="panel_3" onclick=" gibMiData()"><i class="fas fa-download"></i>HTML/CSS</button>
-      <button class="panel_3" onclick='toggleEditIframe()'><i class="fas fa-edit"></i>iFrame</button>
-      <button class="panel_3" onclick='toggleOutlineAll()'>Outline</button>
-      <hr>
 
       <div class="tabs_overlord">
 
@@ -1914,23 +1909,18 @@
               <input class="displayNoneSuper" checked disabled style="display: inline;" type="checkbox"
                 id="tgl-class-1"> <span id="target_cls1" class="tag__"></span> <br>
               <input class="displayNoneSuper" checked disabled style="display: inline;" type="checkbox"
-                id="tgl-class-2"> <span id="target_cls2" class="tag__"></span> <br>
+                id="tgl-class-2"> <span id="target_cls2" class="tag__"></span> <br><br>
 
 
               <div id="saved-value"></div>
-              <br>
-              <hr>
-              <button>+ class</button> from Spreadsheet
-              <hr>
 
-              <br>
 
               <!--Css Only Tabs-->
               <div class="tabs_tennant">
 
-                <div class="tab">
-                  <input type="checkbox" id="chck1" checked>
+                <div class="tab" id="__tab1">
 
+                  <input type="checkbox" id="chck1" checked>
                   <label class="tab-label" for="chck1">Position</label>
                   <div class="tab-content">
                     <!-- 
@@ -1946,9 +1936,10 @@
                 -->
                     <!--Here we work now-->
 
-                    <p>Dimension</p>
-                    <div class="wrapper__">
-                      <hr>
+                    
+                    <div class="wrapper__"> <p>Dimension</p><hr>
+                       
+                      
 
                       <div class="row__" style="font-size: 11px;">
 
@@ -2033,18 +2024,350 @@
                       </div>
 
                     </div>
+
+                   
+                    <div class="wrapper__" > <p>Margin</p> <hr>
+                     
+                      <!--2 columns 4 elements
+                      <div class="row__" style="font-size: 11px; margin-bottom: 10px;">
+
+                        <div class="column__">
+                          
+                            <label for="_top">Top </label>
+                            <input class="wh__"  name="_top" id="_top">
+                         
+                        </div>
+
+                          <div class="column__">
+                          
+                            <label for="_right">Right </label>
+                              <input class="wh__" name="_right" id="_right">
+                     
+                          </div>
+
+                      </div>
+
+                      <div class="row__" style="font-size: 11px;">
+
+                        <div class="column__">
+                          
+         
+                          <label for="_bottom">Bottom </label>
+                          <input class="wh__"  name="_bottom" id="_bottom">
+                       
+                   
+                        </div>
+
+                        <div class="column__">
+                          
+          
+                          <label for="_left">Left </label>
+                          <input class="wh__"  name="_left" id="_left">
+                    
+                        </div>
+
+                      </div>
+
+                      -->
+                      
+                      <div class="patratel">
+
+                        <div class="row__ " style="font-size: 11px; margin-left: 10px; "><!--Top -->
+
+                          <div class="column__">
+                          
+                          </div>
+
+                          <div class="column__">
+                            
+                            <input class="wh__" name="_top" placeholder="Top" id="_top">
+                      
+                          </div>
+
+                          <div class="column__">
+                          
+                          </div>
+
+                        </div>
+                          
+                        <div class="row__" style="font-size: 11px; margin-left: 10px;"><!--Left & Right -->
+
+                            <div class="column__">
+                              
+                                <input class="wh__" name="_left" id="_left" placeholder="Left">
+                          
+                            </div>
+
+                            <div class="column__">
+                            
+                            </div>
+    
+                          
+                            <div class="column__">
+                              
+                                <input class="wh__" name="_right" id="_right" placeholder="Right">
+                          
+                            </div>
+    
+                          </div>
+                        
+                        <div class="row__" style="font-size: 11px; margin-left: 10px;"> <!--Bottom -->
+
+                            <div class="column__">
+                            
+                            </div>
+    
+                            <div class="column__">
+                              
+                              <input class="wh__" name="_bottom" id="_bottom" placeholder="Bottom">
+                        
+                            </div>
+    
+                            <div class="column__">
+                            
+                            </div>
+    
+                      
+                      
+                        
+                        </div>
+                    </div>
+
+                    </div>
+
+                    
+
+                    
+                  </div>
+
+                </div>
+
+                
+                <div class="tab" id="__tab2">
+
+                    <input type="checkbox" id="chck2" checked>
+                    <label class="tab-label" for="chck2">Ehe</label>
+                    <div class="tab-content">
+                      <!-- 
+                    <ul> Alignment
+                      <hr>
+                      <li>Align Left</li>
+                      <li>Align Right</li>
+                      <li>Center Horizontal</li>
+                      <li>Center Vertical</li>
+                      <li>Align Top</li>
+                      <li>Align Bottom</li>
+                    </ul>
+                  -->
+                      <!--Here we work now-->
+  
+                      
+                      <div class="wrapper__"> <p>Dimension</p><hr>
+                         
+                        
+  
+                        <div class="row__" style="font-size: 11px;">
+  
+  
+  
+                          <div class="column__">
+                            <!--Prima coloana -->
+  
+  
+                            <div class="row__" style="margin-bottom: 3px;">
+                              <!--Randul 1 -->
+  
+                              <div class="column__">
+                                <i class="fas fa-arrows-alt-h"></i>
+  
+                              </div>
+  
+                              <div class="column__">
+                                <input class="wh__" placeholder="width" name="width" id="myWidth">
+                              </div>
+  
+                            </div>
+  
+                            <div class="row__">
+                              <!--Randul 2 -->
+                              <div class="column__">
+                                <input class="mm__" placeholder="max" name="max-width" id="maxWidth">
+                              </div>
+  
+                              <div class="column">
+                                <input class="mm__" placeholder="min" name="min-width" id="minWidth">
+                              </div>
+  
+  
+                            </div>
+  
+                          </div>
+                          <!--Prima coloana sfarsit-->
+  
+  
+                          <div class="column__ ml__">
+                            <!-- 2nd colon-->
+  
+  
+                            <div class="row__" style="margin-bottom: 3px;">
+  
+                              <div class="column__">
+                                <i class="fas fa-arrows-alt-v"></i>
+                              </div>
+  
+                              <div class="column__">
+                                <input class="wh__" placeholder="height" name="height" id="myHeight">
+                              </div>
+  
+                            </div>
+  
+                            <div class="row__">
+                              <div class="column__">
+                                <input class="mm__" placeholder="max" name="max-height" id="maxHeight">
+                              </div>
+                              <div class="column__">
+                                <input class="mm__" placeholder="min" name="min-height" id="minHeight">
+                              </div>
+  
+  
+                            </div>
+  
+                          </div>
+  
+                        </div>
+  
+                        <div class="row__">
+  
+                          <div class="column__">
+                            <span class="faded_m">Rendered as <span id="renderedWidth"></span></span>
+                          </div>
+  
+                          <div class="column__ ml__">
+                            <span class="faded_m">Rendered as <span id="renderedHeight"></span></span>
+                          </div>
+  
+                        </div>
+  
+                      </div>
+
+                      <div class="wrapper__" > <p>Margin</p> <hr>
+                       
+                        <!--2 columns 4 elements
+                        <div class="row__" style="font-size: 11px; margin-bottom: 10px;">
+  
+                          <div class="column__">
+                            
+                              <label for="_top">Top </label>
+                              <input class="wh__"  name="_top" id="_top">
+                           
+                          </div>
+  
+                            <div class="column__">
+                            
+                              <label for="_right">Right </label>
+                                <input class="wh__" name="_right" id="_right">
+                       
+                            </div>
+  
+                        </div>
+  
+                        <div class="row__" style="font-size: 11px;">
+  
+                          <div class="column__">
+                            
+           
+                            <label for="_bottom">Bottom </label>
+                            <input class="wh__"  name="_bottom" id="_bottom">
+                         
+                     
+                          </div>
+  
+                          <div class="column__">
+                            
+            
+                            <label for="_left">Left </label>
+                            <input class="wh__"  name="_left" id="_left">
+                      
+                          </div>
+  
+                        </div>
+  
+                        -->
+                        
+                        <div class="patratel">
+  
+                          <div class="row__ " style="font-size: 11px; margin-left: 10px; "><!--Top -->
+  
+                            <div class="column__">
+                            
+                            </div>
+  
+                            <div class="column__">
+                              
+                              <input class="wh__" name="_top" placeholder="Top" id="_top">
+                        
+                            </div>
+  
+                            <div class="column__">
+                            
+                            </div>
+  
+                          </div>
+                            
+                          <div class="row__" style="font-size: 11px; margin-left: 10px;"><!--Left & Right -->
+  
+                              <div class="column__">
+                                
+                                  <input class="wh__" name="_left" id="_left" placeholder="Left">
+                            
+                              </div>
+  
+                              <div class="column__">
+                              
+                              </div>
+      
+                            
+                              <div class="column__">
+                                
+                                  <input class="wh__" name="_right" id="_right" placeholder="Right">
+                            
+                              </div>
+      
+                            </div>
+                          
+                          <div class="row__" style="font-size: 11px; margin-left: 10px;"> <!--Bottom -->
+  
+                              <div class="column__">
+                              
+                              </div>
+      
+                              <div class="column__">
+                                
+                                <input class="wh__" name="_bottom" id="_bottom" placeholder="Bottom">
+                          
+                              </div>
+      
+                              <div class="column__">
+                              
+                              </div>
+      
+                        
+                        
+                          
+                          </div>
+                      </div>
+  
+                      </div>
+  
+                      
+  
+                      
+                    </div>
+
                   </div>
 
 
-                  <!-- 
-                  <ul style="margin-top: 15px"> Computed
-                    <hr>
-                    <li>Margin</li>
-                    <li>Padding</li>
-                    <li>Border</li>
-                  </ul>
-                -->
-                </div>
+
               </div>
 
 
@@ -2054,14 +2377,21 @@
 
         <div class="content">
           <div id="content2">
-            content2
+             
+              <hr>
+              <button>+ class</button> from Spreadsheet
+              <hr>
           </div>
 
         </div>
 
         <div class="content">
           <div id="content3">
-            content3
+              
+              <button class="panel_3" onclick=" gibMiData()"><i class="fas fa-download"></i>HTML/CSS</button>
+              <button class="panel_3" onclick='toggleEditIframe()'><i class="fas fa-edit"></i>iFrame</button>
+              <button class="panel_3" onclick='toggleOutlineAll()'>Outline</button>
+              <hr>
           </div>
 
         </div>

@@ -170,7 +170,7 @@ function onLoadiframe() {
 
         //********* 3. Change width on clicked element via inputs (INLINE-STYLES)*************
           
-          //Display x's default values
+          //a. Display x's default values - Dimension
           $('myWidth').value = x.style.width;
           $('maxWidth').value = x.style.maxWidth; 
           $('minWidth').value = x.style.minWidth;  
@@ -187,7 +187,18 @@ function onLoadiframe() {
           $('myHeight').addEventListener('keyup', function() { x.style.height = $('myHeight').value; });
           $('maxHeight').addEventListener('keyup', function() { x.style.maxHeight = $('maxHeight').value; });
           $('minHeight').addEventListener('keyup', function() { x.style.minHeight = $('minHeight').value; });
-        
+          
+          //b. Margin
+          $('_top').value = x.style.marginTop;
+          $('_right').value = x.style.marginRight; 
+          $('_bottom').value = x.style.marginBottom;  
+          $('_left').value = x.style.marginLeft;
+
+          $('_top').addEventListener('keyup', function() { x.style.marginTop = $('_top').value; });        // (1) drop inside});
+          $('_right').addEventListener('keyup', function() { x.style.marginRight = $('_right').value; });
+          $('_bottom').addEventListener('keyup', function() { x.style.marginBottom = $('_bottom').value; });
+          $('_left').addEventListener('keyup', function() { x.style.marginLeft = $('_left').value; });
+
 
         // -----END OF 3 ----- 
 
