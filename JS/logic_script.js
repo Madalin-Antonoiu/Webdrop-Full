@@ -213,7 +213,7 @@ function onLoadiframe() {
           e.preventDefault();
         };
 
-        //********* 5. Change width on clicked element via inputs *************
+        //********* 5. Change width on clicked element via inputs (INLINE-STYLES)*************
 
           x = event.target; // magical piece
   
@@ -221,8 +221,25 @@ function onLoadiframe() {
           $('maxWidth').value = x.style.maxWidth; //get default width
           $('minWidth').value = x.style.minWidth;  //get default width
 
-          //1. Width 
-          $('myWidth').addEventListener('keyup', function() { x.style.width = $('myWidth').value; });
+
+
+          //1. Width (with STYLE element - not inline ;)
+          $('myWidth').addEventListener('keyup', function() { 
+            //x.style.width = $('myWidth').value; 
+
+            var ssObj;
+            if (clientFrameWindow.styleSheets[0].cssRules) {	
+              ssObj = clientFrameWindow.styleSheets[0].cssRules;	
+            }
+
+            for (var i = 0; i < ssObj.length; i++) {
+           
+            if (ssObj[i].selectorText == "#" + x.id) {
+              ssObj[i].style.setProperty("width", $('myWidth').value, null);
+            }
+            
+          }
+          });
 
           //2. Max-Width 
           $('maxWidth').addEventListener('keyup', function() { x.style.maxWidth = $('maxWidth').value; });
