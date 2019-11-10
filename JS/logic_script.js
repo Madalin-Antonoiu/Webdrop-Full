@@ -5,6 +5,8 @@ var clientFrameWindow = $("clientframe").contentWindow.document;
 var droppables = $("sidebar_menu");
 var diviframe = $("iframe_live_wh");
 
+
+
 function toggle_iframe_wh() {
   var diviframe = $("iframe_live_wh");
   //Document's width and height
@@ -98,26 +100,35 @@ function onLoadiframe() {
           $('target_id').innerHTML = x.id;
 
           // NOT DRY - (instead of 0,1,3 could note a n) Only show these divs if the classes exist!
-          if (x.classList[0]) {
+          if (x.classList[0] && x.classList[0] !== "active__u" ) {
+            //just display it, no reCreate
+            $("0-class").style.display = "inline-block";
             $("target_cls0").innerHTML =
               x.classList[0];
+            
+             
           } else {
-            $("target_cls0").innerHTML = "";
+            $("0-class").style.display = "none";
           }
 
-          if (x.classList[1]) {
-            $("target_cls1").innerHTML =
-              x.classList[1];
+          if (x.classList[1] && x.classList[1] !== "active__u") {
+            $("1-class").style.display = "inline-block";
+            $("target_cls1").innerHTML = x.classList[1];
+            
           } else {
-            $("target_cls1").innerHTML = "";
+            $("1-class").style.display = "none";
+           
           }
 
-          if (x.classList[2]) {
+          if (x.classList[2] && x.classList[2] !== "active__u") {
+           
+            $("2-class").style.display = "inline-block";
             $("target_cls2").innerHTML =
               x.classList[2];
           } else {
-            $("target_cls2").innerHTML = "";
+            $("2-class").style.display = "none";
           }
+
         // End of 1
 
         /// **** 2. Toggle a class on/off on click in Panel ******* /////
@@ -128,6 +139,7 @@ function onLoadiframe() {
         //Not DRY!
         $('target_cls0').onclick = function (e) {
           //Toggle apply class on the element
+       
           x.classList.toggle(clonedClassNames[0]);
 
           /*Log all classes from client.css
@@ -146,9 +158,10 @@ function onLoadiframe() {
           e.preventDefault();
         };
         $('target_cls1').onclick = function (e) {
+       
          x.classList.toggle(clonedClassNames[1]);
 
-          $("tgl-class-1").toggleAttribute("checked");
+          //$("tgl-class-1").toggleAttribute("checked");
 
           //Remove empty class
           if (event.srcElement.className == "")
@@ -158,9 +171,10 @@ function onLoadiframe() {
           e.preventDefault();
         };
         $('target_cls2').onclick = function (e) {
+     
           x.classList.toggle(clonedClassNames[2]);
 
-          $("tgl-class-2").toggleAttribute("checked");
+         // $("tgl-class-2").toggleAttribute("checked");
 
           //Remove empty class
           if (event.srcElement.className == "")
@@ -171,10 +185,11 @@ function onLoadiframe() {
         };
 
         // Click on x remove classes from elems + themselves innerHTML
-
+         
         $('del_cls0').onclick = function (e) {
           //Toggle apply class on the element
-          x.classList.toggle(clonedClassNames[0]);
+          x.classList.remove(clonedClassNames[0]);
+          $('0-class').style.display ="none" ; //Could add a revert ;) 
 
 
           //Remove empty class
@@ -185,9 +200,9 @@ function onLoadiframe() {
           e.preventDefault();
         };
         $('del_cls1').onclick = function (e) {
-         x.classList.toggle(clonedClassNames[1]);
-
-          $("tgl-class-1").toggleAttribute("checked");
+         x.classList.remove(clonedClassNames[1]);
+         $('1-class').style.display ="none" ;
+          //$("tgl-class-1").toggleAttribute("checked");
 
           //Remove empty class
           if (event.srcElement.className == "")
@@ -197,9 +212,9 @@ function onLoadiframe() {
           e.preventDefault();
         };
         $('del_cls2').onclick = function (e) {
-          x.classList.toggle(clonedClassNames[2]);
-
-          $("tgl-class-2").toggleAttribute("checked");
+          x.classList.remove(clonedClassNames[2]);
+          $('2-class').style.display ="none" ;
+          //$("tgl-class-2").toggleAttribute("checked");
 
           //Remove empty class
           if (event.srcElement.className == "")
@@ -211,6 +226,8 @@ function onLoadiframe() {
 
 
         $('saved-value').innerHTML = " Selected class: ." + clonedClassNames[0]; // aici imi scrie in HTML prima clasa prezenta
+
+
 
         /// ********** End of 2 ****************
 
