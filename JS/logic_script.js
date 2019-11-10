@@ -86,7 +86,13 @@ function onLoadiframe() {
 
     for (let i = 0; i < list.length; i++) {
       if (x === list[i]) {   // If my click target is the same as list item it goes through,and this is to ensure only 1 eleme is red
-      
+        
+        // 0. Show tab1c's content if elem clicked
+        $('onlyIfElem').classList.remove('displayNone');
+        $('selectFirst').classList.add('displayNone');
+
+        // 0.1 Toggle classes from mini checkboxes and not on click on a class
+
         // 1. Tag, ID, Classes
           $('target_el').innerHTML = x.nodeName;
           $('target_id').innerHTML = x.id;
@@ -163,8 +169,48 @@ function onLoadiframe() {
           //Prevent default
           e.preventDefault();
         };
-        $('saved-value').innerHTML = " Selected class: ." + clonedClassNames[0]; // aici imi scrie in HTML prima clasa prezenta
 
+        // Click on x remove classes from elems + themselves innerHTML
+
+        $('del_cls0').onclick = function (e) {
+          //Toggle apply class on the element
+          x.classList.toggle(clonedClassNames[0]);
+
+
+          //Remove empty class
+          if (event.srcElement.className == "")
+            event.srcElement.removeAttribute("class");
+
+          //Prevent default
+          e.preventDefault();
+        };
+        $('del_cls1').onclick = function (e) {
+         x.classList.toggle(clonedClassNames[1]);
+
+          $("tgl-class-1").toggleAttribute("checked");
+
+          //Remove empty class
+          if (event.srcElement.className == "")
+            event.srcElement.removeAttribute("class");
+
+          //Prevent default
+          e.preventDefault();
+        };
+        $('del_cls2').onclick = function (e) {
+          x.classList.toggle(clonedClassNames[2]);
+
+          $("tgl-class-2").toggleAttribute("checked");
+
+          //Remove empty class
+          if (event.srcElement.className == "")
+            event.srcElement.removeAttribute("class");
+
+          //Prevent default
+          e.preventDefault();
+        };
+
+
+        $('saved-value').innerHTML = " Selected class: ." + clonedClassNames[0]; // aici imi scrie in HTML prima clasa prezenta
 
         /// ********** End of 2 ****************
 
@@ -296,6 +342,7 @@ function onLoadiframe() {
         }
       } else {
         list[i].classList.remove("active__u");
+       
       }
     }
   }

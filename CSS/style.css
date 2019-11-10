@@ -58,7 +58,7 @@ body {
   outline-offset: -2px;
   color: white;
   margin-top: 0;
-  padding: 0px 10px 0px 10px;
+  /*padding: 0px 10px 0px 10px; */
   background: #222d32;
   overflow-y: auto;
 }
@@ -375,7 +375,7 @@ a:active {
 
 .dd-menu {
   padding: 0;
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1);
+  
   max-height: calc(100% - 45px);
 }
 
@@ -501,15 +501,18 @@ ul {
 
 /* Accordion styles */
 .tabs_tennant {
-  border-radius: 8px;
+
   overflow: hidden;
-  box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.5);
+
 }
 
 .tabs_tennant .tab {
   width: 100%;
   color: white;
   overflow: hidden;
+  font-size: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+
 }
 
 .tabs_tennant .tab-label {
@@ -549,6 +552,8 @@ ul {
   transition: all 0.35s;
 }
 
+
+
 .tab-content p {
   margin-bottom: 0px;
 }
@@ -578,6 +583,7 @@ ul {
   max-height: 100vh;
   padding: 0.5em;
   padding-right: 1.5em;
+  padding-bottom: 0px;
 }
 
 /* Others */
@@ -804,10 +810,6 @@ div.__item {
   background: inherit;
 }
 
-.wrapper__ {
-  font-size: 11px;
-}
-
 .row__ {
   display: flex;
   flex-direction: row;
@@ -856,13 +858,12 @@ div.__item {
 }
 
 .tag__ {
-  margin-left: 5px;
+  margin-left: 5px; 
   margin-bottom: 10px;
   width: 110px;
   height: 14px;
   background: #804f7b;
   color: white;
-
   text-align: center;
 }
 
@@ -886,15 +887,118 @@ div.__item {
 
 
 
+/* ************ NEW MASTER TABS *************** */
+.tabs_master>.labels>label {
+  width:33.33%;
+  background-color: #ddd;
+  /* border-radius: 0 1em 0 0; */
+  color: #222D32;
+  font-weight:bold;
+  /*text-shadow:#aaa -1px -1px;  */
+  cursor: pointer;
+  float: left;
+  overflow: hidden;
+  padding: .7em 1.2em;
+  position: relative;
+  /*border-bottom: .2em solid #45a6e7;  Can remove it or add it to entire tabs*/
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.tabs_master>.labels>label:hover {
+  background-color: #ddd;
+  color: #333;
+}
+input#tab1:checked ~ .labels>label[for="tab1"],
+input#tab2:checked ~ .labels>label[for="tab2"],
+input#tab3:checked ~ .labels>label[for="tab3"] {
+  background-color: #45a6e7;
+  color: #fff;
+}
+.tabs_master>.labels>label a {
+  color: inherit;
+}
+.tab_container {
+  clear: both;
+  overflow: auto;
+  width: 100%;
+  /* padding: 1em 0 1em 0; */
+}
+.tabs_master>input[type="radio"], .tabs_master .tab_content {
+  display: none;
+}
 
+input[name="tabs"]:checked ~ .tab_container>.notAvailable {display:none;}
+input#tab1:checked ~ .tab_container>#tab1C,
+input#tab2:checked ~ .tab_container>#tab2C,
+input#tab3:checked ~ .tab_container>#tab3C {
+  display:block;
+}
 
-
+input[type="checkbox"] {
+  display: none;
+}
 
 
 /*CHECKBOX INPUT */
 
+.l_{
+  font-size: 11px; 
+  margin-left: 10px; 
+}
+
+#selectFirst{
+  margin-left:10px;
+  font-size: 18px;
+}
+
+/*Mini checkboxes */
+.tab-content label{
+  
+  /*padding-left: 15px;*/
+  text-indent: -15px;
+}
+
+.tab-content .toggleChx {
+  width: 13px;
+  height: 19px;
+  padding: 0;
+  margin:0;
+  vertical-align: bottom;
+  position: relative;
+  top: 3px;
+  *overflow: hidden;
+}
+.toggleChx{
+  display: inline-block !important; 
+  transform: scale(0.7);
+  border: none;
+}
+
+button.toggleBtn{
+  transform: scale(0.7);
+  display: inline-block !important; 
+  
+  border: none;
+  color: maroon;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 22px !important;
+  background: transparent;
+
+  width: 13px;
+  height: 19px;
+  padding: 0;
+  margin:0;
+  vertical-align: top;
+  position: relative;
+  top: -4px;
+ 
+}
 
 
+
+/*End of mini chk*/
 
 /*end of that */
 
