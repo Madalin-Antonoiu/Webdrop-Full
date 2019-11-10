@@ -45,7 +45,7 @@
     }
 
     /* Badge - my thing*/
-    #tar_nodeName {
+    #badge_ {
         visibility: hidden;
         background: red;
         padding: 0 5px;

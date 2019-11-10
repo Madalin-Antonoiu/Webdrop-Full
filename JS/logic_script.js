@@ -1,6 +1,7 @@
 //Written by me - DO NOT delete
 var $ = function (id) { return document.getElementById(id); };// Now $('id') possible in Vanilla JS
 var clientFrameWindow = $("clientframe").contentWindow.document;
+var $$ = function (id) { return clientFrameWindow.getElementById(id); };// Now $('id') possible in Vanilla JS
 //var placeholders = clientFrameWindow.getElementsByClassName('__placeholder');
 var droppables = $("sidebar_menu");
 var diviframe = $("iframe_live_wh");
@@ -266,14 +267,15 @@ function onLoadiframe() {
         // -----END OF 3 ----- 
 
         // ***** 4. BADGE ***** //
-        var badge = clientFrameWindow.getElementById("tar_nodeName");
+        var badge = $$("badge_");
+
         var w = x.clientWidth;
         var h = x.clientHeight;
         var w$h =
           "&nbsp; &nbsp;" +
           x.clientWidth +
           "x" +
-          x.clientHeight;
+          x.clientHeight + 'px';
 
         //Resize window live update width + height of clicked element
         window.addEventListener("resize", getSize, false);
@@ -288,65 +290,56 @@ function onLoadiframe() {
             "x" +
             x.clientHeight;
 
-          if (x.id != "" && x.classList != "") {
-            badge.innerHTML =
-              x.nodeName +
-              "#" +
-              x.id +
-              "." +
-              x.classList +
-              w$h; // + var ce tine rezultatul //writes tarNodename into my div
-          } else if (x.id != "" && x.classList == "") {
-            badge.innerHTML =
-              x.nodeName + "#" + x.id + w$h;
-          } else if (x.id == "" && x.classList != "") {
-            badge.innerHTML =
-              x.nodeName + "." + x.classList + w$h;
-          } else {
-            badge.innerHTML =
-              x.nodeName + clickedElement_wh.innerHTML + w$h;
-          }
+            $$('el-tag').innerHTML = x.nodeName.toLowerCase();
+            $$('el-w&h').innerHTML = w$h;
+  
+            if (x.id != "") {$$('el-id').innerHTML = "#" + x.id;} 
+            else {$$('el-id').innerHTML = "";}
+  
+            if (x.classList[0] != undefined && x.classList[0] != "active__u"  ) {$$('el-c0').innerHTML = "." + x.classList[0];} 
+            else {$$('el-c0').innerHTML = "";} 
+  
+            if (x.classList[1] != undefined && x.classList[1] != "active__u"  ) {$$('el-c1').innerHTML = "." + x.classList[1];} 
+            else { $$('el-c1').innerHTML = "";} 
+  
+            if (x.classList[2] != undefined && x.classList[2] != "active__u"  ) {$$('el-c2').innerHTML = "." + x.classList[2];} 
+            else {$$('el-c2').innerHTML = "";} 
+  
 
           //On resize update Column3
           $("renderedWidth").innerHTML = w + "px"; //writes width
           $("renderedHeight").innerHTML = h + "px"; //writes width
         }
         //End of resize live update clicked element
+        
+        //10. Decide what to be written inside BADGE
+       
+          $$('el-tag').innerHTML = x.nodeName.toLowerCase();
+          $$('el-w&h').innerHTML = w$h;
 
-        // Shows the badge
-        //Need to write some checks here, if it has id, if it has classes - DISPLAY BADGE ON CLICK
-        if (x.id != "" && x.classList != "") {
-          badge.innerHTML =
-            x.nodeName +
-            "#" +
-            x.id +
-            "." +
-            x.classList +
-            w$h; // + var ce tine rezultatul //writes tarNodename into my div
-        } else if (x.id != "" && x.classList == "") {
-          badge.innerHTML = x.nodeName + "#" + x.id + w$h;
-        } else if (x.id == "" && x.classList != "") {
-          badge.innerHTML =
-            x.nodeName + "." + x.classList + w$h;
-        } else {
-          badge.innerHTML = x.nodeName + w$h;
-        }
+          if (x.id != "") {$$('el-id').innerHTML = "#" + x.id;} 
+          else {$$('el-id').innerHTML = "";}
+
+          if (x.classList[0] != undefined && x.classList[0] != "active__u"  ) {$$('el-c0').innerHTML = "." + x.classList[0];} 
+          else {$$('el-c0').innerHTML = "";} 
+
+          if (x.classList[1] != undefined && x.classList[1] != "active__u"  ) {$$('el-c1').innerHTML = "." + x.classList[1];} 
+          else { $$('el-c1').innerHTML = "";} 
+
+          if (x.classList[2] != undefined && x.classList[2] != "active__u"  ) {$$('el-c2').innerHTML = "." + x.classList[2];} 
+          else {$$('el-c2').innerHTML = "";} 
+
+          
+          
+        //
+
 
         // DISPLAY W & H  COLUMN3 ON CLICK
         $("renderedWidth").innerHTML = w + "px"; //writes width
         $("renderedHeight").innerHTML = h + "px"; //writes width
 
-        //Adds it as first child
+        //Badge - Adds it as first child
         x.parentNode.insertBefore(badge, x);
-
-        // before clicked element
-        //x.parentNode.insertBefore(badge, x.nextSibling) // after clicked element
-
-        /*Move it to cursor
-          var x = event.clientX;
-          var y = event.clientY;
-          badge.style.left = `${x}px`;
-          badge.style.top = `${y}px`; */
 
         if (x.classList !== "active__u") {
           //if target doesn't have active on it

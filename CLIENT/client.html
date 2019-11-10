@@ -420,7 +420,7 @@
         }
 
         /* Badge - my thing*/
-        #tar_nodeName {
+        #badge_ {
             visibility: hidden;
             background: red;
             padding: 0 5px;
@@ -448,7 +448,7 @@
         .show {
             visibility: visible !important;
         }
-
+        /* Pe asta il pune on click*/
         .active__u {
             transition: .15s;
             outline: 2px red solid;
@@ -477,7 +477,15 @@
 
 <body contenteditable="false">
 
-    <span id="tar_nodeName">Badge</span>
+    <div id="badge_">
+        <span id="el-tag"></span>
+        <span id="el-id"></span>
+        <span id="el-c0"></span>
+        <span id="el-c1"></span>
+        <span id="el-c2"></span>
+        <span id="el-c3"></span>
+        <span id="el-w&h"></span>
+    </div>
     <script src="./client.js"></script>
     <!-- Playing with the styles -->
 
