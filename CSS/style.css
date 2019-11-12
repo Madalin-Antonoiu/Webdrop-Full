@@ -915,6 +915,9 @@ div.__item {
   justify-content: center;
 }
 
+.aligner-item--top {
+  align-self: flex-start;
+}
 
 .p1 {
   background: #FACBA1;
