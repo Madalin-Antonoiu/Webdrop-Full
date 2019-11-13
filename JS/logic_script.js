@@ -264,6 +264,13 @@ function onLoadiframe() {
           //$('_left').addEventListener('keyup', function() { x.style.marginLeft = $('_left').value; });
 
 
+           //c. The Computed Box
+          document.querySelector('.margin-top-row').addEventListener('mouseover', marginOver, false);
+
+          function marginOver(){
+            console.log('Hovered lalala');
+          }
+
         // -----END OF 3 ----- 
 
         // ***** 4. BADGE ***** //
