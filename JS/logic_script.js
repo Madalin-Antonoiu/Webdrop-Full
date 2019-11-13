@@ -1,5 +1,14 @@
-//Written by me - DO NOT delete
+//Shorten document.getElementById('') into just $('') in plain javaScript
 var $ = function (id) { return document.getElementById(id); };// Now $('id') possible in Vanilla JS
+
+// Function that runs only when entire DOM is ready
+
+//document.addEventListener("DOMContentLoaded", function(event) {
+  // Your code to run since DOM is loaded and ready
+//});
+
+
+
 var clientFrameWindow = $("clientframe").contentWindow.document;
 var $$ = function (id) { return clientFrameWindow.getElementById(id); };// Now $('id') possible in Vanilla JS
 //var placeholders = clientFrameWindow.getElementsByClassName('__placeholder');
@@ -265,10 +274,24 @@ function onLoadiframe() {
 
 
            //c. The Computed Box
-          document.querySelector('.margin-top-row').addEventListener('mouseover', marginOver, false);
 
+
+          document.querySelector('.margin-top-row').addEventListener('mouseover', marginOver, false);
+       
           function marginOver(){
-            console.log('Hovered lalala');
+           console.clear();
+            //x.scrollHeight.style.backgroundColor = "orange";
+           // console.log(x.getBoundingClientRect().getStyleValue(styles, 'margin-top'));
+       
+     
+           var computed = getComputedStyle(x);
+           
+           var margin = ['margin-top', 'margin-bottom', 'margin-left', 'margin-right'];
+           margin.forEach(function(e) { console.log(e + ': ' + computed.getPropertyValue(e)) });
+
+                      //var padding =  ['padding-top', 'padding-bottom', 'padding-left', 'padding-right'];
+           //padding.forEach(function(e) { console.log(e + ': ' + computed.getPropertyValue(e)) });
+           
           }
 
         // -----END OF 3 ----- 

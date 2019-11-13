@@ -893,7 +893,13 @@ div.__item {
 }
 
 
-
+#computed-box-holder{
+  position: absolute;
+  bottom: 150px;
+  left: 150px;
+  z-index: 99999999;
+  outline: 1px red solid;
+}
 
 
 
@@ -969,6 +975,7 @@ input[name="inp"]{
 }
 .element{
     background:#8EB7BB !important;
+    
 }
 
 .border-bot{
