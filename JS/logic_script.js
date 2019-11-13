@@ -253,10 +253,10 @@ function onLoadiframe() {
           $('minHeight').addEventListener('keyup', function() { x.style.minHeight = $('minHeight').value; });
           
           //b. Margin
-          $('_top').value = x.style.marginTop;
-          $('_right').value = x.style.marginRight; 
-          $('_bottom').value = x.style.marginBottom;  
-          $('_left').value = x.style.marginLeft;
+          $('_top').value =  window .getComputedStyle (x) .getPropertyValue ( marginTop )
+          //$('_right').value = x.style.marginRight; 
+          //$('_bottom').value = x.style.marginBottom;  
+          //$('_left').value = x.style.marginLeft;
 
           $('_top').addEventListener('keyup', function() { x.style.marginTop = $('_top').value; });        // (1) drop inside});
           $('_right').addEventListener('keyup', function() { x.style.marginRight = $('_right').value; });
