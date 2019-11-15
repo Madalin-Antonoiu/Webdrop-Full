@@ -263,14 +263,14 @@ function onLoadiframe() {
           
           //b. Margin
           $('_top').value = x.style.marginTop; 
-          //$('_right').value = x.style.marginRight; 
-          //$('_bottom').value = x.style.marginBottom;  
-          //$('_left').value = x.style.marginLeft;
+          $('_right').value = x.style.marginRight; 
+          $('_bottom').value = x.style.marginBottom;  
+          $('_left').value = x.style.marginLeft;
 
           $('_top').addEventListener('keyup', function() { x.style.marginTop = $('_top').value; });        // (1) drop inside});
-          //$('_right').addEventListener('keyup', function() { x.style.marginRight = $('_right').value; });
-          //$('_bottom').addEventListener('keyup', function() { x.style.marginBottom = $('_bottom').value; });
-          //$('_left').addEventListener('keyup', function() { x.style.marginLeft = $('_left').value; });
+          $('_right').addEventListener('keyup', function() { x.style.marginRight = $('_right').value; });
+          $('_bottom').addEventListener('keyup', function() { x.style.marginBottom = $('_bottom').value; });
+          $('_left').addEventListener('keyup', function() { x.style.marginLeft = $('_left').value; });
 
 
            //c. The Computed Box

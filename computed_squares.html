@@ -7,235 +7,132 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Document</title>
 
+  <style>
+  
+    nav {
+    width: 80%;
+  
+    background: orangered;
+    float: left;
+    
+    height: 40px;
 
-<style>
-/*
-  ======================
-        COMPUTED BOX 
-  ======================
+    margin: 45px 20px 18px 7px;
+    padding: 35px 25px 18px 29px;
+    
+    border-top: 9px solid gray;
+    border-bottom: 29px solid gray;
+    border-left: 19px solid gray;
+    border-right: 40px solid gray;
 
-*/
+  
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
-    font-size: 0.9em;
-}
+    }
 
-.computed-box {
-  width: 220px;
-  font-size: 0.9em;
-}
+    ul {list-style: none;} li {display: inline-block;}
 
-.computed-box .row {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 0.9em;
-}
-
-/* content */
-.computed-box .row div {
-  background-color: #EF5350;
-  padding: 1.5%;  
-  /* border: 1px solid white; Remove this and it becomes unified squares */
-  /*border-radius: 5px;*/
-  text-align: right;
-  color: black;
-  transition: background-color 1s;
-  font-size: 0.9em;
-}
-
-.computed-box .row div:nth-child(2n):hover {
-  background-color: #42A5F5;
-}
-
-.computed-box .row div:nth-child(2n+1):hover {
-  background-color: #66BB6A;
-}
-
-input[name="inp"]{
-    background: transparent;
-    border: none;
-    font-size: 11px;
-    text-align: center;  
-    outline:none;
-    width: 15px;
-    font-size: 0.9em;
-}
-
-::-webkit-input-placeholder {text-align: center; font-weight:800;}
-:-moz-placeholder { /* Firefox 18- */text-align: center;font-weight:800;  }
-::-moz-placeholder {  /* Firefox 19+ */ text-align: center; font-weight:800;}
-:-ms-input-placeholder {  text-align: center; font-weight:800; }
-
-.nopad{
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-/*Colors*/
-.margin{
-  background: #FACBA1 !important;
-}
-.border {
-  background: #FADF9A !important;
-}
-.padding{
-  background: #C3D08B !important;
-}
-.element{
-    background:#8EB7BB !important;
-}
-
-.border-bot{
-   border-bottom: 1px dashed black !important;
-}
-
-.border-right{
-  border-right: 1px dashed black !important;
-}
-.border-left{
-  border-left: 1px dashed black !important;
-}
-.border-top{
-  border-top: 1px dashed black !important;
-}
-.solid-border-top{
-   border-top: 1px solid black !important;
-}
-.solid-border-bot{
-   border-bottom: 1px solid black !important;
-}
-.solid-border-right{
-   border-right: 1px solid black !important;
-}
-.solid-border-left{
-   border-left: 1px solid black !important;
-}
-
-.dashed-grey-top{
-  border-top: 1px dashed grey !important;
-}
-.dashed-grey-right{
-    border-right: 1px dashed grey !important;
-}
-
-.solid-grey-top{
-  border-top: 1px solid grey !important;
-}
-.solid-grey-right{
-    border-right: 1px solid grey !important;
-}
-
-
-/* 1/12 */
-.col-1 {
-  width: 21px;
-}
-
-/* 2/12 */
-.col-2 {
-  width: 42px;
-}
-
-
-</style>
+  </style>
 
 
 </head>
 
+
 <body class="main page">
 
-  <div class="computed-box">
-  
-    <div class="row">
-      <div class="col-2 margin border-top border-left">margin</div>
-      <div class="col-1 margin border-top"></div>
-      <div class="col-1 margin border-top"></div>
-      <div class="col-1 margin border-top"><input name="inp" placeholder="-" autocomplete="off"></div>
-      <div class="col-1 margin border-top"></div>
-      <div class="col-1 margin border-top"></div>
-      <div class="col-1 margin border-top"></div>
-      <div class="col-1 margin border-top border-right"></div>
-    </div> 
-    
-    <div class="row">
-      <div class="col-1 margin  border-left"></div>
-      <div class="col-2 border solid-border-top solid-border-left">border</div>
-      <div class="col-1 border solid-border-top"></div>
-      <div class="col-1 border solid-border-top"><input name="inp" placeholder="-" autocomplete="off"></div>
-      <div class="col-1 border solid-border-top"></div>
-      <div class="col-1 border solid-border-top"></div>
-      <div class="col-1 border solid-border-top solid-border-right"></div>
-      <div class="col-1 margin border-right"></div>
-    </div>
-    
-    <div class="row">
-      <div class="col-1 margin border-left"></div>
-      <div class="col-1 border solid-border-left dashed-grey-right"></div>
-      <div class="col-2 padding dashed-grey-top nopad">padding</div>
-      <div class="col-1 padding dashed-grey-top "><input name="inp" placeholder="-" autocomplete="off"></div>
-      <div class="col-1 padding dashed-grey-top "></div>
-      <div class="col-1 padding  dashed-grey-top dashed-grey-right"></div>
-      <div class="col-1 border solid-border-right"></div>
-      <div class="col-1 margin border-right"></div>
-    </div>
-    
-    <div class="row">
-      <div class="col-1 margin border-left"><input name="inp" placeholder="-" autocomplete="off"></div>
-      <div class="col-1 border solid-border-left dashed-grey-right"><input name="inp" placeholder="-" autocomplete="off"></div>
-      <div class="col-1 padding  solid-grey-right"><input name="inp" placeholder="-" autocomplete="off"></div>
-      
-      <div class="col-1 element solid-grey-top" ><input style="padding-left: 3px; width:21px;" name="inp" placeholder="-" autocomplete="off" ></div>
-      <div class="col-1 element solid-grey-top "><input name="inp" placeholder="x" autocomplete="off" disabled></div>
-      <div class="col-1 element solid-grey-top solid-grey-right"><input style="margin-left: -9px; width:21px;" name="inp" placeholder="-" autocomplete="off"></div>
-      
-      <div class="col-1 padding dashed-grey-right"><input name="inp" placeholder="-" autocomplete="off"></div>
-      <div class="col-1 border solid-border-right "><input name="inp" placeholder="-" autocomplete="off"></div>
-      <div class="col-1 margin border-right"><input name="inp" placeholder="-" autocomplete="off"></div>
-    </div>
-    
-    <div class="row">
-      <div class="col-1 margin border-left"></div>
-      <div class="col-1 border solid-border-left dashed-grey-right"></div>
-      <div class="col-1 padding  "></div>
-      <div class="col-1 padding  solid-grey-top "></div>
-      <div class="col-1 padding  solid-grey-top "><input name="inp" placeholder="-" autocomplete="off"></div>
-      <div class="col-1 padding  solid-grey-top"></div>
-      <div class="col-1 padding  dashed-grey-right"></div>
-      <div class="col-1 border solid-border-right"></div>
-      <div class="col-1 margin border-right "></div>
-    </div>
-    
-    <div class="row">
-      <div class="col-1 margin border-left"></div>
-      <div class="col-1 border solid-border-bot solid-border-left"></div>
-      <div class="col-1 border solid-border-bot dashed-grey-top"></div>
-      <div class="col-1 border solid-border-bot dashed-grey-top"></div>
-      <div class="col-1 border solid-border-bot dashed-grey-top"><input name="inp" placeholder="-" autocomplete="off"></div>
-      <div class="col-1 border solid-border-bot dashed-grey-top"></div>
-      <div class="col-1 border solid-border-bot dashed-grey-top"></div>
-      <div class="col-1 border solid-border-bot solid-border-right"></div>
-      <div class="col-1 margin border-right"></div>
-    </div>
-    
-    <div class="row ">
-      <div class="col-2 margin border-bot border-left"></div>
-      <div class="col-1 margin border-bot "></div>
-      <div class="col-1 margin border-bot"></div>
-      <div class="col-1 margin border-bot"><input name="inp" placeholder="-" autocomplete="off"></div>
-      <div class="col-1 margin border-bot"></div>
-      <div class="col-1 margin border-bot"></div>
-      <div class="col-1 margin border-bot "></div>
-      <div class="col-1 margin border-bot border-right"></div>
-    </div>
-    
-    
-  </div>
+  <h2>The light green background color shows the padding of the element on hover</h2>
+
+
+  <nav id="nav">
+    <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <div id="result" style="display: inline-block; margin-top: 50px;"></div>
 
 </body>
+
+<!--Ok so for border i can just change color, lol ! And the others work fine with box shadow!  -->
+
+<script>
+
+  var $ = function (id) { return document.getElementById(id); };// Now $('id') possible in Vanilla JS
+  $('nav').addEventListener('click', clickMe, false);
+  $('nav').addEventListener('dblclick', hoverOut, false);
+  let res = $('result');
+
+  function clickMe(){
+    
+    recreateBoxModel();
+
+      
+      document.getElementById('nav').classList.add('box-shadow-height');   
+
+      document.getElementById('nav').classList.add('border-top-highlight');   
+      document.getElementById('nav').classList.add('border-right-highlight');   
+      document.getElementById('nav').classList.add('border-bottom-highlight');   
+      document.getElementById('nav').classList.add('border-left-highlight');   
+
+      document.getElementById('nav').classList.add('padding-top-highlight');   
+      document.getElementById('nav').classList.add('padding-right-highlight');   
+      document.getElementById('nav').classList.add('padding-bottom-highlight');   
+      document.getElementById('nav').classList.add('padding-left-highlight');   
+
+  }
+  function hoverOut(){
+    //this.classList.remove('box-shadow-all');
+      $('result').innerHTML="";
+      document.getElementById('nav').classList.remove('box-shadow-height');   
+
+      document.getElementById('nav').classList.remove('border-top-highlight');   
+      document.getElementById('nav').classList.remove('border-right-highlight');   
+      document.getElementById('nav').classList.remove('border-bottom-highlight');   
+      document.getElementById('nav').classList.remove('border-left-highlight');   
+
+      document.getElementById('nav').classList.remove('padding-top-highlight');   
+      document.getElementById('nav').classList.remove('padding-right-highlight');   
+      document.getElementById('nav').classList.remove('padding-bottom-highlight');   
+      document.getElementById('nav').classList.remove('padding-left-highlight');   
+  }
+
+  function recreateBoxModel(){
+    //Define your target
+    let compStyles = window.getComputedStyle($('nav'));
+    
+    //Get the values :1. Height
+    var height = compStyles.getPropertyValue('height')  ; 
+    //2. Border This also works if someone defines borders all 4 at once because i read omputed vals ;) e.g. :  border-width: 15px 25px 9px 3px ; border-color: red; border-style: solid;
+    var borderTop = compStyles.getPropertyValue('border-top-width');
+    var borderRight = compStyles.getPropertyValue('border-right-width');
+    var borderBottom = compStyles.getPropertyValue('border-bottom-width'); 
+    var borderLeft = compStyles.getPropertyValue('border-left-width');
+
+    //3. Padding
+    var paddingTop = compStyles.getPropertyValue('padding-top');
+    var paddingRight = compStyles.getPropertyValue('padding-right');
+    var paddingBottom = compStyles.getPropertyValue('padding-bottom'); 
+    var paddingLeft = compStyles.getPropertyValue('padding-left');
+
+
+    var element  = document.createElement("style");
+    element.id = "myStyleId" ; // so you can get and alter/replace/remove later
+
+    //create the classes
+    element.innerHTML = ".border-top-highlight {border-top: " + borderTop + " solid #FADF9A !important }  .border-right-highlight {border-right: " + borderRight + " solid #FADF9A !important } .border-bottom-highlight {border-bottom: " + borderBottom + " solid #FADF9A !important } .border-top-highlight {border-left: " + borderLeft + " solid #FADF9A !important }  .padding-top-highlight {box-shadow: inset 0 " + paddingTop + " 0 0 #C3D08B } .padding-right-highlight {box-shadow: inset -" + paddingRight + " 0 0 0 #C3D08B } .padding-bottom-highlight {box-shadow: inset 0 -" + paddingBottom + " 0 0 #C3D08B } .padding-left-highlight {box-shadow: inset " + paddingLeft + " 0 0 0 #C3D08B } "; // css rules working
+    var header = document.getElementsByTagName("HEAD")[0] ;
+    header.appendChild(element) ; // this gets creatd a million times But it is ok for now
+
+    //res.textContent = 'Height: ' + compStyles.getPropertyValue('height') ; //write to div
+    // .box-shadow-height {box-shadow: inset 0 " + height + " 0 " + height + " #8EB7BB }  doesn't work yet, i should do padding and margin first    .padding-top-highlight
+  }
+  // .padding-top-highlight {box-shadow: inset 0 " + paddingTop + " 0 0 #C3D08B } ;
+
+  //.padding-right-highlight {box-shadow: inset -" + paddingRight + " 0 0 0 #C3D08B } .padding-bottom-highlight {box-shadow: inset 0 -" + paddingBottom + " 0 0 #C3D08B } .padding-left-highlight {box-shadow: inset " + paddingLeft + " 0 0 0 #C3D08B } ;
+  //.padding-bottom-highlight {box-shadow: inset 0 -" + paddingBottom + " 0 0 #C3D08B } ;
+  //.padding-left-highlight {box-shadow: inset " + paddingLeft + " 0 0 0 #C3D08B } ;
+
+</script>
 
 </html>
