@@ -1,32 +1,17 @@
 //Shorten document.getElementById('') into just $('') in plain javaScript
 var $ = function (id) { return document.getElementById(id); };// Now $('id') possible in Vanilla JS
+var $$ = function (id) { return clientFrameWindow.getElementById(id); };// Now $('id') possible in Vanilla JS
+var clientFrameWindow = $("clientframe").contentWindow.document;
 
-// Function that runs only when entire DOM is ready
 
 //document.addEventListener("DOMContentLoaded", function(event) {
   // Your code to run since DOM is loaded and ready
 //});
 
-
-
-var clientFrameWindow = $("clientframe").contentWindow.document;
-var $$ = function (id) { return clientFrameWindow.getElementById(id); };// Now $('id') possible in Vanilla JS
 //var placeholders = clientFrameWindow.getElementsByClassName('__placeholder');
 var droppables = $("sidebar_menu");
-var diviframe = $("iframe_live_wh");
 
 
-
-function toggle_iframe_wh() {
-  var diviframe = $("iframe_live_wh");
-  //Document's width and height
-  var wd = $("clientframe").clientWidth; //the entire iFrame on CodePen
-  var wh = $("clientframe").clientHeight;
-
-  // put the result into a h1 tag
-  diviframe.innerHTML = wd + " x " + wh;
-  diviframe.classList.toggle("displayNoneSuper");
-}
 
 //Toggles Preview On/Of via `
 document.addEventListener("keydown", function (event) {
@@ -54,32 +39,45 @@ document.addEventListener("keydown", function (event) {
   }
 });
 
-clientFrameWindow.addEventListener("keydown", function (event) {
-  if (event.keyCode == 192) {
-    nav = $("myNav");
-    col2 = $("column2");
-
-    col1.classList.toggle("displayNoneSuper");
-    col2.classList.toggle("fullheight");
-    col3.classList.toggle("displayNoneSuper");
-    nav.classList.toggle("displayNoneSuper");
-    clientFrameWindow.body.classList.toggle("preview_class101");
-    $("resize_bar").classList.toggle("displayNoneSuper");
-    $("resize_bar2").classList.toggle("displayNoneSuper");
-    frame.classList.remove("s320", "s480", "s768", "s1366", "s1920");
-
-    col2.classList.toggle("unshrinkCol2");
-
-    toggle_iframe_wh();
-  }
-});
 
 //Every Checkbox toggle on/off on click
 // get DOM elements
 
-//If not doing on iFrame load, the addEventListeners will crash sometimes - Multiple AddEventListeners
-function onLoadiframe() {
+clientFrameWindow.addEventListener("DOMContentLoaded", function() { 
+  var diviframe = $("iframe_live_wh");
+  
+  function toggle_iframe_wh() {
+    var diviframe = $("iframe_live_wh");
+    //Document's width and height
+    var wd = $("clientframe").clientWidth; //the entire iFrame on CodePen
+    var wh = $("clientframe").clientHeight;
+  
+    // put the result into a h1 tag
+    diviframe.innerHTML = wd + " x " + wh;
+    diviframe.classList.toggle("displayNoneSuper");
+  }
 
+  // Your code to run since DOM is loaded and ready
+//If not doing on iFrame load, the addEventListeners will crash sometimes - Multiple AddEventListeners
+  clientFrameWindow.addEventListener("keydown", function (event) {
+    if (event.keyCode == 192) {
+      nav = $("myNav");
+      col2 = $("column2");
+
+      col1.classList.toggle("displayNoneSuper");
+      col2.classList.toggle("fullheight");
+      col3.classList.toggle("displayNoneSuper");
+      nav.classList.toggle("displayNoneSuper");
+      clientFrameWindow.body.classList.toggle("preview_class101");
+      $("resize_bar").classList.toggle("displayNoneSuper");
+      $("resize_bar2").classList.toggle("displayNoneSuper");
+      frame.classList.remove("s320", "s480", "s768", "s1366", "s1920");
+
+      col2.classList.toggle("unshrinkCol2");
+
+      toggle_iframe_wh();
+    }
+  });
 
   //clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
   clientFrameWindow.body.addEventListener("mouseout", mouseLeave, false);
@@ -242,15 +240,17 @@ function onLoadiframe() {
         /// ********** End of 2 ****************
 
         //********* 3. Change width on clicked element via inputs (INLINE-STYLES)*************
-          
-          //a. Display x's default values - Dimension
-          $('myWidth').value = x.style.width;
-          $('maxWidth').value = x.style.maxWidth; 
-          $('minWidth').value = x.style.minWidth;  
+          let grabStyles = window.getComputedStyle(x); //console.log(grabStyles);
 
-          $('myHeight').value = x.style.height;
-          $('maxHeight').value = x.style.maxHeight; 
-          $('minHeight').value = x.style.minHeight;  
+          //a. Display x's default values - Dimension
+          
+          $('myWidth').value = grabStyles.getPropertyValue('width');
+          $('maxWidth').value = grabStyles.getPropertyValue('max-width');
+          $('minWidth').value = grabStyles.getPropertyValue('min-width');
+
+          $('myHeight').value = grabStyles.getPropertyValue('height');
+          $('maxHeight').value = grabStyles.getPropertyValue('max-height');
+          $('minHeight').value = grabStyles.getPropertyValue('min-height');
 
           //a. Width (with STYLE element in comments )
           $('myWidth').addEventListener('keyup', function() { x.style.width = $('myWidth').value; });        // (1) drop inside});
@@ -262,10 +262,10 @@ function onLoadiframe() {
           $('minHeight').addEventListener('keyup', function() { x.style.minHeight = $('minHeight').value; });
           
           //b. Margin
-          $('_top').value = x.style.marginTop; 
-          $('_right').value = x.style.marginRight; 
-          $('_bottom').value = x.style.marginBottom;  
-          $('_left').value = x.style.marginLeft;
+          $('_top').value = grabStyles.getPropertyValue('margin-top');
+          $('_right').value = grabStyles.getPropertyValue('margin-right');
+          $('_bottom').value = grabStyles.getPropertyValue('margin-bottom'); 
+          $('_left').value = grabStyles.getPropertyValue('margin-left');
 
           $('_top').addEventListener('keyup', function() { x.style.marginTop = $('_top').value; });        // (1) drop inside});
           $('_right').addEventListener('keyup', function() { x.style.marginRight = $('_right').value; });
@@ -273,7 +273,8 @@ function onLoadiframe() {
           $('_left').addEventListener('keyup', function() { x.style.marginLeft = $('_left').value; });
 
 
-           //c. The Computed Box
+           //c. Padding
+           
 
 
           document.querySelector('.margin-top-row').addEventListener('mouseover', marginOver, false);
@@ -576,7 +577,7 @@ function onLoadiframe() {
   //$("muestra_abol").addEventListener("click", function() {  //Add the innerHTML in here, you can make it happen on button click });
 
   // end of it
-}
+});
 
 /*  Add a new CSS Stylesheets
 function addCss(fileName) {

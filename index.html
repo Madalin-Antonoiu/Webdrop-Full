@@ -10,6 +10,11 @@
   <link id="style1" rel="stylesheet" href="./CSS/minime.css" />
   <!--If you set up  ./CSS/empty.css as default, it will start big menu first-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
+
+  <style id="style">
+    
+  </style>
+
 </head>
 
 <body>
@@ -1878,7 +1883,7 @@
 
     <div id="column2">
       <div id="iframe_live_wh" class="displayNoneSuper">w & h</div>
-      <iframe id="clientframe" src="./client/client.html" frameborder="0" onload="onLoadiframe()"></iframe>
+      <iframe id="clientframe" src="./client/client.html" frameborder="0" ></iframe>
     </div>
 
     <!-- By just adding displayNone, it starts default closed, all functions working still class="displayNone to column3 to start closed-->
@@ -1962,6 +1967,105 @@
 
               </div>
 
+              <div class="tab" id="__tab3">
+
+                  <input type="checkbox" id="chck3" checked>
+                  <label class="tab-label" for="chck3">Computed</label>
+                  <div class="tab-content">
+                                    
+                      <!-- Your content here -->
+                      <div class="computed-box">
+  
+                        <div class="row margin-top-row">
+                          <div class="col-2 margin border-top border-left">margin</div>
+                          <div class="col-1 margin border-top"></div>
+                          <div class="col-1 margin border-top"></div>
+                          <div class="col-1 margin border-top"><input name="inp" placeholder="-" autocomplete="off" id="_top"></div>
+                          <div class="col-1 margin border-top"></div>
+                          <div class="col-1 margin border-top"></div>
+                          <div class="col-1 margin border-top"></div>
+                          <div class="col-1 margin border-top border-right"></div>
+                        </div> 
+                        
+                        <div class="row">
+                          <div class="col-1 margin  border-left"></div>
+                          <div class="col-2 border solid-border-top solid-border-left">border</div>
+                          <div class="col-1 border solid-border-top"></div>
+                          <div class="col-1 border solid-border-top"><input name="inp" placeholder="-" autocomplete="off"></div>
+                          <div class="col-1 border solid-border-top"></div>
+                          <div class="col-1 border solid-border-top"></div>
+                          <div class="col-1 border solid-border-top solid-border-right"></div>
+                          <div class="col-1 margin border-right"></div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="col-1 margin border-left"></div>
+                          <div class="col-1 border solid-border-left dashed-grey-right"></div>
+                          <div class="col-2 padding dashed-grey-top nopad">padding</div>
+                          <div class="col-1 padding dashed-grey-top "><input name="inp" placeholder="-" autocomplete="off"></div>
+                          <div class="col-1 padding dashed-grey-top "></div>
+                          <div class="col-1 padding  dashed-grey-top dashed-grey-right"></div>
+                          <div class="col-1 border solid-border-right"></div>
+                          <div class="col-1 margin border-right"></div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="col-1 margin border-left"><input id="_left" name="inp" placeholder="-" autocomplete="off"></div>
+                          <div class="col-1 border solid-border-left dashed-grey-right"><input name="inp" placeholder="-" autocomplete="off"></div>
+                          <div class="col-1 padding  solid-grey-right"><input name="inp" placeholder="-" autocomplete="off"></div>
+                          
+                          <div class="col-1 element solid-grey-top" ><input id="myWidth" style="margin-left: -1px; width:21px;" name="inp" placeholder="-" autocomplete="off" ></div>
+                          <div class="col-1 element solid-grey-top "><input name="inp" placeholder="x" autocomplete="off" disabled></div>
+                          <div class="col-1 element solid-grey-top solid-grey-right"><input id="myHeight" style="margin-left: -9px; width:21px;" name="inp" placeholder="-" autocomplete="off"></div>
+                          
+                          <div class="col-1 padding dashed-grey-right"><input name="inp" placeholder="-" autocomplete="off"></div>
+                          <div class="col-1 border solid-border-right "><input name="inp" placeholder="-" autocomplete="off"></div>
+                          <div  class="col-1 margin border-right"><input id="_right" name="inp" placeholder="-" autocomplete="off"></div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="col-1 margin border-left"></div>
+                          <div class="col-1 border solid-border-left dashed-grey-right"></div>
+                          <div class="col-1 padding  "></div>
+                          <div class="col-1 padding  solid-grey-top "></div>
+                          <div class="col-1 padding  solid-grey-top "><input name="inp" placeholder="-" autocomplete="off"></div>
+                          <div class="col-1 padding  solid-grey-top"></div>
+                          <div class="col-1 padding  dashed-grey-right"></div>
+                          <div class="col-1 border solid-border-right"></div>
+                          <div class="col-1 margin border-right "></div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="col-1 margin border-left"></div>
+                          <div class="col-1 border solid-border-bot solid-border-left"></div>
+                          <div class="col-1 border solid-border-bot dashed-grey-top"></div>
+                          <div class="col-1 border solid-border-bot dashed-grey-top"></div>
+                          <div class="col-1 border solid-border-bot dashed-grey-top"><input name="inp" placeholder="-" autocomplete="off"></div>
+                          <div class="col-1 border solid-border-bot dashed-grey-top"></div>
+                          <div class="col-1 border solid-border-bot dashed-grey-top"></div>
+                          <div class="col-1 border solid-border-bot solid-border-right"></div>
+                          <div class="col-1 margin border-right"></div>
+                        </div>
+                        
+                        <div class="row ">
+                          <div class="col-2 margin border-bot border-left"></div>
+                          <div class="col-1 margin border-bot "></div>
+                          <div class="col-1 margin border-bot"></div>
+                          <div class="col-1 margin border-bot"><input id="_bottom" name="inp" placeholder="-" autocomplete="off"></div>
+                          <div class="col-1 margin border-bot"></div>
+                          <div class="col-1 margin border-bot"></div>
+                          <div class="col-1 margin border-bot "></div>
+                          <div class="col-1 margin border-bot border-right"></div>
+                        </div>
+                        
+                        
+                      </div>
+                
+
+
+                  </div>
+              </div>
+
               <div class="tab" id="__tab2" >
 
                   <input type="checkbox" id="chck2" checked >
@@ -1970,31 +2074,23 @@
                                     
                       <!-- Your content here -->
 
-                      <div>Dimension<hr>
+                      <div>Max-Dimension<hr>
                     
                         <div class="row__" > <!--Randul I -->
     
                           <div class="column__"><!-- Col1-->
       
-                            <div class="row__"><!--R1 -->
-    
-                              <div class="column__">
-                                <i class="fas fa-arrows-alt-h"></i>
-                              </div>
-    
-                              <div class="column__">
-                                <input class="wh__" placeholder="width" name="width" id="myWidth">
-                              </div>
-    
-                            </div>
+
     
                             <div class="row__"><!--R2 -->
-                              
+
                               <div class="column__">
+                                <span>max-w</span>
                                 <input class="mm__" placeholder="max" name="max-width" id="maxWidth">
                               </div>
     
                               <div class="column">
+                                <span>min-w</span>
                                 <input class="mm__" placeholder="min" name="min-width" id="minWidth">
                               </div>
     
@@ -2005,23 +2101,15 @@
     
                           <div class="column__ ml__"><!-- Col2-->
     
-                            <div class="row__" > <!--R1-->
-    
-                              <div class="column__">
-                                <i class="fas fa-arrows-alt-v"></i>
-                              </div>
-    
-                              <div class="column__">
-                                <input class="wh__" placeholder="height" name="height" id="myHeight">
-                              </div>
-    
-                            </div>
+
     
                             <div class="row__"> <!--R2 -->
                               <div class="column__">
+                                <span>max-h</span>
                                 <input class="mm__" placeholder="max" name="max-height" id="maxHeight">
                               </div>
                               <div class="column__">
+                                  <span>min-h</span>
                                 <input class="mm__" placeholder="min" name="min-height" id="minHeight">
                               </div>
     
@@ -2103,105 +2191,6 @@
                        -->
                   </div>
 
-              </div>
-
-              <div class="tab" id="__tab3">
-
-                  <input type="checkbox" id="chck3" checked>
-                  <label class="tab-label" for="chck3">Computed</label>
-                  <div class="tab-content">
-                                    
-                      <!-- Your content here -->
-                      <div class="computed-box">
-  
-                        <div class="row margin-top-row">
-                          <div class="col-2 margin border-top border-left">margin</div>
-                          <div class="col-1 margin border-top"></div>
-                          <div class="col-1 margin border-top"></div>
-                          <div class="col-1 margin border-top"><input name="inp" placeholder="-" autocomplete="off" id="_top"></div>
-                          <div class="col-1 margin border-top"></div>
-                          <div class="col-1 margin border-top"></div>
-                          <div class="col-1 margin border-top"></div>
-                          <div class="col-1 margin border-top border-right"></div>
-                        </div> 
-                        
-                        <div class="row">
-                          <div class="col-1 margin  border-left"></div>
-                          <div class="col-2 border solid-border-top solid-border-left">border</div>
-                          <div class="col-1 border solid-border-top"></div>
-                          <div class="col-1 border solid-border-top"><input name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 border solid-border-top"></div>
-                          <div class="col-1 border solid-border-top"></div>
-                          <div class="col-1 border solid-border-top solid-border-right"></div>
-                          <div class="col-1 margin border-right"></div>
-                        </div>
-                        
-                        <div class="row">
-                          <div class="col-1 margin border-left"></div>
-                          <div class="col-1 border solid-border-left dashed-grey-right"></div>
-                          <div class="col-2 padding dashed-grey-top nopad">padding</div>
-                          <div class="col-1 padding dashed-grey-top "><input name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 padding dashed-grey-top "></div>
-                          <div class="col-1 padding  dashed-grey-top dashed-grey-right"></div>
-                          <div class="col-1 border solid-border-right"></div>
-                          <div class="col-1 margin border-right"></div>
-                        </div>
-                        
-                        <div class="row">
-                          <div class="col-1 margin border-left"><input id="_left" name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 border solid-border-left dashed-grey-right"><input name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 padding  solid-grey-right"><input name="inp" placeholder="-" autocomplete="off"></div>
-                          
-                          <div class="col-1 element solid-grey-top" ><input style="margin-left: -1px; width:21px;" name="inp" placeholder="-" autocomplete="off" ></div>
-                          <div class="col-1 element solid-grey-top "><input name="inp" placeholder="x" autocomplete="off" disabled></div>
-                          <div class="col-1 element solid-grey-top solid-grey-right"><input style="margin-left: -9px; width:21px;" name="inp" placeholder="-" autocomplete="off"></div>
-                          
-                          <div class="col-1 padding dashed-grey-right"><input name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 border solid-border-right "><input name="inp" placeholder="-" autocomplete="off"></div>
-                          <div  class="col-1 margin border-right"><input id="_right" name="inp" placeholder="-" autocomplete="off"></div>
-                        </div>
-                        
-                        <div class="row">
-                          <div class="col-1 margin border-left"></div>
-                          <div class="col-1 border solid-border-left dashed-grey-right"></div>
-                          <div class="col-1 padding  "></div>
-                          <div class="col-1 padding  solid-grey-top "></div>
-                          <div class="col-1 padding  solid-grey-top "><input name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 padding  solid-grey-top"></div>
-                          <div class="col-1 padding  dashed-grey-right"></div>
-                          <div class="col-1 border solid-border-right"></div>
-                          <div class="col-1 margin border-right "></div>
-                        </div>
-                        
-                        <div class="row">
-                          <div class="col-1 margin border-left"></div>
-                          <div class="col-1 border solid-border-bot solid-border-left"></div>
-                          <div class="col-1 border solid-border-bot dashed-grey-top"></div>
-                          <div class="col-1 border solid-border-bot dashed-grey-top"></div>
-                          <div class="col-1 border solid-border-bot dashed-grey-top"><input name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 border solid-border-bot dashed-grey-top"></div>
-                          <div class="col-1 border solid-border-bot dashed-grey-top"></div>
-                          <div class="col-1 border solid-border-bot solid-border-right"></div>
-                          <div class="col-1 margin border-right"></div>
-                        </div>
-                        
-                        <div class="row ">
-                          <div class="col-2 margin border-bot border-left"></div>
-                          <div class="col-1 margin border-bot "></div>
-                          <div class="col-1 margin border-bot"></div>
-                          <div class="col-1 margin border-bot"><input id="_bottom" name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 margin border-bot"></div>
-                          <div class="col-1 margin border-bot"></div>
-                          <div class="col-1 margin border-bot "></div>
-                          <div class="col-1 margin border-bot border-right"></div>
-                        </div>
-                        
-                        
-                      </div>
-                
-
-
-                  </div>
               </div>
 
               <div class="tab" id="__tab4">
