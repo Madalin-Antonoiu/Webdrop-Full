@@ -17,8 +17,9 @@
     
     height: 40px;
 
-    margin: 45px 20px 18px 7px;
-    padding: 35px 25px 18px 29px;
+    margin:50px;
+
+    padding: 35px 25px 18px 32px;
     
     border-top: 9px solid gray;
     border-bottom: 29px solid gray;
@@ -68,70 +69,70 @@
     recreateBoxModel();
 
       
-      document.getElementById('nav').classList.add('box-shadow-height');   
 
       document.getElementById('nav').classList.add('border-top-highlight');   
       document.getElementById('nav').classList.add('border-right-highlight');   
       document.getElementById('nav').classList.add('border-bottom-highlight');   
       document.getElementById('nav').classList.add('border-left-highlight');   
 
-      document.getElementById('nav').classList.add('padding-top-highlight');   
-      document.getElementById('nav').classList.add('padding-right-highlight');   
-      document.getElementById('nav').classList.add('padding-bottom-highlight');   
-      document.getElementById('nav').classList.add('padding-left-highlight');   
+      document.getElementById('nav').classList.add('padding-and-margin-all-highlight');  
+
+      document.getElementById('nav').classList.add('background-highlight');   
 
   }
   function hoverOut(){
     //this.classList.remove('box-shadow-all');
       $('result').innerHTML="";
-      document.getElementById('nav').classList.remove('box-shadow-height');   
+ 
 
       document.getElementById('nav').classList.remove('border-top-highlight');   
       document.getElementById('nav').classList.remove('border-right-highlight');   
       document.getElementById('nav').classList.remove('border-bottom-highlight');   
       document.getElementById('nav').classList.remove('border-left-highlight');   
 
-      document.getElementById('nav').classList.remove('padding-top-highlight');   
-      document.getElementById('nav').classList.remove('padding-right-highlight');   
-      document.getElementById('nav').classList.remove('padding-bottom-highlight');   
-      document.getElementById('nav').classList.remove('padding-left-highlight');   
+      document.getElementById('nav').classList.remove('padding-and-margin-all-highlight');  
+
+      document.getElementById('nav').classList.remove('background-highlight');   
+
+ 
   }
 
   function recreateBoxModel(){
     //Define your target
     let compStyles = window.getComputedStyle($('nav'));
-    
-    //Get the values :1. Height
-    var height = compStyles.getPropertyValue('height')  ; 
-    //2. Border This also works if someone defines borders all 4 at once because i read omputed vals ;) e.g. :  border-width: 15px 25px 9px 3px ; border-color: red; border-style: solid;
+    //All of this is c reated dynamically and no matter how you declare them in CSS, it will work :)
+   
+    //1. Border This also works if someone defines borders all 4 at once because i read omputed vals ;) e.g. :  border-width: 15px 25px 9px 3px ; border-color: red; border-style: solid;
     var borderTop = compStyles.getPropertyValue('border-top-width');
     var borderRight = compStyles.getPropertyValue('border-right-width');
     var borderBottom = compStyles.getPropertyValue('border-bottom-width'); 
     var borderLeft = compStyles.getPropertyValue('border-left-width');
 
-    //3. Padding
+    //2. Padding
     var paddingTop = compStyles.getPropertyValue('padding-top');
     var paddingRight = compStyles.getPropertyValue('padding-right');
     var paddingBottom = compStyles.getPropertyValue('padding-bottom'); 
     var paddingLeft = compStyles.getPropertyValue('padding-left');
 
+    //3. Margin
+    var marginTop = compStyles.getPropertyValue('margin-top');
+    var marginRight = compStyles.getPropertyValue('margin-right');
+    var marginBottom = compStyles.getPropertyValue('margin-bottom'); 
+    var marginLeft = compStyles.getPropertyValue('margin-left');
+    //4. Element itself is just using background color
 
     var element  = document.createElement("style");
-    element.id = "myStyleId" ; // so you can get and alter/replace/remove later
-
-    //create the classes
-    element.innerHTML = ".border-top-highlight {border-top: " + borderTop + " solid #FADF9A !important }  .border-right-highlight {border-right: " + borderRight + " solid #FADF9A !important } .border-bottom-highlight {border-bottom: " + borderBottom + " solid #FADF9A !important } .border-top-highlight {border-left: " + borderLeft + " solid #FADF9A !important }  .padding-top-highlight {box-shadow: inset 0 " + paddingTop + " 0 0 #C3D08B } .padding-right-highlight {box-shadow: inset -" + paddingRight + " 0 0 0 #C3D08B } .padding-bottom-highlight {box-shadow: inset 0 -" + paddingBottom + " 0 0 #C3D08B } .padding-left-highlight {box-shadow: inset " + paddingLeft + " 0 0 0 #C3D08B } "; // css rules working
+    element.id = "myStyleId" ; 
+    
+    //create the classes - The magic happens here
+    element.innerHTML = ".border-top-highlight {border-top: " + borderTop + " solid #FADF9A !important }  .border-right-highlight {border-right: " + borderRight + " solid #FADF9A !important } .border-bottom-highlight {border-bottom: " + borderBottom + " solid #FADF9A !important } .border-top-highlight {border-left: " + borderLeft + " solid #FADF9A !important }  .padding-and-margin-all-highlight {box-shadow: inset 0 " + paddingTop + " 0 0 #C3D08B, inset -" + paddingRight + " 0 0 0 #C3D08B, inset 0 -" + paddingBottom + " 0 0 #C3D08B, inset " + paddingLeft + " 0 0 0 #C3D08B, -" + marginLeft + " -" + marginTop + "  0 0 #FACBA1, " + marginRight + " -" + marginTop + "  0 0 #FACBA1, -" + marginLeft + " " + marginBottom + "  0 0 #FACBA1, " + marginRight + " " + marginBottom + "  0 0 #FACBA1 } .background-highlight{background: #8EB7BB}";// css rules working
+    
     var header = document.getElementsByTagName("HEAD")[0] ;
     header.appendChild(element) ; // this gets creatd a million times But it is ok for now
 
     //res.textContent = 'Height: ' + compStyles.getPropertyValue('height') ; //write to div
     // .box-shadow-height {box-shadow: inset 0 " + height + " 0 " + height + " #8EB7BB }  doesn't work yet, i should do padding and margin first    .padding-top-highlight
   }
-  // .padding-top-highlight {box-shadow: inset 0 " + paddingTop + " 0 0 #C3D08B } ;
-
-  //.padding-right-highlight {box-shadow: inset -" + paddingRight + " 0 0 0 #C3D08B } .padding-bottom-highlight {box-shadow: inset 0 -" + paddingBottom + " 0 0 #C3D08B } .padding-left-highlight {box-shadow: inset " + paddingLeft + " 0 0 0 #C3D08B } ;
-  //.padding-bottom-highlight {box-shadow: inset 0 -" + paddingBottom + " 0 0 #C3D08B } ;
-  //.padding-left-highlight {box-shadow: inset " + paddingLeft + " 0 0 0 #C3D08B } ;
 
 </script>
 
