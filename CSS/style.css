@@ -928,7 +928,7 @@ div.__item {
 
 /* content */
 .computed-box .row div {
-  background-color: #EF5350;
+ /* background-color: #EF5350;*/
   padding: 1.5%;  
   /* border: 1px solid white; Remove this and it becomes unified squares */
   /*border-radius: 5px;*/
@@ -937,13 +937,8 @@ div.__item {
   transition: background-color 1s;
   font-size: 0.9em;
 }
-
-.computed-box .row div:nth-child(2n):hover {
-  background-color: #42A5F5;
-}
-
-.computed-box .row div:nth-child(2n+1):hover {
-  background-color: #66BB6A;
+.neutral{
+  background-color: white !important;
 }
 
 input[name="inp"]{
@@ -968,17 +963,17 @@ input[name="inp"]{
 
 /*Colors*/
 .margin{
-  background: #F9CC9D !important;
+  background: #F9CC9D ;
   
 }
 .border {
-  background: #FADF9A !important;
+  background: #FADF9A;
 }
 .padding{
-  background: #C3D08B !important;
+  background: #C3D08B ;
 }
 .element{
-    background:#8EB7BB !important;
+    background:#8EB7BB ;
     
 }
 

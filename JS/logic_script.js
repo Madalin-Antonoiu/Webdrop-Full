@@ -333,7 +333,9 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
 
           //d. Border
           if( grabStyles.getPropertyValue('border-top-width') !== "0px"){
-          let str = grabStyles.getPropertyValue('border-top-width'); str = str.slice(0, -2);      
+          let str = grabStyles.getPropertyValue('border-top-width');
+          console.log(str);
+          str = str.slice(0, -2);      
           $('border-top').value = str;
           } else {
             $('border-top').value = "";
@@ -365,29 +367,276 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
           $('border-bottom').addEventListener('keyup', function() { x.style.borderBottomWidth = $('border-bottom').value;  x.style.borderBottomColor = "black";  x.style.borderBottomStyle="solid";  });
           $('border-left').addEventListener('keyup', function() { x.style.borderLeftWidth = $('border-left').value;  x.style.borderLeftColor = "black";  x.style.borderLeftStyle="solid";  });
 
-        
-
-          document.querySelector('.margin-top-row').addEventListener('mouseover', marginOver, false);
-       
-          function marginOver(){
-           console.clear();
-            //x.scrollHeight.style.backgroundColor = "orange";
-           // console.log(x.getBoundingClientRect().getStyleValue(styles, 'margin-top'));
-       
-     
-           var computed = getComputedStyle(x);
-           
-           var margin = ['margin-top', 'margin-bottom', 'margin-left', 'margin-right'];
-           margin.forEach(function(e) { console.log(e + ': ' + computed.getPropertyValue(e)) });
-
-                      //var padding =  ['padding-top', 'padding-bottom', 'padding-left', 'padding-right'];
-           //padding.forEach(function(e) { console.log(e + ': ' + computed.getPropertyValue(e)) });
-           
-          }
-
         // -----END OF 3 ----- 
 
-        // ***** 4. BADGE ***** //
+        //--------- 4 - HOVER COMPUTED BOX ----------- //
+
+          //On mouseover respective margin, padding, border or el, white out the rest to mimick real Computed Box
+          const elementSquares = document.querySelectorAll('.element');
+          const paddingSquares = document.querySelectorAll('.padding');
+          const borderSquares = document.querySelectorAll('.border');
+          const marginSquares = document.querySelectorAll('.margin');
+
+          elementSquares.forEach(function(elementSquare) {
+
+            //Add the class
+            elementSquare.addEventListener('mouseover', function() {
+              //write your event doer here
+
+              //get the values
+              let compStyles = window.getComputedStyle(x);
+
+              var paddingTop = compStyles.getPropertyValue('padding-top');
+              var paddingRight = compStyles.getPropertyValue('padding-right');
+              var paddingBottom = compStyles.getPropertyValue('padding-bottom'); 
+              var paddingLeft = compStyles.getPropertyValue('padding-left');
+
+              //Highlight on canvas
+              x.style.boxShadow= "inset 0 " + paddingTop + " 0 0 white, inset -" + paddingRight + " 0 0 0 white, inset 0 -" + paddingBottom + " 0 0 white, inset " + paddingLeft + " 0 0 0 white";
+
+              //Highlight on canvas
+              x.style.backgroundColor="#8EB7BB";
+              //x.style.backgroundImage=""; needed to highlight over images
+         
+              const paddingSquares = document.querySelectorAll('.padding'); //1.Padding
+              const borderSquares = document.querySelectorAll('.border'); //3.Border
+              const marginSquares = document.querySelectorAll('.margin'); //3.Margin
+              
+              paddingSquares.forEach(function(paddingSquare) {
+                paddingSquare.classList.add('neutral');
+              });
+
+              marginSquares.forEach(function(marginSquare) {
+                marginSquare.classList.add('neutral');
+              });
+
+
+              borderSquares.forEach(function(borderSquare) {
+                borderSquare.classList.add('neutral');
+              });
+
+
+            });
+
+            //Remove the class
+            elementSquare.addEventListener('mouseout', function() {
+              //write your event doer here
+
+               //Remove gighlight on canvas
+               x.style.backgroundColor="";
+               x.style.BoShadow="";
+
+              const paddingSquares = document.querySelectorAll('.padding'); //1.Padding
+              const borderSquares = document.querySelectorAll('.border'); //3.Border
+              const marginSquares = document.querySelectorAll('.margin'); //3.Margin
+              
+              paddingSquares.forEach(function(paddingSquare) {
+                paddingSquare.classList.remove('neutral');
+              });
+
+              marginSquares.forEach(function(marginSquare) {
+                marginSquare.classList.remove('neutral');
+              });
+
+
+              borderSquares.forEach(function(borderSquare) {
+                borderSquare.classList.remove('neutral');
+              });
+
+
+            });
+
+          });
+
+          paddingSquares.forEach(function(paddingSquare) {
+
+            paddingSquare.addEventListener('mouseover', function() {
+              //write your event doer here
+              
+              //get the values
+              let compStyles = window.getComputedStyle(x);
+
+              var paddingTop = compStyles.getPropertyValue('padding-top');
+              var paddingRight = compStyles.getPropertyValue('padding-right');
+              var paddingBottom = compStyles.getPropertyValue('padding-bottom'); 
+              var paddingLeft = compStyles.getPropertyValue('padding-left');
+
+              //Highlight on canvas
+              x.style.boxShadow= "inset 0 " + paddingTop + " 0 0 #C3D08B, inset -" + paddingRight + " 0 0 0 #C3D08B, inset 0 -" + paddingBottom + " 0 0 #C3D08B, inset " + paddingLeft + " 0 0 0 #C3D08B";
+              
+              const elementSquares = document.querySelectorAll('.element'); //1.Element
+              const borderSquares = document.querySelectorAll('.border'); //2.Border
+              const marginSquares = document.querySelectorAll('.margin'); //3.Padding
+              
+
+              elementSquares.forEach(function(elementSquare) {
+                elementSquare.classList.add('neutral');
+              });
+
+              borderSquares.forEach(function(borderSquare) {
+                borderSquare.classList.add('neutral');
+              });
+
+              marginSquares.forEach(function(marginSquare) {
+                marginSquare.classList.add('neutral');
+              });
+
+
+            });
+
+            paddingSquare.addEventListener('mouseout', function() {
+              //write your event doer here
+
+              const elementSquares = document.querySelectorAll('.element'); //1.Element
+              const borderSquares = document.querySelectorAll('.border'); //2.Border
+              const marginSquares = document.querySelectorAll('.margin'); //3.Padding
+              
+              //Remove highlight
+              x.style.boxShadow="";
+
+              elementSquares.forEach(function(elementSquare) {
+                elementSquare.classList.remove('neutral');
+              });
+
+              borderSquares.forEach(function(borderSquare) {
+                borderSquare.classList.remove('neutral');
+              });
+
+              marginSquares.forEach(function(marginSquare) {
+                marginSquare.classList.remove('neutral');
+              });
+
+
+            });
+
+          });
+          
+          borderSquares.forEach(function(borderSquare) {
+
+            borderSquare.addEventListener('mouseover', function() {
+              //write your event doer here
+
+              //Get values
+              let compStyles = window.getComputedStyle(x);
+
+              var borderTop = compStyles.getPropertyValue('border-top-width');
+              var borderRight = compStyles.getPropertyValue('border-right-width');
+              var borderBottom = compStyles.getPropertyValue('border-bottom-width'); 
+              var borderLeft = compStyles.getPropertyValue('border-left-width');
+
+              //Highlight border
+              x.style.borderTop = " "+borderTop+" solid #FADF9A";
+              x.style.borderRight =" "+borderRight+" solid #FADF9A";
+              x.style.borderBottom = " "+borderBottom+" solid #FADF9A";
+              x.style.borderLeft = " "+borderLeft+" solid #FADF9A";
+
+              const elementSquares = document.querySelectorAll('.element'); //1.Element
+              const paddingSquares = document.querySelectorAll('.padding'); //2.Padding
+              const marginSquares = document.querySelectorAll('.margin'); //3.Margin
+              
+
+              elementSquares.forEach(function(elementSquare) {
+                elementSquare.classList.add('neutral');
+              });
+
+              paddingSquares.forEach(function(paddingSquare) {
+                paddingSquare.classList.add('neutral');
+              });
+
+              marginSquares.forEach(function(marginSquare) {
+                marginSquare.classList.add('neutral');
+              });
+
+
+            });
+
+            borderSquare.addEventListener('mouseout', function() {
+              //write your event doer here
+
+              //Remove hitghlight
+              x.style.borderTop = "";
+              x.style.borderRight = "";
+              x.style.borderBottom = "";
+              x.style.borderLeft = "";
+
+              const elementSquares = document.querySelectorAll('.element'); //1.Element
+              const paddingSquares = document.querySelectorAll('.padding'); //2.Padding
+              const marginSquares = document.querySelectorAll('.margin'); //3.Margin
+              
+
+              elementSquares.forEach(function(elementSquare) {
+                elementSquare.classList.remove('neutral');
+              });
+
+              paddingSquares.forEach(function(paddingSquare) {
+                paddingSquare.classList.remove('neutral');
+              });
+
+              marginSquares.forEach(function(marginSquare) {
+                marginSquare.classList.remove('neutral');
+              });
+
+
+            });
+
+          });
+
+          marginSquares.forEach(function(marginSquare) {
+
+            marginSquare.addEventListener('mouseover', function() {
+              //write your event doer here
+
+              const elementSquares = document.querySelectorAll('.element'); //1.Element
+              const paddingSquares = document.querySelectorAll('.padding'); //2.Padding
+              const borderSquares = document.querySelectorAll('.border'); //3.Border
+              
+
+              elementSquares.forEach(function(elementSquare) {
+                elementSquare.classList.add('neutral');
+              });
+
+              paddingSquares.forEach(function(paddingSquare) {
+                paddingSquare.classList.add('neutral');
+              });
+
+              borderSquares.forEach(function(borderSquare) {
+                borderSquare.classList.add('neutral');
+              });
+
+
+            });
+
+            marginSquare.addEventListener('mouseout', function() {
+              //write your event doer here
+
+              const elementSquares = document.querySelectorAll('.element'); //1.Element
+              const paddingSquares = document.querySelectorAll('.padding'); //2.Padding
+              const borderSquares = document.querySelectorAll('.border'); //3.Border
+              
+
+              elementSquares.forEach(function(elementSquare) {
+                elementSquare.classList.remove('neutral');
+              });
+
+              paddingSquares.forEach(function(paddingSquare) {
+                paddingSquare.classList.remove('neutral');
+              });
+
+              borderSquares.forEach(function(borderSquare) {
+                borderSquare.classList.remove('neutral');
+              });
+
+
+            });
+
+          });
+
+        //--------- END OF 4 ----------- //
+
+
+        
+
+        // ***** 5. BADGE ***** //
         var badge = $$("badge_");
 
         var w = x.clientWidth;
