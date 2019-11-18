@@ -334,7 +334,6 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
           //d. Border
           if( grabStyles.getPropertyValue('border-top-width') !== "0px"){
           let str = grabStyles.getPropertyValue('border-top-width');
-          console.log(str);
           str = str.slice(0, -2);      
           $('border-top').value = str;
           } else {
@@ -586,6 +585,18 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
             marginSquare.addEventListener('mouseover', function() {
               //write your event doer here
 
+              //Get values
+              let compStyles = window.getComputedStyle(x);
+
+              var marginTop = compStyles.getPropertyValue('margin-top');
+              var marginRight = compStyles.getPropertyValue('margin-right');
+              var marginBottom = compStyles.getPropertyValue('margin-bottom'); 
+              var marginLeft = compStyles.getPropertyValue('margin-left');
+
+              //Highlight border
+              x.style.boxShadow=" -"+marginLeft+" -" + marginTop + "  0 0 #FACBA1, " + marginRight + " -" + marginTop + "  0 0 #FACBA1, -" + marginLeft + " " + marginBottom + "  0 0 #FACBA1, " + marginRight + " " + marginBottom + "  0 0 #FACBA1";
+
+
               const elementSquares = document.querySelectorAll('.element'); //1.Element
               const paddingSquares = document.querySelectorAll('.padding'); //2.Padding
               const borderSquares = document.querySelectorAll('.border'); //3.Border
@@ -613,6 +624,8 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
               const paddingSquares = document.querySelectorAll('.padding'); //2.Padding
               const borderSquares = document.querySelectorAll('.border'); //3.Border
               
+              //Remove the highlight
+              x.style.boxShadow = "";
 
               elementSquares.forEach(function(elementSquare) {
                 elementSquare.classList.remove('neutral');
@@ -636,7 +649,7 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
 
         
 
-        // ***** 5. BADGE ***** //
+        // ***** 5. BADGE ***** //   ------------------- TURNING OFF BADGE ---------------
         var badge = $$("badge_");
 
         var w = x.clientWidth;
