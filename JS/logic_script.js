@@ -12,72 +12,27 @@ var clientFrameWindow = $("clientframe").contentWindow.document;
 var droppables = $("sidebar_menu");
 
 
-
-//Toggles Preview On/Of via `
-document.addEventListener("keydown", function (event) {
-  if (event.keyCode == 192) {
-    //192 is `
-
-    nav = $("myNav");
-    col2 = $("column2");
-
-    col1.classList.toggle("displayNoneSuper");
-    col2.classList.toggle("fullheight");
-    col3.classList.toggle("displayNoneSuper");
-    nav.classList.toggle("displayNoneSuper");
-    clientFrameWindow.body.classList.toggle("preview_class101");
-    $("resize_bar").classList.toggle("displayNoneSuper");
-    $("resize_bar2").classList.toggle("displayNoneSuper");
-    frame.classList.remove("s320", "s480", "s768", "s1366", "s1920");
-
-    //Toggling from Preview to Edit with no visual bugs, yay!
-    col2.classList.toggle("unshrinkCol2");
-    `
-    `;
-
-    toggle_iframe_wh();
-  }
-});
-
-
 //Every Checkbox toggle on/off on click
-// get DOM elements
+// get DOM elements`
+var diviframe = $("iframe_live_wh");
+  
+function toggle_iframe_wh() {
+  var diviframe = $("iframe_live_wh");
+  //Document's width and height
+  var wd = $("clientframe").clientWidth; //the entire iFrame on CodePen
+  var wh = $("clientframe").clientHeight;
+
+  // put the result into a h1 tag
+  diviframe.innerHTML = wd + " x " + wh;
+  diviframe.classList.toggle("displayNoneSuper");
+}
 
 clientFrameWindow.addEventListener("DOMContentLoaded", function() { 
-  var diviframe = $("iframe_live_wh");
-  
-  function toggle_iframe_wh() {
-    var diviframe = $("iframe_live_wh");
-    //Document's width and height
-    var wd = $("clientframe").clientWidth; //the entire iFrame on CodePen
-    var wh = $("clientframe").clientHeight;
-  
-    // put the result into a h1 tag
-    diviframe.innerHTML = wd + " x " + wh;
-    diviframe.classList.toggle("displayNoneSuper");
-  }
+ 
 
   // Your code to run since DOM is loaded and ready
 //If not doing on iFrame load, the addEventListeners will crash sometimes - Multiple AddEventListeners
-  clientFrameWindow.addEventListener("keydown", function (event) {
-    if (event.keyCode == 192) {
-      nav = $("myNav");
-      col2 = $("column2");
 
-      col1.classList.toggle("displayNoneSuper");
-      col2.classList.toggle("fullheight");
-      col3.classList.toggle("displayNoneSuper");
-      nav.classList.toggle("displayNoneSuper");
-      clientFrameWindow.body.classList.toggle("preview_class101");
-      $("resize_bar").classList.toggle("displayNoneSuper");
-      $("resize_bar2").classList.toggle("displayNoneSuper");
-      frame.classList.remove("s320", "s480", "s768", "s1366", "s1920");
-
-      col2.classList.toggle("unshrinkCol2");
-
-      toggle_iframe_wh();
-    }
-  });
 
   //clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
   clientFrameWindow.body.addEventListener("mouseout", mouseLeave, false);
@@ -645,6 +600,7 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
           });
 
         //--------- END OF 4 ----------- //
+
 
 
         
