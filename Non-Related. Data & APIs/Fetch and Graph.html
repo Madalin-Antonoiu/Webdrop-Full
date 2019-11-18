@@ -17,21 +17,21 @@
   getData();
 
   async function getData() {
-    const response = await fetch("test.csv"); //fetch .csv
+    const response = await fetch("ZonAnn.Ts+dSST.csv"); //fetch .csv
     const data = await response.text(); // transform it into text
     //console.log(data); //see the data
 
     //Parsing time! (Splitting data into usable bits.)
-    const rows = data.split("\n").slice(1); // (/\n/) split every row in an array, remove first row
+    const table = data.split("\n").slice(1); // (/\n/) split every row in an array, remove first row
     //console.log(rows);
 
-    rows.forEach(elt => { // Apply something to each element of array, so row
-      const row = elt.split(','); // Create new row for every , is in our text
-
-      const year = row[0]; //First elts of rows are the years
-      const temp = row[1];
+    table.forEach(row => { // Apply something to each element of array, so row
+      const columns = row.split(','); // Create new row for every , is in our texts
+      const year = columns[0]; //First elts of rows are the years
+      const temp = columns[1]; //Difference from the mean temperature
 
       console.log(year, temp);
+      //.trim() would clean bad data from it
     });
 
   }
