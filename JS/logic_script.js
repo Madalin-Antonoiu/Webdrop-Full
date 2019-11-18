@@ -143,6 +143,7 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
 
         var classNames = x.classList;
         var clonedClassNames = [...classNames]; //It`s a must to copy the array
+
         
         //Not DRY!
         $('target_cls0').onclick = function (e) {
@@ -262,20 +263,109 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
           $('minHeight').addEventListener('keyup', function() { x.style.minHeight = $('minHeight').value; });
           
           //b. Margin
-          $('_top').value = grabStyles.getPropertyValue('margin-top');
-          $('_right').value = grabStyles.getPropertyValue('margin-right');
-          $('_bottom').value = grabStyles.getPropertyValue('margin-bottom'); 
-          $('_left').value = grabStyles.getPropertyValue('margin-left');
+          if( grabStyles.getPropertyValue('margin-top') !== "0px"){
+          let str = grabStyles.getPropertyValue('margin-top'); str = str.slice(0, -2);     
+          $('margin-top').value = str;
+          } else {
+            $('margin-top').value = "";
+          }
 
-          $('_top').addEventListener('keyup', function() { x.style.marginTop = $('_top').value; });        // (1) drop inside});
-          $('_right').addEventListener('keyup', function() { x.style.marginRight = $('_right').value; });
-          $('_bottom').addEventListener('keyup', function() { x.style.marginBottom = $('_bottom').value; });
-          $('_left').addEventListener('keyup', function() { x.style.marginLeft = $('_left').value; });
+          if( grabStyles.getPropertyValue('margin-right') !== "0px"){
+            let str = grabStyles.getPropertyValue('margin-right'); str = str.slice(0, -2);  
+          $('margin-right').value = str;
+          } else {
+            $('margin-right').value = "";
+          }
+
+          if( grabStyles.getPropertyValue('margin-bottom') !== "0px"){
+            let str = grabStyles.getPropertyValue('margin-bottom'); str = str.slice(0, -2);  
+          $('margin-bottom').value = str;
+          } else {
+            $('margin-bottom').value = "";
+          }
+
+          if( grabStyles.getPropertyValue('margin-left') !== "0px"){
+            let str = grabStyles.getPropertyValue('margin-left'); str = str.slice(0, -2);  
+          $('margin-left').value = str;
+          }  else {
+            $('margin-left').value = "";
+          }
+
+          $('margin-top').addEventListener('keyup', function() { x.style.marginTop = $('margin-top').value; });        // (1) drop inside});
+          $('margin-right').addEventListener('keyup', function() { x.style.marginRight = $('margin-right').value; });
+          $('margin-bottom').addEventListener('keyup', function() { x.style.marginBottom = $('margin-bottom').value; });
+          $('margin-left').addEventListener('keyup', function() { x.style.marginLeft = $('margin-left').value; });
 
 
-           //c. Padding
-           
+          //c. Padding
+          if( grabStyles.getPropertyValue('padding-top') !== "0px"){
+            let str = grabStyles.getPropertyValue('padding-top'); str = str.slice(0, -2);      //To not show 'px'at the end :)
+            $('padding-top').value = str;
+          } else {
+            $('padding-top').value = "";
+          }
 
+          if( grabStyles.getPropertyValue('padding-right') !== "0px"){
+            let str = grabStyles.getPropertyValue('padding-right'); str = str.slice(0, -2);      //To not show 'px'at the end :)
+          $('padding-right').value = str;
+          } else {
+            $('padding-right').value = "";
+          }
+
+          if( grabStyles.getPropertyValue('padding-bottom') !== "0px"){
+            let str = grabStyles.getPropertyValue('padding-bottom'); str = str.slice(0, -2);      //To not show 'px'at the end :)
+          $('padding-bottom').value = str;
+          } else {
+            $('padding-bottom').value = "";
+          }
+
+          if( grabStyles.getPropertyValue('padding-left') !== "0px"){
+            let str = grabStyles.getPropertyValue('padding-left'); str = str.slice(0, -2);     
+          $('padding-left').value = str
+          } else {
+            $('padding-left').value = "";
+          }
+
+          $('padding-top').addEventListener('keypress', function() { x.style.paddingTop = $('padding-top').value; });// (1) drop inside});
+          $('padding-right').addEventListener('keyup', function() { x.style.paddingRight = $('padding-right').value; });
+          $('padding-bottom').addEventListener('keyup', function() { x.style.paddingBottom = $('padding-bottom').value; });
+          $('padding-left').addEventListener('keyup', function() { x.style.paddingLeft = $('padding-left').value; });
+
+          //d. Border
+          if( grabStyles.getPropertyValue('border-top-width') !== "0px"){
+          let str = grabStyles.getPropertyValue('border-top-width'); str = str.slice(0, -2);      
+          $('border-top').value = str;
+          } else {
+            $('border-top').value = "";
+          }
+
+          if( grabStyles.getPropertyValue('border-right-width') !== "0px"){
+            let str = grabStyles.getPropertyValue('border-right-width'); str = str.slice(0, -2);     
+            $('border-right').value = str;
+          } else {
+              $('border-right').value = "";
+          }
+
+          if( grabStyles.getPropertyValue('border-bottom-width') !== "0px"){
+            let str = grabStyles.getPropertyValue('border-bottom-width'); str = str.slice(0, -2);  
+            $('border-bottom').value = str;
+          } else {
+            $('border-bottom').value = "";
+          }
+
+          if( grabStyles.getPropertyValue('border-left-width') !== "0px"){
+            let str = grabStyles.getPropertyValue('border-left-width'); str = str.slice(0, -2); 
+            $('border-left').value = str;
+          } else {
+            $('border-left').value = "";
+          }
+
+          $('border-top').addEventListener('keyup', function() { x.style.borderTopWidth = $('border-top').value;  x.style.borderTopColor = "black";  x.style.borderTopStyle="solid"; });        // (1) drop inside});
+          $('border-right').addEventListener('keyup', function() { x.style.borderRightWidth = $('border-right').value;  x.style.borderRightColor = "black";  x.style.borderRightStyle="solid";  });
+          $('border-bottom').addEventListener('keyup', function() { x.style.borderBottomWidth = $('border-bottom').value;  x.style.borderBottomColor = "black";  x.style.borderBottomStyle="solid";  });
+          $('border-left').addEventListener('keyup', function() { x.style.borderLeftWidth = $('border-left').value;  x.style.borderLeftColor = "black";  x.style.borderLeftStyle="solid";  });
+
+        
 
           document.querySelector('.margin-top-row').addEventListener('mouseover', marginOver, false);
        

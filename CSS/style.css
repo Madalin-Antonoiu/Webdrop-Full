@@ -375,7 +375,10 @@ a:active {
 
 .dd-menu {
   padding: 0;
-  
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
   max-height: calc(100% - 45px);
 }
 
@@ -965,7 +968,8 @@ input[name="inp"]{
 
 /*Colors*/
 .margin{
-  background: #FACBA1 !important;
+  background: #F9CC9D !important;
+  
 }
 .border {
   background: #FADF9A !important;
