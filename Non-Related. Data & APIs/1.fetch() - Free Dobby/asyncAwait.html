@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+
+  <style>
+
+  </style>
+
+</head>
+
+
+<body class="main page">
+
+  <img src="" alt="dobby" id="free-dobby" width="280">
+
+</body>
+
+
+
+<script>
+  console.log('Async function going...');
+
+  async function freeDobby() { //1. Declare an asynchronous function
+    const response = await fetch('free-dobby.jpg'); //2.Await the result of fetch and store it in response var
+    const blob = await response.blob(); //3. Create blob out of response
+    document.getElementById('free-dobby').src = URL.createObjectURL(blob); //4. Convert blob and write to DOM
+  }
+
+  freeDobby() //call the function below
+    .then(success => { //if success
+      console.log('Image loaded successfully!');
+    })
+    .catch(error => { //if error, optional tp have more control on errors
+      console.log('Custom error!');
+      console.log(error);
+    });
+</script>
+
+
+</html>
