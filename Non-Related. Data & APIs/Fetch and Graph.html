@@ -13,13 +13,15 @@
   <canvas id="chart" width="400" height="400"></canvas>
 
   <script>
-    var ctx = document.getElementById('chart').getContext('2d');
-    var myChart = new Chart(ctx, {
+    const ctx = document.getElementById('chart').getContext('2d');
+    const xlabels = [];
+
+    const myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: xlabels,
         datasets: [{
-          label: '# of Votes',
+          label: 'Global Average Temperature',
           data: [12, 19, 3, 5, 2, 3],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -66,6 +68,8 @@
       table.forEach(row => {
         const columns = row.split(',');
         const year = columns[0];
+        xlabels.push(year);
+        //problem is that i`m making the chart first then i`m getting the data
         const temp = columns[1];
         console.log(year, temp);
       });
