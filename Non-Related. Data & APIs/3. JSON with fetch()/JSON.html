@@ -9,14 +9,30 @@
 
 <body>
 
+
+    <h1>Where is the ISS?</h1>
+    <p>
+        Latitude: <span id="lat"></span></br>
+        Longitude: <span id="lon"></span>
+    </p>
+
     <script>
-        const ISS_API = "https://api.wheretheiss.at/v1/satellites/25544";
-   
+        const ISS_API_ENDPOINT = "https://api.wheretheiss.at/v1/satellites/25544"; //API Endpoint (needs to be declared before calling the function)
+        
         async function getISS(){
-            const response = await fetch(ISS_API);
+            const response = await fetch(ISS_API_ENDPOINT);
             const data = await response.json(); //This time JSON!
+            //console.log(data.latitude);   
+            //console.log(data.longitude);   or
+            const {latitude, longitude} = data;
+
+            document.getElementById('lat').textContent = latitude;
+            document.getElementById('lon').textContent = longitude;
+            //console.log(latitude);  
+            //console.log(longitude);
         }
 
+        getISS();
     </script>
 
 </body>
