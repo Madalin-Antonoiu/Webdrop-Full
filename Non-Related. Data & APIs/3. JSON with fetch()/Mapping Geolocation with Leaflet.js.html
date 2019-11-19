@@ -38,7 +38,7 @@
     <div id="issMap"></div>
 
     <script>
-        //0.Leaflet mapping the below data
+        //0.Leaflet general mapping 
         const mymap = L.map('issMap').setView([0,0], 1);
 
             //The three things i need
@@ -49,20 +49,22 @@
             //To be added to the map
         tiles.addTo(mymap);
 
+
+
         //1. Getting data
         const ISS_API_ENDPOINT = "https://api.wheretheiss.at/v1/satellites/25544"; //API Endpoint (needs to be declared before calling the function)
         
         async function getISS(){
             const response = await fetch(ISS_API_ENDPOINT);
             const data = await response.json(); //This time JSON!
-            //console.log(data.latitude);   
-            //console.log(data.longitude);   or
             const {latitude, longitude} = data;
+
+             //1.Leaflet marker
+                L.marker([latitude, longitude ]).addTo(mymap);
 
             document.getElementById('lat').textContent = latitude;
             document.getElementById('lon').textContent = longitude;
-            //console.log(latitude);  
-            //console.log(longitude);
+
         }
 
         getISS();
