@@ -2,18 +2,7 @@
 var $ = function (id) { return document.getElementById(id); };// Now $('id') possible in Vanilla JS
 var $$ = function (id) { return clientFrameWindow.getElementById(id); };// Now $('id') possible in Vanilla JS
 var clientFrameWindow = $("clientframe").contentWindow.document;
-
-
-//document.addEventListener("DOMContentLoaded", function(event) {
-  // Your code to run since DOM is loaded and ready
-//});
-
-//var placeholders = clientFrameWindow.getElementsByClassName('__placeholder');
 var droppables = $("sidebar_menu");
-
-
-//Every Checkbox toggle on/off on click
-// get DOM elements`
 var diviframe = $("iframe_live_wh");
   
 function toggle_iframe_wh() {
@@ -606,7 +595,7 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
         
 
         // ***** 5. BADGE ***** //   ------------------- TURNING OFF BADGE ---------------
-        var badge = $$("badge_");
+       // var badge = $$("badge_");
 
         var w = x.clientWidth;
         var h = x.clientHeight;
@@ -629,44 +618,45 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
             "x" +
             x.clientHeight;
 
-            $$('el-tag').innerHTML = x.nodeName.toLowerCase();
-            $$('el-w&h').innerHTML = w$h;
+           // $$('el-tag').innerHTML = x.nodeName.toLowerCase();
+           // $$('el-w&h').innerHTML = w$h;
   
-            if (x.id != "") {$$('el-id').innerHTML = "#" + x.id;} 
-            else {$$('el-id').innerHTML = "";}
+            //if (x.id != "") {$$('el-id').innerHTML = "#" + x.id;} 
+            //else {$$('el-id').innerHTML = "";}
   
-            if (x.classList[0] != undefined && x.classList[0] != "active__u"  ) {$$('el-c0').innerHTML = "." + x.classList[0];} 
-            else {$$('el-c0').innerHTML = "";} 
+           // if (x.classList[0] != undefined && x.classList[0] != "active__u"  ) {$$('el-c0').innerHTML = "." + x.classList[0];} 
+           // else {$$('el-c0').innerHTML = "";} 
   
-            if (x.classList[1] != undefined && x.classList[1] != "active__u"  ) {$$('el-c1').innerHTML = "." + x.classList[1];} 
-            else { $$('el-c1').innerHTML = "";} 
+           // if (x.classList[1] != undefined && x.classList[1] != "active__u"  ) {$$('el-c1').innerHTML = "." + x.classList[1];} 
+           // else { $$('el-c1').innerHTML = "";} 
   
-            if (x.classList[2] != undefined && x.classList[2] != "active__u"  ) {$$('el-c2').innerHTML = "." + x.classList[2];} 
-            else {$$('el-c2').innerHTML = "";} 
+           // if (x.classList[2] != undefined && x.classList[2] != "active__u"  ) {$$('el-c2').innerHTML = "." + x.classList[2];} 
+           // else {$$('el-c2').innerHTML = "";} 
   
 
           //On resize update Column3
           $("renderedWidth").innerHTML = w + "px"; //writes width
           $("renderedHeight").innerHTML = h + "px"; //writes width
         }
+
         //End of resize live update clicked element
         
         //10. Decide what to be written inside BADGE
        
-          $$('el-tag').innerHTML = x.nodeName.toLowerCase();
-          $$('el-w&h').innerHTML = w$h;
+          //$$('el-tag').innerHTML = x.nodeName.toLowerCase();
+          //$$('el-w&h').innerHTML = w$h;
 
-          if (x.id != "") {$$('el-id').innerHTML = "#" + x.id;} 
-          else {$$('el-id').innerHTML = "";}
+         // if (x.id != "") {$$('el-id').innerHTML = "#" + x.id;} 
+          //else {$$('el-id').innerHTML = "";}
 
-          if (x.classList[0] != undefined && x.classList[0] != "active__u"  ) {$$('el-c0').innerHTML = "." + x.classList[0];} 
-          else {$$('el-c0').innerHTML = "";} 
+         // if (x.classList[0] != undefined && x.classList[0] != "active__u"  ) {$$('el-c0').innerHTML = "." + x.classList[0];} 
+         // else {$$('el-c0').innerHTML = "";} 
 
-          if (x.classList[1] != undefined && x.classList[1] != "active__u"  ) {$$('el-c1').innerHTML = "." + x.classList[1];} 
-          else { $$('el-c1').innerHTML = "";} 
+          //if (x.classList[1] != undefined && x.classList[1] != "active__u"  ) {$$('el-c1').innerHTML = "." + x.classList[1];} 
+         // else { $$('el-c1').innerHTML = "";} 
 
-          if (x.classList[2] != undefined && x.classList[2] != "active__u"  ) {$$('el-c2').innerHTML = "." + x.classList[2];} 
-          else {$$('el-c2').innerHTML = "";} 
+         // if (x.classList[2] != undefined && x.classList[2] != "active__u"  ) {$$('el-c2').innerHTML = "." + x.classList[2];} 
+         // else {$$('el-c2').innerHTML = "";} 
 
           
           
@@ -678,12 +668,12 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
         $("renderedHeight").innerHTML = h + "px"; //writes width
 
         //Badge - Adds it as first child
-        x.parentNode.insertBefore(badge, x);
+       // x.parentNode.insertBefore(badge, x);
 
         if (x.classList !== "active__u") {
           //if target doesn't have active on it
           x.classList.add("active__u"); //add it
-          badge.classList.add("show");
+          //badge.classList.add("show");
         } else {
           //x.classList.remove("active"); //to be able to remove it on a second click
           x.className != "active__u"; //to not be able to

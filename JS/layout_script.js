@@ -68,10 +68,6 @@ var clientFrameWindow = $("clientframe").contentWindow.document;
   
 
 //Preview Eye
-
-  //get clicked element 
-
-
 $('preview-eye').addEventListener('click', preview, false);
 
 function preview() {
@@ -96,6 +92,7 @@ function preview() {
     //i also need to remove the eventlistener, or the outlining on hover
     get_iframe_wh();
     diviframe.classList.toggle('displayNoneSuper');
+    
 
     //get the outside click
     clientFrameWindow.addEventListener('click', iframeClick, false)
@@ -104,52 +101,59 @@ function preview() {
       x = event.target;      
     }
 
-    if(x){ 
-      x.classList.toggle('active__u');
+    $("preview-eye").classList.toggle('after_view');
+
+    
+
+    if(x.classList.contains('active__u')){ 
+      x.classList.remove('active__u');
+    } else {
+      x.classList.add('active__u');
     }
-    else
-    return;
 
 }
-//Toggles Preview On/Of via `
+
+//Simulate click on preview() on pressing CTRL + Q in document or iFrame
+function KeyPress(e) {
+  var evtobj = window.event? event : e
+  if (evtobj.keyCode == 81 && evtobj.ctrlKey) {
+    $("preview-eye").click();
+  }
+
+}
+document.onkeydown = KeyPress;
+clientFrameWindow.onkeydown = KeyPress;
 
 
+//Global tooltip function
+  var tooltip = document.querySelectorAll('.tooltip');
 
-  clientFrameWindow.addEventListener("keydown", function (event) {
+  [].forEach.call(tooltip, function(el) {
+    // Create tooltip element
+    var tooltipText = document.createElement('div');
+    
+    // Set tooltip text
+    tooltipText.textContent = el.getAttribute('data-tooltip-text');
+    tooltipText.classList.add('tooltip-text');
 
-    clientFrameWindow.addEventListener('click', iframeClick, false)
+    // Add tooltip to footer on mouse over
+    el.addEventListener('mouseover', function() {
+      $('footer').appendChild(tooltipText);
+    }, false);
 
-    function iframeClick(){    
-      x = event.target;    
-    }
+    // Remove tooltip on mouseout
+    el.addEventListener('mouseout', function() {
+      $('footer').removeChild(tooltipText);
+    }, false);
 
-    if (event.keyCode == 192) {
-      nav = $("myNav");
-      col2 = $("column2");
-  
-      col1.classList.toggle("displayNoneSuper");
-      col2.classList.toggle("fullheight");
-      col3.classList.toggle("displayNoneSuper");
-      nav.classList.toggle("displayNoneSuper");
-      clientFrameWindow.body.classList.toggle("preview_class101");
-      $("resize_bar").classList.toggle("displayNoneSuper");
-      $("resize_bar2").classList.toggle("displayNoneSuper");
-      frame.classList.remove("s320", "s480", "s768", "s1366", "s1920");
-  
-      col2.classList.toggle("unshrinkCol2");
-  
-      toggle_iframe_wh();
-  
-  
-  
-      x.classList.toggle('active__u');
-   
-    }
+    // Attach the tooltip to the mouse cursor
+    el.addEventListener('mousemove', function(e) {
+      tooltipText.style.top = (e.pageY - 50) + 'px';
+      tooltipText.style.left = (e.pageX - 50) + 'px';
+    }, false);
+
   });
-
-
-
-
+//class="tooltip" data-tooltip-text="Try" all you need to create a tooltip
 
 
 function hide_previewbar() {

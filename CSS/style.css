@@ -246,6 +246,10 @@ i.previ_ew {
   z-index: 999;
 }
 
+.after_view{
+  color: red !important;
+}
+
 .fullheight {
   height: 100vh !important;
 }
@@ -1149,9 +1153,25 @@ button.toggleBtn{
 }
 
 
-
 /*End of mini chk*/
-
 /*end of that */
+
+
+/*Tooltip global*/
+.tooltip {
+  position: absolute;
+}
+
+.tooltip-text {
+    background-color: rgba(0, 0, 0, .7);    
+    color: white;
+    left: 0;
+    padding: 5px;
+    position: absolute;
+    top: 0;
+}
+/*Done */
+
+
 
 /*____END - LAYOUT UI CSS____*/
