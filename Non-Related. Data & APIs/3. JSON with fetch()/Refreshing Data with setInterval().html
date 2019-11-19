@@ -31,8 +31,8 @@
 
     <h1>Where is the ISS?</h1>
     <p>
-        Latitude: <span id="lat"></span></br>
-        Longitude: <span id="lon"></span>
+        Latitude: <span id="lat"></span>°</br>
+        Longitude: <span id="lon"></span>°
     </p>
 
     <div id="issMap"></div>
@@ -59,24 +59,29 @@
         // Getting ISS current location
         const ISS_API_ENDPOINT = "https://api.wheretheiss.at/v1/satellites/25544"; //API Endpoint (needs to be declared before calling the function)
         
+        let firstTime = true; // MapView set only at load and not mess zoom
+
         async function getISS(){
             const response = await fetch(ISS_API_ENDPOINT);
             const data = await response.json(); //This time JSON!
             const {latitude, longitude} = data;
 
             marker.setLatLng([latitude, longitude]); 
-            mymap.setView([latitude, longitude], 5); //Specify location of map
+            if (firstTime){
+                mymap.setView([latitude, longitude], 3); 
+                firstTime = false;
+            }
+           
 
-            document.getElementById('lat').textContent = latitude;
-            document.getElementById('lon').textContent = longitude;
+            document.getElementById('lat').textContent = latitude.toFixed(2); // to only 2 decimals
+            document.getElementById('lon').textContent = longitude.toFixed(2);
 
         }
 
         getISS(); // Happen on load
 
         setInterval(getISS, 1000); // Refresh every 1 sec
-        // Problem: Zooming out to default every seccond if i try zoom
-        // Solution: Set map view only once at the beginning.
+
 
     </script>
 
