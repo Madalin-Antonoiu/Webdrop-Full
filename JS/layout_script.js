@@ -80,11 +80,11 @@ function preview() {
     col3.classList.toggle('displayNoneSuper');
     nav.classList.toggle('displayNoneSuper');
     
-
     clientFrameWindow.body.classList.toggle('preview_class101');
 
-    document.getElementById('resize_bar').classList.toggle("displayNoneSuper");
+    resizebuttons.classList.toggle("displayNoneSuper");
     document.getElementById('resize_bar2').classList.toggle("displayNoneSuper");
+
     frame.classList.remove('s320',"s480", "s768", "s1366", "s1920");
     
     col2.classList.toggle("unshrinkCol2");
@@ -157,12 +157,12 @@ clientFrameWindow.onkeydown = KeyPress;
 
 
 function hide_previewbar() {
-  document.getElementById('resize_bar').classList.toggle("displayNoneSuper");
+  resizebuttons.classList.toggle("displayNoneSuper");
   document.getElementById('resize_bar2').classList.toggle("go_left");
   document.getElementById('rotate__me').classList.toggle("down__me");
 }
 
-/*Unique class on several elements - You can rewrite this function to use in any case :)*/
+/*Unique class on several elements - I can rewrite this function to use in any case :)*/
 
 resizebuttons.addEventListener("click", function (event) {
   let list = resizebuttons.querySelectorAll('i');

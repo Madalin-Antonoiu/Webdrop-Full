@@ -594,8 +594,8 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
 
         
 
-        // ***** 5. BADGE ***** //   ------------------- TURNING OFF BADGE ---------------
-       // var badge = $$("badge_");
+        // ***** 5. BADGE ***** //   ------------------- TURNING OFF BADGE --------------- 
+       // var badge = $$("badge_");  //Will turn on with CRUD and replace actual options
 
         var w = x.clientWidth;
         var h = x.clientHeight;
@@ -923,6 +923,16 @@ function instantSearch() {
     }
   }
 }
+
+// initial load
+
+
+// this will only execute code once
+function toggleHoverTracker() {
+  clientFrameWindow.body.removeEventListener('mouseover', mouseEnter);
+} 
+
+
 
 //Control Panel
 function toggleEditIframe() {

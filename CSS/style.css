@@ -191,8 +191,8 @@ button.panel3:focus {
   border: 1px solid black;
   display: none;
   background: #3299cc;
-  bottom: 50px;
-  right: 230px;
+  bottom: 0;
+  right: 250px;
   color: white;
   z-index: 2;
 }
@@ -241,9 +241,10 @@ i.previ_ew {
   font-size: 20px;
   position: absolute;
   bottom: 3px;
-  right: 3px;
+  right: 15px;
   color: orangered;
   z-index: 999;
+  /*background: black;*/
 }
 
 .after_view{
@@ -289,9 +290,10 @@ a:active {
   text-align: center;
   z-index: 9;
   text-align: center;
-  left: 260px;
+  left: 370px;
   bottom: 0;
   font-size: 26px;
+  display: block;
 }
 
 #resize_bar {
@@ -325,7 +327,7 @@ a:active {
 }
 
 .go_left {
-  transform: translate(-260px);
+  transform: translate(-350px);
 }
 
 .rotate {
@@ -600,12 +602,11 @@ ul {
 }
 
 #iframe_live_wh {
-  position: fixed;
-  float: right;
-  bottom: 50px;
   z-index: 99999999;
-  color: gray;
+  color: whitesmoke;
+  outline: 1px solid black;
 }
+
 ::-webkit-input-placeholder {
   text-align: center;
 }
@@ -753,6 +754,15 @@ div.panel.show {
 
   text-align: center;
   width: 50px;
+  background: gray;
+  outline: 2px black solid;
+  overflow: hidden;
+}
+
+#live {
+  vertical-align: top;
+  text-align: center;
+  width: 80px;
   background: gray;
   outline: 2px black solid;
   overflow: hidden;
