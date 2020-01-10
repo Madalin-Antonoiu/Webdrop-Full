@@ -23,7 +23,7 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
 //If not doing on iFrame load, the addEventListeners will crash sometimes - Multiple AddEventListeners
 
 
-  //clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
+  clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
   clientFrameWindow.body.addEventListener("mouseout", mouseLeave, false);
   clientFrameWindow.body.addEventListener("dragover", dragOver, false);
   clientFrameWindow.body.addEventListener("dragleave", dragLeave, false);
@@ -716,7 +716,7 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
     $("iframe_live_wh").innerHTML = wd + " x " + wh;
   }
 
-  /* function mouseEnter()
+   
   function mouseEnter(e) {
     
     //Add outline on hover
@@ -739,7 +739,7 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
     $('tooltip1').style.display = "block";
     //console.log('<' + e.target.tagName.toLowerCase() + '>');
     
-  } */
+  } 
 
   function mouseLeave(e) {
     //Remove outline on hover
