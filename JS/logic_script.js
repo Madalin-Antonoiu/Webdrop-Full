@@ -1023,17 +1023,81 @@ function toggleHoverListener(){
     $$("eventS").addEventListener('mouseover', mouseEnter);
     $$("eventS").setAttribute('listener1', 'true');
         console.clear();
-        console.log('event hover tracker has been attached');
+        console.log('Event Listener: Hover ON.');
         //Add css rules
         $('listener1').style.backgroundColor = "green";
+
+        $("snackbar").innerHTML = "Hover Listener : ON";
+        var x = $("snackbar");
+        x.className = "show";
+        setTimeout(function () {
+          x.className = x.className.replace("show", "");
+        }, 2000);
    } else {
     $$("eventS").removeEventListener('mouseover', mouseEnter);
     $$("eventS").setAttribute('listener1', 'false');
     console.clear();
-    console.log('event hover tracker has been removed');
+    console.log('Event Listener: Hover OFF.');
     $('listener1').style.backgroundColor = "red";
+
+    //Snackbar
+    $("snackbar").innerHTML = "Hover Listener : OFF";
+    var x = $("snackbar");
+    x.className = "show";
+    setTimeout(function () {
+      x.className = x.className.replace("show", "");
+    }, 2000);
    }; 
 }
+
+//console.log on screen
+rewireLoggingToElement(
+  () => document.getElementById("log"),
+  () => document.getElementById("log-container"), true);
+
+function rewireLoggingToElement(eleLocator, eleOverflowLocator, autoScroll) {
+  fixLoggingFunc('log');
+  fixLoggingFunc('debug');
+  fixLoggingFunc('warn');
+  fixLoggingFunc('error');
+  fixLoggingFunc('info');
+
+  function fixLoggingFunc(name) {
+      
+      console['old' + name] = console[name];
+      console[name] = function(...arguments) {
+          const output = produceOutput(name, arguments);
+          const eleLog = eleLocator();
+
+          if (autoScroll) {
+           
+              const eleContainerLog = eleOverflowLocator();
+              const isScrolledToBottom = eleContainerLog.scrollHeight - eleContainerLog.clientHeight <= eleContainerLog.scrollTop + 1;
+              eleLog.innerHTML += output + "<br>";
+              if (isScrolledToBottom) {
+                  eleContainerLog.scrollTop = eleContainerLog.scrollHeight - eleContainerLog.clientHeight;
+              }
+          } else {
+              eleLog.innerHTML += output + "<br>";
+          }
+
+          console['old' + name].apply(undefined, arguments);
+          
+      };
+  }
+
+  function produceOutput(name, args) {
+      return args.reduce((output, arg) => {
+          return output +
+              "<span class=\"log-" + (typeof arg) + " log-" + name + "\">" +
+              "<span class=\"time-" + (typeof arg) + " log-" + name + "\">" + '[' + new Date().toLocaleTimeString() +  '] '+  "</span>"  +(typeof arg === 'object' && (JSON || {}).stringify ? JSON.stringify(arg) : arg) + 
+              "</span>&nbsp;";
+      }, '');
+  }
+
+}
+
+
 
 //Create download file with iFrame HTML Code (gibMiData())
 var storyPath = window.location.href;

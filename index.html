@@ -2236,12 +2236,21 @@
           <!--Admin-->
           <div id="tab2C" class="tab_content">
            
-            <button class="button" id="toggleEditIframe" onclick="toggleEditIframe()">Edit iFrame</button><br><br>
-            <button class="button" id="toggleOutline" onclick="toggleOutlineAll()">Outline All Elements</button><br><br>
-            <button class="button" id="toggleData" onclick="gibMiData()">Download</button><br><br>
-            <button onclick="doThis()"> Remove Hover Listener</button>
-            <button id="listener1" onclick="toggleHoverListener()"> Hover Listener</button>
-          </div>
+            <button class="button ripple" id="toggleEditIframe" onclick="toggleEditIframe()">Edit iFrame</button><br><br>
+            <button class="button ripple" id="toggleOutline" onclick="toggleOutlineAll()">Outline All Elements</button><br><br>
+            <button class="button ripple" id="toggleData" onclick="gibMiData()">Download</button><br><br>
+
+            <h2>Event Listeners</h2>
+            <button class="button ripple"  onclick="toggleHoverListener()"><span id="listener1" class="led"></span> Hover</button> 
+            <div class="led-green"></div>
+
+            <h2>Log</h2>
+            <div id="log-container">
+              <div id="log"></div>
+              
+            </div>
+            <button id="clear" onclick="document.getElementById('log').innerHTML = '' ">">Clear</button>
+          
 
           <div id="tab3C" class="tab_content">
             N/A
@@ -2264,6 +2273,9 @@
 
 
   <footer id="footer">
+
+
+
     <!--<span id="computed-box-holder">Asta va lua dimenisunile de margin etc</span> -->
     <span class="tooltiper" id="tooltip1">Hovered elements</span>
     <span id="snackbar">Turning off/on</span>
