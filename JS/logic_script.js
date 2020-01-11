@@ -414,7 +414,9 @@ function toggleClickListener(){
    console.log('Event Listener: One-Click OFF.');
 
    
-    x.classList.remove('active__u');
+    event.target.classList.remove('active__u');
+    $('onlyIfElem').classList.add('displayNone');
+    $('selectFirst').classList.remove('displayNone');
 
 
   }; 

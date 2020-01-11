@@ -70,7 +70,42 @@ var clientFrameWindow = $("clientframe").contentWindow.document;
 //Preview Eye
 $('preview-eye').addEventListener('click', preview, false);
 
+
 function preview() {
+      //read the status of the switch before, save it
+
+      //Soo...the first time i press this, Normal goes to Preview
+      //During preview, i want everything shut down
+      //Going back , i want to return to the save.
+      const save1 = $$("eventS").getAttribute('hover-event');
+      const save2 = $$("eventS").getAttribute('click-event');
+
+      //Case 1 - Not in Preview Mode yet
+      if ($$("eventS").getAttribute('preview') === 'false'){
+        $$("eventS").setAttribute('preview', 'true');   //moved to Preview
+        if ( $$("eventS").getAttribute('hover-event') === "true" || $$("eventS").getAttribute('click-event') === "true"){
+          $$("eventS").removeEventListener('mouseover', mouseEnter); // or removeEventListener
+          $$("eventS").removeEventListener('click', oneClickForAll);
+        }
+      } else {  //Case 2 - Coming back from Preview Mode
+        $$("eventS").setAttribute('preview', 'false');
+        $$("eventS").addEventListener('click', oneClickForAll);
+        $$("eventS").addEventListener('mouseover', mouseEnter); // or removeEventListener
+      }
+
+    
+
+    
+        //If we are in not in preview yet, and both counters are stopped, do nothing but switch to preview
+
+
+    //Disable the two event listeners IF ONLY they are on
+    //if($$("eventS").getAttribute('hover-event') === 'true'){
+    //}
+
+    console.log("Hover is " +save1 + "; Click is " + save2)
+
+
 
     nav = document.getElementById('myNav');
     col2 = document.getElementById('column2');
@@ -103,7 +138,7 @@ function preview() {
 
     $("preview-eye").classList.toggle('after_view');
 
-    x.classList.remove('active__u');
+    event.target.classList.remove('active__u');
 /*
     if(x.classList.contains('active__u')){ 
       
