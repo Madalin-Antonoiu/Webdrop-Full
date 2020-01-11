@@ -943,10 +943,9 @@ div.__item {
 }
 
 .button {
-  position: relative;
-  display: inline-block;
-  height: 36px;
-  padding: 0 16px;
+
+  /*height: 36px; */
+  padding: 3px;
   background-color: #3f51b5;
   color: #fff;
   border: 0;
@@ -966,6 +965,71 @@ div.__item {
 }
 .button:hover {
   opacity: 0.7;
+}
+.admin-buttons{
+  margin: 10px 0;
+  
+}
+
+.event-listeners{
+  margin: 10px 0;
+}
+
+/*Toggle*/
+.toggle {
+  margin: 4px;
+  position: relative;
+  display: block;
+  width: 2.9rem;
+  height: 1.3rem;
+  font-size:90%;
+}
+
+.toggle input {
+  display: none;
+ 
+}
+
+.toggle p {
+  font-weight: 600;
+}
+
+.roundbutton {
+  position: absolute;
+  margin-left: 30px;
+  top: 0;
+  left: 20px;;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background-color: #33455e;
+
+  display: block;
+  transition: all 0.3s;
+  border-radius: 3.7rem;
+  cursor: pointer;
+}
+
+.roundbutton:before {
+  position: absolute;
+  content: "";
+  height: 1.1rem;
+  width: 1.1rem;
+  border-radius: 100%;
+  display: block;
+  left: 0.1rem;
+  bottom: 0.1rem;
+  background-color: white;
+  transition: all 0.3s;
+}
+
+
+input:checked + .roundbutton {
+  background-color: green;
+}
+
+input:checked + .roundbutton:before {
+  transform: translate(1.6rem, 0);
 }
 
 @-webkit-keyframes ripple {
@@ -1287,10 +1351,6 @@ button.toggleBtn{
 
 
 /*Tooltip global*/
-.tooltip {
-  position: absolute;
-}
-
 .tooltip-text {
     background-color: rgba(0, 0, 0, .7);    
     color: white;
@@ -1298,6 +1358,7 @@ button.toggleBtn{
     padding: 5px;
     position: absolute;
     top: 0;
+    z-index: 9;
 }
 /*Done */
 

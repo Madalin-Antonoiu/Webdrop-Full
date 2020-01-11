@@ -103,14 +103,14 @@ function preview() {
 
     $("preview-eye").classList.toggle('after_view');
 
-    
-
+    x.classList.remove('active__u');
+/*
     if(x.classList.contains('active__u')){ 
-      x.classList.remove('active__u');
+      
     } else {
       x.classList.add('active__u');
     }
-
+*/
 }
 
 //Simulate click on preview() on pressing CTRL + Q in document or iFrame

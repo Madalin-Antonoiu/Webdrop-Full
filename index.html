@@ -2235,21 +2235,43 @@
 
           <!--Admin-->
           <div id="tab2C" class="tab_content">
-           
-            <button class="button ripple" id="toggleEditIframe" onclick="toggleEditIframe()">Edit iFrame</button><br><br>
-            <button class="button ripple" id="toggleOutline" onclick="toggleOutlineAll()">Outline All Elements</button><br><br>
-            <button class="button ripple" id="toggleData" onclick="gibMiData()">Download</button><br><br>
 
-            <h2>Event Listeners</h2>
+            <div class="admin-buttons">
+              <i onclick="toggleEditIframe()" class="button  fas fa-edit" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="Edit document"></i>
+              <i onclick="toggleOutlineAll()" class="button fas fa-border-style" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="Outline elements"></i>
+              <i onclick="gibMiData()" class="button fas fa-download" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="Download code"></i>
+            </div>
+            
+            <div class="event-listeners">
+              <h3>Event Listeners</h3><hr>
+
+              <label class="toggle">
+                <p>Hover</p>
+                <input id="hover-switch" type="checkbox" onclick="toggleHoverListener()">
+                <span class="roundbutton"> </span>
+              </label> 
+
+              <label class="toggle">
+                <p>Click</p>
+                <input id="click-switch" type="checkbox" onclick="toggleClickListener()">
+                <span class="roundbutton"> </span>
+              </label> 
+
+            </div>
+
+
+              <!-- The old on/ off switch
             <button class="button ripple"  onclick="toggleHoverListener()"><span id="listener1" class="led"></span> Hover</button> 
-            <div class="led-green"></div>
+            <div class="led-green"></div>-->
+
+
 
             <h2>Log</h2>
             <div id="log-container">
               <div id="log"></div>
               
             </div>
-            <button id="clear" onclick="document.getElementById('log').innerHTML = '' ">">Clear</button>
+            <button id="clear" onclick="clearLogs()">Clear</button>
           
 
           <div id="tab3C" class="tab_content">
