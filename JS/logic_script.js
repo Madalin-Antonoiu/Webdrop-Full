@@ -2,6 +2,7 @@
 var $ = function (id) { return document.getElementById(id); };// Now $('id') possible in Vanilla JS
 var $$ = function (id) { return clientFrameWindow.getElementById(id); };// Now $('id') possible in Vanilla JS
 var clientFrameWindow = $("clientframe").contentWindow.document;
+var iframebody= $("clientframe").contentWindow.document.body;
 var droppables = $("sidebar_menu");
 var diviframe = $("iframe_live_wh");
   
@@ -22,10 +23,20 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
   // Your code to run since DOM is loaded and ready
 //If not doing on iFrame load, the addEventListeners will crash sometimes - Multiple AddEventListeners
 
+//Dinamically checking if event listener is added or not
+
+  //Case1 - Hover Tracker - Works
+
+  /*  if ($$("eventS").getAttribute('listener1') !== 'true') {
+    $$("eventS").addEventListener('mouseover', mouseEnter);
+    $$("eventS").setAttribute('listener1', 'true');
+        console.log('event hover tracker has been attached');
+   }; */
 
   $$("eventS").addEventListener('mouseover', mouseEnter);
-  //clientFrameWindow.body.removeEventListener('mouseover', mouseEnter);
-  //clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
+  $$("eventS").setAttribute('listener1', 'true');
+  $('listener1').style.backgroundColor = "green";
+  
   clientFrameWindow.body.addEventListener("mouseout", mouseLeave, false);
   clientFrameWindow.body.addEventListener("dragover", dragOver, false);
   clientFrameWindow.body.addEventListener("dragleave", dragLeave, false);
@@ -34,6 +45,8 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
   clientFrameWindow.body.addEventListener("dblclick", dblClick, false);
   clientFrameWindow.addEventListener("click", oneClickForAll, false);
   window.addEventListener("resize", getSize, false);
+
+  console.log('Events are attached.')
 
   function oneClickForAll(event) {
 
@@ -1004,14 +1017,22 @@ function showClickedElIdClass(e) {
   }
 }
 
-function doThis(){
-  $$('eventS').removeEventListener('mouseover', mouseEnter);
-  console.log('Mouseover event listener removed.')
-}
-
-function doOther(){
-  $$('eventS').addEventListener('mouseover', mouseEnter);
-  console.log('Mouseover event  listener added.')
+function toggleHoverListener(){
+ 
+   if ($$("eventS").getAttribute('listener1') !== 'true') {
+    $$("eventS").addEventListener('mouseover', mouseEnter);
+    $$("eventS").setAttribute('listener1', 'true');
+        console.clear();
+        console.log('event hover tracker has been attached');
+        //Add css rules
+        $('listener1').style.backgroundColor = "green";
+   } else {
+    $$("eventS").removeEventListener('mouseover', mouseEnter);
+    $$("eventS").setAttribute('listener1', 'false');
+    console.clear();
+    console.log('event hover tracker has been removed');
+    $('listener1').style.backgroundColor = "red";
+   }; 
 }
 
 //Create download file with iFrame HTML Code (gibMiData())
