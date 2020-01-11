@@ -23,7 +23,9 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
 //If not doing on iFrame load, the addEventListeners will crash sometimes - Multiple AddEventListeners
 
 
-  clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
+  $$("eventS").addEventListener('mouseover', mouseEnter);
+  //clientFrameWindow.body.removeEventListener('mouseover', mouseEnter);
+  //clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
   clientFrameWindow.body.addEventListener("mouseout", mouseLeave, false);
   clientFrameWindow.body.addEventListener("dragover", dragOver, false);
   clientFrameWindow.body.addEventListener("dragleave", dragLeave, false);
@@ -716,31 +718,6 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
     $("iframe_live_wh").innerHTML = wd + " x " + wh;
   }
 
-   
-  function mouseEnter(e) {
-    
-    //Add outline on hover
-    e.target.classList.add('outline');
-
-    //Tooltip show (redo)
-    if (e.target.classList.item(0) == 'outline') {
-      $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + '>';
-    } else if (e.target.classList.item(1) == 'outline' || 'outline-dashed') {
-      $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + ' class="' + e.target.classList.item(0) + '">';
-    } else if (e.target.classList.item(2) == 'outline' || 'outline-dashed') {
-      $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + ' class="' + e.target.classList.item(0) + +e.target.classList.item(1) + '">';
-    } else if (e.target.classList.item(3) == 'outline' || 'outline-dashed') {
-      $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + ' class="' + e.target.classList.item(0) + e.target.classList.item(1) + e.target.classList.item(2)
-      '">';
-    } else {
-      $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + '>';
-    }
-
-    $('tooltip1').style.display = "block";
-    //console.log('<' + e.target.tagName.toLowerCase() + '>');
-    
-  } 
-
   function mouseLeave(e) {
     //Remove outline on hover
     e.target.classList.remove("outline");
@@ -926,12 +903,31 @@ function instantSearch() {
 
 // initial load
 
+//Functions for eventListeners
+   
+function mouseEnter(e) {
+    
+  //Add outline on hover
+  e.target.classList.add('outline');
 
-// this will only execute code once
-function toggleHoverTracker() {
-  clientFrameWindow.body.removeEventListener('mouseover', mouseEnter);
+  //Tooltip show (redo)
+  if (e.target.classList.item(0) == 'outline') {
+    $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + '>';
+  } else if (e.target.classList.item(1) == 'outline' || 'outline-dashed') {
+    $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + ' class="' + e.target.classList.item(0) + '">';
+  } else if (e.target.classList.item(2) == 'outline' || 'outline-dashed') {
+    $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + ' class="' + e.target.classList.item(0) + +e.target.classList.item(1) + '">';
+  } else if (e.target.classList.item(3) == 'outline' || 'outline-dashed') {
+    $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + ' class="' + e.target.classList.item(0) + e.target.classList.item(1) + e.target.classList.item(2)
+    '">';
+  } else {
+    $('tooltip1').textContent = '<' + e.target.tagName.toLowerCase() + '>';
+  }
+
+  $('tooltip1').style.display = "block";
+  //console.log('<' + e.target.tagName.toLowerCase() + '>');
+  
 } 
-
 
 
 //Control Panel
@@ -1006,6 +1002,16 @@ function showClickedElIdClass(e) {
     //alert('<' + e.target.tagName.toLowerCase() + '>');
     //e.target.style.outline = "none";
   }
+}
+
+function doThis(){
+  $$('eventS').removeEventListener('mouseover', mouseEnter);
+  console.log('Mouseover event listener removed.')
+}
+
+function doOther(){
+  $$('eventS').addEventListener('mouseover', mouseEnter);
+  console.log('Mouseover event  listener added.')
 }
 
 //Create download file with iFrame HTML Code (gibMiData())
