@@ -2237,9 +2237,9 @@
           <div id="tab2C" class="tab_content">
 
             <div class="admin-buttons">
-              <i onclick="toggleEditIframe()" class="button  fas fa-edit" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="Edit document"></i>
-              <i onclick="toggleOutlineAll()" class="button fas fa-border-style" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="Outline elements"></i>
-              <i onclick="gibMiData()" class="button fas fa-download" data-toggle="tooltip" data-placement="top" data-trigger="hover" title="Download code"></i>
+              <i onclick="toggleEditIframe()" class="button  fas fa-edit" data-toggle="tooltip" data-trigger="hover" title="Edit document"></i>
+              <i onclick="toggleOutlineAll()" class="button fas fa-border-style" data-toggle="tooltip"  data-trigger="hover" title="Outline elements"></i>
+              <i onclick="gibMiData()" class="button fas fa-download" data-toggle="tooltip" data-trigger="hover" title="Download code"></i>
             </div>
             
             <div class="event-listeners">
@@ -2247,14 +2247,19 @@
 
               <label class="toggle">
                 <p>Hover</p>
-                <input id="hover-switch" type="checkbox" onclick="toggleHoverListener()">
-                <span class="roundbutton"> </span>
+                <span data-toggle="tooltip" data-trigger="hover" title="Toggle Mouseover Event Listener">
+                  <input id="hover-switch" type="checkbox" onclick="toggleHoverListener()" >
+                  <span class="roundbutton" > </span>
+                </span>
               </label> 
 
               <label class="toggle">
+                
                 <p>Click</p>
-                <input id="click-switch" type="checkbox" onclick="toggleClickListener()">
-                <span class="roundbutton"> </span>
+                <span data-toggle="tooltip" data-trigger="hover" title="Toggle Left-Click Event Listener">
+                  <input id="click-switch" type="checkbox" onclick="toggleClickListener()">
+                  <span class="roundbutton"> </span>
+                </span>
               </label> 
 
             </div>

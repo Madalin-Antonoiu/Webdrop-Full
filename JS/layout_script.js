@@ -72,8 +72,9 @@ $('preview-eye').addEventListener('click', preview, false);
 
 
 function preview() {
-      //read the status of the switch before, save it
-
+      //read the status of the switch before, save it - Conditional Toggle
+        //Remove extra padding at bottom
+      
       //Soo...the first time i press this, Normal goes to Preview
       //During preview, i want everything shut down
       //Going back , i want to return to the save.
@@ -82,8 +83,12 @@ function preview() {
 
       //Case 1 - Going into Preview Mode from regular
       if ($$("eventS").getAttribute('preview') === 'false'){
+        
+        $$("eventS").style.paddingBottom = "0px";//remove extra padding at bottom
+
+
         if (_target !== undefined){
-          _target.classList.remove('active__u'); // remove red border if present
+          _target.classList.remove('active__u'); // remove red border if _target not undefined
         } 
 
         
@@ -93,7 +98,13 @@ function preview() {
           $$("eventS").removeEventListener('click', oneClickForAll);
         }
       } else {  //Case 2 - Coming back from Preview Mode
+        
+        $$("eventS").style.paddingBottom = "80px";     //Adding back the padding bottom on body for drop ease
         $$("eventS").setAttribute('preview', 'false');
+
+   
+       
+
         if (_target !== undefined){
           _target.classList.add('active__u');
         }
@@ -120,11 +131,8 @@ function preview() {
         //If we are in not in preview yet, and both counters are stopped, do nothing but switch to preview
 
 
-    //Disable the two event listeners IF ONLY they are on
-    //if($$("eventS").getAttribute('hover-event') === 'true'){
-    //}
 
-    console.log("Hover is " +hoverSave + "; Click is " + clickSave)
+    //console.log("Hover is " +hoverSave + "; Click is " + clickSave)
 
 
 
