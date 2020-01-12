@@ -5,6 +5,8 @@ var clientFrameWindow = $("clientframe").contentWindow.document;
 var iframebody= $("clientframe").contentWindow.document.body;
 var droppables = $("sidebar_menu");
 var diviframe = $("iframe_live_wh");
+
+var _target ;
   
 function toggle_iframe_wh() {
   var diviframe = $("iframe_live_wh");
@@ -34,10 +36,11 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
    }; 
    /* $('hover-event').style.backgroundColor = "green"; */
    
-
+  
    //Adding default event listeners
    $$("eventS").addEventListener('mouseover', mouseEnter);
    $$("eventS").addEventListener('click', oneClickForAll);
+   $$("eventS").addEventListener('click', forFun);//Only for alerting when Click Event Handler is OFF
    $$("eventS").addEventListener("mouseout", mouseLeave, false);
    $$("eventS").addEventListener("dragover", dragOver, false);
    $$("eventS").addEventListener("dragleave", dragLeave, false);
@@ -413,10 +416,10 @@ function toggleClickListener(){
    console.clear();
    console.log('Event Listener: One-Click OFF.');
 
-   
-    event.target.classList.remove('active__u');
-    $('onlyIfElem').classList.add('displayNone');
-    $('selectFirst').classList.remove('displayNone');
+   //If you wanna get rid of current target, not advisable for UX
+   // event.target.classList.remove('active__u');
+   // $('onlyIfElem').classList.add('displayNone');
+   // $('selectFirst').classList.remove('displayNone');
 
 
   }; 
@@ -470,15 +473,24 @@ function rewireLoggingToElement(eleLocator, eleOverflowLocator, autoScroll) {
   }
 
 }
+function forFun(){
+        //If Click Toggle is OFF and someone clicks, display a warning ( it would require a second click Event Handler)
+        if (  $$("eventS").getAttribute('click-event') === 'false')  {
+          console.log('Turn on the Click Event Handler first before clicking.')
+        } 
+}
 
 function oneClickForAll(event) {
 
   x = event.target; 
+  _target = x;
   let list = clientFrameWindow.querySelectorAll("*"); // Grab all the li elements
-
+  
   for (let i = 0; i < list.length; i++) {
     if (x === list[i]) {   // If my click target is the same as list item it goes through,and this is to ensure only 1 eleme is red
       
+
+
       // 0. Show tab1c's content if elem clicked
       $('onlyIfElem').classList.remove('displayNone');
       $('selectFirst').classList.add('displayNone');

@@ -2,7 +2,7 @@
 var $ = function (id) { return document.getElementById(id); };// Now $('id') possible in Vanilla JS
 var $$ = function (id) { return clientFrameWindow.getElementById(id); };// Now $('id') possible in Vanilla JS
 var clientFrameWindow = $("clientframe").contentWindow.document;
-
+//_target is passing the value around from other function ;) 
 
   var col1 = document.getElementById('column1');
   var col3 = document.getElementById('column3');
@@ -77,11 +77,16 @@ function preview() {
       //Soo...the first time i press this, Normal goes to Preview
       //During preview, i want everything shut down
       //Going back , i want to return to the save.
-      const save1 = $$("eventS").getAttribute('hover-event');
-      const save2 = $$("eventS").getAttribute('click-event');
+      const hoverSave = $$("eventS").getAttribute('hover-event');
+      const clickSave = $$("eventS").getAttribute('click-event');
 
-      //Case 1 - Not in Preview Mode yet
+      //Case 1 - Going into Preview Mode from regular
       if ($$("eventS").getAttribute('preview') === 'false'){
+        if (_target !== undefined){
+          _target.classList.remove('active__u'); // remove red border if present
+        } 
+
+        
         $$("eventS").setAttribute('preview', 'true');   //moved to Preview
         if ( $$("eventS").getAttribute('hover-event') === "true" || $$("eventS").getAttribute('click-event') === "true"){
           $$("eventS").removeEventListener('mouseover', mouseEnter); // or removeEventListener
@@ -89,8 +94,24 @@ function preview() {
         }
       } else {  //Case 2 - Coming back from Preview Mode
         $$("eventS").setAttribute('preview', 'false');
-        $$("eventS").addEventListener('click', oneClickForAll);
-        $$("eventS").addEventListener('mouseover', mouseEnter); // or removeEventListener
+        if (_target !== undefined){
+          _target.classList.add('active__u');
+        }
+
+        //Caz a - Hover era oprit
+        if ( hoverSave === 'true' && clickSave === "true"){
+          $$("eventS").addEventListener('mouseover', mouseEnter); 
+          $$("eventS").addEventListener('click', oneClickForAll);
+        } else if (hoverSave === 'true' && clickSave === "false") {
+          $$("eventS").addEventListener('mouseover', mouseEnter); 
+          //They are already stopped by default
+        } else if (hoverSave === 'false' && clickSave === "true"){
+          $$("eventS").addEventListener('click', oneClickForAll);
+        } else {
+         return
+        }
+       
+     
       }
 
     
@@ -103,7 +124,7 @@ function preview() {
     //if($$("eventS").getAttribute('hover-event') === 'true'){
     //}
 
-    console.log("Hover is " +save1 + "; Click is " + save2)
+    console.log("Hover is " +hoverSave + "; Click is " + clickSave)
 
 
 
@@ -137,8 +158,7 @@ function preview() {
     }
 
     $("preview-eye").classList.toggle('after_view');
-
-    event.target.classList.remove('active__u');
+    
 /*
     if(x.classList.contains('active__u')){ 
       
