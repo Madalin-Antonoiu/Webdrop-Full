@@ -41,7 +41,7 @@ body {
   color: white;
   margin: 0;
   padding: 0;
-  z-index: 1;
+  z-index: 3;
   /* Carbon Fibre https://leaverou.github.io/css3patterns/#carbon-fibre*/
   background: radial-gradient(black 15%, transparent 16%) 0 0,
     radial-gradient(black 15%, transparent 16%) 8px 8px,
@@ -52,15 +52,16 @@ body {
 }
 
 #column3 {
+ 
   width: 12%;
   min-width: 15.5em;
   outline: 2px solid brown;
   outline-offset: -2px;
   color: white;
-  margin-top: 0;
   /*padding: 0px 10px 0px 10px; */
   background: #222d32;
   overflow-y: auto;
+  z-index: 2;
 }
 
 .ease {
@@ -87,6 +88,8 @@ nav #left_part {
   min-width: 11.5em;
   background: #357ca5;
   float: left;
+  outline: 1px solid purple;
+  outline-offset: -1px;
 }
 
 nav #right_part {
@@ -95,6 +98,17 @@ nav #right_part {
   z-index: 1;
   background: #3c8dbc;
   float: left;
+}
+
+
+nav #col3Panel {
+  width: 10%;
+  min-width: 248px;
+  z-index: 1;
+  background: red; /*To be obvious*/
+  float: left;
+  box-shadow: 12px 0 15px -4px rgba(31, 73, 125, 0.8), -12px 0 8px -4px rgba(31, 73, 125, 0.8);
+  display:none;
 }
 
 nav #right_part i {
@@ -215,41 +229,48 @@ button.panel3:focus {
 
 #burger {
   cursor: pointer;
+  color: white;
 }
 
 .hide_leftmenu {
   cursor: pointer;
-  position: absolute;
+  float:right;
+  margin-right: 8px;
   font-size: 15px;
-  right: 55px;
   z-index: 999;
 }
 
 .hide_rightmenu {
   cursor: pointer;
-  position: absolute;
+  float:right;
+  margin-right: 8px;
   font-size: 15px;
-  right: 5px;
   z-index: 999;
 }
 
-.textCenter {
-  text-align: center;
+nav i {
+  color: black;
 }
+
 
 i.previ_ew {
+  cursor: pointer;
   font-size: 20px;
-  position: absolute;
-  bottom: 3px;
-  right: 15px;
-  color: orangered;
   z-index: 999;
+  float:right;
+  margin-right: 300px;
   /*background: black;*/
 }
 
 .after_view{
   color: red !important;
 }
+
+
+.textCenter {
+  text-align: center;
+}
+
 
 .fullheight {
   height: 100vh !important;
@@ -1237,8 +1258,10 @@ input[name="inp"]{
 
 /* ************ NEW MASTER TABS *************** */
 .tabs_master>.labels>label {
+  
+  height:45px;
   width:33.33%;
-  background-color: #ddd;
+  background-color:  rgb(60, 141, 188);
   /* border-radius: 0 1em 0 0; */
   color: #222D32;
   font-weight:bold;
@@ -1246,7 +1269,8 @@ input[name="inp"]{
   cursor: pointer;
   float: left;
   overflow: hidden;
-  padding: .7em 1.2em;
+  padding: 15px 15px;
+  text-align: center;
   position: relative;
   /*border-bottom: .2em solid #45a6e7;  Can remove it or add it to entire tabs*/
   -webkit-box-shadow: none;

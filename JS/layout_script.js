@@ -13,14 +13,19 @@ var clientFrameWindow = $("clientframe").contentWindow.document;
   var diviframe =  document.getElementById('iframe_live_wh');
   var resizebuttons =  document.getElementById('resize_bar');
   var oneSs = document.styleSheets[0];
+  var col3Panel = document.getElementById('col3Panel');
+
   
   function hide_leftmenu() {
     col1.classList.toggle('displayNone');
     nav1.classList.toggle('displayNone');
   }
+  
   function hide_rightmenu() {
     col3.classList.toggle('displayNone');
+    col3Panel.classList.toggle('displayNone');
   }
+
   //Mini-Drawer-Burger -If you add all classes below by default, you should have mini-drawer default i ntheory
   function columnOne() {
     logotext = document.getElementById('logotext');

@@ -26,10 +26,15 @@
     <div id="right_part">
       <i id="burger" onclick="columnOne()" class="fas fa-bars"></i>
       <!--<i onclick="themator()" class="fas fa-cog themator">Theme</i>-->
-
+        
+      <i id="preview-eye" class="far fa-eye previ_ew" data-toggle="tooltip" data-trigger="hover" title="Preview Mode"></i>
       <i onclick="hide_leftmenu()" class="fas fa-chevron-left hide_leftmenu"></i>
       <i onclick="hide_rightmenu()" class="fas fa-chevron-right hide_rightmenu"></i>
+    
+
+
     </div>
+
 
   </nav>
 
@@ -1895,9 +1900,9 @@
         <input type="radio" id="tab3" name="tabs_master" disabled  />
         
         <div class="labels">
-          <label id="tab1L" for="tab1">Style</label>
-          <label id="tab2L" for="tab2" >Admin</label>
-          <label id="tab3L" for="tab3" >Other</label>
+          <label id="tab1L" for="tab1" data-toggle="tooltip" data-trigger="hover" title="Style"><i class="fas fa-paint-brush"></i></label>
+          <label id="tab2L" for="tab2" data-toggle="tooltip" data-trigger="hover" title="Admin settings" ><i class="fas fa-cogs" ></i></label>
+          <label id="tab3L" for="tab3" data-toggle="tooltip" data-trigger="hover" title="Other"><i class="fas fa-users"></i></label>
         </div>
         
         <div class="tab_container">
@@ -2285,7 +2290,7 @@
           </div>
           
         </div>
-      </div>  
+        </div>  
 
 
 
@@ -2306,8 +2311,6 @@
     <!--<span id="computed-box-holder">Asta va lua dimenisunile de margin etc</span> -->
     <span class="tooltiper" id="tooltip1">Hovered elements</span>
     <span id="snackbar">Turning off/on</span>
-
-    <i id="preview-eye" class="far fa-eye previ_ew tooltip" data-tooltip-text="Preview"></i>
 
     <!--Leaving this here for now -->
     <div id="resize_bar" class="displayNone displayNoneSuper noSelect">

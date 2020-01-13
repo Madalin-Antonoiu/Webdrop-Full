@@ -19,48 +19,28 @@ function toggle_iframe_wh() {
   diviframe.classList.toggle("displayNoneSuper");
 }
 
+ // Your code to run since DOM is loaded and ready
 clientFrameWindow.addEventListener("DOMContentLoaded", function() { 
- 
-
-  // Your code to run since DOM is loaded and ready
-//If not doing on iFrame load, the addEventListeners will crash sometimes - Multiple AddEventListeners
-
-//Dinamically checking if event listener is added or not
-
-  //Case1 - Hover Tracker - Works
-
-  /*  if ($$("eventS").getAttribute('hover-event') !== 'true') {
-    $$("eventS").addEventListener('mouseover', mouseEnter);
-    $$("eventS").setAttribute('hover-event', 'true');
-        console.log('event hover tracker has been attached');
-   }; 
-   /* $('hover-event').style.backgroundColor = "green"; */
-   
   
-   //Adding default event listeners
-   $$("eventS").addEventListener('mouseover', mouseEnter);
-   $$("eventS").addEventListener('click', oneClickForAll);
-   $$("eventS").addEventListener('click', forFun);//Only for alerting when Click Event Handler is OFF
-   $$("eventS").addEventListener("mouseout", mouseLeave, false);
-   $$("eventS").addEventListener("dragover", dragOver, false);
-   $$("eventS").addEventListener("dragleave", dragLeave, false);
-   $$("eventS").addEventListener("drop", onDrop, false);
-   $$("eventS").addEventListener("dblclick", dblClick, false);
-   console.log('Events are attached.')
+  //Adding default event listeners on load
+  $$("eventS").addEventListener('mouseover', mouseEnter);
+  $$("eventS").addEventListener('click', oneClickForAll);
+  $$("eventS").addEventListener('click', forFun);//Only for alerting when Click Event Handler is OFF
+  $$("eventS").addEventListener("mouseout", mouseLeave, false);
+  $$("eventS").addEventListener("dragover", dragOver, false);
+  $$("eventS").addEventListener("dragleave", dragLeave, false);
+  $$("eventS").addEventListener("drop", onDrop, false);
+  $$("eventS").addEventListener("dblclick", dblClick, false);
+  droppables.addEventListener("dragstart", onDragStart, false);
+  window.addEventListener("resize", getSize, false);
+
+  console.log('Events are attached.')
 
   $$("eventS").setAttribute('hover-event', 'true');
   $$("eventS").setAttribute('click-event', 'true');
 
   $('hover-switch').checked = true;
   $('click-switch').checked = true;
-
-
-  droppables.addEventListener("dragstart", onDragStart, false);
-
-  window.addEventListener("resize", getSize, false);
-
-  
-
 
 
   function dblClick() {
@@ -212,21 +192,7 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
     // or tgt.remove();
   }
 
-  //carets stuff - Dropdown
-  var toggler = document.getElementsByClassName("caret");
-  var i;
 
-  for (i = 0; i < toggler.length; i++) {
-    toggler[i].addEventListener("click", function () {
-      this.parentElement.querySelector(".nested").classList.toggle("activel");
-      this.classList.toggle("caret-down");
-    });
-  }
-  //end of
-
-  //$("muestra_abol").addEventListener("click", function() {  //Add the innerHTML in here, you can make it happen on button click });
-
-  // end of it
 });
 
 /*  Add a new CSS Stylesheets
