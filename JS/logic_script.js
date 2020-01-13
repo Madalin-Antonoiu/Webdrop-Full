@@ -22,7 +22,7 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
     droppables.addEventListener("dragstart", onDragStart, false);
     window.addEventListener("resize", getSize, false);
 
-    console.log('Events are attached.')
+    console.log('Event Listeners are attached.')
 
     $$("fbody").setAttribute('hover-event', 'true');
     $$("fbody").setAttribute('click-event', 'true');
