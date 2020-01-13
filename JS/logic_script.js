@@ -54,8 +54,8 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
 
     function getSize() {
         //Document's width and height
-        var wd = $("clientframe").clientWidth; //the entire iFrame on CodePen
-        var wh = $("clientframe").clientHeight;
+        let wd = $("clientframe").clientWidth; //the entire iFrame on CodePen
+        let wh = $("clientframe").clientHeight;
 
         // put the result into a h1 tag
         $("iframe_live_wh").innerHTML = wd + " x " + wh;
@@ -137,11 +137,11 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
 
         // Remove placeholder
 
-        var x = e.dataTransfer.getData(
+        let x = e.dataTransfer.getData(
             "text/html",
             e.target.getAttribute("data-insert-html")
         );
-        var frag = document.createRange().createContextualFragment(x);
+        let frag = document.createRange().createContextualFragment(x);
 
         //Here before appending, need to calculate if mouseover is closer to top or bottom, so it prepend( put before) or after,
         //Now it only puts it after :)
@@ -152,7 +152,7 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
         e.target.parentNode.parentNode.classList.remove("__placeholder"); //Works for now if only 2 parents (not ideal)
 
         //Much needed- Removes the div with ID <fr-cell> and all of it`s sub-content from the ELEMENT i click on only :)
-        var item = clientFrameWindow.getElementById("fr-cell"); //Gets only the topmost fr-cell ID, in order of DOM (not ideal)
+        let item = clientFrameWindow.getElementById("fr-cell"); //Gets only the topmost fr-cell ID, in order of DOM (not ideal)
         e.target.removeChild(item);
 
     }
@@ -164,7 +164,7 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
 // Component Search - W3School Adapted https://www.w3schools.com/howto/howto_js_filter_lists.asp
 function instantSearch() {
     //Passed
-    var input, filter, ul, span, p, i, txtValue;
+    let input, filter, ul, span, p, i, txtValue;
 
     //Passed
     input = $("myInput");
@@ -235,7 +235,7 @@ function toggleEditIframe() {
 
         //Snackbar notification
         $("snackbar").innerHTML = "IFrame Edit : OFF";
-        var x = $("snackbar");
+        let x = $("snackbar");
         x.className = "show";
         setTimeout(function() {
             x.className = x.className.replace("show", "");
@@ -248,7 +248,7 @@ function toggleEditIframe() {
 
         //Snackbar notification
         $("snackbar").innerHTML = "IFrame Edit : ON";
-        var x = $("snackbar");
+        let x = $("snackbar");
         x.className = "show";
         setTimeout(function() {
             x.className = x.className.replace("show", "");
@@ -258,8 +258,8 @@ function toggleEditIframe() {
 
 function toggleOutlineAll() {
     //Toggle iFrame outline dashed elements
-    var x = clientFrameWindow.body.querySelectorAll("*");
-    var i;
+    let x = clientFrameWindow.body.querySelectorAll("*");
+    let i;
 
     for (i = 0; i < x.length; i++) {
         x[i].classList.toggle("outline-dashed");
@@ -271,7 +271,7 @@ function toggleOutlineAll() {
     if (firstfelem.classList.contains("outline-dashed")) {
         //Snackbar notification ON
         $("snackbar").innerHTML = "Outline : ON";
-        var x = $("snackbar");
+        let x = $("snackbar");
         x.className = "show";
         setTimeout(function() {
             x.className = x.className.replace("show", "");
@@ -279,7 +279,7 @@ function toggleOutlineAll() {
     } else {
         //Snackbar notification OFF
         $("snackbar").innerHTML = "Outline : OFF";
-        var x = $("snackbar");
+        let x = $("snackbar");
         x.className = "show";
         setTimeout(function() {
             x.className = x.className.replace("show", "");
@@ -451,8 +451,8 @@ function oneClickForAll(event) {
 
             /// **** 2. Toggle a class on/off on click in Panel ******* /////
 
-            var classNames = x.classList;
-            var clonedClassNames = [...classNames]; //It`s a must to copy the array
+            let classNames = x.classList;
+            let clonedClassNames = [...classNames]; //It`s a must to copy the array
 
 
             //Not DRY!
@@ -464,7 +464,7 @@ function oneClickForAll(event) {
                 /*Log all classes from client.css
       Array.prototype.forEach.call(clientFrameWindow.styleSheets[0].cssRules,
         function(a){
-          var x = a.selectorText;
+          let x = a.selectorText;
           console.log(x);
 
         }); */
@@ -722,10 +722,10 @@ function oneClickForAll(event) {
                     //get the values
                     let compStyles = window.getComputedStyle(x);
 
-                    var paddingTop = compStyles.getPropertyValue('padding-top');
-                    var paddingRight = compStyles.getPropertyValue('padding-right');
-                    var paddingBottom = compStyles.getPropertyValue('padding-bottom');
-                    var paddingLeft = compStyles.getPropertyValue('padding-left');
+                    let paddingTop = compStyles.getPropertyValue('padding-top');
+                    let paddingRight = compStyles.getPropertyValue('padding-right');
+                    let paddingBottom = compStyles.getPropertyValue('padding-bottom');
+                    let paddingLeft = compStyles.getPropertyValue('padding-left');
 
                     //Highlight on canvas
                     x.style.boxShadow = "inset 0 " + paddingTop + " 0 0 white, inset -" + paddingRight + " 0 0 0 white, inset 0 -" + paddingBottom + " 0 0 white, inset " + paddingLeft + " 0 0 0 white";
@@ -792,10 +792,10 @@ function oneClickForAll(event) {
                     //get the values
                     let compStyles = window.getComputedStyle(x);
 
-                    var paddingTop = compStyles.getPropertyValue('padding-top');
-                    var paddingRight = compStyles.getPropertyValue('padding-right');
-                    var paddingBottom = compStyles.getPropertyValue('padding-bottom');
-                    var paddingLeft = compStyles.getPropertyValue('padding-left');
+                    let paddingTop = compStyles.getPropertyValue('padding-top');
+                    let paddingRight = compStyles.getPropertyValue('padding-right');
+                    let paddingBottom = compStyles.getPropertyValue('padding-bottom');
+                    let paddingLeft = compStyles.getPropertyValue('padding-left');
 
                     //Highlight on canvas
                     x.style.boxShadow = "inset 0 " + paddingTop + " 0 0 #C3D08B, inset -" + paddingRight + " 0 0 0 #C3D08B, inset 0 -" + paddingBottom + " 0 0 #C3D08B, inset " + paddingLeft + " 0 0 0 #C3D08B";
@@ -855,10 +855,10 @@ function oneClickForAll(event) {
                     //Get values
                     let compStyles = window.getComputedStyle(x);
 
-                    var borderTop = compStyles.getPropertyValue('border-top-width');
-                    var borderRight = compStyles.getPropertyValue('border-right-width');
-                    var borderBottom = compStyles.getPropertyValue('border-bottom-width');
-                    var borderLeft = compStyles.getPropertyValue('border-left-width');
+                    let borderTop = compStyles.getPropertyValue('border-top-width');
+                    let borderRight = compStyles.getPropertyValue('border-right-width');
+                    let borderBottom = compStyles.getPropertyValue('border-bottom-width');
+                    let borderLeft = compStyles.getPropertyValue('border-left-width');
 
                     //Highlight border
                     x.style.borderTop = " " + borderTop + " solid #FADF9A";
@@ -925,10 +925,10 @@ function oneClickForAll(event) {
                     //Get values
                     let compStyles = window.getComputedStyle(x);
 
-                    var marginTop = compStyles.getPropertyValue('margin-top');
-                    var marginRight = compStyles.getPropertyValue('margin-right');
-                    var marginBottom = compStyles.getPropertyValue('margin-bottom');
-                    var marginLeft = compStyles.getPropertyValue('margin-left');
+                    let marginTop = compStyles.getPropertyValue('margin-top');
+                    let marginRight = compStyles.getPropertyValue('margin-right');
+                    let marginBottom = compStyles.getPropertyValue('margin-bottom');
+                    let marginLeft = compStyles.getPropertyValue('margin-left');
 
                     //Highlight border
                     x.style.boxShadow = " -" + marginLeft + " -" + marginTop + "  0 0 #FACBA1, " + marginRight + " -" + marginTop + "  0 0 #FACBA1, -" + marginLeft + " " + marginBottom + "  0 0 #FACBA1, " + marginRight + " " + marginBottom + "  0 0 #FACBA1";
@@ -988,11 +988,11 @@ function oneClickForAll(event) {
 
 
             // ***** 5. BADGE ***** //   ------------------- TURNING OFF BADGE --------------- 
-            // var badge = $$("badge_");  //Will turn on with CRUD and replace actual options
+            // let badge = $$("badge_");  //Will turn on with CRUD and replace actual options
 
-            var w = x.clientWidth;
-            var h = x.clientHeight;
-            var w$h =
+            let w = x.clientWidth;
+            let h = x.clientHeight;
+            let w$h =
                 "&nbsp; &nbsp;" +
                 x.clientWidth +
                 "x" +
@@ -1003,9 +1003,9 @@ function oneClickForAll(event) {
 
             function getSize() {
                 //On resize run again and update
-                var w = x.clientWidth;
-                var h = x.clientHeight;
-                var w$h =
+                let w = x.clientWidth;
+                let h = x.clientHeight;
+                let w$h =
                     "&nbsp; &nbsp;" +
                     x.clientWidth +
                     "x" +

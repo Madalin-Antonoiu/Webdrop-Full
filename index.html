@@ -2,102 +2,101 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Webdrop - FULL </title>
-  <link rel="stylesheet" href="./CSS/style.css" />
-  <link id="style1" rel="stylesheet" href="./CSS/minime.css" />
-  <!--If you set up  ./CSS/empty.css as default, it will start big menu first-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Webdrop - FULL </title>
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link id="style1" rel="stylesheet" href="./CSS/minime.css" />
+    <!--If you set up  ./CSS/empty.css as default, it will start big menu first-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
 
-  <style id="style">
-    
-  </style>
+    <style id="style">
+
+    </style>
 
 </head>
 
 <body>
-  <nav id="nav">
-    <div id="nav-left" class="centerIcon column1_mini textCenter">
-      <i class="fas fa-tint"><span id="logotext" class="displayNone">Webdrop</span></i>
-    </div>
-
-    <div id="nav-right">
-
-      <div id="left">
-        <i id="burger" onclick="columnOne()" class="fas fa-bars"></i>
-        <!--<i onclick="themator()" class="fas fa-cog themator">Theme</i>-->
-      </div>
-
-      <div id="right">
-     
-        <div id="admin-buttons">
-
-          <i id="preview-eye" class="button far fa-eye previ_ew button" data-toggle="tooltip" data-trigger="hover" title="Preview Mode"></i>
-          <i onclick="hide_leftmenu()" class="button fas fa-chevron-left hide_leftmenu" data-toggle="tooltip" data-trigger="hover" title="Show/Hide Left column"></i>
-          <i onclick="hide_rightmenu()" class="button fas fa-chevron-right hide_rightmenu" data-toggle="tooltip" data-trigger="hover" title="Hide/Show Right column"></i>
-         
-          <i onclick="toggleEditIframe()" class="button  fas fa-edit" data-toggle="tooltip" data-trigger="hover" title="Edit document"></i>
-          <i onclick="toggleOutlineAll()" class="button fas fa-border-style" data-toggle="tooltip"  data-trigger="hover" title="Outline elements"></i>
-          <i onclick="gibMiData()" class="button fas fa-download" data-toggle="tooltip" data-trigger="hover" title="Download code"></i>
+    <nav id="nav">
+        <div id="nav-left" class="centerIcon column1_mini textCenter">
+            <i class="fas fa-tint"><span id="logotext" class="displayNone">Webdrop</span></i>
         </div>
-      </div>
 
-    </div>
+        <div id="nav-right">
 
+            <div id="left">
+                <i id="burger" onclick="columnOne()" class="fas fa-bars"></i>
+                <!--<i onclick="themator()" class="fas fa-cog themator">Theme</i>-->
+            </div>
 
+            <div id="right">
 
+                <div id="admin-buttons">
 
-  </nav>
+                    <i id="preview-eye" class="button far fa-eye previ_ew button" data-toggle="tooltip" data-trigger="hover" title="Preview Mode"></i>
+                    <i onclick="hide_leftmenu()" class="button fas fa-chevron-left hide_leftmenu" data-toggle="tooltip" data-trigger="hover" title="Show/Hide Left column"></i>
+                    <i onclick="hide_rightmenu()" class="button fas fa-chevron-right hide_rightmenu" data-toggle="tooltip" data-trigger="hover" title="Hide/Show Right column"></i>
 
-  <div class="row">
+                    <i onclick="toggleEditIframe()" class="button  fas fa-edit" data-toggle="tooltip" data-trigger="hover" title="Edit document"></i>
+                    <i onclick="toggleOutlineAll()" class="button fas fa-border-style" data-toggle="tooltip" data-trigger="hover" title="Outline elements"></i>
+                    <i onclick="gibMiData()" class="button fas fa-download" data-toggle="tooltip" data-trigger="hover" title="Download code"></i>
+                </div>
+            </div>
 
-    <div id="column1" class="column1_mini">
-      <!-- Snippet : Ul inside Col1-->
-      <ul id="sidebar_menu">
-
-        <!--Proper accordion yay!-->
-        <li data="Basic Elem">
-          <div id="parent" class="accordion dd-button centerIcon textCenter">
-            <i class="fas fa-th-list"></i><span id="logotext" class="displayNoneB">Basic Elem</span>
-          </div>
-
-          <div class="panel">
-            <!--Hidden under accordion-->
-            <ul class="dd-menu">
-
-              <input type="text" id="myInput" onkeyup="instantSearch()" placeholder="Search for components.."
-                title="Type in a component" style="width: 100%;">
+        </div>
 
 
-              <ul id="myUL">
 
-                <li>
-                  <h5>Container ✔️</h5>
 
-                  <div class="col-min">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+    </nav>
+
+    <div class="row">
+
+        <div id="column1" class="column1_mini">
+            <!-- Snippet : Ul inside Col1-->
+            <ul id="sidebar_menu">
+
+                <!--Proper accordion yay!-->
+                <li data="Basic Elem">
+                    <div id="parent" class="accordion dd-button centerIcon textCenter">
+                        <i class="fas fa-th-list"></i><span id="logotext" class="displayNoneB">Basic Elem</span>
+                    </div>
+
+                    <div class="panel">
+                        <!--Hidden under accordion-->
+                        <ul class="dd-menu">
+
+                            <input type="text" id="myInput" onkeyup="instantSearch()" placeholder="Search for components.." title="Type in a component" style="width: 100%;">
+
+
+                            <ul id="myUL">
+
+                                <li>
+                                    <h5>Container ✔️</h5>
+
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
       
                           <div class="container __placeholder" style="margin-top:15px;">
                           </div>
                           '>
-                      <img src="/IMG/components/center-container.svg">
+                                            <img src="/IMG/components/center-container.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Container</p>
                     </span>
-                  </div>
+                                    </div>
 
-                  <br style="clear:both;" />
-                </li>
+                                    <br style="clear:both;" />
+                                </li>
 
-                <li>
-                  <h5>Grid ✔️ </h5>
+                                <li>
+                                    <h5>Grid ✔️ </h5>
 
-                  <div class="col-min">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           
                           <div class="container __placeholder" data-myattribute="unDouex" style="margin-top:15px;">
                               <div class="row">
@@ -114,16 +113,16 @@
                               </div>
                             </div>
                           '>
-                      <img src="/IMG/components/column-2.svg">
+                                            <img src="/IMG/components/column-2.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Two column grid</p>
                     </span>
-                  </div>
+                                    </div>
 
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="container __placeholder" style="margin-top:15px;">
                               <div class="row">
                                 <div class="col-sm">
@@ -144,16 +143,16 @@
                               </div>
                             </div>
                           '>
-                      <img src="/IMG/components/column-3.svg">
+                                            <img src="/IMG/components/column-3.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Three columns grid</p>
                     </span>
-                  </div>
+                                    </div>
 
-                  <div class="col-min">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="container __placeholder" style="margin-top:15px;">
                               <div class="row">
                                 <div class="col-6">
@@ -174,37 +173,37 @@
                               </div>
                             </div>
                           '>
-                      <img src="">
+                                            <img src="">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Uneven grid</p>
                     </span>
-                  </div>
+                                    </div>
 
-                  <br style="clear:both;" />
-                </li>
+                                    <br style="clear:both;" />
+                                </li>
 
-                <li>
-                  <h5>Image ✔️</h5>
+                                <li>
+                                    <h5>Image ✔️</h5>
 
-                  <div class="col-min" style>
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min" style>
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
       
                           <div class="container __placeholder" style="margin-top: 15px;">
                             <img id="__upload" src="/IMG/components/img.svg" style="height:192px;">
                           </div>
                           '>
-                      <img src="/IMG/components/img_notext.svg">
+                                            <img src="/IMG/components/img_notext.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>image</p>
                     </span>
-                  </div>
+                                    </div>
 
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
       
                           <div class="container __placeholder">
                             <img src="/IMG/components/img.svg" style="height:85px;">
@@ -214,22 +213,22 @@
       
                           </div>
                           '>
-                      <img src="">
+                                            <img src="">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>SVG ❌</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <br style="clear:both;" />
-                </li>
+                                    <br style="clear:both;" />
+                                </li>
 
-                <li>
-                  <h5>Video ✔️</h5>
+                                <li>
+                                    <h5>Video ✔️</h5>
 
-                  <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
       
                         <div class="container" style="margin-top: 15px;">
                             <div class="videoWrapper">
@@ -237,39 +236,39 @@
                             </div>
                         </div>
                         '>
-                    <img src="/IMG/components/ytb.svg">
+                                        <img src="/IMG/components/ytb.svg">
 
-                  </div>
-                  <span class="search_me">
+                                    </div>
+                                    <span class="search_me">
                     <p>Youtube video</p>
                   </span>
 
-                </li>
+                                </li>
 
-                <li>
-                  <h5>Text ✔️</h5>
+                                <li>
+                                    <h5>Text ✔️</h5>
 
-                  <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
       
                         <div class="container" style="margin-top: 15px;">
                           <h4>Headline Four</h4>
                           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, debitis pariatur? Animi commodi iusto autem veritatis minima consequuntur hic amet possimus similique quis, odit nemo saepe eaque, asperiores dolor? Delectus?Laudantium consectetur eligendi alias, doloremque nam ipsam? Eligendi possimus molestiae est corrupti consequuntur corporis sequi exercitationem illo, ut cumque beatae commodi soluta voluptatibus totam optio ullam sint consectetur cupiditate in!</p>
                         </div>
                         '>
-                    <img src="/IMG/components/text.svg">
+                                        <img src="/IMG/components/text.svg">
 
-                  </div>
-                  <span class="search_me">
+                                    </div>
+                                    <span class="search_me">
                     <p>Text block</p>
                   </span>
 
-                </li>
+                                </li>
 
-                <li>
-                  <h5>Slideshows </h5>
+                                <li>
+                                    <h5>Slideshows </h5>
 
-                  <div class="col-min">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="wrapper">
                               <input checked type=radio name="slider" id="slide1" />
                               <input type=radio name="slider" id="slide2" />
@@ -334,26 +333,26 @@
               
                         
                           '>
-                      <img src="/IMG/components/">
+                                            <img src="/IMG/components/">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Responsive Css Slider</p>
                     </span>
 
-                  </div>
+                                    </div>
 
 
 
-                  <br style="clear:both;" />
+                                    <br style="clear:both;" />
 
-                </li>
+                                </li>
 
-                <li>
-                  <h5>2 columns ✔️</h5>
+                                <li>
+                                    <h5>2 columns ✔️</h5>
 
-                  <div class="col-min">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="container __placeholder" data-myattribute="unDouex">
                               <div class="row">
                                 <div class="col-sm">
@@ -377,17 +376,17 @@
                               </div>
                             </div>
                           '>
-                      <img src="/IMG/components/two-col-img-text.svg">
+                                            <img src="/IMG/components/two-col-img-text.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>2 Col Img & Text</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="container __placeholder" data-myattribute="unDouex">
                                 <div class="row">
                                   <div class="col-sm">
@@ -407,17 +406,17 @@
                                 </div>
                               </div>
                             '>
-                      <img src="/IMG/components/img-text-2col.svg">
+                                            <img src="/IMG/components/img-text-2col.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>2 Col Img & Text</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <div class="col-min ">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min ">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="container __placeholder" data-myattribute="unDouex">
                                 <div class="row">
 
@@ -435,17 +434,17 @@
                                 </div>
                               </div>
                             '>
-                      <img src="/IMG/components/text-img-2-col.svg">
+                                            <img src="/IMG/components/text-img-2-col.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Text & Image 2 Col</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="container __placeholder" data-myattribute="unDouex" margin-top: 15px;>
                                 <div class="row">
                                   <h1 style="padding-left: 15px; padding-bottom: 15px;">Header One</h1>
@@ -467,22 +466,22 @@
                                 </div>
                               </div>
                             '>
-                      <img src="/IMG/components/header-two-col-text.svg">
+                                            <img src="/IMG/components/header-two-col-text.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Header 2 Col Text</p>
                     </span>
-                  </div>
+                                    </div>
 
-                  <br style="clear:both;" />
-                </li>
+                                    <br style="clear:both;" />
+                                </li>
 
-                <li>
-                  <h5>3 columns ✔️</h5>
+                                <li>
+                                    <h5>3 columns ✔️</h5>
 
-                  <div class="col-min">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="container __placeholder" data-myattribute="unDouex">
                               <div class="row">
                                 <div class="col-sm">
@@ -515,17 +514,17 @@
                               </div>
                             </div>
                           '>
-                      <img src="/IMG/components/three-col-img-text.svg">
+                                            <img src="/IMG/components/three-col-img-text.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>3 Col Image & Text</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="container __placeholder" data-myattribute="unDouex" style="padding-top:15px; padding-bottom: 15px;">
                               <div class="row">
                                 <div class="col-sm">
@@ -556,24 +555,24 @@
                                 </div>
                             </div>
                           '>
-                      <img src="/IMG/components/gallery.svg">
+                                            <img src="/IMG/components/gallery.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Gallery</p>
                     </span>
 
-                  </div>
+                                    </div>
 
 
-                  <br style="clear:both;" />
-                </li>
+                                    <br style="clear:both;" />
+                                </li>
 
-                <li>
-                  <h5>4 columns ✔️ </h5>
+                                <li>
+                                    <h5>4 columns ✔️ </h5>
 
-                  <div class="col-min">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="container __placeholder" data-myattribute="unDouex" style="margin-top: 15px;">
                               <div class="row">
                                 <div class="col-sm">
@@ -615,17 +614,17 @@
                               </div>
                             </div>
                           '>
-                      <img src="/IMG/components/4-col.svg">
+                                            <img src="/IMG/components/4-col.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>4 Col Image & Text</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="container __placeholder" data-myattribute="unDouex" style="margin-top: 15px;">
                                 <div class="row">
                                     <div class="col-sm">
@@ -675,23 +674,23 @@
                                 </div>
                               </div>
                             '>
-                      <img src="/IMG/components/header1-4col.svg">
+                                            <img src="/IMG/components/header1-4col.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Header & 4 Col</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <br style="clear:both;" />
-                </li>
+                                    <br style="clear:both;" />
+                                </li>
 
-                <li>
-                  <h5>Forms ✔️</h5>
+                                <li>
+                                    <h5>Forms ✔️</h5>
 
-                  <div class="col-min">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
         
                           <div class="container" style="margin-top: 15px;">
 
@@ -710,16 +709,16 @@
 
                           </div>
                           '>
-                      <img src="/IMG/components/form-1.svg">
+                                            <img src="/IMG/components/form-1.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Inline Form</p>
                     </span>
-                  </div>
+                                    </div>
 
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
           
                             <div class="container" style="margin-top: 15px; ">
     
@@ -744,17 +743,17 @@
     
                             </div>
                             '>
-                      <img src="/IMG/components/form-2.svg">
+                                            <img src="/IMG/components/form-2.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Block Form</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <div class="col-min">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
                                   <span class="anchor" id="formLogin"></span> 
@@ -788,16 +787,16 @@
                               </div>
                             </div>
                             '>
-                      <img src="/IMG/components/login-form.svg">
+                                            <img src="/IMG/components/login-form.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Login Form</p>
                     </span>
-                  </div>
+                                    </div>
 
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
                                   <span class="anchor" id="formRegister"></span>
@@ -834,17 +833,17 @@
                                 </div>
                               </div>
                             '>
-                      <img src="/IMG/components/Sign-up.svg">
+                                            <img src="/IMG/components/Sign-up.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Sign-Up Form</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <div class="col-min">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
                                   <span class="anchor" id="formChangePassword"></span>
@@ -879,17 +878,17 @@
                                 </div>
                               </div>
                             '>
-                      <img src="/IMG/components/">
+                                            <img src="/IMG/components/">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Change Password</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             
                             <div class="row justify-content-center">
                                 <div class="col-md-6">
@@ -917,16 +916,16 @@
                               </div>
 
                             '>
-                      <img src="/IMG/components/">
+                                            <img src="/IMG/components/">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Password Reset</p>
                     </span>
-                  </div>
+                                    </div>
 
-                  <div class="col-min">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="row justify-content-center" style="margin-top: 15px;">
                                 <div class="col-md-6">
                                   <span class="anchor" id="formPayment"></span>
@@ -1057,16 +1056,16 @@
                                 </div>
                             </div>
                             '>
-                      <img src="/IMG/components/">
+                                            <img src="/IMG/components/">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Card Payment</p>
                     </span>
-                  </div>
+                                    </div>
 
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                             <div class="row justify-content-center" style="margin-top: 15px;">
                                 <div class="col-md-6 sm-12">
                                   <span class="anchor" id="formContact"></span>
@@ -1105,67 +1104,66 @@
                                 </div><!--/col-->
                               </div>
                             '>
-                      <img src="/IMG/components/">
+                                            <img src="/IMG/components/">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Contact Form</p>
                     </span>
-                  </div>
+                                    </div>
 
 
-                  <br style="clear:both;" />
+                                    <br style="clear:both;" />
 
-                </li>
+                                </li>
 
-                <li>
-                  <h5>HTML ❌</h5>
+                                <li>
+                                    <h5>HTML ❌</h5>
 
-                  <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
         
                         <div class="container __placeholder">
         
                         </div>
                         '>
-                    <img src="">
+                                        <img src="">
 
-                  </div>
-                  <span class="search_me">
+                                    </div>
+                                    <span class="search_me">
                     <p>Custom HTML</p>
                   </span>
+
+                                </li>
+
+
+
+                            </ul>
+                        </ul>
+                    </div>
+
 
                 </li>
 
 
+                <li data="Ready-Made">
+                    <div class="dd-button centerIcon accordion textCenter">
+                        <i class="fas fa-puzzle-piece"></i><span id="logotext" class="displayNoneB">Ready-Made</span>
+                    </div>
 
-              </ul>
-            </ul>
-          </div>
+                    <div class="panel">
 
+                        <ul class="dd-menu">
 
-        </li>
+                            <input type="text" id="myInput1" onkeyup="instantSearch()" placeholder="Search for components.." title="Type in a component" style="width: 100%;">
 
+                            <ul id="myUL">
 
-        <li data="Ready-Made">
-          <div class="dd-button centerIcon accordion textCenter">
-            <i class="fas fa-puzzle-piece"></i><span id="logotext" class="displayNoneB">Ready-Made</span>
-          </div>
+                                <li>
+                                    <h5 style="margin-top: 10px;">Navigation ✔️ </h5>
+                                    <!--You can do navbar-expand-lg aswel-->
+                                    <div class="col-min">
 
-          <div class="panel">
-
-            <ul class="dd-menu">
-
-              <input type="text" id="myInput1" onkeyup="instantSearch()" placeholder="Search for components.."
-                title="Type in a component" style="width: 100%;">
-
-              <ul id="myUL">
-
-                <li>
-                  <h5 style="margin-top: 10px;">Navigation ✔️ </h5>
-                  <!--You can do navbar-expand-lg aswel-->
-                  <div class="col-min">
-
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                               <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
                                 <a class="navbar-brand" href="#">Expand at xl</a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation">
@@ -1203,17 +1201,17 @@
                             </nav>
 
                               '>
-                      <img src="/IMG/components/">
+                                            <img src="/IMG/components/">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Nav expand xl</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                               <nav class="navbar navbar-dark" style="background: rgb(2,0,36);
                               background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(41,121,9,1) 0%, rgba(39,191,222,1) 100%);">
                                 <a class="navbar-brand" href="#">Never expand</a>
@@ -1252,17 +1250,17 @@
                             </nav>
                             
                               '>
-                      <img src="/IMG/components/Nav_noexpand.svg">
+                                            <img src="/IMG/components/Nav_noexpand.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Nav never expand</p>
                     </span>
-                  </div>
+                                    </div>
 
-                  <div class="col-min">
+                                    <div class="col-min">
 
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                               <nav class="navbar fixed-top navbar-expand-xl navbar-dark bg-dark">
                                 <a class="navbar-brand" href="#">Expand at xl</a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContentXL" aria-controls="navbarSupportedContentXL" aria-expanded="false" aria-label="Toggle navigation">
@@ -1300,18 +1298,18 @@
                             </nav>
 
                               '>
-                      <img src="/IMG/components/">
+                                            <img src="/IMG/components/">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <!-- On a fixed top, next element can be 100vh, since this is out of normal flow-->
                       <p>Fixed top expand xl</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                       <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
                           <a class="navbar-brand" href="#">Navbar</a>
                           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -1383,23 +1381,23 @@
                           </div>
                         </nav>
                       '>
-                      <img src="/IMG/components/">
+                                            <img src="/IMG/components/">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Navbar w/ icons</p>
                     </span>
-                  </div>
+                                    </div>
 
-                  <br style="clear:both;" />
-                </li>
+                                    <br style="clear:both;" />
+                                </li>
 
-                <li>
-                  <h5>Header </h5>
-                  <!--You can do navbar-expand-lg aswel-->
-                  <div class="col-min">
-                    <!-- 100vh - 40px header size + 8px +8 px padding top and bottom - and remove bg padding = perfect-->
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                <li>
+                                    <h5>Header </h5>
+                                    <!--You can do navbar-expand-lg aswel-->
+                                    <div class="col-min">
+                                        <!-- 100vh - 40px header size + 8px +8 px padding top and bottom - and remove bg padding = perfect-->
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                                 <div class="jumbotron" style="height: calc(100vh - 56px); margin-bottom: 0px;">
                                     <h1 class="display-3">Hello, world!</h1>
                                     <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
@@ -1410,17 +1408,17 @@
                                     </p>
                                 </div>
                               '>
-                      <img src="/IMG/components/">
+                                            <img src="/IMG/components/">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Jumbotron</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='  
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='  
                       <div class="parallax-wrapper">
                         <div class="background background--spring">
                           <h2 class="title">Spring</h2>
@@ -1481,17 +1479,17 @@
                         </section>
                       </div>
                       '>
-                      <img src="/IMG/components/Nav_noexpand.svg">
+                                            <img src="/IMG/components/Nav_noexpand.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Parralax</p>
                     </span>
-                  </div>
+                                    </div>
 
-                  <div class="col-min">
-                    <!-- 100vh - 40px header size + 8px +8 px padding top and bottom - and remove bg padding = perfect-->
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min">
+                                        <!-- 100vh - 40px header size + 8px +8 px padding top and bottom - and remove bg padding = perfect-->
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                                 <div class="jumbotron bg-success" style="height: 100vh ; margin-bottom: 0px;">
                                     <h1 class="display-3">Hello, world!</h1>
                                     <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
@@ -1502,18 +1500,18 @@
                                     </p>
                                 </div>
                               '>
-                      <img src="/IMG/components/">
+                                            <img src="/IMG/components/">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Jmbtrn 100vh</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <!-- Will have to add the CSS and JS on drop - for now will save them with Client on defualt - BIG TEST HERE-->
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='  
+                                    <!-- Will have to add the CSS and JS on drop - for now will save them with Client on defualt - BIG TEST HERE-->
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='  
                     <nav id="navbar" class="">
                       <div class="dhu12j3"><!--nav-wrapper - removed-->
                         <!-- Navbar Logo -->
@@ -1548,24 +1546,24 @@
                         </ul>
                     </div>
                     '>
-                      <img src="">
+                                            <img src="">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Da THING</p>
                     </span>
-                  </div>
+                                    </div>
 
 
-                  <br style="clear:both;" />
-                </li>
+                                    <br style="clear:both;" />
+                                </li>
 
-                <li>
-                  <h5>Content </h5>
-                  <!--You can do navbar-expand-lg aswel-->
-                  <div class="col-min">
+                                <li>
+                                    <h5>Content </h5>
+                                    <!--You can do navbar-expand-lg aswel-->
+                                    <div class="col-min">
 
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
                           <div class="jumbotron">
                               <h1 class="display-3">Hello, world!</h1>
                               <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
@@ -1576,17 +1574,17 @@
                               </p>
                           </div>
                         '>
-                      <img src="/IMG/components/">
+                                            <img src="/IMG/components/">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Jumbotron</p>
                     </span>
 
-                  </div>
+                                    </div>
 
-                  <div class="col-min __ml">
-                    <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
+                                    <div class="col-min __ml">
+                                        <div class="library-widget-thumbnail js-thumb" draggable="true" data-insert-html='
         <main>
 
   <div class="view jarallax" style="height: 100vh;">
@@ -1740,27 +1738,27 @@
 
   </main>                     
       '>
-                      <img src="/IMG/components/Nav_noexpand.svg">
+                                            <img src="/IMG/components/Nav_noexpand.svg">
 
-                    </div>
-                    <span class="search_me">
+                                        </div>
+                                        <span class="search_me">
                       <p>Parralax</p>
                     </span>
-                  </div>
+                                    </div>
 
-                  <br style="clear:both;" />
+                                    <br style="clear:both;" />
+                                </li>
+
+                            </ul>
+
+                        </ul>
+
+                    </div>
+
                 </li>
 
-              </ul>
 
-            </ul>
-
-          </div>
-
-        </li>
-
-
-        <template>
+                <template>
           <li data="Fully-Done">
             <div class="dd-button centerIcon accordion textCenter">
               <i class="fas fa-cookie"></i><span id="logotext" class="displayNoneB">Fully-Done</span>
@@ -1887,55 +1885,55 @@
 
           </li>
         </template>
-        <!--Bootstrap-->
+                <!--Bootstrap-->
 
-        <!--Icons -->
-        <!-- Images (Unsplash embeded)-->
+                <!--Icons -->
+                <!-- Images (Unsplash embeded)-->
 
 
 
-      </ul>
+            </ul>
 
-      <!--End of snippet-->
-    </div>
-
-    <div id="column2">
-      <iframe id="clientframe" src="./client/client.html" frameborder="0" ></iframe>
-    </div>
-
-    <!-- By just adding displayNone, it starts default closed, all functions working still class="displayNone to column3 to start closed-->
-    <div id="column3">
-
-      <!-- First set on page -->
-      <!-- tab_comment -->
-      <div class="tabs_master">
-        <input type="radio" id="tab1" name="tabs_master" />  
-        <input type="radio" id="tab2" name="tabs_master" checked/>  
-        <input type="radio" id="tab3" name="tabs_master" disabled  />
-        
-        <div class="labels" id="mehe">
-          <label id="tab1L" for="tab1" data-toggle="tooltip" data-trigger="hover" title="Style"><i class="fas fa-paint-brush"></i></label>
-          <label id="tab2L" for="tab2" data-toggle="tooltip" data-trigger="hover" title="Admin settings" ><i class="fas fa-cogs" ></i></label>
-          <label id="tab3L" for="tab3" data-toggle="tooltip" data-trigger="hover" title="Other"><i class="fas fa-users"></i></label>
+            <!--End of snippet-->
         </div>
-        
-        <div class="tab_container">
 
-          <!--If there is no selected element do not display tab1C contents, display Select an element first-->
-          <div id="tab1C" class="tab_content">
+        <div id="column2">
+            <iframe id="clientframe" src="./client/client.html" frameborder="0"></iframe>
+        </div>
 
-            <div id="onlyIfElem" class="tabs_tennant displayNone">
+        <!-- By just adding displayNone, it starts default closed, all functions working still class="displayNone to column3 to start closed-->
+        <div id="column3">
 
-              <div class="tab" id="__tab1">
+            <!-- First set on page -->
+            <!-- tab_comment -->
+            <div class="tabs_master">
+                <input type="radio" id="tab1" name="tabs_master" />
+                <input type="radio" id="tab2" name="tabs_master" checked/>
+                <input type="radio" id="tab3" name="tabs_master" disabled />
 
-                  <input type="checkbox" id="chck1" checked>
-                  <label class="tab-label" for="chck1">Element</label>
-                  <div class="tab-content">
-                                    
-                    <span class="ml__">Tag: </span>&nbsp&nbsp<span id="target_el" class="tag__"></span>
-                    <br>
-                    <span class="ml__">ID: </span>&nbsp&nbsp<span id="target_id" class="tag__"></span> <br>
-                    <span id="classes__" class="ml__">Classes: <br>
+                <div class="labels" id="mehe">
+                    <label id="tab1L" for="tab1" data-toggle="tooltip" data-trigger="hover" title="Style"><i class="fas fa-paint-brush"></i></label>
+                    <label id="tab2L" for="tab2" data-toggle="tooltip" data-trigger="hover" title="Admin settings"><i class="fas fa-cogs" ></i></label>
+                    <label style="pointer-events: none; opacity: 0.6;" id="tab3L" for="tab3" data-toggle="tooltip" data-trigger="hover" title="Other"><i class="fas fa-users"></i></label>
+                </div>
+
+                <div class="tab_container">
+
+                    <!--If there is no selected element do not display tab1C contents, display Select an element first-->
+                    <div id="tab1C" class="tab_content">
+
+                        <div id="onlyIfElem" class="tabs_tennant displayNone">
+
+                            <div class="tab" id="__tab1">
+
+                                <input type="checkbox" id="chck1" checked>
+                                <label class="tab-label" for="chck1">Element</label>
+                                <div class="tab-content">
+
+                                    <span class="ml__">Tag: </span>&nbsp&nbsp<span id="target_el" class="tag__"></span>
+                                    <br>
+                                    <span class="ml__">ID: </span>&nbsp&nbsp<span id="target_id" class="tag__"></span> <br>
+                                    <span id="classes__" class="ml__">Classes: <br>
                       
                     <div id="0-class" > 
 
@@ -1945,214 +1943,221 @@
                           
                             <input type="checkbox" disabled class="toggleChx" /> 
                             <span id="target_cls0" >Label text</span>
-                            <button id="del_cls0" class="toggleBtn"> x </button>
-                         
-                        </label> 
+                                    <button id="del_cls0" class="toggleBtn"> x </button>
 
-                    </div>
+                                    </label>
 
-                    <div id="1-class"> 
+                                </div>
 
-                        <input class="displayNoneSuper" checked disabled type="checkbox" id="tgl-class-1">  
+                                <div id="1-class">
 
-                        <label id="label_cls1" class="tag__">
+                                    <input class="displayNoneSuper" checked disabled type="checkbox" id="tgl-class-1">
+
+                                    <label id="label_cls1" class="tag__">
                           
                             <input type="checkbox" disabled class="toggleChx" /> 
                             <span id="target_cls1" >Label text</span>
                             <button id="del_cls1" class="toggleBtn"> x </button>
                          
-                        </label> 
+                        </label>
 
-                    </div>
+                                </div>
 
-                    <div id="2-class" > 
+                                <div id="2-class">
 
-                        <input class="displayNoneSuper" checked disabled type="checkbox" id="tgl-class-2">  
+                                    <input class="displayNoneSuper" checked disabled type="checkbox" id="tgl-class-2">
 
-                        <label id="label_cls2" class="tag__">
+                                    <label id="label_cls2" class="tag__">
                           
                             <input type="checkbox" disabled class="toggleChx" /> 
                             <span id="target_cls2" >Label text</span>
                             <button id="del_cls2" class="toggleBtn"> x </button>
                          
-                        </label> 
+                        </label>
 
-                    </div> <br>
+                                </div> <br> &nbsp&nbsp
 
-                    &nbsp&nbsp<div id="saved-value"></div>
-              
-                  </div>
+                                <div id="saved-value"></div>
 
-              </div>
-
-              <div class="tab" id="__tab3">
-
-                  <input type="checkbox" id="chck3" checked>
-                  <label class="tab-label" for="chck3">Computed</label>
-                  <div class="tab-content">
-                                    
-                      <!-- Your content here -->
-                      <div id="computed-box" class="computed-box">
-  
-                        <div class="row margin-top-row" name="row-1">
-                          <div class="col-2 margin border-top border-left">margin</div>
-                          <div class="col-1 margin border-top"></div>
-                          <div class="col-1 margin border-top"></div>
-                          <div class="col-1 margin border-top"><input name="inp" placeholder="-" autocomplete="off" id="margin-top"></div>
-                          <div class="col-1 margin border-top"></div>
-                          <div class="col-1 margin border-top"></div>
-                          <div class="col-1 margin border-top"></div>
-                          <div class="col-1 margin border-top border-right"></div>
-                        </div> 
-                        
-                        <div class="row" name="row-2">
-                          <div class="col-1 margin  border-left"></div>
-                          <div class="col-2 border solid-border-top solid-border-left">border</div>
-                          <div class="col-1 border solid-border-top"></div>
-                          <div class="col-1 border solid-border-top"><input id="border-top" name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 border solid-border-top"></div>
-                          <div class="col-1 border solid-border-top"></div>
-                          <div class="col-1 border solid-border-top solid-border-right"></div>
-                          <div class="col-1 margin border-right"></div>
-                        </div>
-                        
-                        <div class="row" name="row-3">
-                          <div class="col-1 margin border-left"></div>
-                          <div class="col-1 border solid-border-left dashed-grey-right"></div>
-                          <div class="col-2 padding dashed-grey-top nopad">padding</div>
-                          <div class="col-1 padding dashed-grey-top "><input id="padding-top" name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 padding dashed-grey-top "></div>
-                          <div class="col-1 padding  dashed-grey-top dashed-grey-right"></div>
-                          <div class="col-1 border solid-border-right"></div>
-                          <div class="col-1 margin border-right"></div>
-                        </div>
-                        
-                        <div class="row" name="row-4">
-                          <div class="col-1 margin border-left"><input id="margin-left" name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 border solid-border-left dashed-grey-right"><input id="border-left" name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 padding  solid-grey-right"><input id="padding-left" name="inp" placeholder="-" autocomplete="off"></div>
-                          
-                          <div class="col-1 element solid-grey-top" ><input id="myWidth" style="margin-left: -1px; width:21px;" name="inp" placeholder="-" autocomplete="off" ></div>
-                          <div class="col-1 element solid-grey-top "><input name="inp" placeholder="x" autocomplete="off" disabled></div>
-                          <div class="col-1 element solid-grey-top solid-grey-right"><input id="myHeight" style="margin-left: -9px; width:21px;" name="inp" placeholder="-" autocomplete="off"></div>
-                          
-                          <div class="col-1 padding dashed-grey-right"><input id="padding-right" name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 border solid-border-right "><input id="border-right" name="inp" placeholder="-" autocomplete="off"></div>
-                          <div  class="col-1 margin border-right"><input id="margin-right" name="inp" placeholder="-" autocomplete="off"></div>
-                        </div>
-                        
-                        <div class="row" name="row-5">
-                          <div class="col-1 margin border-left"></div>
-                          <div class="col-1 border solid-border-left dashed-grey-right"></div>
-                          <div class="col-1 padding  "></div>
-                          <div class="col-1 padding  solid-grey-top "></div>
-                          <div class="col-1 padding  solid-grey-top "><input id="padding-bottom" name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 padding  solid-grey-top"></div>
-                          <div class="col-1 padding  dashed-grey-right"></div>
-                          <div class="col-1 border solid-border-right"></div>
-                          <div class="col-1 margin border-right "></div>
-                        </div>
-                        
-                        <div class="row" name="row-6">
-                          <div class="col-1 margin border-left"></div>
-                          <div class="col-1 border solid-border-bot solid-border-left"></div>
-                          <div class="col-1 border solid-border-bot dashed-grey-top"></div>
-                          <div class="col-1 border solid-border-bot dashed-grey-top"></div>
-                          <div class="col-1 border solid-border-bot dashed-grey-top"><input id="border-bottom" name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 border solid-border-bot dashed-grey-top"></div>
-                          <div class="col-1 border solid-border-bot dashed-grey-top"></div>
-                          <div class="col-1 border solid-border-bot solid-border-right"></div>
-                          <div class="col-1 margin border-right"></div>
-                        </div>
-                        
-                        <div class="row" name="row-7" >
-                          <div class="col-2 margin border-bot border-left"></div>
-                          <div class="col-1 margin border-bot "></div>
-                          <div class="col-1 margin border-bot"></div>
-                          <div class="col-1 margin border-bot"><input id="margin-bottom" name="inp" placeholder="-" autocomplete="off"></div>
-                          <div class="col-1 margin border-bot"></div>
-                          <div class="col-1 margin border-bot"></div>
-                          <div class="col-1 margin border-bot "></div>
-                          <div class="col-1 margin border-bot border-right"></div>
-                        </div>
-                        
-                        
-                      </div>
-                
-
-
-                  </div>
-              </div>
-
-              <div class="tab" id="__tab2" >
-
-                  <input type="checkbox" id="chck2" checked >
-                  <label class="tab-label" for="chck2">Position</label>
-                  <div class="tab-content">
-                                    
-                      <!-- Your content here -->
-
-                      <div>Max-Dimension<hr>
-                    
-                        <div class="row__" > <!--Randul I -->
-    
-                          <div class="column__"><!-- Col1-->
-      
-
-    
-                            <div class="row__"><!--R2 -->
-
-                              <div class="column__">
-                                <span>max-w</span>
-                                <input class="mm__" placeholder="max" name="max-width" id="maxWidth">
-                              </div>
-    
-                              <div class="column">
-                                <span>min-w</span>
-                                <input class="mm__" placeholder="min" name="min-width" id="minWidth">
-                              </div>
-    
-    
                             </div>
-    
-                          </div>
-    
-                          <div class="column__ ml__"><!-- Col2-->
-    
 
-    
-                            <div class="row__"> <!--R2 -->
-                              <div class="column__">
-                                <span>max-h</span>
-                                <input class="mm__" placeholder="max" name="max-height" id="maxHeight">
-                              </div>
-                              <div class="column__">
-                                  <span>min-h</span>
-                                <input class="mm__" placeholder="min" name="min-height" id="minHeight">
-                              </div>
-    
-    
+                        </div>
+
+                        <div class="tab" id="__tab3">
+
+                            <input type="checkbox" id="chck3" checked>
+                            <label class="tab-label" for="chck3">Computed</label>
+                            <div class="tab-content">
+
+                                <!-- Your content here -->
+                                <div id="computed-box" class="computed-box">
+
+                                    <div class="row margin-top-row" name="row-1">
+                                        <div class="col-2 margin border-top border-left">margin</div>
+                                        <div class="col-1 margin border-top"></div>
+                                        <div class="col-1 margin border-top"></div>
+                                        <div class="col-1 margin border-top"><input name="inp" placeholder="-" autocomplete="off" id="margin-top"></div>
+                                        <div class="col-1 margin border-top"></div>
+                                        <div class="col-1 margin border-top"></div>
+                                        <div class="col-1 margin border-top"></div>
+                                        <div class="col-1 margin border-top border-right"></div>
+                                    </div>
+
+                                    <div class="row" name="row-2">
+                                        <div class="col-1 margin  border-left"></div>
+                                        <div class="col-2 border solid-border-top solid-border-left">border</div>
+                                        <div class="col-1 border solid-border-top"></div>
+                                        <div class="col-1 border solid-border-top"><input id="border-top" name="inp" placeholder="-" autocomplete="off"></div>
+                                        <div class="col-1 border solid-border-top"></div>
+                                        <div class="col-1 border solid-border-top"></div>
+                                        <div class="col-1 border solid-border-top solid-border-right"></div>
+                                        <div class="col-1 margin border-right"></div>
+                                    </div>
+
+                                    <div class="row" name="row-3">
+                                        <div class="col-1 margin border-left"></div>
+                                        <div class="col-1 border solid-border-left dashed-grey-right"></div>
+                                        <div class="col-2 padding dashed-grey-top nopad">padding</div>
+                                        <div class="col-1 padding dashed-grey-top "><input id="padding-top" name="inp" placeholder="-" autocomplete="off"></div>
+                                        <div class="col-1 padding dashed-grey-top "></div>
+                                        <div class="col-1 padding  dashed-grey-top dashed-grey-right"></div>
+                                        <div class="col-1 border solid-border-right"></div>
+                                        <div class="col-1 margin border-right"></div>
+                                    </div>
+
+                                    <div class="row" name="row-4">
+                                        <div class="col-1 margin border-left"><input id="margin-left" name="inp" placeholder="-" autocomplete="off"></div>
+                                        <div class="col-1 border solid-border-left dashed-grey-right"><input id="border-left" name="inp" placeholder="-" autocomplete="off"></div>
+                                        <div class="col-1 padding  solid-grey-right"><input id="padding-left" name="inp" placeholder="-" autocomplete="off"></div>
+
+                                        <div class="col-1 element solid-grey-top"><input id="myWidth" style="margin-left: -1px; width:21px;" name="inp" placeholder="-" autocomplete="off"></div>
+                                        <div class="col-1 element solid-grey-top "><input name="inp" placeholder="x" autocomplete="off" disabled></div>
+                                        <div class="col-1 element solid-grey-top solid-grey-right"><input id="myHeight" style="margin-left: -9px; width:21px;" name="inp" placeholder="-" autocomplete="off"></div>
+
+                                        <div class="col-1 padding dashed-grey-right"><input id="padding-right" name="inp" placeholder="-" autocomplete="off"></div>
+                                        <div class="col-1 border solid-border-right "><input id="border-right" name="inp" placeholder="-" autocomplete="off"></div>
+                                        <div class="col-1 margin border-right"><input id="margin-right" name="inp" placeholder="-" autocomplete="off"></div>
+                                    </div>
+
+                                    <div class="row" name="row-5">
+                                        <div class="col-1 margin border-left"></div>
+                                        <div class="col-1 border solid-border-left dashed-grey-right"></div>
+                                        <div class="col-1 padding  "></div>
+                                        <div class="col-1 padding  solid-grey-top "></div>
+                                        <div class="col-1 padding  solid-grey-top "><input id="padding-bottom" name="inp" placeholder="-" autocomplete="off"></div>
+                                        <div class="col-1 padding  solid-grey-top"></div>
+                                        <div class="col-1 padding  dashed-grey-right"></div>
+                                        <div class="col-1 border solid-border-right"></div>
+                                        <div class="col-1 margin border-right "></div>
+                                    </div>
+
+                                    <div class="row" name="row-6">
+                                        <div class="col-1 margin border-left"></div>
+                                        <div class="col-1 border solid-border-bot solid-border-left"></div>
+                                        <div class="col-1 border solid-border-bot dashed-grey-top"></div>
+                                        <div class="col-1 border solid-border-bot dashed-grey-top"></div>
+                                        <div class="col-1 border solid-border-bot dashed-grey-top"><input id="border-bottom" name="inp" placeholder="-" autocomplete="off"></div>
+                                        <div class="col-1 border solid-border-bot dashed-grey-top"></div>
+                                        <div class="col-1 border solid-border-bot dashed-grey-top"></div>
+                                        <div class="col-1 border solid-border-bot solid-border-right"></div>
+                                        <div class="col-1 margin border-right"></div>
+                                    </div>
+
+                                    <div class="row" name="row-7">
+                                        <div class="col-2 margin border-bot border-left"></div>
+                                        <div class="col-1 margin border-bot "></div>
+                                        <div class="col-1 margin border-bot"></div>
+                                        <div class="col-1 margin border-bot"><input id="margin-bottom" name="inp" placeholder="-" autocomplete="off"></div>
+                                        <div class="col-1 margin border-bot"></div>
+                                        <div class="col-1 margin border-bot"></div>
+                                        <div class="col-1 margin border-bot "></div>
+                                        <div class="col-1 margin border-bot border-right"></div>
+                                    </div>
+
+
+                                </div>
+
+
+
                             </div>
-    
-                          </div>
-    
                         </div>
-    
-                        <div class="row__"> <!--Randul II -->
-    
-                          <div class="column__">
-                            <span class="faded_m">Rendered as <span id="renderedWidth"></span></span>
-                          </div>
-    
-                          <div class="column__ ml__">
-                            <span class="faded_m">Rendered as <span id="renderedHeight"></span></span>
-                          </div>
-    
-                        </div>
-    
-                      </div>
-                     
-                     <!--
+
+                        <div class="tab" id="__tab2">
+
+                            <input type="checkbox" id="chck2" checked>
+                            <label class="tab-label" for="chck2">Position</label>
+                            <div class="tab-content">
+
+                                <!-- Your content here -->
+
+                                <div>Max-Dimension
+                                    <hr>
+
+                                    <div class="row__">
+                                        <!--Randul I -->
+
+                                        <div class="column__">
+                                            <!-- Col1-->
+
+
+
+                                            <div class="row__">
+                                                <!--R2 -->
+
+                                                <div class="column__">
+                                                    <span>max-w</span>
+                                                    <input class="mm__" placeholder="max" name="max-width" id="maxWidth">
+                                                </div>
+
+                                                <div class="column">
+                                                    <span>min-w</span>
+                                                    <input class="mm__" placeholder="min" name="min-width" id="minWidth">
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="column__ ml__">
+                                            <!-- Col2-->
+
+
+
+                                            <div class="row__">
+                                                <!--R2 -->
+                                                <div class="column__">
+                                                    <span>max-h</span>
+                                                    <input class="mm__" placeholder="max" name="max-height" id="maxHeight">
+                                                </div>
+                                                <div class="column__">
+                                                    <span>min-h</span>
+                                                    <input class="mm__" placeholder="min" name="min-height" id="minHeight">
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row__">
+                                        <!--Randul II -->
+
+                                        <div class="column__">
+                                            <span class="faded_m">Rendered as <span id="renderedWidth"></span></span>
+                                        </div>
+
+                                        <div class="column__ ml__">
+                                            <span class="faded_m">Rendered as <span id="renderedHeight"></span></span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!--
                       <div>Margin<hr>
                         
                         <div class="patratel">
@@ -2207,223 +2212,225 @@
     
                       </div>
                        -->
-                  </div>
+                            </div>
 
-              </div>
+                        </div>
 
-              <div class="tab" id="__tab4">
+                        <div class="tab" id="__tab4">
 
-                  <input type="checkbox" id="chck4" >
-                  <label class="tab-label" for="chck4">Dom-Tree Viewer</label>
-                  <div class="tab-content">
-                                    
-                      <!-- Your content here -->
-              
-                  </div>
+                            <input type="checkbox" id="chck4">
+                            <label class="tab-label" for="chck4">Dom-Tree Viewer</label>
+                            <div class="tab-content">
 
-              </div>
+                                <!-- Your content here -->
 
-              <div class="tab" id="__tab5">
+                            </div>
 
-                  <input type="checkbox" id="chck5" >
-                  <label class="tab-label" for="chck5">Tab5</label>
-                  <div class="tab-content">
-                                    
-                      <!-- Your content here -->
-              
-                  </div>
+                        </div>
 
-              </div>
+                        <div class="tab" id="__tab5">
 
-              <div class="tab" id="__tab6">
+                            <input type="checkbox" id="chck5">
+                            <label class="tab-label" for="chck5">Tab5</label>
+                            <div class="tab-content">
 
-                  <input type="checkbox" id="chck6" >
-                  <label class="tab-label" for="chck6">Tab6</label>
-                  <div class="tab-content">
-                                    
-                      <!-- Your content here -->
-              
-                  </div>
+                                <!-- Your content here -->
 
-              </div>
-            </div>
+                            </div>
 
-            <h3 id="selectFirst">Please select an element first.</h3>
+                        </div>
 
-          </div>
+                        <div class="tab" id="__tab6">
 
-          <!--Admin-->
-          <div id="tab2C" class="tab_content">
-            
-            <div class="event-listeners">
-              <h3>Event Listeners</h3><hr>
+                            <input type="checkbox" id="chck6">
+                            <label class="tab-label" for="chck6">Tab6</label>
+                            <div class="tab-content">
 
-              <label class="toggle">
+                                <!-- Your content here -->
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <h3 id="selectFirst">Please select an element first.</h3>
+
+                </div>
+
+                <!--Admin-->
+                <div id="tab2C" class="tab_content">
+
+                    <div class="event-listeners">
+                        <h3>Event Listeners</h3>
+                        <hr>
+
+                        <label class="toggle">
                 <p>Hover</p>
                 <span data-toggle="tooltip" data-trigger="hover" title="Toggle Mouseover Event Listener">
                   <input id="hover-switch" type="checkbox" onclick="toggleHoverListener()" >
                   <span class="roundbutton" > </span>
                 </span>
-              </label> 
+              </label>
 
-              <label class="toggle">
+                        <label class="toggle">
                 
                 <p>Click</p>
                 <span data-toggle="tooltip" data-trigger="hover" title="Toggle Left-Click Event Listener">
                   <input id="click-switch" type="checkbox" onclick="toggleClickListener()">
                   <span class="roundbutton"> </span>
                 </span>
-              </label> 
+              </label>
 
-            </div>
+                    </div>
 
 
-              <!-- The old on/ off switch
+                    <!-- The old on/ off switch
             <button class="button ripple"  onclick="toggleHoverListener()"><span id="listener1" class="led"></span> Hover</button> 
             <div class="led-green"></div>-->
 
 
 
-            <h2>Log</h2>
-            <div id="log-container">
-              <div id="log"></div>
-              <button id="clear" onclick="clearLogs()" data-toggle="tooltip" data-trigger="hover" title="Clear Console"><i class="fas fa-eraser"></i></button>
+                    <h2>Log</h2>
+                    <div id="log-container">
+                        <div id="log"></div>
+                        <button id="clear" onclick="clearLogs()" data-toggle="tooltip" data-trigger="hover" title="Clear Console"><i class="fas fa-eraser"></i></button>
+                    </div>
+
+
+
+                    <div id="tab3C" class="tab_content">
+                        N/A
+
+                    </div>
+
+                </div>
             </div>
-            
-          
 
-          <div id="tab3C" class="tab_content">
-            N/A
-          
-          </div>
-          
+
+
         </div>
-        </div>  
-
-
-
-    </div>
 
     </div>
 
 
-  <footer id="footer">
+    <footer id="footer">
 
 
 
-    <!--<span id="computed-box-holder">Asta va lua dimenisunile de margin etc</span> -->
-    <span class="tooltiper" id="tooltip1">Hovered elements</span>
-    <span id="snackbar">Turning off/on</span>
+        <!--<span id="computed-box-holder">Asta va lua dimenisunile de margin etc</span> -->
+        <span class="tooltiper" id="tooltip1">Hovered elements</span>
+        <span id="snackbar">Turning off/on</span>
 
-    <!--Leaving this here for now -->
-    <div id="resize_bar" class="displayNone displayNoneSuper noSelect">
+        <!--Leaving this here for now -->
+        <div id="resize_bar" class="displayNone displayNoneSuper noSelect">
 
-      <div id="b1" class="__item" onclick=" s320()"><i class="fas fa-mobile-alt">320px</i></div>
+            <div id="b1" class="__item" onclick=" s320()"><i class="fas fa-mobile-alt">320px</i></div>
 
-      <div id="b2" class="__item" onclick=" s480()"> <i class="fas fa-mobile-alt">480px</i></div>
+            <div id="b2" class="__item" onclick=" s480()"> <i class="fas fa-mobile-alt">480px</i></div>
 
-      <div id="b3" class="__item" onclick=" s768()"><i class="fas fa-tablet-alt">768px</i></div>
+            <div id="b3" class="__item" onclick=" s768()"><i class="fas fa-tablet-alt">768px</i></div>
 
-      <div id="b4" class="__item" onclick=" s1366()"> <i class="fas fa-laptop">1366px</i></div>
+            <div id="b4" class="__item" onclick=" s1366()"> <i class="fas fa-laptop">1366px</i></div>
 
-      <div id="b5" class="__item" onclick=" s1920()"><i class="fas fa-desktop">1920px</i></div>
+            <div id="b5" class="__item" onclick=" s1920()"><i class="fas fa-desktop">1920px</i></div>
 
-      <div id="live" class="__item"><i> <b>Live<b><div id="iframe_live_wh" class="displayNoneSuper">w & h</div></i></div>
-      
-
-    </div>
-
-    <div id="resize_bar2" class="displayNoneSuper">
-
-      <div onclick="hide_previewbar()">
-        <i id="rotate__me" class="fas fa-chevron-left rotate" style="color: orangered;"></i>
-      </div>
-
-    </div>
+            <div id="live" class="__item"><i> <b>Live<b><div id="iframe_live_wh" class="displayNoneSuper">w & h</div></i></div>
 
 
+        </div>
 
-  </footer>
+        <div id="resize_bar2" class="displayNoneSuper">
 
-  <script>
-    //To toggle dropdowns from Dom Viewer
-    var toggler = document.getElementsByClassName("caret");
-    var i;
+            <div onclick="hide_previewbar()">
+                <i id="rotate__me" class="fas fa-chevron-left rotate" style="color: orangered;"></i>
+            </div>
 
-    for (i = 0; i < toggler.length; i++) {
-      toggler[i].addEventListener("click", function () {
-        this.parentElement.querySelector(".nested").classList.toggle("activelar");
-        this.classList.toggle("caret-down");
-      });
-    }
-  </script>
+        </div>
 
-<script>//Create download file with iFrame HTML Code (gibMiData())
 
-  var storyPath = window.location.href;
-  console.API; // Clear console before logging new data
-  if (typeof console._commandLineAPI !== "undefined") {
-    console.API = console._commandLineAPI; //chrome
-  } else if (typeof console._inspectorCommandLineAPI !== "undefined") {
-    console.API = console._inspectorCommandLineAPI; //Safari
-  } else if (typeof console.clear !== "undefined") {
-    console.API = console;
-  }
 
-  // Extracts high level details of current story
-  function gibMiData() {
-    console.API.clear();
-    storyObj = {};
-    storyObj = $("clientframe").contentWindow.document
-      .documentElement.outerHTML;
-    console.save(storyObj);
-  }
-  console.save = function (data, filename) {
-    if (!data) {
-      console.error("Console.save: No data");
-      return;
-    }
+    </footer>
 
-    if (!filename) filename = "index.html";
+    <script>
+        //To toggle dropdowns from Dom Viewer
+        var toggler = document.getElementsByClassName("caret");
+        var i;
 
-    if (typeof data === "object") {
-      data = JSON.stringify(data, undefined, 4);
-    }
+        for (i = 0; i < toggler.length; i++) {
+            toggler[i].addEventListener("click", function() {
+                this.parentElement.querySelector(".nested").classList.toggle("activelar");
+                this.classList.toggle("caret-down");
+            });
+        }
+    </script>
 
-    var blob = new Blob([data], {
-        type: "text/json"
-      }),
-      e = document.createEvent("MouseEvents"),
-      a = document.createElement("a");
+    <script>
+        //Create download file with iFrame HTML Code (gibMiData())
 
-    a.download = filename;
-    a.href = window.URL.createObjectURL(blob);
-    a.dataset.downloadurl = ["text/json", a.download, a.href].join(":");
-    e.initMouseEvent(
-      "click",
-      true,
-      false,
-      window,
-      0,
-      0,
-      0,
-      0,
-      0,
-      false,
-      false,
-      false,
-      false,
-      0,
-      null
-    );
-    a.dispatchEvent(e);
-  };
-</script>
+        var storyPath = window.location.href;
+        console.API; // Clear console before logging new data
+        if (typeof console._commandLineAPI !== "undefined") {
+            console.API = console._commandLineAPI; //chrome
+        } else if (typeof console._inspectorCommandLineAPI !== "undefined") {
+            console.API = console._inspectorCommandLineAPI; //Safari
+        } else if (typeof console.clear !== "undefined") {
+            console.API = console;
+        }
 
-  <!--Test script for obtaining all IDs and classes-->
+        // Extracts high level details of current story
+        function gibMiData() {
+            console.API.clear();
+            storyObj = {};
+            storyObj = $("clientframe").contentWindow.document
+                .documentElement.outerHTML;
+            console.save(storyObj);
+        }
+        console.save = function(data, filename) {
+            if (!data) {
+                console.error("Console.save: No data");
+                return;
+            }
 
-  <script id="toggleJs" src="./JS/logic_script.js"></script>
-  <script src="./JS/layout_script.js"></script>
+            if (!filename) filename = "index.html";
+
+            if (typeof data === "object") {
+                data = JSON.stringify(data, undefined, 4);
+            }
+
+            var blob = new Blob([data], {
+                    type: "text/json"
+                }),
+                e = document.createEvent("MouseEvents"),
+                a = document.createElement("a");
+
+            a.download = filename;
+            a.href = window.URL.createObjectURL(blob);
+            a.dataset.downloadurl = ["text/json", a.download, a.href].join(":");
+            e.initMouseEvent(
+                "click",
+                true,
+                false,
+                window,
+                0,
+                0,
+                0,
+                0,
+                0,
+                false,
+                false,
+                false,
+                false,
+                0,
+                null
+            );
+            a.dispatchEvent(e);
+        };
+    </script>
+
+    <!--Test script for obtaining all IDs and classes-->
+
+    <script id="toggleJs" src="./JS/logic_script.js"></script>
+    <script src="./JS/layout_script.js"></script>
 </body>
 
 </html>
