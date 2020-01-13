@@ -1,112 +1,55 @@
 //____Layout UI JAVASCRIPT____
 var $ = function (id) { return document.getElementById(id); };// Now $('id') possible in Vanilla JS
-var $$ = function (id) { return clientFrameWindow.getElementById(id); };// Now $('id') possible in Vanilla JS
-var clientFrameWindow = $("clientframe").contentWindow.document;
-//_target is passing the value around from other function ;) 
+var $$ = function (id) { return clientFrameWindow.getElementById(id); };// Now $$('id') for iFrame's elements
 
-  var col1 = document.getElementById('column1');
-  var col3 = document.getElementById('column3');
-  var nav1 = document.getElementById('left_part');
-  var nav2 = document.getElementById('right_part');
-  var frame = document.getElementById('clientframe');
-  var hidden = false;
-  var diviframe =  document.getElementById('iframe_live_wh');
-  var resizebuttons =  document.getElementById('resize_bar');
-  var oneSs = document.styleSheets[0];
-  var adminButtons = $('admin-buttons');
- 
-  //For Column1 accordion
-  var acc = document.getElementsByClassName("accordion");
-  var panel = document.getElementsByClassName('panel');
-  var col2 = document.getElementById('column2');
+var clientFrameWindow = $("clientframe").contentWindow.document,
+    iframeDimensions =  $('iframe_live_wh'),
+    frame = $('clientframe'),
+    nav1 = $('left_part'),
+    nav2 = $('right_part'),s
+    resizebuttons =  $('resize_bar'),
+    adminButtons = $('admin-buttons'),
+    oneSs = document.styleSheets[0],
+    hidden = false;
 
-  for (var i = 0; i < acc.length; i++) {
-    acc[i].onclick = function () {
-      var setClasses = !this.classList.contains('active');
-      setClass(acc, 'active', 'remove');
-      setClass(panel, 'show', 'remove');
-
-      if (setClasses) {
-        this.classList.toggle("active");
-        this.nextElementSibling.classList.toggle("show");
-        /*Add the class when accordion is open*/
-        col2.classList.add("shrinkCol2"); //this one means push Col3 away 
-        col3.classList.add("displayNone");
-        adminButtons.classList.add("noMarginRight");
-
-      } else {
-        /*Remove the class when accordion isn't open*/
-        col2.classList.remove("shrinkCol2"); //this one means push Col3 away 
-        col3.classList.remove("displayNone");
-        adminButtons.classList.remove("noMarginRight");
-      }
-
-    }
-  }
-
-  function setClass(els, className, fnName) {
-    for (var i = 0; i < els.length; i++) {
-      els[i].classList[fnName](className);
-    }
-  }
-
-
+  //Mini-Drawer-Burger -If you add all classes below by default, you should have mini-drawer by default
+function columnOne() {
+  //Extend-minify
+  $('column1').classList.toggle('column1_mini');
+  nav1.classList.toggle('column1_mini');
   
-  function hide_leftmenu() {
-    col1.classList.toggle('displayNone');
-    nav1.classList.toggle('displayNone');
+  //For when hide left panel button is used and want to show again from burger
+  $('column1').classList.remove('displayNone');
+  nav1.classList.remove('displayNone');
+
+  //Hide Logo text
+  $('logotext').classList.toggle('displayNone'); //Logo text hidden
+
+  //Hides all text
+  document.querySelectorAll("#sidebar_menu li .dd-button span").forEach(function (el) {
+    el.classList.toggle('displayNoneB');
+  });
+
+  //Center all icons
+  document.querySelectorAll(".centerIcon").forEach(function (el) {
+    el.classList.toggle('textCenter');
+  });
+
+  //From big menu to mini-hover menu - need the two stylesheet below
+  let el = $("style1");
+  if (el.href.match("./CSS/empty.css")) {
+    el.href = "./CSS/minime.css";
+  } else {
+    el.href = "./CSS/empty.css";
   }
-  
-  function hide_rightmenu() {
-    col3.classList.toggle('displayNone');
-    adminButtons.classList.toggle('noMarginRight');
-  }
+}
 
-  //Mini-Drawer-Burger -If you add all classes below by default, you should have mini-drawer default i ntheory
-  function columnOne() {
-    logotext = document.getElementById('logotext');
+function get_iframe_wh(){
+  let wd = $('clientframe').clientWidth; //the entire iFrame on CodePen
+  let wh = $('clientframe').clientHeight;   
+  iframeDimensions.innerHTML =  wd + " x " + wh ;
+}
 
-    //Extend-minify
-    col1.classList.toggle('column1_mini');
-    nav1.classList.toggle('column1_mini');
-    
-    //For when hide left panel button is used and want to show again from burger
-    col1.classList.remove('displayNone');
-    nav1.classList.remove('displayNone');
-
-    //Hide Logo text
-    logotext.classList.toggle('displayNone'); //Logo text hidden
-
-    //Hides all text
-    document.querySelectorAll("#sidebar_menu li .dd-button span").forEach(function (el) {
-      el.classList.toggle('displayNoneB');
-    });
-
-    //Center all icons
-    document.querySelectorAll(".centerme").forEach(function (el) {
-      el.classList.toggle('textCenter');
-    });
-
-    //From big menu to mini-hover menu - need the two stylesheet - working! 
-    var el = document.getElementById("style1");
-    if (el.href.match("./CSS/empty.css")) {
-      el.href = "./CSS/minime.css";
-    } else {
-      el.href = "./CSS/empty.css";
-    }
-  }
-
-  function get_iframe_wh(){
-    
-    //Document's width and height
-    var wd = document.getElementById('clientframe').clientWidth; //the entire iFrame on CodePen
-    var wh = document.getElementById('clientframe').clientHeight;   
-  
-    // put the result into a h1 tag
-    diviframe.innerHTML =  wd + " x " + wh ;
-    
-  }
-  
 
 //Preview Eye
 $('preview-eye').addEventListener('click', preview, false);
@@ -127,7 +70,7 @@ function preview() {
         
         $$("eventS").style.paddingBottom = "0px";//remove extra padding at bottom
 
-
+      //_target is passing the value around from other function ;) 
         if (_target !== undefined){
           _target.classList.remove('active__u'); // remove red border if _target not undefined
         } 
@@ -177,18 +120,18 @@ function preview() {
 
 
 
-    nav = document.getElementById('myNav');
-    col2 = document.getElementById('column2');
+    nav = $('myNav');
+    col2 = $('column2');
 
-    col1.classList.toggle('displayNoneSuper');
+    $('column1').classList.toggle('displayNoneSuper');
     col2.classList.toggle('fullheight');
-    col3.classList.toggle('displayNoneSuper');
+    $('column3').classList.toggle('displayNoneSuper');
     nav.classList.toggle('displayNoneSuper');
     
     clientFrameWindow.body.classList.toggle('preview_class101');
 
     resizebuttons.classList.toggle("displayNoneSuper");
-    document.getElementById('resize_bar2').classList.toggle("displayNoneSuper");
+    $('resize_bar2').classList.toggle("displayNoneSuper");
 
     frame.classList.remove('s320',"s480", "s768", "s1366", "s1920");
     
@@ -196,7 +139,7 @@ function preview() {
 
     //i also need to remove the eventlistener, or the outlining on hover
     get_iframe_wh();
-    diviframe.classList.toggle('displayNoneSuper');
+    iframeDimensions.classList.toggle('displayNoneSuper');
     
 
     //get the outside click
@@ -262,8 +205,8 @@ clientFrameWindow.onkeydown = KeyPress;
 
 function hide_previewbar() {
   resizebuttons.classList.toggle("displayNoneSuper");
-  document.getElementById('resize_bar2').classList.toggle("go_left");
-  document.getElementById('rotate__me').classList.toggle("down__me");
+  $('resize_bar2').classList.toggle("go_left");
+  $('rotate__me').classList.toggle("down__me");
 }
 
 /*Unique class on several elements - I can rewrite this function to use in any case :)*/
@@ -331,6 +274,47 @@ function s1920(){
     }
 })();
 
+  //For Column1 accordion
+  var acc = document.getElementsByClassName("accordion");
+  var panel = document.getElementsByClassName('panel');
+  var col2 = $('column2');
+
+  for (var i = 0; i < acc.length; i++) {
+    acc[i].onclick = function () {
+      var setClasses = !this.classList.contains('active');
+      setClass(acc, 'active', 'remove');
+      setClass(panel, 'show', 'remove');
+
+      if (setClasses) {
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+        /*Add the class when accordion is open*/
+        col2.classList.add("shrinkCol2"); //this one means push $('column3') away 
+        $('column3').classList.add("displayNone");
+        adminButtons.classList.add("noMarginRight");
+
+      } else {
+        /*Remove the class when accordion isn't open*/
+        col2.classList.remove("shrinkCol2"); //this one means push $('column3') away 
+        $('column3').classList.remove("displayNone");
+        adminButtons.classList.remove("noMarginRight");
+      }
+
+    }
+  }
+  function setClass(els, className, fnName) {
+    for (var i = 0; i < els.length; i++) {
+      els[i].classList[fnName](className);
+    }
+  }
+  function hide_leftmenu() {
+    $('column1').classList.toggle('displayNone');
+    nav1.classList.toggle('displayNone');
+  }
+  function hide_rightmenu() {
+    $('column3').classList.toggle('displayNone');
+    adminButtons.classList.toggle('noMarginRight');
+  }
 
 
 
