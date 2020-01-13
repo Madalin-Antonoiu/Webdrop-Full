@@ -1,24 +1,12 @@
 //Shorten document.getElementById('') into just $('') in plain javaScript
-var $ = function (id) { return document.getElementById(id); };// Now $('id') possible in Vanilla JS
-var $$ = function (id) { return clientFrameWindow.getElementById(id); };// Now $('id') possible in Vanilla JS
-var clientFrameWindow = $("clientframe").contentWindow.document;
-var iframebody= $("clientframe").contentWindow.document.body;
-var droppables = $("sidebar_menu");
-var diviframe = $("iframe_live_wh");
-
-var _target ;
+var $ = function (id) { return document.getElementById(id) }, // Now $('id') possible in Vanilla JS
+    $$ = function (id) { return clientFrameWindow.getElementById(id) }, 
+    clientFrameWindow = $("clientframe").contentWindow.document,
+    iframebody= $("clientframe").contentWindow.document.body,
+    droppables = $("sidebar_menu"),
+    diviframe = $("iframe_live_wh"),
+    _target ;
   
-function toggle_iframe_wh() {
-  var diviframe = $("iframe_live_wh");
-  //Document's width and height
-  var wd = $("clientframe").clientWidth; //the entire iFrame on CodePen
-  var wh = $("clientframe").clientHeight;
-
-  // put the result into a h1 tag
-  diviframe.innerHTML = wd + " x " + wh;
-  diviframe.classList.toggle("displayNoneSuper");
-}
-
  // Your code to run since DOM is loaded and ready
 clientFrameWindow.addEventListener("DOMContentLoaded", function() { 
   
@@ -140,18 +128,6 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
       "text/html",
       e.target.getAttribute("data-insert-html")
     );
-
-    /*Remove menu on dragStart - doesn't work yet
-    var menu = $('dd-menu');
-    menu.classList.add('displayNoneSuper');
-    */
-
-    /*Drag image
-    var img = new Image(); 
-    img.src = './img/alerts.jpg'
-      */
-    //get data attribute on click :)
-    //console.log(e.target.getAttribute('data-insert-html'));
   }
 
   function onDrop(e) {
@@ -179,38 +155,21 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
     var item = clientFrameWindow.getElementById("fr-cell"); //Gets only the topmost fr-cell ID, in order of DOM (not ideal)
     e.target.removeChild(item);
 
-    //console.log( x  + 'The data carried over'); console.log(frag);
-
-    //var placeholder = clientFrameWindow.getElementById('fr-cell');
-    //placeholder.remove();
-    //if (tgt.classList.contains ) {
-
-    //if (e.target.parentNode.classList.contains('__placeholder')){
-    // e.target.parentNode.classList.remove('__placeholder') }
-
-    //tgt.parentNode.removeChild(tgt);
-    // or tgt.remove();
   }
 
 
 });
 
-/*  Add a new CSS Stylesheets
-function addCss(fileName) {
+function toggle_iframe_wh() {
+  var diviframe = $("iframe_live_wh");
+  //Document's width and height
+  var wd = $("clientframe").clientWidth; //the entire iFrame on CodePen
+  var wh = $("clientframe").clientHeight;
 
-  var head = document.head;
-  var link = document.createElement("link");
-
-  link.type = "text/css";
-  link.rel = "stylesheet";
-  link.href = fileName;
-
-  head.appendChild(link);
+  // put the result into a h1 tag
+  diviframe.innerHTML = wd + " x " + wh;
+  diviframe.classList.toggle("displayNoneSuper");
 }
-
-addCss('{my-url}');
-
-*/
 
 // Component Search - W3School Adapted https://www.w3schools.com/howto/howto_js_filter_lists.asp
 function instantSearch() {
@@ -242,10 +201,8 @@ function instantSearch() {
   }
 }
 
-// initial load
 
-//Functions for eventListeners
-   
+//Function for eventListeners
 function mouseEnter(e) {
     
   //Add outline on hover
@@ -275,7 +232,6 @@ function mouseEnter(e) {
   $('[data-toggle="tooltip"]').tooltip({delay: { "show": 500, "hide": 100 }})
 })
 
-
 //Control Panel
 function toggleEditIframe() {
   if (
@@ -299,6 +255,7 @@ function toggleEditIframe() {
       "clientframe"
     ).contentWindow.document.body.contentEditable = true;
     console.log('Edit iFrame ON.')
+
     //Snackbar notification
     $("snackbar").innerHTML = "IFrame Edit : ON";
     var x = $("snackbar");
@@ -308,7 +265,6 @@ function toggleEditIframe() {
     }, 2000);
   }
 }
-
 function toggleOutlineAll() {
   //Toggle iFrame outline dashed elements
   var x = clientFrameWindow.body.querySelectorAll("*");
@@ -319,27 +275,26 @@ function toggleOutlineAll() {
   }
 
   //Known bug _ adding new elements with outline on will not remove it when turning off.
-
+  let firstfelem = clientFrameWindow.body.children[0];
   //Snackbar notifications toggle
-  if (clientFrameWindow.body.classList.contains("outline-dashed")) {
+  if (firstfelem.classList.contains("outline-dashed")) {
     //Snackbar notification ON
-    $("snackbar").innerHTML = "Outline: ON";
+    $("snackbar").innerHTML = "Outline : ON";
     var x = $("snackbar");
     x.className = "show";
     setTimeout(function () {
       x.className = x.className.replace("show", "");
-    }, 1000);
+    }, 2000);
   } else {
     //Snackbar notification OFF
-    $("snackbar").innerHTML = "Outline: OFF";
+    $("snackbar").innerHTML = "Outline : OFF";
     var x = $("snackbar");
     x.className = "show";
     setTimeout(function () {
       x.className = x.className.replace("show", "");
-    }, 1000);
+    }, 2000);
   }
 }
-
 function showClickedElIdClass(e) {
   // If click target's id is not empty
   if (e.target.id != "") {
@@ -350,7 +305,6 @@ function showClickedElIdClass(e) {
     //e.target.style.outline = "none";
   }
 }
-
 //Event Listener Switches 
 function toggleHoverListener(){
  
@@ -391,7 +345,6 @@ function toggleClickListener(){
   }; 
 }
 // End of it 
-
 
 //console.log on screen
 rewireLoggingToElement(
@@ -445,7 +398,6 @@ function forFun(){
           console.log('Turn on the Click Event Handler first before clicking.')
         } 
 }
-
 function oneClickForAll(event) {
 
   x = event.target; 
@@ -1104,82 +1056,8 @@ function oneClickForAll(event) {
     }
   }
 }
-
 function clearLogs(){
   document.getElementById('log').innerHTML = '';
 }
-
-//Create download file with iFrame HTML Code (gibMiData())
-var storyPath = window.location.href;
-console.API; // Clear console before logging new data
-if (typeof console._commandLineAPI !== "undefined") {
-  console.API = console._commandLineAPI; //chrome
-} else if (typeof console._inspectorCommandLineAPI !== "undefined") {
-  console.API = console._inspectorCommandLineAPI; //Safari
-} else if (typeof console.clear !== "undefined") {
-  console.API = console;
-}
-
-// Extracts high level details of current story
-function gibMiData() {
-  console.API.clear();
-  storyObj = {};
-  storyObj = $("clientframe").contentWindow.document
-    .documentElement.outerHTML;
-  console.save(storyObj);
-}
-console.save = function (data, filename) {
-  if (!data) {
-    console.error("Console.save: No data");
-    return;
-  }
-
-  if (!filename) filename = "index.html";
-
-  if (typeof data === "object") {
-    data = JSON.stringify(data, undefined, 4);
-  }
-
-  var blob = new Blob([data], {
-      type: "text/json"
-    }),
-    e = document.createEvent("MouseEvents"),
-    a = document.createElement("a");
-
-  a.download = filename;
-  a.href = window.URL.createObjectURL(blob);
-  a.dataset.downloadurl = ["text/json", a.download, a.href].join(":");
-  e.initMouseEvent(
-    "click",
-    true,
-    false,
-    window,
-    0,
-    0,
-    0,
-    0,
-    0,
-    false,
-    false,
-    false,
-    false,
-    0,
-    null
-  );
-  a.dispatchEvent(e);
-};
-
-
-
-
-
-// (1) - to be dropped
-
-  //var ssObj;
-  //if (clientFrameWindow.styleSheets[0].cssRules) {	ssObj = clientFrameWindow.styleSheets[0].cssRules;	}
-  // for (var i = 0; i < ssObj.length; i++) {
-  //  if (ssObj[i].selectorText == "#" + x.id) {
-  //    ssObj[i].style.setProperty("width", $('myWidth').value, null);
-  //   }}
 
 // end of it
