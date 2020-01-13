@@ -11,40 +11,39 @@
 
     <!-- Stylesheet 0-->
     <style type="text/css" id="stylesheet1">
-
-            /*SCROLLBAR */
-            #eventS::-webkit-scrollbar {
-            background-color:white;
-            width:16px
-            }
-
-            /* background of the scrollbar except button or resizer */
-            #eventS::-webkit-scrollbar-track {
-            background-color:white
-            }
-            #eventS::-webkit-scrollbar-track:hover {
-            background-color:white
-            }
-
-            /* scrollbar itself */
-            #eventS::-webkit-scrollbar-thumb {
+        /*SCROLLBAR */
+        
+        #fbody::-webkit-scrollbar {
+            background-color: white;
+            width: 16px
+        }
+        /* background of the scrollbar except button or resizer */
+        
+        #fbody::-webkit-scrollbar-track {
+            background-color: white
+        }
+        
+        #fbody::-webkit-scrollbar-track:hover {
+            background-color: white
+        }
+        /* scrollbar itself */
+        
+        #fbody::-webkit-scrollbar-thumb {
             background-color: hsla(0, 1%, 17%, 0.582);
-
-            border-radius:16px;
-            border:5px solid white
-            }
-            #eventS::-webkit-scrollbar-thumb:hover {
-            background-color:rgb(121, 121, 121);
-            }
-
-            /* set button(top and bottom of the scrollbar) */
-            #eventS::-webkit-scrollbar-button {display:none}
-
-
-
-
+            border-radius: 16px;
+            border: 5px solid white
+        }
+        
+        #fbody::-webkit-scrollbar-thumb:hover {
+            background-color: rgb(121, 121, 121);
+        }
+        /* set button(top and bottom of the scrollbar) */
+        
+        #fbody::-webkit-scrollbar-button {
+            display: none
+        }
         /*========= Navbar ===============*/
-
+        
         #navbar {
             background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(41, 121, 9, 1) 0%, rgba(39, 191, 222, 1) 100%);
             color: rgb(13, 26, 38);
@@ -55,29 +54,29 @@
             width: 100vw;
             z-index: 10;
         }
-
+        
         .nav-wrapper {
             margin: auto;
             text-align: center;
             width: 70%;
         }
-
+        
         @media(max-width: 768px) {
             .nav-wrapper {
                 width: 90%;
             }
         }
-
+        
         @media(max-width: 638px) {
             .nav-wrapper {
                 width: 100%;
             }
         }
-
+        
         #menu {
             width: auto;
         }
-
+        
         .logo {
             float: left;
             margin-left: 28px;
@@ -88,16 +87,14 @@
             letter-spacing: 1px;
             text-transform: uppercase;
         }
-
-        @media(max-width: 768px) {
+        /*   @media(max-width: 768px) {
             .logo {
-                /*       margin-left: 5px; */
+                    margin-left: 5px; 
             }
-        }
-
+        }*/
+        
         #navbar ul {
             display: inline-block;
-            float: right;
             list-style: none;
             /* margin-right: 14px; */
             margin-top: -2px;
@@ -105,23 +102,23 @@
             transition: transform 0.5s ease-out;
             -webkit-transition: transform 0.5s ease-out;
         }
-
+        
         @media(max-width: 640px) {
             #navbar ul {
                 display: none;
             }
         }
-
+        
         @media(orientation: landscape) {
             #navbar ul {
                 display: inline-block;
             }
         }
-
+        
         #navbar li {
             display: inline-block;
         }
-
+        
         #navbar li a {
             color: rgb(13, 26, 38);
             display: block;
@@ -137,20 +134,20 @@
             -webkit-transition: all 0.5s ease;
             text-decoration: none;
         }
-
+        
         #navbar a {
             text-decoration: none;
             color: white !important;
         }
-
+        
         #navbar li a:hover {
             /* border-bottom: 1px solid rgb(28, 121, 184); */
             color: rgb(28, 121, 184);
             transition: all 1s ease;
             -webkit-transition: all 1s ease;
         }
-
         /* Animated Bottom Line */
+        
         #navbar li a:before,
         #navbar li a:after {
             content: '';
@@ -160,35 +157,33 @@
             bottom: -1px;
             background: rgb(13, 26, 38);
         }
-
+        
         #navbar li a:before {
             left: 0;
             transition: 0.5s;
         }
-
+        
         #navbar li a:after {
             background: rgb(13, 26, 38);
             right: 0;
             /* transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1); */
         }
-
+        
         #navbar li a:hover:before {
             background: rgb(13, 26, 38);
             width: 100%;
             transition: width 0.5s cubic-bezier((0.22, 0.61, 0.36, 1));
         }
-
+        
         #navbar li a:hover:after {
             background: transparent;
             width: 100%;
             /* transition: 0s; */
         }
-
-
-
         /*======================================================
                             Mobile Menu Menu Icon
             ======================================================*/
+        
         @media(max-width: 640px) {
             .menuIcon {
                 cursor: pointer;
@@ -200,7 +195,6 @@
                 width: 27px;
                 z-index: 12;
             }
-
             /* Icon Bars */
             .icon-bars {
                 background: rgb(13, 26, 38);
@@ -212,7 +206,6 @@
                 -webkit-transition: 0.4s;
                 transition: 0.4s;
             }
-
             .icon-bars::before {
                 background: rgb(13, 26, 38);
                 content: '';
@@ -226,7 +219,6 @@
                 -webkit-transition: 0.3s width 0.4s;
                 transition: 0.3s width 0.4s;
             }
-
             .icon-bars::after {
                 margin-top: 0px;
                 background: rgb(13, 26, 38);
@@ -241,7 +233,6 @@
                 -webkit-transition: 0.3s width 0.4s;
                 transition: 0.3s width 0.4s;
             }
-
             /* Bars Shadows */
             .icon-bars.overlay {
                 background: rgb(97, 114, 129);
@@ -250,35 +241,28 @@
                 animation: middleBar 3s infinite 0.5s;
                 -webkit-animation: middleBar 3s infinite 0.5s;
             }
-
             @keyframes middleBar {
                 0% {
                     width: 0px
                 }
-
                 50% {
                     width: 20px
                 }
-
                 100% {
                     width: 0px
                 }
             }
-
             @-webkit-keyframes middleBar {
                 0% {
                     width: 0px
                 }
-
                 50% {
                     width: 20px
                 }
-
                 100% {
                     width: 0px
                 }
             }
-
             .icon-bars.overlay::before {
                 background: rgb(97, 114, 129);
                 background: rgb(183, 199, 211);
@@ -286,35 +270,28 @@
                 animation: topBar 3s infinite 0.2s;
                 -webkit-animation: topBar 3s infinite 0s;
             }
-
             @keyframes topBar {
                 0% {
                     width: 0px
                 }
-
                 50% {
                     width: 10px
                 }
-
                 100% {
                     width: 0px
                 }
             }
-
             @-webkit-keyframes topBar {
                 0% {
                     width: 0px
                 }
-
                 50% {
                     width: 10px
                 }
-
                 100% {
                     width: 0px
                 }
             }
-
             .icon-bars.overlay::after {
                 background: rgb(97, 114, 129);
                 background: rgb(183, 199, 211);
@@ -322,36 +299,28 @@
                 animation: bottomBar 3s infinite 1s;
                 -webkit-animation: bottomBar 3s infinite 1s;
             }
-
             @keyframes bottomBar {
                 0% {
                     width: 0px
                 }
-
                 50% {
                     width: 15px
                 }
-
                 100% {
                     width: 0px
                 }
             }
-
             @-webkit-keyframes bottomBar {
                 0% {
                     width: 0px
                 }
-
                 50% {
                     width: 15px
                 }
-
                 100% {
                     width: 0px
                 }
             }
-
-
             /* Toggle Menu Icon */
             .menuIcon.toggle .icon-bars {
                 top: 5px;
@@ -359,20 +328,17 @@
                 transition-delay: 0.1s;
                 transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             }
-
             .menuIcon.toggle .icon-bars::before {
                 top: 0;
                 transition-delay: 0.1s;
                 opacity: 0;
             }
-
             .menuIcon.toggle .icon-bars::after {
                 top: 10px;
                 transform: translate3d(0, -10px, 0) rotate(-270deg);
                 transition-delay: 0.1s;
                 transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             }
-
             .menuIcon.toggle .icon-bars.overlay {
                 width: 20px;
                 opacity: 0;
@@ -380,11 +346,10 @@
                 transition: all 0s ease 0s;
             }
         }
-
-
         /*======================================================
                             Responsive Mobile Menu 
             ======================================================*/
+        
         .overlay-menu {
             background: lightblue;
             color: rgb(13, 26, 38);
@@ -401,13 +366,13 @@
             -webkit-transition: transform 0.2s ease-out;
             transition: transform 0.2s ease-out;
         }
-
+        
         .overlay-menu ul,
         .overlay-menu li {
             display: block;
             position: relative;
         }
-
+        
         .overlay-menu li a {
             display: block;
             font-size: 1.8em;
@@ -421,17 +386,16 @@
             /*   -webkit-transition: 0.2s opacity 0.2s ease-out;
             transition: 0.2s opacity 0.2s ease-out; */
         }
-
+        
         .overlay-menu li a:hover,
         .overlay-menu li a:active {
             color: rgb(28, 121, 184);
             -webkit-transition: color 0.3s ease;
             transition: color 0.3s ease;
         }
-
-
         /*others */
-        #eventS{
+        
+        #fbody {
             padding-bottom: 80px;
         }
         
@@ -441,20 +405,20 @@
             width: 100%;
             min-height: 100vh;
             /* To be able to add components indefinetly - remove with JS on export*/
-
             /*
             user-select: none;
             -webkit-user-select: none;
             -moz-user-select: none;*/
         }
-
+        
         * {
             box-sizing: border-box;
         }
-
         /* Badge - my thing*/
+        
         #badge_ {
-            visibility: hidden !important; /*Remove !important to be able to see the badge*/
+            visibility: hidden !important;
+            /*Remove !important to be able to see the badge*/
             background: red;
             padding: 0 5px;
             font-size: 12px;
@@ -464,9 +428,8 @@
             margin-top: -18.5px;
             z-index: 999999;
         }
-
+        
         #clickedElement_wh {
-
             background: orangered;
             padding: 0 5px;
             font-size: 12px;
@@ -474,41 +437,41 @@
             /*display: none;*/
             position: fixed;
             margin-top: -28.5px;
-
             z-index: 999999;
         }
+        
         .show {
             visibility: visible !important;
         }
         /* Pe asta il pune on click*/
+        
         .active__u {
             transition: .15s;
             outline: 2px red solid;
             outline-offset: -3px;
             z-index: 999999;
         }
-
         /*This needs to be inserted and removed via JS - via APPEND on hover*/
+        
         .outline-dashed {
             outline: 1px dashed #595959;
             outline-offset: -1px;
         }
-
+        
         .outline {
             outline: 2px solid orange;
             outline-offset: -3px;
             z-index: 2;
         }
-
         /* END */
     </style>
 
     <link rel="stylesheet" href="./bootstrap.min.css">
- 
+
 
 </head>
 
-<body contenteditable="false" id="eventS" preview="false">
+<body contenteditable="false" id="fbody" preview="false">
 
     <div id="badge_">
         <span id="el-tag"></span>
@@ -539,7 +502,7 @@
 
 
 
-        window.onload = function () {
+        window.onload = function() {
             cssEngine(rule)
         };
     </script>
