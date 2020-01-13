@@ -5,8 +5,8 @@ var $$ = function (id) { return clientFrameWindow.getElementById(id); };// Now $
 var clientFrameWindow = $("clientframe").contentWindow.document,
     iframeDimensions =  $('iframe_live_wh'),
     frame = $('clientframe'),
-    nav1 = $('left_part'),
-    nav2 = $('right_part'),s
+    nav1 = $('nav-left'),
+    nav2 = $('nav-right'),s
     resizebuttons =  $('resize_bar'),
     adminButtons = $('admin-buttons'),
     oneSs = document.styleSheets[0],
@@ -120,7 +120,7 @@ function preview() {
 
 
 
-    nav = $('myNav');
+    nav = $('nav');
     col2 = $('column2');
 
     $('column1').classList.toggle('displayNoneSuper');

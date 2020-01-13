@@ -75,6 +75,8 @@ body {
   /* transition: all 0.6s;*/
 }
 
+/*Nav*/
+
 nav {
   height: 45px;
   width: 100%;
@@ -83,7 +85,7 @@ nav {
   color: white;
 }
 
-nav #left_part {
+nav #nav-left {
   width: 10%;
   min-width: 11.5em;
   background: #357ca5;
@@ -92,23 +94,23 @@ nav #left_part {
   outline-offset: -1px;
 }
 
-nav #right_part {
+nav #nav-right {
   width: 100%;
   min-width: 9.5em;
   z-index: 1;
   background: #3c8dbc;
   float: left;
 }
-#left{
+nav #nav-right #left{
   padding: 8px;
 }
+
 nav #right_3{
   width: 12%;
   min-width: 15.5em;
   background: red;
   float: left;
 }
-
 
 nav #col3Panel {
   width: 10%;
@@ -120,11 +122,11 @@ nav #col3Panel {
   display:none;
 }
 
-nav #right_part i {
+nav #nav-right i {
   padding: 6px; /*From here you set the size of ADMIN BUTTONS*/
 }
 
-nav #left_part i {
+nav #nav-left i {
   padding: 12px 21px 12px 18px;
   font-size: 22px;
 
@@ -132,7 +134,7 @@ nav #left_part i {
   color: orange;
 }
 
-nav #left_part span {
+nav #nav-left span {
   margin-left: 10px;
 }
 
