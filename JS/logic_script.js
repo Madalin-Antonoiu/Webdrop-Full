@@ -374,7 +374,7 @@ function toggleClickListener(){
    $$("eventS").addEventListener('click', oneClickForAll);
    $$("eventS").setAttribute('click-event', 'true');
        console.clear();
-       console.log('Event Listener: One-Click ON.');
+       console.log('Event Listener: LeftClick ON.');
        //Add css rules
   } else {
    $$("eventS").removeEventListener('click', oneClickForAll);

@@ -24,16 +24,29 @@
     </div>
 
     <div id="right_part">
-      <i id="burger" onclick="columnOne()" class="fas fa-bars"></i>
-      <!--<i onclick="themator()" class="fas fa-cog themator">Theme</i>-->
-        
-      <i id="preview-eye" class="far fa-eye previ_ew" data-toggle="tooltip" data-trigger="hover" title="Preview Mode"></i>
-      <i onclick="hide_leftmenu()" class="fas fa-chevron-left hide_leftmenu"></i>
-      <i onclick="hide_rightmenu()" class="fas fa-chevron-right hide_rightmenu"></i>
-    
 
+      <div id="left">
+        <i id="burger" onclick="columnOne()" class="fas fa-bars"></i>
+        <!--<i onclick="themator()" class="fas fa-cog themator">Theme</i>-->
+      </div>
+
+      <div id="right">
+     
+        <div id="admin-buttons">
+
+          <i id="preview-eye" class="button far fa-eye previ_ew button" data-toggle="tooltip" data-trigger="hover" title="Preview Mode"></i>
+          <i onclick="hide_leftmenu()" class="button fas fa-chevron-left hide_leftmenu" data-toggle="tooltip" data-trigger="hover" title="Show/Hide Left column"></i>
+          <i onclick="hide_rightmenu()" class="button fas fa-chevron-right hide_rightmenu" data-toggle="tooltip" data-trigger="hover" title="Hide/Show Right column"></i>
+         
+          <i onclick="toggleEditIframe()" class="button  fas fa-edit" data-toggle="tooltip" data-trigger="hover" title="Edit document"></i>
+          <i onclick="toggleOutlineAll()" class="button fas fa-border-style" data-toggle="tooltip"  data-trigger="hover" title="Outline elements"></i>
+          <i onclick="gibMiData()" class="button fas fa-download" data-toggle="tooltip" data-trigger="hover" title="Download code"></i>
+        </div>
+      </div>
 
     </div>
+
+
 
 
   </nav>
@@ -1893,13 +1906,14 @@
     <!-- By just adding displayNone, it starts default closed, all functions working still class="displayNone to column3 to start closed-->
     <div id="column3">
 
+      <!-- First set on page -->
       <!-- tab_comment -->
       <div class="tabs_master">
         <input type="radio" id="tab1" name="tabs_master" checked/>  
         <input type="radio" id="tab2" name="tabs_master"/>  
         <input type="radio" id="tab3" name="tabs_master" disabled  />
         
-        <div class="labels">
+        <div class="labels" id="mehe">
           <label id="tab1L" for="tab1" data-toggle="tooltip" data-trigger="hover" title="Style"><i class="fas fa-paint-brush"></i></label>
           <label id="tab2L" for="tab2" data-toggle="tooltip" data-trigger="hover" title="Admin settings" ><i class="fas fa-cogs" ></i></label>
           <label id="tab3L" for="tab3" data-toggle="tooltip" data-trigger="hover" title="Other"><i class="fas fa-users"></i></label>
@@ -2240,12 +2254,6 @@
 
           <!--Admin-->
           <div id="tab2C" class="tab_content">
-
-            <div class="admin-buttons">
-              <i onclick="toggleEditIframe()" class="button  fas fa-edit" data-toggle="tooltip" data-trigger="hover" title="Edit document"></i>
-              <i onclick="toggleOutlineAll()" class="button fas fa-border-style" data-toggle="tooltip"  data-trigger="hover" title="Outline elements"></i>
-              <i onclick="gibMiData()" class="button fas fa-download" data-toggle="tooltip" data-trigger="hover" title="Download code"></i>
-            </div>
             
             <div class="event-listeners">
               <h3>Event Listeners</h3><hr>
@@ -2279,9 +2287,9 @@
             <h2>Log</h2>
             <div id="log-container">
               <div id="log"></div>
-              
+              <button id="clear" onclick="clearLogs()" data-toggle="tooltip" data-trigger="hover" title="Clear Console"><i class="fas fa-eraser"></i></button>
             </div>
-            <button id="clear" onclick="clearLogs()">Clear</button>
+            
           
 
           <div id="tab3C" class="tab_content">
@@ -2301,7 +2309,11 @@
         <div id="result"></div>
         <div id="myList"></div>
         -->
-  </div>
+
+
+
+
+    </div>
 
 
   <footer id="footer">
@@ -2399,37 +2411,6 @@
     }
   </script>
 
-  <!-- For accordion -->
-  <script>
-    var acc = document.getElementsByClassName("accordion");
-    var panel = document.getElementsByClassName('panel');
-    var col2 = document.getElementById('column2');
-
-    for (var i = 0; i < acc.length; i++) {
-      acc[i].onclick = function () {
-        var setClasses = !this.classList.contains('active');
-        setClass(acc, 'active', 'remove');
-        setClass(panel, 'show', 'remove');
-
-        if (setClasses) {
-          this.classList.toggle("active");
-          this.nextElementSibling.classList.toggle("show");
-          /*Add the class when accordion is open*/
-          col2.classList.add("shrinkCol2");
-        } else {
-          /*Remove the class when accordion isn't open*/
-          col2.classList.remove("shrinkCol2");
-        }
-
-      }
-    }
-
-    function setClass(els, className, fnName) {
-      for (var i = 0; i < els.length; i++) {
-        els[i].classList[fnName](className);
-      }
-    }
-  </script>
 
   <!--Test script for obtaining all IDs and classes-->
 

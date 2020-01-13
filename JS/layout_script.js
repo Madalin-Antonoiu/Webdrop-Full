@@ -13,7 +13,43 @@ var clientFrameWindow = $("clientframe").contentWindow.document;
   var diviframe =  document.getElementById('iframe_live_wh');
   var resizebuttons =  document.getElementById('resize_bar');
   var oneSs = document.styleSheets[0];
-  var col3Panel = document.getElementById('col3Panel');
+  var adminButtons = $('admin-buttons');
+ 
+  //For Column1 accordion
+  var acc = document.getElementsByClassName("accordion");
+  var panel = document.getElementsByClassName('panel');
+  var col2 = document.getElementById('column2');
+
+  for (var i = 0; i < acc.length; i++) {
+    acc[i].onclick = function () {
+      var setClasses = !this.classList.contains('active');
+      setClass(acc, 'active', 'remove');
+      setClass(panel, 'show', 'remove');
+
+      if (setClasses) {
+        this.classList.toggle("active");
+        this.nextElementSibling.classList.toggle("show");
+        /*Add the class when accordion is open*/
+        col2.classList.add("shrinkCol2"); //this one means push Col3 away 
+        col3.classList.add("displayNone");
+        adminButtons.classList.add("noMarginRight");
+
+      } else {
+        /*Remove the class when accordion isn't open*/
+        col2.classList.remove("shrinkCol2"); //this one means push Col3 away 
+        col3.classList.remove("displayNone");
+        adminButtons.classList.remove("noMarginRight");
+      }
+
+    }
+  }
+
+  function setClass(els, className, fnName) {
+    for (var i = 0; i < els.length; i++) {
+      els[i].classList[fnName](className);
+    }
+  }
+
 
   
   function hide_leftmenu() {
@@ -23,7 +59,7 @@ var clientFrameWindow = $("clientframe").contentWindow.document;
   
   function hide_rightmenu() {
     col3.classList.toggle('displayNone');
-    col3Panel.classList.toggle('displayNone');
+    adminButtons.classList.toggle('noMarginRight');
   }
 
   //Mini-Drawer-Burger -If you add all classes below by default, you should have mini-drawer default i ntheory
@@ -282,6 +318,22 @@ function s1920(){
 }
 
 //End of
+
+
+
+//Scrollbar if no Webkit browser
+(function(){
+  let isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+  let isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+  let scrollbarDiv = $('#log-container');//can also be document.querySelector('.scrollbar')
+    if (!isChrome && !isSafari) {
+      scrollbarDiv.innerHTML = 'You need Webkit browser to run this code';
+    }
+})();
+
+
+
+
 
 
 //____END - LAYOUT UI JAVASCRIPT____ 
