@@ -746,7 +746,6 @@ function oneClickForAll(event) {
                         marginSquare.classList.add('neutral');
                     });
 
-
                     borderSquares.forEach(function(borderSquare) {
                         borderSquare.classList.add('neutral');
                     });
@@ -988,7 +987,7 @@ function oneClickForAll(event) {
 
 
             // ***** 5. BADGE ***** //   ------------------- TURNING OFF BADGE --------------- 
-            // let badge = $$("badge_");  //Will turn on with CRUD and replace actual options
+            let badge = $$("badge_"); //Will turn on with CRUD and replace actual options
 
             let w = x.clientWidth;
             let h = x.clientHeight;
@@ -998,6 +997,33 @@ function oneClickForAll(event) {
                 "x" +
                 x.clientHeight + 'px';
 
+
+            //Here i am doing the badge positioning relative to windo
+
+
+            // _target.appendChild(badge);
+
+            var rect = _target.getBoundingClientRect();
+            console.log('Top' + rect.top, 'Right' + rect.right, 'Bottom' + rect.bottom, 'Left' + rect.left);
+            badge.style.left = rect.left + (_target.offsetWidth - 101) + "px"; //that -2 is the outline
+
+
+
+            // console.log('Element is ' + offset + ' vertical pixels from <body>');
+
+            if (top < 18) {
+                badge.style.top = rect.top + 2 + "px";
+
+            } else {
+                badge.style.top = rect.top - 18 + "px";
+            }
+            console.log(_target.offsetWidth);
+            console.log(badge)
+
+
+            // if (_target === clientFrameWindow.body) {
+            //     badge.style.top = top - 88 + "px";
+            // }
             //Resize window live update width + height of clicked element
             window.addEventListener("resize", getSize, false);
 
@@ -1014,17 +1040,13 @@ function oneClickForAll(event) {
                 // $$('el-tag').innerHTML = x.nodeName.toLowerCase();
                 // $$('el-w&h').innerHTML = w$h;
 
-                //if (x.id != "") {$$('el-id').innerHTML = "#" + x.id;} 
-                //else {$$('el-id').innerHTML = "";}
+                // if (x.id != "") { $$('el-id').innerHTML = "#" + x.id; } else { $$('el-id').innerHTML = ""; }
 
-                // if (x.classList[0] != undefined && x.classList[0] != "active__u"  ) {$$('el-c0').innerHTML = "." + x.classList[0];} 
-                // else {$$('el-c0').innerHTML = "";} 
+                // if (x.classList[0] != undefined && x.classList[0] != "active__u") { $$('el-c0').innerHTML = "." + x.classList[0]; } else { $$('el-c0').innerHTML = ""; }
 
-                // if (x.classList[1] != undefined && x.classList[1] != "active__u"  ) {$$('el-c1').innerHTML = "." + x.classList[1];} 
-                // else { $$('el-c1').innerHTML = "";} 
+                // if (x.classList[1] != undefined && x.classList[1] != "active__u") { $$('el-c1').innerHTML = "." + x.classList[1]; } else { $$('el-c1').innerHTML = ""; }
 
-                // if (x.classList[2] != undefined && x.classList[2] != "active__u"  ) {$$('el-c2').innerHTML = "." + x.classList[2];} 
-                // else {$$('el-c2').innerHTML = "";} 
+                // if (x.classList[2] != undefined && x.classList[2] != "active__u") { $$('el-c2').innerHTML = "." + x.classList[2]; } else { $$('el-c2').innerHTML = ""; }
 
 
                 //On resize update Column3
@@ -1036,20 +1058,16 @@ function oneClickForAll(event) {
 
             //10. Decide what to be written inside BADGE
 
-            //$$('el-tag').innerHTML = x.nodeName.toLowerCase();
-            //$$('el-w&h').innerHTML = w$h;
+            // $$('el-tag').innerHTML = x.nodeName.toLowerCase();
+            // $$('el-w&h').innerHTML = w$h;
 
-            // if (x.id != "") {$$('el-id').innerHTML = "#" + x.id;} 
-            //else {$$('el-id').innerHTML = "";}
+            // if (x.id != "") { $$('el-id').innerHTML = "#" + x.id; } else { $$('el-id').innerHTML = ""; }
 
-            // if (x.classList[0] != undefined && x.classList[0] != "active__u"  ) {$$('el-c0').innerHTML = "." + x.classList[0];} 
-            // else {$$('el-c0').innerHTML = "";} 
+            // if (x.classList[0] != undefined && x.classList[0] != "active__u") { $$('el-c0').innerHTML = "." + x.classList[0]; } else { $$('el-c0').innerHTML = ""; }
 
-            //if (x.classList[1] != undefined && x.classList[1] != "active__u"  ) {$$('el-c1').innerHTML = "." + x.classList[1];} 
-            // else { $$('el-c1').innerHTML = "";} 
+            // if (x.classList[1] != undefined && x.classList[1] != "active__u") { $$('el-c1').innerHTML = "." + x.classList[1]; } else { $$('el-c1').innerHTML = ""; }
 
-            // if (x.classList[2] != undefined && x.classList[2] != "active__u"  ) {$$('el-c2').innerHTML = "." + x.classList[2];} 
-            // else {$$('el-c2').innerHTML = "";} 
+            // if (x.classList[2] != undefined && x.classList[2] != "active__u") { $$('el-c2').innerHTML = "." + x.classList[2]; } else { $$('el-c2').innerHTML = ""; }
 
 
 
