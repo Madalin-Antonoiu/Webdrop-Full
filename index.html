@@ -1907,8 +1907,8 @@
             <!-- First set on page -->
             <!-- tab_comment -->
             <div class="tabs_master">
-                <input type="radio" id="tab1" name="tabs_master" />
-                <input type="radio" id="tab2" name="tabs_master" checked/>
+                <input type="radio" id="tab1" name="tabs_master" checked/>
+                <input type="radio" id="tab2" name="tabs_master" />
                 <input type="radio" id="tab3" name="tabs_master" disabled />
 
                 <div class="labels" id="mehe">
@@ -1933,7 +1933,6 @@
                                     <span class="ml__">Tag: </span>&nbsp&nbsp<span id="target_el" class="tag__"></span>
                                     <br>
                                     <span class="ml__">ID: </span>&nbsp&nbsp<span id="target_id" class="tag__"></span> <br>
-                                    <button id="remove-el" class="ml__" onclick="_target.remove(); $$('badge_').style.display='none';">Remove</button><br>
                                     <span id="classes__" class="ml__">Classes: </span><br>
                                   
                       
@@ -1984,6 +1983,18 @@
                             </div>
 
                         </div>
+
+                        <div class="tab" id="__tab5">
+
+                          <input type="checkbox" id="chck5" checked>
+                          <label class="tab-label" for="chck5">Element Actions</label>
+                          <div class="tab-content">
+                            <button id="remove-el" class="ml__" onclick="_target.remove(); $$('badge_').style.display='none';" data-toggle="tooltip" data-trigger="hover" title="Remove Element"><i class="fas fa-trash-alt"></i></button><br>
+                              <!-- Your content here -->
+
+                          </div>
+
+                      </div>
 
                         <div class="tab" id="__tab3">
 
@@ -2233,7 +2244,7 @@
                         <div class="tab" id="__tab5">
 
                             <input type="checkbox" id="chck5">
-                            <label class="tab-label" for="chck5">Tab5</label>
+                            <label class="tab-label" for="chck5">Actions</label>
                             <div class="tab-content">
 
                                 <!-- Your content here -->

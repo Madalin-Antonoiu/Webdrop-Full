@@ -1,31 +1,31 @@
 //Shorten document.getElementById('') into just $('') in plain javaScript
 var $ = function(id) { return document.getElementById(id) }, // Now $('id') possible in Vanilla JS
-    $$ = function(id) { return clientFrameWindow.getElementById(id) },
-    clientFrameWindow = $("clientframe").contentWindow.document,
+    $$ = function(id) { return clientdoc.getElementById(id) },
+    clientdoc = $("clientframe").contentWindow.document,
     iframebody = $("clientframe").contentWindow.document.body,
     droppables = $("sidebar_menu"),
     diviframe = $("iframe_live_wh"),
     _target;
 
 // Your code to run since DOM is loaded and ready
-clientFrameWindow.addEventListener("DOMContentLoaded", function() {
+clientdoc.addEventListener("DOMContentLoaded", function() {
 
     //Adding default event listeners on load
-    clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
-    clientFrameWindow.body.addEventListener('click', oneClickForAll);
-    clientFrameWindow.body.addEventListener('click', forFun); //Only for alerting when Click Event Handler is OFF
-    clientFrameWindow.body.addEventListener("mouseout", mouseLeave, false);
-    clientFrameWindow.body.addEventListener("dragover", dragOver, false);
-    clientFrameWindow.body.addEventListener("dragleave", dragLeave, false);
-    clientFrameWindow.body.addEventListener("drop", onDrop, false);
-    clientFrameWindow.body.addEventListener("dblclick", dblClick, false);
+    clientdoc.body.addEventListener('mouseover', mouseEnter);
+    clientdoc.body.addEventListener('click', oneClickForAll);
+    clientdoc.body.addEventListener('click', forFun); //Only for alerting when Click Event Handler is OFF
+    clientdoc.body.addEventListener("mouseout", mouseLeave, false);
+    clientdoc.body.addEventListener("dragover", dragOver, false);
+    clientdoc.body.addEventListener("dragleave", dragLeave, false);
+    clientdoc.body.addEventListener("drop", onDrop, false);
+    clientdoc.body.addEventListener("dblclick", dblClick, false);
     droppables.addEventListener("dragstart", onDragStart, false);
     window.addEventListener("resize", getSize, false);
 
     console.log('Event Listeners are attached.')
 
-    clientFrameWindow.body.setAttribute('hover-event', 'true');
-    clientFrameWindow.body.setAttribute('click-event', 'true');
+    clientdoc.body.setAttribute('hover-event', 'true');
+    clientdoc.body.setAttribute('click-event', 'true');
 
     $('hover-switch').checked = true;
     $('click-switch').checked = true;
@@ -152,7 +152,7 @@ clientFrameWindow.addEventListener("DOMContentLoaded", function() {
         e.target.parentNode.parentNode.classList.remove("__placeholder"); //Works for now if only 2 parents (not ideal)
 
         //Much needed- Removes the div with ID <fr-cell> and all of it`s sub-content from the ELEMENT i click on only :)
-        let item = clientFrameWindow.getElementById("fr-cell"); //Gets only the topmost fr-cell ID, in order of DOM (not ideal)
+        let item = clientdoc.getElementById("fr-cell"); //Gets only the topmost fr-cell ID, in order of DOM (not ideal)
         e.target.removeChild(item);
 
     }
@@ -258,7 +258,7 @@ function toggleEditIframe() {
 
 function toggleOutlineAll() {
     //Toggle iFrame outline dashed elements
-    let x = clientFrameWindow.body.querySelectorAll("*");
+    let x = clientdoc.body.querySelectorAll("*");
     let i;
 
     for (i = 0; i < x.length; i++) {
@@ -266,7 +266,7 @@ function toggleOutlineAll() {
     }
 
     //Known bug _ adding new elements with outline on will not remove it when turning off.
-    let firstfelem = clientFrameWindow.body.children[0];
+    let firstfelem = clientdoc.body.children[0];
     //Snackbar notifications toggle
     if (firstfelem.classList.contains("outline-dashed")) {
         //Snackbar notification ON
@@ -300,15 +300,15 @@ function showClickedElIdClass(e) {
 //Event Listener Switches 
 function toggleHoverListener() {
 
-    if (clientFrameWindow.body.getAttribute('hover-event') !== 'true') {
-        clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
-        clientFrameWindow.body.setAttribute('hover-event', 'true');
+    if (clientdoc.body.getAttribute('hover-event') !== 'true') {
+        clientdoc.body.addEventListener('mouseover', mouseEnter);
+        clientdoc.body.setAttribute('hover-event', 'true');
         console.clear();
         console.log('Event Listener: Hover ON.');
         //Add css rules
     } else {
-        clientFrameWindow.body.removeEventListener('mouseover', mouseEnter);
-        clientFrameWindow.body.setAttribute('hover-event', 'false');
+        clientdoc.body.removeEventListener('mouseover', mouseEnter);
+        clientdoc.body.setAttribute('hover-event', 'false');
         console.clear();
         console.log('Event Listener: Hover OFF.');
 
@@ -317,15 +317,15 @@ function toggleHoverListener() {
 
 function toggleClickListener() {
 
-    if (clientFrameWindow.body.getAttribute('click-event') !== 'true') {
-        clientFrameWindow.body.addEventListener('click', oneClickForAll);
-        clientFrameWindow.body.setAttribute('click-event', 'true');
+    if (clientdoc.body.getAttribute('click-event') !== 'true') {
+        clientdoc.body.addEventListener('click', oneClickForAll);
+        clientdoc.body.setAttribute('click-event', 'true');
         console.clear();
         console.log('Event Listener: LeftClick ON.');
         //Add css rules
     } else {
-        clientFrameWindow.body.removeEventListener('click', oneClickForAll);
-        clientFrameWindow.body.setAttribute('click-event', 'false');
+        clientdoc.body.removeEventListener('click', oneClickForAll);
+        clientdoc.body.setAttribute('click-event', 'false');
         console.clear();
         console.log('Event Listener: One-Click OFF.');
 
@@ -388,21 +388,16 @@ function toggleClickListener() {
 
 function forFun() {
     //If Click Toggle is OFF and someone clicks, display a warning ( it would require a second click Event Handler)
-    if (clientFrameWindow.body.getAttribute('click-event') === 'false') {
+    if (clientdoc.body.getAttribute('click-event') === 'false') {
         console.log('Turn on the Click Event Handler first before clicking.')
     }
 }
 
 function oneClickForAll(event) {
-    $$('el-remove').addEventListener('click', deleteMe);
-    function deleteMe(){
-       
-        _target.remove();
-        console.log(_target + "removed");
-    }
+
     x = event.target;
     _target = x;
-    let list = clientFrameWindow.querySelectorAll("*"); // Grab all the li elements
+    let list = clientdoc.querySelectorAll("*"); // Grab all the li elements
 
     for (let i = 0; i < list.length; i++) {
         if (x === list[i]) { // If my click target is the same as list item it goes through,and this is to ensure only 1 eleme is red
@@ -414,7 +409,7 @@ function oneClickForAll(event) {
             $('onlyIfElem').classList.remove('displayNone');
             $('selectFirst').classList.add('displayNone');
 
-            $$('badge_').style.display="block";
+            // $$('badge_').style.display="block";
 
             // 0.1 Toggle classes from mini checkboxes and not on click on a class
 
@@ -471,7 +466,7 @@ function oneClickForAll(event) {
                 x.classList.toggle(clonedClassNames[0]);
 
                 /*Log all classes from client.css
-      Array.prototype.forEach.call(clientFrameWindow.styleSheets[0].cssRules,
+      Array.prototype.forEach.call(clientdoc.styleSheets[0].cssRules,
         function(a){
           let x = a.selectorText;
           console.log(x);
@@ -993,56 +988,39 @@ function oneClickForAll(event) {
 
 
             // ***** 5. BADGE ***** //   ------------------- TURNING OFF BADGE --------------- 
-            let badge = $$("badge_"); //Will turn on with CRUD and replace actual options
+            // let badge = $$("badge_"); //Will turn on with CRUD and replace actual options
 
-            let w = x.clientWidth;
-            let h = x.clientHeight;
-            let w$h =
-                "&nbsp; &nbsp;" +
-                x.clientWidth +
-                "x" +
-                x.clientHeight + 'px';
+            // let w = x.clientWidth;
+            // let h = x.clientHeight;
+            // let w$h =
+            //     "&nbsp; &nbsp;" +
+            //     x.clientWidth +
+            //     "x" +
+            //     x.clientHeight + 'px';
                 
-            let clientWidth = $('clientframe').clientWidth;
-            let clientHeight = $('clientframe').clientHeight;
-            //Here i am doing the badge positioning relative to windo
+            // let clientWidth = $('clientframe').clientWidth;
+            // let clientHeight = $('clientframe').clientHeight;
 
 
-            // _target.appendChild(badge);
 
-            var rect = _target.getBoundingClientRect();
-            console.log('Top' + rect.top, 'Right' + rect.right, 'Bottom' + rect.bottom, 'Left' + rect.left);
-            // badge.style.left = rect.left + (_target.offsetWidth - 101) + "px"; //that -2 is the outline
+            // // _target.appendChild(badge);
 
-            //WE NEED TO PUT IT ON THE RIGHT TO MAKE IT RESPONSIVE, not .left - make a README and explain stuff 
-            badge.style.right = clientWidth- (rect.left +_target.offsetWidth +11) + "px"; //that -2 is the outline
-            // badge.style.left = rect.left + "px"; //that -2 is the outline
-
-            // console.log('Element is ' + offset + ' vertical pixels from <body>');
-
-            if (rect.top < 18) {
-                badge.style.top = _target.offsetTop  + 2 + "px";
-            } else {
-                // badge.style.top = clientHeight - (rect.bottom +_target.offsetHeight) + "px"; //that -2 is the outline
-
-                // badge.style.top = rect.top - 20 + "px"; // This will get it right for the first 100vw, but then......
-                badge.style.top = _target.offsetTop - 20 + "px";
-            }
-
-            // console.log("Target has width:" + _target.offsetWidth);
+            // var rect = _target.getBoundingClientRect();
+            // console.log('Top' + rect.top, 'Right' + rect.right, 'Bottom' + rect.bottom, 'Left' + rect.left);
             
-            // console.log("Frame has width:" + clientWidth);
-            // console.log(badge)
+
+            // //WE NEED TO PUT IT ON THE RIGHT TO MAKE IT RESPONSIVE, not .left - make a README and explain stuff 
+            // badge.style.right = clientWidth- (rect.left +_target.offsetWidth +11) + "px"; //that -2 is the outline
 
 
-            // if (_target === clientFrameWindow.body) {
-            //     badge.style.top = top - 88 + "px";
+            // if (rect.top < 18) {
+            //     badge.style.top = _target.offsetTop  + 2 + "px";
+            // } else {
+            //     // badge.style.top = clientHeight - (rect.bottom +_target.offsetHeight) + "px"; //that -2 is the outline
+
+            //     // badge.style.top = rect.top - 20 + "px"; // This will get it right for the first 100vw, but then......
+            //     badge.style.top = _target.offsetTop - 20 + "px";
             // }
-            //Resize window live update width + height of clicked element
-            
-           
-            //Buttons for badge 
-               
 
             
             window.addEventListener("resize", getSize, false);
@@ -1058,35 +1036,27 @@ function oneClickForAll(event) {
                     x.clientHeight;
 
 
-                    //Resize badge
-                    let badge = $$("badge_"); //Will turn on with CRUD and replace actual options
+                    // //Resize badge
+                    // let badge = $$("badge_"); //Will turn on with CRUD and replace actual options
                         
-                    let clientWidth = $('clientframe').clientWidth; //There is a problem with this, cannot get badge to show on next 100vh element
+                    // let clientWidth = $('clientframe').clientWidth; //There is a problem with this, cannot get badge to show on next 100vh element
         
-                    //Here i am doing the badge positioning relative to windo
+                    // var rect = _target.getBoundingClientRect();
+                    // console.log('Top' + rect.top, 'Right' + rect.right, 'Bottom' + rect.bottom, 'Left' + rect.left);
+                    // // badge.style.left = rect.left + (_target.offsetWidth - 101) + "px"; //that -2 is the outline
         
+
+                    // badge.style.right = clientWidth- (rect.left +_target.offsetWidth +11) + "px"; //that -2 is the outline
+
+                    // if (rect.top < 18) {
+                    //     badge.style.top = _target.offsetTop  + 2 + "px";
+                    // } else {
+                    //     // badge.style.top = clientHeight - (rect.bottom +_target.offsetHeight) + "px"; //that -2 is the outline
         
-                    // _target.appendChild(badge);
-        
-                    var rect = _target.getBoundingClientRect();
-                    console.log('Top' + rect.top, 'Right' + rect.right, 'Bottom' + rect.bottom, 'Left' + rect.left);
-                    // badge.style.left = rect.left + (_target.offsetWidth - 101) + "px"; //that -2 is the outline
-        
-                    //WE NEED TO PUT IT ON THE RIGHT TO MAKE IT RESPONSIVE, not .left - make a README and explain stuff 
-                    badge.style.right = clientWidth- (rect.left +_target.offsetWidth +11) + "px"; //that -2 is the outline
-                    // badge.style.left = rect.left + "px"; //that -2 is the outline
-        
-                    // console.log('Element is ' + offset + ' vertical pixels from <body>');
-        
-                    if (rect.top < 18) {
-                        badge.style.top = _target.offsetTop  + 2 + "px";
-                    } else {
-                        // badge.style.top = clientHeight - (rect.bottom +_target.offsetHeight) + "px"; //that -2 is the outline
-        
-                        // badge.style.top = rect.top - 20 + "px"; // This will get it right for the first 100vw, but then......
-                        badge.style.top = _target.offsetTop - 20 + "px"; //Working on all elements except p, h1,2,3...idk why yet
-                    }
-                    //Resize badge 
+                    //     // badge.style.top = rect.top - 20 + "px"; // This will get it right for the first 100vw, but then......
+                    //     badge.style.top = _target.offsetTop - 20 + "px"; //Working on all elements except p, h1,2,3...idk why yet
+                    // }
+                    // //Resize badge 
 
                 //On resize update Column3
                 $("renderedWidth").innerHTML = w + "px"; //writes width

@@ -1,8 +1,8 @@
 //____Layout UI JAVASCRIPT____
 var $ = function(id) { return document.getElementById(id); }; // Now $('id') possible in Vanilla JS
-var $$ = function(id) { return clientFrameWindow.getElementById(id); }; // Now $$('id') for iFrame's elements
+var $$ = function(id) { return clientdoc.getElementById(id); }; // Now $$('id') for iFrame's elements
 
-var clientFrameWindow = $("clientframe").contentWindow.document,
+var clientdoc = $("clientframe").contentWindow.document,
     iframeDimensions = $('iframe_live_wh'),
     frame = $('clientframe'),
     nav1 = $('nav-left'),
@@ -62,13 +62,13 @@ function preview() {
     //Soo...the first time i press this, Normal goes to Preview
     //During preview, i want everything shut down
     //Going back , i want to return to the save.
-    const hoverSave = clientFrameWindow.body.getAttribute('hover-event');
-    const clickSave = clientFrameWindow.body.getAttribute('click-event');
+    const hoverSave = clientdoc.body.getAttribute('hover-event');
+    const clickSave = clientdoc.body.getAttribute('click-event');
 
     //Case 1 - Going into Preview Mode from regular
-    if (clientFrameWindow.body.getAttribute('preview') === 'false') {
+    if (clientdoc.body.getAttribute('preview') === 'false') {
 
-        clientFrameWindow.body.style.paddingBottom = "0px"; //remove extra padding at bottom
+        clientdoc.body.style.paddingBottom = "0px"; //remove extra padding at bottom
 
         //_target is passing the value around from other function ;) 
         if (_target !== undefined) {
@@ -76,15 +76,15 @@ function preview() {
         }
 
 
-        clientFrameWindow.body.setAttribute('preview', 'true'); //moved to Preview
-        if (clientFrameWindow.body.getAttribute('hover-event') === "true" || clientFrameWindow.body.getAttribute('click-event') === "true") {
-            clientFrameWindow.body.removeEventListener('mouseover', mouseEnter); // or removeEventListener
-            clientFrameWindow.body.removeEventListener('click', oneClickForAll);
+        clientdoc.body.setAttribute('preview', 'true'); //moved to Preview
+        if (clientdoc.body.getAttribute('hover-event') === "true" || clientdoc.body.getAttribute('click-event') === "true") {
+            clientdoc.body.removeEventListener('mouseover', mouseEnter); // or removeEventListener
+            clientdoc.body.removeEventListener('click', oneClickForAll);
         }
     } else { //Case 2 - Coming back from Preview Mode
 
-        clientFrameWindow.body.style.paddingBottom = "80px"; //Adding back the padding bottom on body for drop ease
-        clientFrameWindow.body.setAttribute('preview', 'false');
+        clientdoc.body.style.paddingBottom = "80px"; //Adding back the padding bottom on body for drop ease
+        clientdoc.body.setAttribute('preview', 'false');
 
 
 
@@ -95,13 +95,13 @@ function preview() {
 
         //Caz a - Hover era oprit
         if (hoverSave === 'true' && clickSave === "true") {
-            clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
-            clientFrameWindow.body.addEventListener('click', oneClickForAll);
+            clientdoc.body.addEventListener('mouseover', mouseEnter);
+            clientdoc.body.addEventListener('click', oneClickForAll);
         } else if (hoverSave === 'true' && clickSave === "false") {
-            clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
+            clientdoc.body.addEventListener('mouseover', mouseEnter);
             //They are already stopped by default
         } else if (hoverSave === 'false' && clickSave === "true") {
-            clientFrameWindow.body.addEventListener('click', oneClickForAll);
+            clientdoc.body.addEventListener('click', oneClickForAll);
         } else {
             return
         }
@@ -128,7 +128,7 @@ function preview() {
     $('column3').classList.toggle('displayNoneSuper');
     nav.classList.toggle('displayNoneSuper');
 
-    clientFrameWindow.body.classList.toggle('preview_class101');
+    clientdoc.body.classList.toggle('preview_class101');
 
     resizebuttons.classList.toggle("displayNoneSuper");
     $('resize_bar2').classList.toggle("displayNoneSuper");
@@ -143,7 +143,7 @@ function preview() {
 
 
     //get the outside click
-    clientFrameWindow.addEventListener('click', iframeClick, false)
+    clientdoc.addEventListener('click', iframeClick, false)
 
     function iframeClick() {
         x = event.target;
@@ -169,7 +169,7 @@ function KeyPress(e) {
 
 }
 document.onkeydown = KeyPress;
-clientFrameWindow.onkeydown = KeyPress;
+clientdoc.onkeydown = KeyPress;
 
 
 //Global tooltip function
