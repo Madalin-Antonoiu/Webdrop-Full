@@ -7,8 +7,7 @@ var clientFrameWindow = $("clientframe").contentWindow.document,
     frame = $('clientframe'),
     nav1 = $('nav-left'),
     nav2 = $('nav-right'),
-    s
-resizebuttons = $('resize_bar'),
+    resizebuttons = $('resize_bar'),
     adminButtons = $('admin-buttons'),
     oneSs = document.styleSheets[0],
     hidden = false;
@@ -63,13 +62,13 @@ function preview() {
     //Soo...the first time i press this, Normal goes to Preview
     //During preview, i want everything shut down
     //Going back , i want to return to the save.
-    const hoverSave = $$("fbody").getAttribute('hover-event');
-    const clickSave = $$("fbody").getAttribute('click-event');
+    const hoverSave = clientFrameWindow.body.getAttribute('hover-event');
+    const clickSave = clientFrameWindow.body.getAttribute('click-event');
 
     //Case 1 - Going into Preview Mode from regular
-    if ($$("fbody").getAttribute('preview') === 'false') {
+    if (clientFrameWindow.body.getAttribute('preview') === 'false') {
 
-        $$("fbody").style.paddingBottom = "0px"; //remove extra padding at bottom
+        clientFrameWindow.body.style.paddingBottom = "0px"; //remove extra padding at bottom
 
         //_target is passing the value around from other function ;) 
         if (_target !== undefined) {
@@ -77,15 +76,15 @@ function preview() {
         }
 
 
-        $$("fbody").setAttribute('preview', 'true'); //moved to Preview
-        if ($$("fbody").getAttribute('hover-event') === "true" || $$("fbody").getAttribute('click-event') === "true") {
-            $$("fbody").removeEventListener('mouseover', mouseEnter); // or removeEventListener
-            $$("fbody").removeEventListener('click', oneClickForAll);
+        clientFrameWindow.body.setAttribute('preview', 'true'); //moved to Preview
+        if (clientFrameWindow.body.getAttribute('hover-event') === "true" || clientFrameWindow.body.getAttribute('click-event') === "true") {
+            clientFrameWindow.body.removeEventListener('mouseover', mouseEnter); // or removeEventListener
+            clientFrameWindow.body.removeEventListener('click', oneClickForAll);
         }
     } else { //Case 2 - Coming back from Preview Mode
 
-        $$("fbody").style.paddingBottom = "80px"; //Adding back the padding bottom on body for drop ease
-        $$("fbody").setAttribute('preview', 'false');
+        clientFrameWindow.body.style.paddingBottom = "80px"; //Adding back the padding bottom on body for drop ease
+        clientFrameWindow.body.setAttribute('preview', 'false');
 
 
 
@@ -96,13 +95,13 @@ function preview() {
 
         //Caz a - Hover era oprit
         if (hoverSave === 'true' && clickSave === "true") {
-            $$("fbody").addEventListener('mouseover', mouseEnter);
-            $$("fbody").addEventListener('click', oneClickForAll);
+            clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
+            clientFrameWindow.body.addEventListener('click', oneClickForAll);
         } else if (hoverSave === 'true' && clickSave === "false") {
-            $$("fbody").addEventListener('mouseover', mouseEnter);
+            clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
             //They are already stopped by default
         } else if (hoverSave === 'false' && clickSave === "true") {
-            $$("fbody").addEventListener('click', oneClickForAll);
+            clientFrameWindow.body.addEventListener('click', oneClickForAll);
         } else {
             return
         }

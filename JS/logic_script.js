@@ -11,21 +11,21 @@ var $ = function(id) { return document.getElementById(id) }, // Now $('id') poss
 clientFrameWindow.addEventListener("DOMContentLoaded", function() {
 
     //Adding default event listeners on load
-    $$("fbody").addEventListener('mouseover', mouseEnter);
-    $$("fbody").addEventListener('click', oneClickForAll);
-    $$("fbody").addEventListener('click', forFun); //Only for alerting when Click Event Handler is OFF
-    $$("fbody").addEventListener("mouseout", mouseLeave, false);
-    $$("fbody").addEventListener("dragover", dragOver, false);
-    $$("fbody").addEventListener("dragleave", dragLeave, false);
-    $$("fbody").addEventListener("drop", onDrop, false);
-    $$("fbody").addEventListener("dblclick", dblClick, false);
+    clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
+    clientFrameWindow.body.addEventListener('click', oneClickForAll);
+    clientFrameWindow.body.addEventListener('click', forFun); //Only for alerting when Click Event Handler is OFF
+    clientFrameWindow.body.addEventListener("mouseout", mouseLeave, false);
+    clientFrameWindow.body.addEventListener("dragover", dragOver, false);
+    clientFrameWindow.body.addEventListener("dragleave", dragLeave, false);
+    clientFrameWindow.body.addEventListener("drop", onDrop, false);
+    clientFrameWindow.body.addEventListener("dblclick", dblClick, false);
     droppables.addEventListener("dragstart", onDragStart, false);
     window.addEventListener("resize", getSize, false);
 
     console.log('Event Listeners are attached.')
 
-    $$("fbody").setAttribute('hover-event', 'true');
-    $$("fbody").setAttribute('click-event', 'true');
+    clientFrameWindow.body.setAttribute('hover-event', 'true');
+    clientFrameWindow.body.setAttribute('click-event', 'true');
 
     $('hover-switch').checked = true;
     $('click-switch').checked = true;
@@ -300,15 +300,15 @@ function showClickedElIdClass(e) {
 //Event Listener Switches 
 function toggleHoverListener() {
 
-    if ($$("fbody").getAttribute('hover-event') !== 'true') {
-        $$("fbody").addEventListener('mouseover', mouseEnter);
-        $$("fbody").setAttribute('hover-event', 'true');
+    if (clientFrameWindow.body.getAttribute('hover-event') !== 'true') {
+        clientFrameWindow.body.addEventListener('mouseover', mouseEnter);
+        clientFrameWindow.body.setAttribute('hover-event', 'true');
         console.clear();
         console.log('Event Listener: Hover ON.');
         //Add css rules
     } else {
-        $$("fbody").removeEventListener('mouseover', mouseEnter);
-        $$("fbody").setAttribute('hover-event', 'false');
+        clientFrameWindow.body.removeEventListener('mouseover', mouseEnter);
+        clientFrameWindow.body.setAttribute('hover-event', 'false');
         console.clear();
         console.log('Event Listener: Hover OFF.');
 
@@ -317,15 +317,15 @@ function toggleHoverListener() {
 
 function toggleClickListener() {
 
-    if ($$("fbody").getAttribute('click-event') !== 'true') {
-        $$("fbody").addEventListener('click', oneClickForAll);
-        $$("fbody").setAttribute('click-event', 'true');
+    if (clientFrameWindow.body.getAttribute('click-event') !== 'true') {
+        clientFrameWindow.body.addEventListener('click', oneClickForAll);
+        clientFrameWindow.body.setAttribute('click-event', 'true');
         console.clear();
         console.log('Event Listener: LeftClick ON.');
         //Add css rules
     } else {
-        $$("fbody").removeEventListener('click', oneClickForAll);
-        $$("fbody").setAttribute('click-event', 'false');
+        clientFrameWindow.body.removeEventListener('click', oneClickForAll);
+        clientFrameWindow.body.setAttribute('click-event', 'false');
         console.clear();
         console.log('Event Listener: One-Click OFF.');
 
@@ -388,13 +388,18 @@ function toggleClickListener() {
 
 function forFun() {
     //If Click Toggle is OFF and someone clicks, display a warning ( it would require a second click Event Handler)
-    if ($$("fbody").getAttribute('click-event') === 'false') {
+    if (clientFrameWindow.body.getAttribute('click-event') === 'false') {
         console.log('Turn on the Click Event Handler first before clicking.')
     }
 }
 
 function oneClickForAll(event) {
-
+    $$('el-remove').addEventListener('click', deleteMe);
+    function deleteMe(){
+       
+        _target.remove();
+        console.log(_target + "removed");
+    }
     x = event.target;
     _target = x;
     let list = clientFrameWindow.querySelectorAll("*"); // Grab all the li elements
@@ -402,7 +407,8 @@ function oneClickForAll(event) {
     for (let i = 0; i < list.length; i++) {
         if (x === list[i]) { // If my click target is the same as list item it goes through,and this is to ensure only 1 eleme is red
 
-
+      
+            
 
             // 0. Show tab1c's content if elem clicked
             $('onlyIfElem').classList.remove('displayNone');
@@ -418,6 +424,7 @@ function oneClickForAll(event) {
             // 1. Tag, ID, Classes
             $('target_el').innerHTML = x.nodeName;
             $('target_id').innerHTML = x.id;
+     
 
             // NOT DRY - (instead of 0,1,3 could note a n) Only show these divs if the classes exist!
             if (x.classList[0] && x.classList[0] !== "active__u") {
@@ -1032,6 +1039,12 @@ function oneClickForAll(event) {
             //     badge.style.top = top - 88 + "px";
             // }
             //Resize window live update width + height of clicked element
+            
+           
+            //Buttons for badge 
+               
+
+            
             window.addEventListener("resize", getSize, false);
 
             function getSize() {
@@ -1122,5 +1135,9 @@ function oneClickForAll(event) {
 function clearLogs() {
     document.getElementById('log').innerHTML = '';
 }
+
+
+
+
 
 // end of it
