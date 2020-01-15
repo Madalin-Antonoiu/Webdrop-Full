@@ -339,52 +339,52 @@ function toggleClickListener() {
 }
 // End of it 
 
-//console.log on screen
-rewireLoggingToElement(
-    () => document.getElementById("log"),
-    () => document.getElementById("log-container"), true);
+// //console.log on screen
+// rewireLoggingToElement(
+//     () => document.getElementById("log"),
+//     () => document.getElementById("log-container"), true);
 
-function rewireLoggingToElement(eleLocator, eleOverflowLocator, autoScroll) {
-    fixLoggingFunc('log');
-    fixLoggingFunc('debug');
-    fixLoggingFunc('warn');
-    fixLoggingFunc('error');
-    fixLoggingFunc('info');
+// function rewireLoggingToElement(eleLocator, eleOverflowLocator, autoScroll) {
+//     fixLoggingFunc('log');
+//     fixLoggingFunc('debug');
+//     fixLoggingFunc('warn');
+//     fixLoggingFunc('error');
+//     fixLoggingFunc('info');
 
-    function fixLoggingFunc(name) {
+//     function fixLoggingFunc(name) {
 
-        console['old' + name] = console[name];
-        console[name] = function(...arguments) {
-            const output = produceOutput(name, arguments);
-            const eleLog = eleLocator();
+//         console['old' + name] = console[name];
+//         console[name] = function(...arguments) {
+//             const output = produceOutput(name, arguments);
+//             const eleLog = eleLocator();
 
-            if (autoScroll) {
+//             if (autoScroll) {
 
-                const eleContainerLog = eleOverflowLocator();
-                const isScrolledToBottom = eleContainerLog.scrollHeight - eleContainerLog.clientHeight <= eleContainerLog.scrollTop + 1;
-                eleLog.innerHTML += output + "<br>";
-                if (isScrolledToBottom) {
-                    eleContainerLog.scrollTop = eleContainerLog.scrollHeight - eleContainerLog.clientHeight;
-                }
-            } else {
-                eleLog.innerHTML += output + "<br>";
-            }
+//                 const eleContainerLog = eleOverflowLocator();
+//                 const isScrolledToBottom = eleContainerLog.scrollHeight - eleContainerLog.clientHeight <= eleContainerLog.scrollTop + 1;
+//                 eleLog.innerHTML += output + "<br>";
+//                 if (isScrolledToBottom) {
+//                     eleContainerLog.scrollTop = eleContainerLog.scrollHeight - eleContainerLog.clientHeight;
+//                 }
+//             } else {
+//                 eleLog.innerHTML += output + "<br>";
+//             }
 
-            console['old' + name].apply(undefined, arguments);
+//             console['old' + name].apply(undefined, arguments);
 
-        };
-    }
+//         };
+//     }
 
-    function produceOutput(name, args) {
-        return args.reduce((output, arg) => {
-            return output +
-                "<span class=\"log-" + (typeof arg) + " log-" + name + "\">" +
-                "<span class=\"time-" + (typeof arg) + " log-" + name + "\">" + '[' + new Date().toLocaleTimeString() + '] ' + "</span>" + (typeof arg === 'object' && (JSON || {}).stringify ? JSON.stringify(arg) : arg) +
-                "</span>&nbsp;";
-        }, '');
-    }
+//     function produceOutput(name, args) {
+//         return args.reduce((output, arg) => {
+//             return output +
+//                 "<span class=\"log-" + (typeof arg) + " log-" + name + "\">" +
+//                 "<span class=\"time-" + (typeof arg) + " log-" + name + "\">" + '[' + new Date().toLocaleTimeString() + '] ' + "</span>" + (typeof arg === 'object' && (JSON || {}).stringify ? JSON.stringify(arg) : arg) +
+//                 "</span>&nbsp;";
+//         }, '');
+//     }
 
-}
+// }
 
 function forFun() {
     //If Click Toggle is OFF and someone clicks, display a warning ( it would require a second click Event Handler)
@@ -407,6 +407,8 @@ function oneClickForAll(event) {
             // 0. Show tab1c's content if elem clicked
             $('onlyIfElem').classList.remove('displayNone');
             $('selectFirst').classList.add('displayNone');
+
+            $$('badge_').style.display="block";
 
             // 0.1 Toggle classes from mini checkboxes and not on click on a class
 
@@ -983,9 +985,6 @@ function oneClickForAll(event) {
             //--------- END OF 4 ----------- //
 
 
-
-
-
             // ***** 5. BADGE ***** //   ------------------- TURNING OFF BADGE --------------- 
             let badge = $$("badge_"); //Will turn on with CRUD and replace actual options
 
@@ -996,8 +995,9 @@ function oneClickForAll(event) {
                 x.clientWidth +
                 "x" +
                 x.clientHeight + 'px';
-
-
+                
+            let clientWidth = $('clientframe').clientWidth;
+            let clientHeight = $('clientframe').clientHeight;
             //Here i am doing the badge positioning relative to windo
 
 
@@ -1005,20 +1005,27 @@ function oneClickForAll(event) {
 
             var rect = _target.getBoundingClientRect();
             console.log('Top' + rect.top, 'Right' + rect.right, 'Bottom' + rect.bottom, 'Left' + rect.left);
-            badge.style.left = rect.left + (_target.offsetWidth - 101) + "px"; //that -2 is the outline
+            // badge.style.left = rect.left + (_target.offsetWidth - 101) + "px"; //that -2 is the outline
 
-
+            //WE NEED TO PUT IT ON THE RIGHT TO MAKE IT RESPONSIVE, not .left - make a README and explain stuff 
+            badge.style.right = clientWidth- (rect.left +_target.offsetWidth +11) + "px"; //that -2 is the outline
+            // badge.style.left = rect.left + "px"; //that -2 is the outline
 
             // console.log('Element is ' + offset + ' vertical pixels from <body>');
 
-            if (top < 18) {
-                badge.style.top = rect.top + 2 + "px";
-
+            if (rect.top < 18) {
+                badge.style.top = _target.offsetTop  + 2 + "px";
             } else {
-                badge.style.top = rect.top - 18 + "px";
+                // badge.style.top = clientHeight - (rect.bottom +_target.offsetHeight) + "px"; //that -2 is the outline
+
+                // badge.style.top = rect.top - 20 + "px"; // This will get it right for the first 100vw, but then......
+                badge.style.top = _target.offsetTop - 20 + "px";
             }
-            console.log(_target.offsetWidth);
-            console.log(badge)
+
+            // console.log("Target has width:" + _target.offsetWidth);
+            
+            // console.log("Frame has width:" + clientWidth);
+            // console.log(badge)
 
 
             // if (_target === clientFrameWindow.body) {
@@ -1037,17 +1044,36 @@ function oneClickForAll(event) {
                     "x" +
                     x.clientHeight;
 
-                // $$('el-tag').innerHTML = x.nodeName.toLowerCase();
-                // $$('el-w&h').innerHTML = w$h;
 
-                // if (x.id != "") { $$('el-id').innerHTML = "#" + x.id; } else { $$('el-id').innerHTML = ""; }
-
-                // if (x.classList[0] != undefined && x.classList[0] != "active__u") { $$('el-c0').innerHTML = "." + x.classList[0]; } else { $$('el-c0').innerHTML = ""; }
-
-                // if (x.classList[1] != undefined && x.classList[1] != "active__u") { $$('el-c1').innerHTML = "." + x.classList[1]; } else { $$('el-c1').innerHTML = ""; }
-
-                // if (x.classList[2] != undefined && x.classList[2] != "active__u") { $$('el-c2').innerHTML = "." + x.classList[2]; } else { $$('el-c2').innerHTML = ""; }
-
+                    //Resize badge
+                    let badge = $$("badge_"); //Will turn on with CRUD and replace actual options
+                        
+                    let clientWidth = $('clientframe').clientWidth; //There is a problem with this, cannot get badge to show on next 100vh element
+        
+                    //Here i am doing the badge positioning relative to windo
+        
+        
+                    // _target.appendChild(badge);
+        
+                    var rect = _target.getBoundingClientRect();
+                    console.log('Top' + rect.top, 'Right' + rect.right, 'Bottom' + rect.bottom, 'Left' + rect.left);
+                    // badge.style.left = rect.left + (_target.offsetWidth - 101) + "px"; //that -2 is the outline
+        
+                    //WE NEED TO PUT IT ON THE RIGHT TO MAKE IT RESPONSIVE, not .left - make a README and explain stuff 
+                    badge.style.right = clientWidth- (rect.left +_target.offsetWidth +11) + "px"; //that -2 is the outline
+                    // badge.style.left = rect.left + "px"; //that -2 is the outline
+        
+                    // console.log('Element is ' + offset + ' vertical pixels from <body>');
+        
+                    if (rect.top < 18) {
+                        badge.style.top = _target.offsetTop  + 2 + "px";
+                    } else {
+                        // badge.style.top = clientHeight - (rect.bottom +_target.offsetHeight) + "px"; //that -2 is the outline
+        
+                        // badge.style.top = rect.top - 20 + "px"; // This will get it right for the first 100vw, but then......
+                        badge.style.top = _target.offsetTop - 20 + "px"; //Working on all elements except p, h1,2,3...idk why yet
+                    }
+                    //Resize badge 
 
                 //On resize update Column3
                 $("renderedWidth").innerHTML = w + "px"; //writes width
@@ -1060,13 +1086,9 @@ function oneClickForAll(event) {
 
             // $$('el-tag').innerHTML = x.nodeName.toLowerCase();
             // $$('el-w&h').innerHTML = w$h;
-
             // if (x.id != "") { $$('el-id').innerHTML = "#" + x.id; } else { $$('el-id').innerHTML = ""; }
-
             // if (x.classList[0] != undefined && x.classList[0] != "active__u") { $$('el-c0').innerHTML = "." + x.classList[0]; } else { $$('el-c0').innerHTML = ""; }
-
             // if (x.classList[1] != undefined && x.classList[1] != "active__u") { $$('el-c1').innerHTML = "." + x.classList[1]; } else { $$('el-c1').innerHTML = ""; }
-
             // if (x.classList[2] != undefined && x.classList[2] != "active__u") { $$('el-c2').innerHTML = "." + x.classList[2]; } else { $$('el-c2').innerHTML = ""; }
 
 

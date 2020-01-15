@@ -416,6 +416,7 @@
         /* Badge - my thing*/
         
         #badge_ {
+            margin:0 auto;
             pointer-events: none;
             /*Remove !important to be able to see the badge*/
             background: red;
@@ -423,11 +424,12 @@
             font-size: 12px;
             color: white;
             /* max-width: 104px; */
-            max-height: 22px;
-            /*display: none;*/
+            height: 22px;
+            width: 100px;
+            display: none; 
             float: right;
             position: absolute;
-            z-index: 999999;
+            z-index: 2;
         }
         
         #badge span img {
@@ -471,13 +473,15 @@
         /* END */
     </style>
 
-    <link rel="stylesheet" href="./bootstrap.min.css">
+     <link rel="stylesheet" href="./bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" /> -->
+
 
 
 </head>
 
-<body contenteditable="false" id="fbody" preview="false">
-
+<body contenteditable="false" id="fbody" preview="false" style="position: relative;">
+  
     <div id="badge_">
         <!-- <span id="el-tag"></span>
         <span id="el-id"></span>
@@ -486,17 +490,16 @@
         <span id="el-c2"></span>
         <span id="el-c3"></span>
         <span id="el-w&h"></span> -->
-        <span id="el-remove"><img src="../CLIENT/trash-alt-solid.svg" width="20" height="20" alt=""></span>
-        <span id="el-remove"><img src="../CLIENT/trash-alt-solid.svg" width="20" height="20" alt=""></span>
+        
+        <span id="el-remove"><i class="fas fa-arrow-alt-circle-up"></i></span>
 
-        <span id="el-duplicate"><img src="../CLIENT/copy-regular.svg" width="20" height="20" alt=""></span>
+        <span id="el-duplicate"><i class="fas fa-arrows-alt"></i></span>
 
-        <span id="el-remove"><img src="../CLIENT/trash-alt-solid.svg" width="20" height="20" alt=""></span>
-
+        <span id="el-remove"><i class="fas fa-copy"></i></span>
+        <span id="el-remove"><i class="fas fa-trash-alt"></i></span>
     </div>
 
     <script src="./client.js"></script>
-    <!-- Playing with the styles -->
 
     <script>
         function cssEngine(rule) {
@@ -518,9 +521,6 @@
             cssEngine(rule)
         };
     </script>
-
-    <!--For the navbar simple css-->
-
 
 </body>
 
