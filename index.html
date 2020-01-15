@@ -1989,9 +1989,20 @@
                           <input type="checkbox" id="chck5" checked>
                           <label class="tab-label" for="chck5">Element Actions</label>
                           <div class="tab-content">
-                            <button id="remove-el" class="ml__" onclick="_target.remove(); $$('badge_').style.display='none';" data-toggle="tooltip" data-trigger="hover" title="Remove Element"><i class="fas fa-trash-alt"></i></button><br>
-                              <!-- Your content here -->
+                             <!-- Your content here -->
+                            <span id="element-actions">
+                              <i id="remove-el" class="button fas fa-trash-alt" onclick="_target.remove(); $$('badge_').style.display='none';" data-toggle="tooltip" data-trigger="hover" title="Remove Element"></i>
+                              <i id="clone-el" class="button fas fa-clone" onclick="_target.parentElement.appendChild(_target.cloneNode(true));" data-toggle="tooltip" data-trigger="hover" title="Clone Element"></i>
+                              <i id="up-el" class="button fas fa-arrow-up" 
+                                  onclick="if(_target.previousElementSibling)
+                              _target.parentNode.insertBefore(_target, _target.previousElementSibling);" data-toggle="tooltip" data-trigger="hover" title="Move up the DOM"></i>
+                              <i id="clone-el" class="button fas fa-arrow-down" 
+                                onclick="if(_target.nextElementSibling)
+                                _target.parentNode.insertBefore(_target.nextElementSibling, _target);" 
+                                data-toggle="tooltip" data-trigger="hover" title="Move Down the DOM"></i>
 
+                            </span>
+                            
                           </div>
 
                       </div>

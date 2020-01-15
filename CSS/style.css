@@ -1008,6 +1008,23 @@ div.__item {
     cursor: pointer;
 }
 
+
+#element-actions{
+    /* float: left; */
+    /* width: 100%; */
+    z-index: 1;
+}
+#element-actions i {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    padding: 5px;
+    float: left;
+    display: block;
+}
+
+
+
 .noMarginRight {
     margin-right: 0px !important;
 }

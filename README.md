@@ -2,7 +2,8 @@
 
 Documentation not ready yet.
 
-Checked Dev tools and i:
+Things to do
 
+- Save components state in browser local storage
 - I should replace Font Awesome with fontello and download the font icons that i need. 
 - Only get what you need from bootstrap. Unused 97.2%

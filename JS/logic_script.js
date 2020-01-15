@@ -990,13 +990,13 @@ function oneClickForAll(event) {
             // ***** 5. BADGE ***** //   ------------------- TURNING OFF BADGE --------------- 
             // let badge = $$("badge_"); //Will turn on with CRUD and replace actual options
 
-            // let w = x.clientWidth;
-            // let h = x.clientHeight;
-            // let w$h =
-            //     "&nbsp; &nbsp;" +
-            //     x.clientWidth +
-            //     "x" +
-            //     x.clientHeight + 'px';
+            let w = x.clientWidth;
+            let h = x.clientHeight;
+            let w$h =
+                "&nbsp; &nbsp;" +
+                x.clientWidth +
+                "x" +
+                x.clientHeight + 'px';
                 
             // let clientWidth = $('clientframe').clientWidth;
             // let clientHeight = $('clientframe').clientHeight;
