@@ -68,7 +68,7 @@ function preview() {
     //Case 1 - Going into Preview Mode from regular
     if (clientdoc.body.getAttribute('preview') === 'false') {
 
-        clientdoc.body.style.paddingBottom = "0px"; //remove extra padding at bottom
+        $$('no-remove').classList.add = "noPaddingBottom"; //remove extra padding at bottom
 
         //_target is passing the value around from other function ;) 
         if (_target !== undefined) {
@@ -83,7 +83,7 @@ function preview() {
         }
     } else { //Case 2 - Coming back from Preview Mode
 
-        clientdoc.body.style.paddingBottom = "80px"; //Adding back the padding bottom on body for drop ease
+        $$('no-remove').classList.remove = "noPaddingBottom"; //Adding back the padding bottom on body for drop ease
         clientdoc.body.setAttribute('preview', 'false');
 
 

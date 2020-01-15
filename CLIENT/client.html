@@ -43,6 +43,14 @@
         }
         /*========= Navbar ===============*/
         
+        #no-remove {
+            padding-bottom: 80px;
+        }
+        
+        .noPaddingBottom {
+            padding-bottom: 0px;
+        }
+        
         #navbar {
             background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(41, 121, 9, 1) 0%, rgba(39, 191, 222, 1) 100%);
             color: rgb(13, 26, 38);
@@ -416,7 +424,7 @@
         /* Badge - my thing*/
         
         #badge_ {
-            margin:0 auto;
+            margin: 0 auto;
             pointer-events: none;
             /*Remove !important to be able to see the badge*/
             background: red;
@@ -426,7 +434,7 @@
             /* max-width: 104px; */
             height: 22px;
             width: 100px;
-            display: none; 
+            display: none;
             float: right;
             position: absolute;
             z-index: 99999;
@@ -473,15 +481,15 @@
         /* END */
     </style>
 
-     <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="./bootstrap.min.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" /> -->
 
 
 
 </head>
 
-<body contenteditable="false" id="fbody" preview="false" style="position: relative;">
-  
+<body contenteditable="false" preview="false" id="no-remove" style="position: relative;">
+
     <!-- <div id="badge_">
          <span id="el-tag"></span>
         <span id="el-id"></span>

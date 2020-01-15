@@ -29,7 +29,7 @@ clientdoc.addEventListener("DOMContentLoaded", function() {
 
     $('hover-switch').checked = true;
     $('click-switch').checked = true;
-
+    $('loGo').style.color = "rgb(34, 165, 93)";
 
     function dblClick() {
         // (event.srcElement.id == '__upload') for specific ID
@@ -339,52 +339,52 @@ function toggleClickListener() {
 }
 // End of it 
 
-// //console.log on screen
-// rewireLoggingToElement(
-//     () => document.getElementById("log"),
-//     () => document.getElementById("log-container"), true);
+//console.log on screen
+rewireLoggingToElement(
+    () => document.getElementById("log"),
+    () => document.getElementById("log-container"), true);
 
-// function rewireLoggingToElement(eleLocator, eleOverflowLocator, autoScroll) {
-//     fixLoggingFunc('log');
-//     fixLoggingFunc('debug');
-//     fixLoggingFunc('warn');
-//     fixLoggingFunc('error');
-//     fixLoggingFunc('info');
+function rewireLoggingToElement(eleLocator, eleOverflowLocator, autoScroll) {
+    fixLoggingFunc('log');
+    fixLoggingFunc('debug');
+    fixLoggingFunc('warn');
+    fixLoggingFunc('error');
+    fixLoggingFunc('info');
 
-//     function fixLoggingFunc(name) {
+    function fixLoggingFunc(name) {
 
-//         console['old' + name] = console[name];
-//         console[name] = function(...arguments) {
-//             const output = produceOutput(name, arguments);
-//             const eleLog = eleLocator();
+        console['old' + name] = console[name];
+        console[name] = function(...arguments) {
+            const output = produceOutput(name, arguments);
+            const eleLog = eleLocator();
 
-//             if (autoScroll) {
+            if (autoScroll) {
 
-//                 const eleContainerLog = eleOverflowLocator();
-//                 const isScrolledToBottom = eleContainerLog.scrollHeight - eleContainerLog.clientHeight <= eleContainerLog.scrollTop + 1;
-//                 eleLog.innerHTML += output + "<br>";
-//                 if (isScrolledToBottom) {
-//                     eleContainerLog.scrollTop = eleContainerLog.scrollHeight - eleContainerLog.clientHeight;
-//                 }
-//             } else {
-//                 eleLog.innerHTML += output + "<br>";
-//             }
+                const eleContainerLog = eleOverflowLocator();
+                const isScrolledToBottom = eleContainerLog.scrollHeight - eleContainerLog.clientHeight <= eleContainerLog.scrollTop + 1;
+                eleLog.innerHTML += output + "<br>";
+                if (isScrolledToBottom) {
+                    eleContainerLog.scrollTop = eleContainerLog.scrollHeight - eleContainerLog.clientHeight;
+                }
+            } else {
+                eleLog.innerHTML += output + "<br>";
+            }
 
-//             console['old' + name].apply(undefined, arguments);
+            console['old' + name].apply(undefined, arguments);
 
-//         };
-//     }
+        };
+    }
 
-//     function produceOutput(name, args) {
-//         return args.reduce((output, arg) => {
-//             return output +
-//                 "<span class=\"log-" + (typeof arg) + " log-" + name + "\">" +
-//                 "<span class=\"time-" + (typeof arg) + " log-" + name + "\">" + '[' + new Date().toLocaleTimeString() + '] ' + "</span>" + (typeof arg === 'object' && (JSON || {}).stringify ? JSON.stringify(arg) : arg) +
-//                 "</span>&nbsp;";
-//         }, '');
-//     }
+    function produceOutput(name, args) {
+        return args.reduce((output, arg) => {
+            return output +
+                "<span class=\"log-" + (typeof arg) + " log-" + name + "\">" +
+                "<span class=\"time-" + (typeof arg) + " log-" + name + "\">" + '[' + new Date().toLocaleTimeString() + '] ' + "</span>" + (typeof arg === 'object' && (JSON || {}).stringify ? JSON.stringify(arg) : arg) +
+                "</span>&nbsp;";
+        }, '');
+    }
 
-// }
+}
 
 function forFun() {
     //If Click Toggle is OFF and someone clicks, display a warning ( it would require a second click Event Handler)
@@ -402,8 +402,8 @@ function oneClickForAll(event) {
     for (let i = 0; i < list.length; i++) {
         if (x === list[i]) { // If my click target is the same as list item it goes through,and this is to ensure only 1 eleme is red
 
-      
-            
+
+
 
             // 0. Show tab1c's content if elem clicked
             $('onlyIfElem').classList.remove('displayNone');
@@ -418,8 +418,14 @@ function oneClickForAll(event) {
 
             // 1. Tag, ID, Classes
             $('target_el').innerHTML = x.nodeName;
-            $('target_id').innerHTML = x.id;
-     
+
+
+            if (x.id === "") {
+                $('target_id').innerHTML = '<b>N/A</b>';
+            } else {
+                $('target_id').innerHTML = '<span class="tag__">' + x.id + '</span>';
+
+            }
 
             // NOT DRY - (instead of 0,1,3 could note a n) Only show these divs if the classes exist!
             if (x.classList[0] && x.classList[0] !== "active__u") {
@@ -547,9 +553,13 @@ function oneClickForAll(event) {
                 e.preventDefault();
             };
 
+            if (clonedClassNames[0] === undefined || clonedClassNames[0] === 'active__u') {
+                $('saved-value').innerHTML = "Selected class: <b>N/A</b>"
+            } else {
 
-            $('saved-value').innerHTML = " Selected class: ." + clonedClassNames[0]; // aici imi scrie in HTML prima clasa prezenta
+                $('saved-value').innerHTML = " Selected class: ." + clonedClassNames[0]; // aici imi scrie in HTML prima clasa prezenta
 
+            }
 
 
             /// ********** End of 2 ****************
@@ -997,7 +1007,7 @@ function oneClickForAll(event) {
                 x.clientWidth +
                 "x" +
                 x.clientHeight + 'px';
-                
+
             // let clientWidth = $('clientframe').clientWidth;
             // let clientHeight = $('clientframe').clientHeight;
 
@@ -1007,7 +1017,7 @@ function oneClickForAll(event) {
 
             // var rect = _target.getBoundingClientRect();
             // console.log('Top' + rect.top, 'Right' + rect.right, 'Bottom' + rect.bottom, 'Left' + rect.left);
-            
+
 
             // //WE NEED TO PUT IT ON THE RIGHT TO MAKE IT RESPONSIVE, not .left - make a README and explain stuff 
             // badge.style.right = clientWidth- (rect.left +_target.offsetWidth +11) + "px"; //that -2 is the outline
@@ -1022,7 +1032,7 @@ function oneClickForAll(event) {
             //     badge.style.top = _target.offsetTop - 20 + "px";
             // }
 
-            
+
             window.addEventListener("resize", getSize, false);
 
             function getSize() {
@@ -1036,27 +1046,27 @@ function oneClickForAll(event) {
                     x.clientHeight;
 
 
-                    // //Resize badge
-                    // let badge = $$("badge_"); //Will turn on with CRUD and replace actual options
-                        
-                    // let clientWidth = $('clientframe').clientWidth; //There is a problem with this, cannot get badge to show on next 100vh element
-        
-                    // var rect = _target.getBoundingClientRect();
-                    // console.log('Top' + rect.top, 'Right' + rect.right, 'Bottom' + rect.bottom, 'Left' + rect.left);
-                    // // badge.style.left = rect.left + (_target.offsetWidth - 101) + "px"; //that -2 is the outline
-        
+                // //Resize badge
+                // let badge = $$("badge_"); //Will turn on with CRUD and replace actual options
 
-                    // badge.style.right = clientWidth- (rect.left +_target.offsetWidth +11) + "px"; //that -2 is the outline
+                // let clientWidth = $('clientframe').clientWidth; //There is a problem with this, cannot get badge to show on next 100vh element
 
-                    // if (rect.top < 18) {
-                    //     badge.style.top = _target.offsetTop  + 2 + "px";
-                    // } else {
-                    //     // badge.style.top = clientHeight - (rect.bottom +_target.offsetHeight) + "px"; //that -2 is the outline
-        
-                    //     // badge.style.top = rect.top - 20 + "px"; // This will get it right for the first 100vw, but then......
-                    //     badge.style.top = _target.offsetTop - 20 + "px"; //Working on all elements except p, h1,2,3...idk why yet
-                    // }
-                    // //Resize badge 
+                // var rect = _target.getBoundingClientRect();
+                // console.log('Top' + rect.top, 'Right' + rect.right, 'Bottom' + rect.bottom, 'Left' + rect.left);
+                // // badge.style.left = rect.left + (_target.offsetWidth - 101) + "px"; //that -2 is the outline
+
+
+                // badge.style.right = clientWidth- (rect.left +_target.offsetWidth +11) + "px"; //that -2 is the outline
+
+                // if (rect.top < 18) {
+                //     badge.style.top = _target.offsetTop  + 2 + "px";
+                // } else {
+                //     // badge.style.top = clientHeight - (rect.bottom +_target.offsetHeight) + "px"; //that -2 is the outline
+
+                //     // badge.style.top = rect.top - 20 + "px"; // This will get it right for the first 100vw, but then......
+                //     badge.style.top = _target.offsetTop - 20 + "px"; //Working on all elements except p, h1,2,3...idk why yet
+                // }
+                // //Resize badge 
 
                 //On resize update Column3
                 $("renderedWidth").innerHTML = w + "px"; //writes width
