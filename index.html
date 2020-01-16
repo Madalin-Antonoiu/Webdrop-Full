@@ -1991,7 +1991,8 @@
                                 <div class="tab-content">
                                     <!-- Your content here -->
                                     <span id="element-actions">
-                              <i id="remove-el" class="button fas fa-trash-alt" onclick="_target.remove(); $$('badge_').style.display='none';" data-toggle="tooltip" data-trigger="hover" title="Remove Element"></i>
+                              <i id="remove-el" class="button fas fa-trash-alt" 
+                                  onclick="if(_target.id !== 'no-remove') _target.remove(); $$('badge_').style.display='none';" data-toggle="tooltip" data-trigger="hover" title="Remove Element"></i>
                               
                               <i id="clone-el" class="button fas fa-clone" 
                                   onclick="_target.parentElement.appendChild(_target.cloneNode(true));" 
