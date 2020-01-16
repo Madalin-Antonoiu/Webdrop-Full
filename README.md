@@ -2,14 +2,6 @@
 
 Documentation not ready yet.
 
-
-# KEYBINDS
-
-CTRL+Q - Preview Mode
-DELETE - Delete selected element
-
-
-
 Things to do
 
 - Save components state in browser local storage
