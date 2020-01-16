@@ -418,8 +418,13 @@ function oneClickForAll(event) {
 
             // 1. Tag, ID, Classes
             $('target_el').innerHTML = x.nodeName;
-            $('target_id').innerHTML = x.id;
 
+            if (x.id === "") {
+                $('target_id').innerHTML = '<b>N/A</b>';
+            } else {
+                $('target_id').innerHTML = '<span class="tag__">' + x.id + '</span>';
+
+            }
 
             // NOT DRY - (instead of 0,1,3 could note a n) Only show these divs if the classes exist!
             if (x.classList[0] && x.classList[0] !== "active__u") {
@@ -547,8 +552,13 @@ function oneClickForAll(event) {
                 e.preventDefault();
             };
 
+            if (clonedClassNames[0] === undefined || clonedClassNames[0] === 'active__u') {
+                $('saved-value').innerHTML = "Selected class: <b>N/A</b>"
+            } else {
+                $('saved-value').innerHTML = " Selected class: ." + clonedClassNames[0]; // aici imi scrie in HTML prima clasa prezenta
+            }
 
-            $('saved-value').innerHTML = " Selected class: ." + clonedClassNames[0]; // aici imi scrie in HTML prima clasa prezenta
+            // $('saved-value').innerHTML = " Selected class: ." + clonedClassNames[0]; // aici imi scrie in HTML prima clasa prezenta
 
 
 
