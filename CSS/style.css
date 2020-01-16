@@ -475,6 +475,11 @@ ul {
 
 /** END **/
 
+#loGo {
+    z-index: 99999;
+    opacity: 1;
+}
+
 
 /****** TABS COLUMN3 ******/
 
@@ -1008,12 +1013,12 @@ div.__item {
     cursor: pointer;
 }
 
-
-#element-actions{
+#element-actions {
     /* float: left; */
     /* width: 100%; */
     z-index: 1;
 }
+
 #element-actions i {
     cursor: pointer;
     width: 24px;
@@ -1022,8 +1027,6 @@ div.__item {
     float: left;
     display: block;
 }
-
-
 
 .noMarginRight {
     margin-right: 0px !important;

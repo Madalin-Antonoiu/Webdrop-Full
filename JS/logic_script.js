@@ -29,7 +29,7 @@ clientdoc.addEventListener("DOMContentLoaded", function() {
 
     $('hover-switch').checked = true;
     $('click-switch').checked = true;
-
+    $('loGo').style.color = "rgb(34, 165, 93)";
 
     function dblClick() {
         // (event.srcElement.id == '__upload') for specific ID
