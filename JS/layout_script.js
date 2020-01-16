@@ -103,7 +103,8 @@ function preview() {
         } else if (hoverSave === 'false' && clickSave === "true") {
             clientdoc.body.addEventListener('click', oneClickForAll);
         } else {
-            return
+            clientdoc.body.removeEventListener('mouseover', mouseEnter);
+            clientdoc.body.removeEventListener('click', oneClickForAll);
         }
 
 
